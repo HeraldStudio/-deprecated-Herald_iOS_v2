@@ -7,19 +7,53 @@
 //
 
 import UIKit
+import SnapKit
+import RxSwift
+import RxCocoa
 
 class LoginViewController: UIViewController {
-
+    
+    var viewModel = LoginViewModel()
+    let bag = DisposeBag()
+    
+    //Mark - 交互性UI控件
+    var usernameTextField = UITextField()
+    var passwordTextField = UITextField()
+    var loginButton = UIButton()
+    var hintLabel = UILabel()
+    
+    //Mark - 装饰的UI控件
+    var slogonLabel = UILabel()
+    var logoImageView = UIImageView()
+    var productTitle = UILabel()
+    var productSubTitle = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.white
-        
-        // Do any additional setup after loading the view.
+        view.addSubViews(subViews: [usernameTextField,passwordTextField,loginButton,hintLabel,
+                                    slogonLabel,logoImageView,productTitle,productSubTitle])
+        layoutSubViews()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    private func layoutSubViews(){
+        //自顶向下
+        slogonLabel.top(80).centerX().bottom(usernameTextField,49).width(275.5).height(21)
+        
+        usernameTextField.centerX().top(slogonLabel,49).bottom(passwordTextField).width(240).height(40)
+        usernameTextField.placeholder = "一卡通号"
+        usernameTextField.borderStyle = .none
+        
+        passwordTextField.centerX().top(usernameTextField).bottom(loginButton).width(240).height(40)
+        passwordTextField.borderStyle = .none
+        passwordTextField.placeholder = "请输入密码"
+        
+        
+        
     }
     
 

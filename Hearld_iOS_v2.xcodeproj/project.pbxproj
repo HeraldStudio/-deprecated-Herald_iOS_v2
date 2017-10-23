@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
+		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
+		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
+		538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581971F9E1EDF003933FA /* HearldUserDefault.swift */; };
+		5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581991F9E4327003933FA /* MainNavigationController.swift */; };
+		5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5385819B1F9E4356003933FA /* MainTabBarController.swift */; };
+		5385819F1F9E4556003933FA /* SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5385819E1F9E4556003933FA /* SnapKit.swift */; };
+		538581A11F9E4586003933FA /* Realm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581A01F9E4586003933FA /* Realm.swift */; };
+		538581A31F9E459D003933FA /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581A21F9E459D003933FA /* ApiRouter.swift */; };
+		538581A51F9E45AF003933FA /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581A41F9E45AF003933FA /* ExtString.swift */; };
+		538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581A61F9E45DD003933FA /* ExtUIImage.swift */; };
 		53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53915EB81F9CE07800AA0B81 /* AppDelegate.swift */; };
 		53915EBE1F9CE07800AA0B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBC1F9CE07800AA0B81 /* Main.storyboard */; };
 		53915EC01F9CE07800AA0B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBF1F9CE07800AA0B81 /* Assets.xcassets */; };
@@ -18,6 +29,17 @@
 /* Begin PBXFileReference section */
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1024EAAE3CE944C73FE90D /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
+		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
+		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		538581971F9E1EDF003933FA /* HearldUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearldUserDefault.swift; sourceTree = "<group>"; };
+		538581991F9E4327003933FA /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		5385819B1F9E4356003933FA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5385819E1F9E4556003933FA /* SnapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKit.swift; sourceTree = "<group>"; };
+		538581A01F9E4586003933FA /* Realm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Realm.swift; sourceTree = "<group>"; };
+		538581A21F9E459D003933FA /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
+		538581A41F9E45AF003933FA /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
+		538581A61F9E45DD003933FA /* ExtUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
 		53915EB51F9CE07800AA0B81 /* Hearld_iOS_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hearld_iOS_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53915EB81F9CE07800AA0B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53915EBD1F9CE07800AA0B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,6 +68,30 @@
 				3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5385818F1F9E1BD8003933FA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		538581961F9E1EC3003933FA /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				538581971F9E1EDF003933FA /* HearldUserDefault.swift */,
+			);
+			path = UserDefaults;
+			sourceTree = "<group>";
+		};
+		5385819D1F9E43DD003933FA /* BaseModule */ = {
+			isa = PBXGroup;
+			children = (
+				538581991F9E4327003933FA /* MainNavigationController.swift */,
+				5385819B1F9E4356003933FA /* MainTabBarController.swift */,
+			);
+			path = BaseModule;
 			sourceTree = "<group>";
 		};
 		53915EAC1F9CE07800AA0B81 = {
@@ -117,6 +163,7 @@
 		53915ECE1F9CE1EC00AA0B81 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				5385819D1F9E43DD003933FA /* BaseModule */,
 				53915ED21F9CE21B00AA0B81 /* LoginModule */,
 			);
 			path = Modules;
@@ -125,6 +172,8 @@
 		53915ECF1F9CE1F200AA0B81 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				5385818F1F9E1BD8003933FA /* Models */,
+				538581961F9E1EC3003933FA /* UserDefaults */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -132,6 +181,9 @@
 		53915ED01F9CE1FE00AA0B81 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				5385819E1F9E4556003933FA /* SnapKit.swift */,
+				538581A01F9E4586003933FA /* Realm.swift */,
+				538581A21F9E459D003933FA /* ApiRouter.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -139,6 +191,9 @@
 		53915ED11F9CE20400AA0B81 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				538581901F9E1C99003933FA /* ExtUIView.swift */,
+				538581A41F9E45AF003933FA /* ExtString.swift */,
+				538581A61F9E45DD003933FA /* ExtUIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -146,7 +201,9 @@
 		53915ED21F9CE21B00AA0B81 /* LoginModule */ = {
 			isa = PBXGroup;
 			children = (
+				538581941F9E1D2E003933FA /* LoginModel.swift */,
 				53915ED31F9CE22900AA0B81 /* LoginViewController.swift */,
+				538581921F9E1CC9003933FA /* LoginViewModel.swift */,
 			);
 			path = LoginModule;
 			sourceTree = "<group>";
@@ -271,25 +328,35 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
+				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -303,7 +370,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				538581951F9E1D2E003933FA /* LoginModel.swift in Sources */,
+				5385819F1F9E4556003933FA /* SnapKit.swift in Sources */,
+				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
+				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
+				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
+				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
+				538581A11F9E4586003933FA /* Realm.swift in Sources */,
+				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
+				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
+				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
+				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
