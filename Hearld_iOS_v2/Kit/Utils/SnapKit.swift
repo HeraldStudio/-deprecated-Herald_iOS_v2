@@ -484,6 +484,20 @@ extension UILabel {
     }
 }
 
+fileprivate let borderStyles = [
+    UITextBorderStyle.bezel,
+    UITextBorderStyle.line,
+    UITextBorderStyle.none,
+    UITextBorderStyle.roundedRect
+]
+
+enum borderStyle: Int {
+    case bezel
+    case line
+    case none
+    case roundedRect
+}
+
 extension UITextField {
     
     @discardableResult func text(_ text: String = "") -> Self {
@@ -513,6 +527,18 @@ extension UITextField {
     @discardableResult func align(_ align: NSTextAlignment) -> Self {
         autoCheckInto()
         self.textAlignment = align
+        return self
+    }
+    
+    @discardableResult func placeholder(_ text: String = "") -> Self {
+        autoCheckInto()
+        self.placeholder = text
+        return self
+    }
+    
+    @discardableResult func borderStyle(_ style: borderStyle = .roundedRect) -> Self {
+        autoCheckInto()
+        self.borderStyle = borderStyles[style.rawValue]
         return self
     }
 }

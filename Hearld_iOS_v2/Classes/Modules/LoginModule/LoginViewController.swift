@@ -16,13 +16,13 @@ class LoginViewController: UIViewController {
     var viewModel = LoginViewModel()
     let bag = DisposeBag()
     
-    //Mark - 交互性UI控件
+    // Mark - 交互性UI控件
     var usernameTextField = UITextField()
     var passwordTextField = UITextField()
     var loginButton = UIButton()
     var hintLabel = UILabel()
     
-    //Mark - 装饰的UI控件
+    // Mark - 装饰的UI控件
     var slogonLabel = UILabel()
     var logoImageView = UIImageView()
     var productTitle = UILabel()
@@ -33,6 +33,12 @@ class LoginViewController: UIViewController {
         view.addSubViews(subViews: [usernameTextField,passwordTextField,loginButton,hintLabel,
                                     slogonLabel,logoImageView,productTitle,productSubTitle])
         layoutSubViews()
+        
+//        loginButton.rx.tap.asObservable().subscribe({_ in
+//            let requestData = LoginModel(usernameTextField.text, passwordTextField.text)
+//            self.viewModel.model = requestData
+//            self.viewModel.requestLogin()
+//        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,30 +47,20 @@ class LoginViewController: UIViewController {
     }
     
     private func layoutSubViews(){
-        //自顶向下
-        slogonLabel.top(80).centerX().bottom(usernameTextField,49).width(275.5).height(21)
+        loginButton.centerX().centerY().width(280).height(40)
+        loginButton.setTitle("登录", for: .normal)
+        loginButton.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         
-        usernameTextField.centerX().top(slogonLabel,49).bottom(passwordTextField).width(240).height(40)
-        usernameTextField.placeholder = "一卡通号"
-        usernameTextField.borderStyle = .none
+        passwordTextField.centerX().above(loginButton,15).width(240).height(40)
+            .placeholder("统一身份认证密码").borderStyle(.none)
         
-        passwordTextField.centerX().top(usernameTextField).bottom(loginButton).width(240).height(40)
-        passwordTextField.borderStyle = .none
-        passwordTextField.placeholder = "请输入密码"
+        usernameTextField.centerX().above(passwordTextField).width(240).height(40)
+            .placeholder("一卡通号").borderStyle(.none)
         
+        slogonLabel.top(95).centerX().width(275.5).height(21)
+            .text("「登录小猴偷米，享受校园生活」").font(18)
         
-        
+        hintLabel.centerX().below(loginButton,20).width(257.5).height(12)
+            .text("登录即代表您已阅读并同意服务协议及隐私政策").font(12).color(#colorLiteral(red: 0.7574584487, green: 0.7574584487, blue: 0.7574584487, alpha: 1))
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
