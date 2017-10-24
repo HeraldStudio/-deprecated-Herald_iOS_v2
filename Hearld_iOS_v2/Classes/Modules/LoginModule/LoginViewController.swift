@@ -52,9 +52,7 @@ class LoginViewController: UIViewController {
                 return [isValidUsername,isValidPassword]
             }.map { (input: [Bool]) -> Bool in
                 return input.reduce(true, {$0 && $1})
-            }.subscribe(onNext: {
-                validVariable.value = $0
-            }).addDisposableTo(bag)
+            }.bind(to: validVariable).addDisposableTo(bag)
         
         loginButton.rx.tap.asObservable().subscribe({_ in
             if validVariable.value == true{
