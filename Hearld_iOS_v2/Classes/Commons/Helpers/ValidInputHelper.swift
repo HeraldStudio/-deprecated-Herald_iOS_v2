@@ -9,11 +9,11 @@
 import Foundation
 
 class ValidInputHelper{
-    class func isValidUserName(tel: String) -> Bool{
-        return tel.characters.count == 9
+    class func isValidUserName(username: String) -> Bool{
+        return username.characters.count == 9
     }
     
     class func isValidPassword(password: String) -> Bool{
-        return password.characters.count >= 0
+        return password.characters.count > 0
     }
 }

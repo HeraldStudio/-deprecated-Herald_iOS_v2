@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import RxSwift
 import RxCocoa
+import SVProgressHUD
 
 class LoginViewController: UIViewController {
     
@@ -34,11 +35,37 @@ class LoginViewController: UIViewController {
                                     slogonLabel,logoImageView,productTitle,productSubTitle])
         layoutSubViews()
         
-//        loginButton.rx.tap.asObservable().subscribe({_ in
-//            let requestData = LoginModel(usernameTextField.text, passwordTextField.text)
-//            self.viewModel.model = requestData
-//            self.viewModel.requestLogin()
-//        })
+        //登录事件流
+        let validVariable = Variable(false)
+        
+        let usernameObservable = usernameTextField.rx.text.asObservable().map{
+            (username: String?) -> Bool in
+            return ValidInputHelper.isValidUserName(username: username!)
+        }
+        let passwordObservable = passwordTextField.rx.text.asObservable().map{
+            (password: String?) -> Bool in
+            return ValidInputHelper.isValidPassword(password: password!)
+        }
+        
+        Observable.combineLatest(usernameObservable, passwordObservable){
+            (isValidUsername: Bool, isValidPassword: Bool) in
+                return [isValidUsername,isValidPassword]
+            }.map { (input: [Bool]) -> Bool in
+                return input.reduce(true, {$0 && $1})
+            }.subscribe(onNext: {
+                validVariable.value = $0
+            }).addDisposableTo(bag)
+        
+        loginButton.rx.tap.asObservable().subscribe({_ in
+            if validVariable.value == true{
+//                let requestData = LoginModel(self.usernameTextField.text!, self.passwordTextField.text!)
+//                self.viewModel.model = requestData
+//                self.viewModel.requestLogin()
+                SVProgressHUD.showInfo(withStatus: "登录成功")
+            }else{
+                SVProgressHUD.showInfo(withStatus: "输入不完整，请重试")
+            }
+        })
     }
 
     override func didReceiveMemoryWarning() {
