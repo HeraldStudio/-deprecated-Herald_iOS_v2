@@ -56,14 +56,14 @@ class LoginViewController: UIViewController {
         
         loginButton.rx.tap.asObservable().subscribe({_ in
             if validVariable.value == true{
-//                let requestData = LoginModel(self.usernameTextField.text!, self.passwordTextField.text!)
-//                self.viewModel.model = requestData
-//                self.viewModel.requestLogin()
-                SVProgressHUD.showInfo(withStatus: "登录成功")
+                let requestData = LoginModel(self.usernameTextField.text!, self.passwordTextField.text!)
+                self.viewModel.model = requestData
+                self.viewModel.requestLogin()
+//                SVProgressHUD.showInfo(withStatus: "登录成功")
             }else{
                 SVProgressHUD.showInfo(withStatus: "输入不完整，请重试")
             }
-        })
+        }).addDisposableTo(bag)
     }
 
     override func didReceiveMemoryWarning() {

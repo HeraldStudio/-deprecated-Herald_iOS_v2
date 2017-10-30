@@ -9,6 +9,9 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Moya
+import Alamofire
+import SwiftyJSON
 
 struct LoginViewModel{
     var model : LoginModel?
@@ -20,6 +23,24 @@ struct LoginViewModel{
     let bag = DisposeBag()
     
     func requestLogin(){
+        guard let username = model?.username, let password = model?.password else{
+            return
+        }
         
+        let provider = MoyaProvider<UserAPI>()
+        
+        provider.request(.Login(userID: username, password: password)) { (result) in
+            switch result{
+            case let .success(moyaResponse):
+//                let response = moyaResponse.response
+                // save to Cache
+                HearldUserDefault.ifLogin = true
+//                HearldUserDefault.uuid =
+                
+//                self.loginInfoSubject.onNext(self.model)
+            case .failure(_):
+                self.loginInfoSubject.onError(NetworkError.CannotGetServerResponse)
+            }
+        }
     }
 }
