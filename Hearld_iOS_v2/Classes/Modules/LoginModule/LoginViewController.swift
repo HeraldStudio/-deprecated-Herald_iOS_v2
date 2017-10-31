@@ -88,9 +88,6 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("登录", for: .normal)
         loginButton.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         
-        cardIDTextField.text = "213150584"
-        passwordTextField.text = "zjmlgd5212122"
-        
         passwordTextField.centerX().above(loginButton,15).width(240).height(40)
             .placeholder("统一身份认证密码").borderStyle(.none).isSecureText(true)
         
