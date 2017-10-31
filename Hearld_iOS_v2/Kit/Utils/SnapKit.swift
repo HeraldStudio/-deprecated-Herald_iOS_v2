@@ -541,6 +541,12 @@ extension UITextField {
         self.borderStyle = borderStyles[style.rawValue]
         return self
     }
+    
+    @discardableResult func isSecureText(_ flag: Bool = true) -> Self {
+        autoCheckInto()
+        self.isSecureTextEntry = flag
+        return self
+    }
 }
 
 //extension UIImageView {

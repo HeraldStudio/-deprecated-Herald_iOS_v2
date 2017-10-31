@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     let bag = DisposeBag()
     
     // Mark - 交互性UI控件
-    var usernameTextField = UITextField()
+    var cardIDTextField = UITextField()
     var passwordTextField = UITextField()
     var loginButton = UIButton()
     var hintLabel = UILabel()
@@ -31,14 +31,14 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubViews(subViews: [usernameTextField,passwordTextField,loginButton,hintLabel,
+        view.addSubViews(subViews: [cardIDTextField,passwordTextField,loginButton,hintLabel,
                                     slogonLabel,logoImageView,productTitle,productSubTitle])
         layoutSubViews()
         
         //登录事件流
         let validVariable = Variable(false)
         
-        let usernameObservable = usernameTextField.rx.text.asObservable().map{
+        let usernameObservable = cardIDTextField.rx.text.asObservable().map{
             (username: String?) -> Bool in
             return ValidInputHelper.isValidUserName(username: username!)
         }
@@ -56,14 +56,26 @@ class LoginViewController: UIViewController {
         
         loginButton.rx.tap.asObservable().subscribe({_ in
             if validVariable.value == true{
-                let requestData = LoginModel(self.usernameTextField.text!, self.passwordTextField.text!)
+                let requestData = LoginModel(self.cardIDTextField.text!, self.passwordTextField.text!)
                 self.viewModel.model = requestData
                 self.viewModel.requestLogin()
-//                SVProgressHUD.showInfo(withStatus: "登录成功")
+                //锁住
+                self.loginButton.isEnabled = false
             }else{
                 SVProgressHUD.showInfo(withStatus: "输入不完整，请重试")
             }
         }).addDisposableTo(bag)
+        
+        viewModel.loginInfo.subscribe(
+            onNext:{ text in
+                let mainTabBarVC = MainTarBarViewController()
+                self.present(mainTabBarVC, animated: true, completion: nil)
+            },
+            onError:{ error in
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+                self.loginButton.isEnabled = true
+            }
+        ).addDisposableTo(bag)
     }
 
     override func didReceiveMemoryWarning() {
@@ -76,10 +88,13 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("登录", for: .normal)
         loginButton.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)
         
-        passwordTextField.centerX().above(loginButton,15).width(240).height(40)
-            .placeholder("统一身份认证密码").borderStyle(.none)
+        cardIDTextField.text = "213150584"
+        passwordTextField.text = "zjmlgd5212122"
         
-        usernameTextField.centerX().above(passwordTextField).width(240).height(40)
+        passwordTextField.centerX().above(loginButton,15).width(240).height(40)
+            .placeholder("统一身份认证密码").borderStyle(.none).isSecureText(true)
+        
+        cardIDTextField.centerX().above(passwordTextField).width(240).height(40)
             .placeholder("一卡通号").borderStyle(.none)
         
         slogonLabel.top(95).centerX().width(275.5).height(21)

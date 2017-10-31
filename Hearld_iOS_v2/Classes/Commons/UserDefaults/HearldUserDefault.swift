@@ -14,7 +14,7 @@ private let isLoginKey = "isLogin"
 class HearldUserDefault{
     static let defaults = UserDefaults.standard
     
-    public static var ifLogin: Bool?{
+    public static var isLogin: Bool?{
         set{
             set(isLoginKey,newValue)
         }

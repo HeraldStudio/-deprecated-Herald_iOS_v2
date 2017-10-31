@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FD81FA78A8700040A01 /* ErrorHelper.swift */; };
+		533F8FDB1FA8685D00040A01 /* MainTarBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDA1FA8685D00040A01 /* MainTarBarViewController.swift */; };
+		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
+		533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE01FA86CDB00040A01 /* MineViewController.swift */; };
+		533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE31FA86D3400040A01 /* HomeViewController.swift */; };
+		533F8FE61FA86F9F00040A01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE51FA86F9F00040A01 /* User.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
@@ -25,7 +30,6 @@
 		53915EC31F9CE07800AA0B81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53915EC11F9CE07800AA0B81 /* LaunchScreen.storyboard */; };
 		53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53915ED31F9CE22900AA0B81 /* LoginViewController.swift */; };
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
-		53D6F86A1F9E561600CF248F /* ApiHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8691F9E561600CF248F /* ApiHelper.swift */; };
 		750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +37,11 @@
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1024EAAE3CE944C73FE90D /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
 		533F8FD81FA78A8700040A01 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
+		533F8FDA1FA8685D00040A01 /* MainTarBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTarBarViewController.swift; sourceTree = "<group>"; };
+		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		533F8FE01FA86CDB00040A01 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
+		533F8FE31FA86D3400040A01 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		533F8FE51FA86F9F00040A01 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -52,7 +61,6 @@
 		53915EC41F9CE07800AA0B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53915ED31F9CE22900AA0B81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidInputHelper.swift; sourceTree = "<group>"; };
-		53D6F8691F9E561600CF248F /* ApiHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHelper.swift; sourceTree = "<group>"; };
 		EB0A2B54BC14BC8AEFE8BA0D /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -76,9 +84,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		533F8FDC1FA86C6600040A01 /* ActivityModule */ = {
+			isa = PBXGroup;
+			children = (
+				533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */,
+			);
+			path = ActivityModule;
+			sourceTree = "<group>";
+		};
+		533F8FDF1FA86CBF00040A01 /* MineModule */ = {
+			isa = PBXGroup;
+			children = (
+				533F8FE01FA86CDB00040A01 /* MineViewController.swift */,
+			);
+			path = MineModule;
+			sourceTree = "<group>";
+		};
+		533F8FE21FA86CDE00040A01 /* HomeModule */ = {
+			isa = PBXGroup;
+			children = (
+				533F8FE31FA86D3400040A01 /* HomeViewController.swift */,
+			);
+			path = HomeModule;
+			sourceTree = "<group>";
+		};
 		5385818F1F9E1BD8003933FA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				533F8FE51FA86F9F00040A01 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -169,6 +202,10 @@
 		53915ECE1F9CE1EC00AA0B81 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				533F8FDA1FA8685D00040A01 /* MainTarBarViewController.swift */,
+				533F8FE21FA86CDE00040A01 /* HomeModule */,
+				533F8FDF1FA86CBF00040A01 /* MineModule */,
+				533F8FDC1FA86C6600040A01 /* ActivityModule */,
 				5385819D1F9E43DD003933FA /* BaseModule */,
 				53915ED21F9CE21B00AA0B81 /* LoginModule */,
 			);
@@ -219,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */,
-				53D6F8691F9E561600CF248F /* ApiHelper.swift */,
 				533F8FD81FA78A8700040A01 /* ErrorHelper.swift */,
 			);
 			path = Helpers;
@@ -389,15 +425,19 @@
 			files = (
 				538581951F9E1D2E003933FA /* LoginModel.swift in Sources */,
 				5385819F1F9E4556003933FA /* SnapKit.swift in Sources */,
+				533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */,
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
+				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
+				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
+				533F8FDB1FA8685D00040A01 /* MainTarBarViewController.swift in Sources */,
+				533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
-				53D6F86A1F9E561600CF248F /* ApiHelper.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,

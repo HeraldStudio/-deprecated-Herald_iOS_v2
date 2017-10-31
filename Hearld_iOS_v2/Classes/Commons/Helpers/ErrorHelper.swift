@@ -8,13 +8,16 @@
 
 import Foundation
 
-enum NetworkError: Error {
-    case CannotGetServerResponse
+enum HearldError: Error {
+    case NetworkError
+    case UserNotExist
     
     var localizedDescription: String{
         switch self {
-        case .CannotGetServerResponse:
-            return "can not connect to server"
+        case .NetworkError:
+            return "网络异常，请重试"
+        case .UserNotExist:
+            return "用户不存在或网络异常，请重试"
         default:
             return "unknown error"
         }
