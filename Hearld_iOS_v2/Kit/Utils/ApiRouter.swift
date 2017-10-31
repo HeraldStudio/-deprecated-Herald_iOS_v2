@@ -67,7 +67,7 @@ extension UserAPI: TargetType{
         case .Login(let userID, let password):
             return .requestParameters(parameters: ["appid": ApiHelper.appid,"user": userID,"password": password], encoding: URLEncoding.queryString)
         case .Info():
-            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!], encoding: URLEncoding.queryString)
         }
     }
     var headers: [String: String]? {

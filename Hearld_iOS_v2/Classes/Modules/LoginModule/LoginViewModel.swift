@@ -56,7 +56,6 @@ struct LoginViewModel{
                 if (moyaResponse.response?.statusCode == 200 && schoolNum.characters.count == 8){
                     let data = moyaResponse.data
                     let json = JSON(data)
-                    print(json)
                     
                     self.user.username = json["content"]["name"].stringValue
                     self.user.cardID = json["content"]["cardnum"].stringValue
@@ -68,7 +67,7 @@ struct LoginViewModel{
                     }
                     updateObjc(self.user, with: realm)
                     HearldUserDefault.isLogin = true
-//                    self.loginInfoSubject.onNext("ok")
+                    self.loginInfoSubject.onNext("ok")
                 }else{
                     self.loginInfoSubject.onError(HearldError.UserNotExist)
                 }
