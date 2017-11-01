@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import RxSwift
+import RxCocoa
 
 private let uuidKey = "uuid"
 private let isLoginKey = "isLogin"
+let isLoginVariable = Variable<Bool>(false)
 
 class HearldUserDefault{
     static let defaults = UserDefaults.standard
@@ -17,6 +20,9 @@ class HearldUserDefault{
     public static var isLogin: Bool?{
         set{
             set(isLoginKey,newValue)
+            if let value = newValue{
+                isLoginVariable.value = value
+            }
         }
         get{
             return get(isLoginKey) ?? nil

@@ -7,14 +7,30 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class MainTabBarController: UITabBarController {
 
+    let bag = DisposeBag()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         setNavigationBar()
+        
+        isLoginVariable.asObservable().subscribe(
+            onNext:{ isLogin in
+                if isLogin {
+                    self.navigationItem.leftBarButtonItem = nil
+                }else{
+                    let leftBarButton = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(self.presentLoginVC))
+                    leftBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+                    self.navigationItem.leftBarButtonItem = leftBarButton
+                }
+            }
+        ).addDisposableTo(bag)
         
         // 去除 TabBar 上的横线
         tabBar.clipsToBounds = true
@@ -45,8 +61,6 @@ class MainTabBarController: UITabBarController {
     }
     
     private func setNavigationBar() {
-        let leftBarButton = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(presentLoginVC))
-        leftBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: nil)
         rightBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
         
@@ -62,7 +76,6 @@ class MainTabBarController: UITabBarController {
         attibutesTitle.addAttributes(titleTextAttributes as! [String : Any], range: titleRange)
         titleButton.setAttributedTitle(attibutesTitle, for: .normal)
         
-        self.navigationItem.leftBarButtonItem = leftBarButton
         self.navigationItem.rightBarButtonItem = rightBarButton
         self.navigationItem.backBarButtonItem = backBarButton
         self.navigationItem.titleView = titleButton
@@ -71,7 +84,6 @@ class MainTabBarController: UITabBarController {
     @objc func presentLoginVC() {
         let loginVC = LoginViewController()
         self.navigationController?.pushViewController(loginVC, animated: true)
-//        self.selectedViewController?.present(loginVC, animated: true, completion: nil)
     }
 
 }
