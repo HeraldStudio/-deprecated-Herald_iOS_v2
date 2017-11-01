@@ -14,6 +14,8 @@ struct ApiHelper{
     static let auth_url = "uc/auth"
     static let api_root = "api/"
     
+    static let appid = "9f9ce5c3605178daadc2d85ce9f8e064"
+    
     static func api(_ subPath: String) -> String{
         return ApiHelper.api_root + subPath
     }

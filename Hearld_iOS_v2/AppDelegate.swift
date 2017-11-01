@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,9 +17,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let LoginVC = LoginViewController()
-        self.window?.rootViewController = LoginVC
-        self.window?.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let realm = try! Realm()
+        
+        if HearldUserDefault.uuid != nil && realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").isEmpty == false{
+            let navigationVC = MainNavigationController()
+            let mainVC = MainTabBarController()
+            navigationVC.addChildViewController(mainVC)
+            self.window?.rootViewController = navigationVC
+        }else{
+            let LoginVC = LoginViewController()
+            self.window?.rootViewController = LoginVC
+        }
         return true
     }
 

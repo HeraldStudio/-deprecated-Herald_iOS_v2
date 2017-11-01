@@ -12,24 +12,66 @@ class MainTabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        self.view.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        setNavigationBar()
+        
+        // 去除 TabBar 上的横线
+        tabBar.clipsToBounds = true
+        
+        tabBar.isTranslucent = false
+        
+        self.setViewControllers([HomeViewController(), ActivityViewController(),MineViewController()], animated: false)
+        
+        self.setCustomItem(title: "首页", image: #imageLiteral(resourceName: "tab_home"), selectedImage: #imageLiteral(resourceName: "tab_home"), index: 0)
+        
+        self.setCustomItem(title: "活动", image: #imageLiteral(resourceName: "tab_home"), selectedImage: #imageLiteral(resourceName: "tab_home"), index: 1)
+        
+        self.setCustomItem(title: "我的", image: #imageLiteral(resourceName: "tab_mine"), selectedImage: #imageLiteral(resourceName: "tab_mine"), index: 2)
+        
+        // 修改 TabBar 高亮图标的颜色
+        tabBar.tintColor = #colorLiteral(red: 0.1098039216, green: 0.6784313725, blue: 0.7843137255, alpha: 1)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func setCustomItem(title:String?, image: UIImage?, selectedImage: UIImage?, index : Int){
+        guard let image = image,let selectedImage = selectedImage else {
+            return
+        }
+        let resizeImage = image.reSizeImage(reSize: CGSize(width: 29, height: 29)).withRenderingMode(.alwaysOriginal)
+        let resizeSelectedImage = selectedImage.reSizeImage(reSize: CGSize(width: 29, height: 29)).withRenderingMode(.alwaysOriginal)
+        let item = UITabBarItem(title: title, image: resizeImage, selectedImage: resizeSelectedImage)
+        item.imageInsets = UIEdgeInsets(top: 5, left: 0, bottom: -5, right: 0)
+        self.viewControllers?[index].tabBarItem = item
     }
-    */
+    
+    private func setNavigationBar() {
+        let leftBarButton = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(presentLoginVC))
+        leftBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        let rightBarButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.add, target: self, action: nil)
+        rightBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        
+        let backBarButton = UIBarButtonItem(title: "", style: .done, target: self, action: nil)
+        backBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        
+        let titleButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
+        
+        let title = "小猴偷米"
+        let attibutesTitle = NSMutableAttributedString.init(string: title)
+        let length = (title as NSString).length
+        let titleRange = NSRange(location: 0,length: length)
+        attibutesTitle.addAttributes(titleTextAttributes as! [String : Any], range: titleRange)
+        titleButton.setAttributedTitle(attibutesTitle, for: .normal)
+        
+        self.navigationItem.leftBarButtonItem = leftBarButton
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        self.navigationItem.backBarButtonItem = backBarButton
+        self.navigationItem.titleView = titleButton
+    }
+    
+    @objc func presentLoginVC() {
+        let loginVC = LoginViewController()
+        self.navigationController?.pushViewController(loginVC, animated: true)
+//        self.selectedViewController?.present(loginVC, animated: true, completion: nil)
+    }
 
 }

@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FD81FA78A8700040A01 /* ErrorHelper.swift */; };
-		533F8FDB1FA8685D00040A01 /* MainTarBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDA1FA8685D00040A01 /* MainTarBarViewController.swift */; };
 		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
 		533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE01FA86CDB00040A01 /* MineViewController.swift */; };
 		533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE31FA86D3400040A01 /* HomeViewController.swift */; };
@@ -36,8 +36,8 @@
 /* Begin PBXFileReference section */
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1024EAAE3CE944C73FE90D /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
+		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		533F8FD81FA78A8700040A01 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
-		533F8FDA1FA8685D00040A01 /* MainTarBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTarBarViewController.swift; sourceTree = "<group>"; };
 		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		533F8FE01FA86CDB00040A01 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		533F8FE31FA86D3400040A01 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -202,11 +202,10 @@
 		53915ECE1F9CE1EC00AA0B81 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				533F8FDA1FA8685D00040A01 /* MainTarBarViewController.swift */,
-				533F8FE21FA86CDE00040A01 /* HomeModule */,
-				533F8FDF1FA86CBF00040A01 /* MineModule */,
-				533F8FDC1FA86C6600040A01 /* ActivityModule */,
 				5385819D1F9E43DD003933FA /* BaseModule */,
+				533F8FE21FA86CDE00040A01 /* HomeModule */,
+				533F8FDC1FA86C6600040A01 /* ActivityModule */,
+				533F8FDF1FA86CBF00040A01 /* MineModule */,
 				53915ED21F9CE21B00AA0B81 /* LoginModule */,
 			);
 			path = Modules;
@@ -257,6 +256,7 @@
 			children = (
 				53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */,
 				533F8FD81FA78A8700040A01 /* ErrorHelper.swift */,
+				53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -424,6 +424,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				538581951F9E1D2E003933FA /* LoginModel.swift in Sources */,
+				53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */,
 				5385819F1F9E4556003933FA /* SnapKit.swift in Sources */,
 				533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */,
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
@@ -435,7 +436,6 @@
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
-				533F8FDB1FA8685D00040A01 /* MainTarBarViewController.swift in Sources */,
 				533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,

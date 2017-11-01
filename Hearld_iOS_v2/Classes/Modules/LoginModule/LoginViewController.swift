@@ -31,6 +31,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         view.addSubViews(subViews: [cardIDTextField,passwordTextField,loginButton,hintLabel,
                                     slogonLabel,logoImageView,productTitle,productSubTitle])
         layoutSubViews()
@@ -68,8 +69,10 @@ class LoginViewController: UIViewController {
         
         viewModel.loginInfo.subscribe(
             onNext:{ text in
-                let mainTabBarVC = MainTarBarViewController()
-                self.present(mainTabBarVC, animated: true, completion: nil)
+                let navigationVC = MainNavigationController()
+                let mainVC = MainTabBarController()
+                navigationVC.addChildViewController(mainVC)
+                self.present(navigationVC, animated: true, completion: nil)
             },
             onError:{ error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
