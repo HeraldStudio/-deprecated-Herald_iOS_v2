@@ -8,18 +8,33 @@
 
 import UIKit
 import SnapKit
+import RxCocoa
+import RxSwift
+import RxDataSources
+import SDWebImage
 
 class ActivityViewController: UIViewController {
 
+    var activityTableView = UITableView()
+    
+    var viewModel = ActivityViewModel()
+    let bag = DisposeBag()
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
+    typealias SectionTableModel = SectionModel<String,ActivityModel>
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.addSubview(activityTableView)
+        layoutSubviews()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    private func layoutSubviews() {
+        if let navigationController = self.navigationController as? MainNavigationController{
+            activityTableView.frame = CGRect(x: 0,
+                                             y: navigationController.getHeight(),
+                                             width: screenRect.width,
+                                             height: screenRect.height - navigationController.getHeight())
+        }
     }
     
 

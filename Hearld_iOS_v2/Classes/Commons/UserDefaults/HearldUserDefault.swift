@@ -10,6 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
+let screenRect = UIScreen.main.bounds
 private let uuidKey = "uuid"
 private let isLoginKey = "isLogin"
 let isLoginVariable = Variable<Bool>(false)

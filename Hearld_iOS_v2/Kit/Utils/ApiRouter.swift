@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-struct ApiHelper{
+struct ApiHelper {
     
     static let auth_url = "uc/auth"
     static let api_root = "api/"
@@ -21,9 +21,13 @@ struct ApiHelper{
     }
 }
 
-enum UserAPI{
+enum UserAPI {
     case Login(userID: String, password: String)
     case Info()
+}
+
+enum SubscribeAPI {
+    case Activity()
 }
 
 extension UserAPI: TargetType{
@@ -75,6 +79,56 @@ extension UserAPI: TargetType{
         case .Login(_,_):
             return ["Content-type": "application/x-www-form-urlencoded"]
         case .Info():
+            return ["Content-type": "application/json"]
+        }
+    }
+    
+    public func url(route: TargetType) -> String {
+        return route.baseURL.appendingPathComponent(route.path).absoluteString
+    }
+}
+
+extension SubscribeAPI: TargetType{
+    
+    var baseURL: URL { return URL(string: "https://www.heraldstudio.com/")! }
+    
+    var path: String{
+        switch self {
+        case .Activity():
+            return ApiHelper.api("v1/huodong/get")
+        }
+    }
+    
+    var method: Moya.Method{
+        switch self {
+        case .Activity():
+            return .get
+        }
+    }
+    
+    var parameterEncoding: ParameterEncoding {
+        switch self {
+        case .Activity():
+            return URLEncoding.default
+        }
+    }
+    
+    var sampleData: Data {
+        switch self {
+        case .Activity():
+            return "Activity".utf8Encoded
+        }
+    }
+    
+    var task: Task {
+        switch self {
+        case .Activity:
+            return .requestPlain
+        }
+    }
+    var headers: [String: String]? {
+        switch self {
+        case .Activity():
             return ["Content-type": "application/json"]
         }
     }

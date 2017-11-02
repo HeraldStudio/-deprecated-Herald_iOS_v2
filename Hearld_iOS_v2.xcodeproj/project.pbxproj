@@ -24,6 +24,9 @@
 		538581A31F9E459D003933FA /* ApiRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581A21F9E459D003933FA /* ApiRouter.swift */; };
 		538581A51F9E45AF003933FA /* ExtString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581A41F9E45AF003933FA /* ExtString.swift */; };
 		538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581A61F9E45DD003933FA /* ExtUIImage.swift */; };
+		53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D701FAB731000606E6B /* ActivityTableViewCell.swift */; };
+		53877D731FAB792000606E6B /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D721FAB792000606E6B /* ActivityModel.swift */; };
+		53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D741FAB793100606E6B /* ActivityViewModel.swift */; };
 		53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53915EB81F9CE07800AA0B81 /* AppDelegate.swift */; };
 		53915EBE1F9CE07800AA0B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBC1F9CE07800AA0B81 /* Main.storyboard */; };
 		53915EC01F9CE07800AA0B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBF1F9CE07800AA0B81 /* Assets.xcassets */; };
@@ -53,6 +56,9 @@
 		538581A21F9E459D003933FA /* ApiRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRouter.swift; sourceTree = "<group>"; };
 		538581A41F9E45AF003933FA /* ExtString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtString.swift; sourceTree = "<group>"; };
 		538581A61F9E45DD003933FA /* ExtUIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
+		53877D701FAB731000606E6B /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
+		53877D721FAB792000606E6B /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
+		53877D741FAB793100606E6B /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		53915EB51F9CE07800AA0B81 /* Hearld_iOS_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hearld_iOS_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53915EB81F9CE07800AA0B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53915EBD1F9CE07800AA0B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -87,7 +93,10 @@
 		533F8FDC1FA86C6600040A01 /* ActivityModule */ = {
 			isa = PBXGroup;
 			children = (
+				53877D721FAB792000606E6B /* ActivityModel.swift */,
 				533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */,
+				53877D741FAB793100606E6B /* ActivityViewModel.swift */,
+				53877D701FAB731000606E6B /* ActivityTableViewCell.swift */,
 			);
 			path = ActivityModule;
 			sourceTree = "<group>";
@@ -431,9 +440,11 @@
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
+				53877D731FAB792000606E6B /* ActivityModel.swift in Sources */,
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
+				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */,
@@ -441,6 +452,7 @@
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
+				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);

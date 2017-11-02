@@ -20,6 +20,11 @@ class MainNavigationController: UINavigationController {
         // Dispose of any resources that can be recreated.
     }
     
+    func getHeight() -> CGFloat{
+        return navigationBar.frame.height
+    }
+    
+    
 
     /*
     // MARK: - Navigation

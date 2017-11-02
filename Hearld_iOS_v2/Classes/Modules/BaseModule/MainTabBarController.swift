@@ -16,10 +16,13 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //初始化基界面
         self.view.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         setNavigationBar()
         
+        //订阅是否登录的信息
         isLoginVariable.asObservable().subscribe(
             onNext:{ isLogin in
                 if isLogin {
