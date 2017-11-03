@@ -28,8 +28,8 @@ class ActivityTableViewCell: UITableViewCell {
     
     override func layoutSubviews() {
         titleLabel.top(8).left(15).height(20)
-        stateLabel.left(titleLabel, 8).right(15).centerY(titleLabel).height(16)
-        picture.top(titleLabel, 16).left(15).right(15).height(125).ratio(2.5)
-        infoLabel.top(picture, 12).left(15).right(15).bottom(15).height(39.5)
+        stateLabel.after(titleLabel, 8).right(15).centerY(titleLabel).height(16)
+        picture.below(titleLabel, 16).left(15).right(15).height(125).ratio(2.5)
+        infoLabel.below(picture, 12).left(15).right(15).bottom(15).height(39.5)
     }
 }

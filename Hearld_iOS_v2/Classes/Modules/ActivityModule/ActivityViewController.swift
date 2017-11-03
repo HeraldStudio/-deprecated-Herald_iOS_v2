@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 import SDWebImage
+import SVProgressHUD
 
 class ActivityViewController: UIViewController {
 
@@ -26,6 +27,39 @@ class ActivityViewController: UIViewController {
         super.viewDidLoad()
         view.addSubview(activityTableView)
         layoutSubviews()
+        
+        activityTableView.delegate = self
+        activityTableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: "Activity")
+        setConfigureCell()
+        
+        viewModel.ActivityList.subscribe(
+            onNext:{ activityArray in
+                self.activityTableView.dataSource = nil
+                Observable.just(self.createSectionModel(activityArray))
+                    .bind(to: self.activityTableView.rx.items(dataSource: self.dataSource))
+                    .addDisposableTo(self.bag)
+            },
+            onError:{ error in
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
+        
+        //PrepareData
+        viewModel.prepareData()
+    }
+    
+    private func setConfigureCell() {
+        dataSource.configureCell = {(_,tv,indexPath,item) in
+            let cell = tv.dequeueReusableCell(withIdentifier: "Activity", for: indexPath) as! ActivityTableViewCell
+            cell.titleLabel.text = item.title
+            cell.stateLabel.text = item.start_time
+            cell.picture.sd_setImage(with: URL(string: item.pic_url) , placeholderImage: #imageLiteral(resourceName: "default_herald"))
+            cell.infoLabel.text = item.introduction
+            return cell
+        }
+    }
+    
+    private func createSectionModel(_ activityList: [ActivityModel]) -> [SectionTableModel]{
+        return [SectionTableModel(model: "", items: activityList)]
     }
     
     private func layoutSubviews() {
@@ -34,6 +68,7 @@ class ActivityViewController: UIViewController {
                                              y: navigationController.getHeight(),
                                              width: screenRect.width,
                                              height: screenRect.height - navigationController.getHeight())
+            activityTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
         }
     }
     

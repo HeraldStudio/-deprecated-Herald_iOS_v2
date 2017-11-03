@@ -27,6 +27,7 @@
 		53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D701FAB731000606E6B /* ActivityTableViewCell.swift */; };
 		53877D731FAB792000606E6B /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D721FAB792000606E6B /* ActivityModel.swift */; };
 		53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D741FAB793100606E6B /* ActivityViewModel.swift */; };
+		53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */; };
 		53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53915EB81F9CE07800AA0B81 /* AppDelegate.swift */; };
 		53915EBE1F9CE07800AA0B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBC1F9CE07800AA0B81 /* Main.storyboard */; };
 		53915EC01F9CE07800AA0B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBF1F9CE07800AA0B81 /* Assets.xcassets */; };
@@ -59,6 +60,7 @@
 		53877D701FAB731000606E6B /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		53877D721FAB792000606E6B /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		53877D741FAB793100606E6B /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
+		53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDelegate.swift; sourceTree = "<group>"; };
 		53915EB51F9CE07800AA0B81 /* Hearld_iOS_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hearld_iOS_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53915EB81F9CE07800AA0B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53915EBD1F9CE07800AA0B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,8 +97,9 @@
 			children = (
 				53877D721FAB792000606E6B /* ActivityModel.swift */,
 				533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */,
-				53877D741FAB793100606E6B /* ActivityViewModel.swift */,
 				53877D701FAB731000606E6B /* ActivityTableViewCell.swift */,
+				53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */,
+				53877D741FAB793100606E6B /* ActivityViewModel.swift */,
 			);
 			path = ActivityModule;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
+				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);

@@ -52,6 +52,10 @@ class MainTabBarController: UITabBarController {
         tabBar.tintColor = #colorLiteral(red: 0.1098039216, green: 0.6784313725, blue: 0.7843137255, alpha: 1)
     }
     
+    func getHeight() -> CGFloat{
+        return tabBar.frame.height
+    }
+    
     private func setCustomItem(title:String?, image: UIImage?, selectedImage: UIImage?, index : Int){
         guard let image = image,let selectedImage = selectedImage else {
             return

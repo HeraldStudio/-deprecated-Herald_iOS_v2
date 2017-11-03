@@ -95,7 +95,7 @@ extension SubscribeAPI: TargetType{
     var path: String{
         switch self {
         case .Activity():
-            return ApiHelper.api("v1/huodong/get")
+            return "herald/" + ApiHelper.api("v1/huodong/get")
         }
     }
     
@@ -129,7 +129,7 @@ extension SubscribeAPI: TargetType{
     var headers: [String: String]? {
         switch self {
         case .Activity():
-            return ["Content-type": "application/json"]
+            return ["Content-type": "application/x-www-form-urlencoded"]
         }
     }
     
