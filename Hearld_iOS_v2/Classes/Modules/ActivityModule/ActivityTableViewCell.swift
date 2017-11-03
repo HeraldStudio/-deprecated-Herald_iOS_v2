@@ -15,6 +15,7 @@ class ActivityTableViewCell: UITableViewCell {
     var picture = UIImageView()
     var stateLabel = UILabel()
     var infoLabel = UILabel()
+    var testImage = UIImageView()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,7 +30,7 @@ class ActivityTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         titleLabel.top(8).left(15).height(20)
         stateLabel.after(titleLabel, 8).right(15).centerY(titleLabel).height(16)
-        picture.below(titleLabel, 16).left(15).right(15).height(125).ratio(2.5)
+        picture.below(titleLabel, 16).left(15).right(15)
         infoLabel.below(picture, 12).left(15).right(15).bottom(15).height(39.5)
     }
 }

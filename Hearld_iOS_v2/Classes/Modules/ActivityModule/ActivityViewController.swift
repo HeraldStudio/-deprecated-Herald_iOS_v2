@@ -17,6 +17,7 @@ import SVProgressHUD
 class ActivityViewController: UIViewController {
 
     var activityTableView = UITableView()
+    var page = 0
     
     var viewModel = ActivityViewModel()
     let bag = DisposeBag()
@@ -50,10 +51,23 @@ class ActivityViewController: UIViewController {
     private func setConfigureCell() {
         dataSource.configureCell = {(_,tv,indexPath,item) in
             let cell = tv.dequeueReusableCell(withIdentifier: "Activity", for: indexPath) as! ActivityTableViewCell
-            cell.titleLabel.text = item.title
-            cell.stateLabel.text = item.start_time
-            cell.picture.sd_setImage(with: URL(string: item.pic_url) , placeholderImage: #imageLiteral(resourceName: "default_herald"))
-            cell.infoLabel.text = item.introduction
+            
+            let rich_title = NSMutableAttributedString.init(string: item.title)
+            let title_length = (item.title as NSString).length
+            rich_title.addAttributes(titleTextAttributes, range: NSMakeRange(0,title_length))
+            cell.titleLabel.attributedText = rich_title
+            
+            let rich_state = NSMutableAttributedString.init(string: item.start_time)
+            let state_length = (item.start_time as NSString).length
+            rich_state.addAttributes(greyTextAttributes, range: NSMakeRange(0, state_length))
+            cell.stateLabel.attributedText = rich_state
+            
+            cell.picture.sd_setImage(with: URL(string: ApiHelper.changeHTTPtoHTTPS(url: item.pic_url)) , placeholderImage: #imageLiteral(resourceName: "default_herald"))
+            
+            let rich_info = NSMutableAttributedString.init(string: item.introduction)
+            let info_length = (item.introduction as NSString).length
+            rich_info.addAttributes(greyTextAttributes, range: NSMakeRange(0, info_length))
+            cell.infoLabel.attributedText = rich_info
             return cell
         }
     }

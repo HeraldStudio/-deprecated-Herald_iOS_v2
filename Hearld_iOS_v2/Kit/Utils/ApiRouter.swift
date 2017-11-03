@@ -16,8 +16,15 @@ struct ApiHelper {
     
     static let appid = "9f9ce5c3605178daadc2d85ce9f8e064"
     
-    static func api(_ subPath: String) -> String{
+    static func api(_ subPath: String) -> String {
         return ApiHelper.api_root + subPath
+    }
+    
+    static func changeHTTPtoHTTPS(url: String) -> String {
+        var newURL = url
+        let index = newURL.index(url.startIndex, offsetBy: 4)
+        newURL.insert("s", at: index)
+        return newURL
     }
 }
 
@@ -30,7 +37,7 @@ enum SubscribeAPI {
     case Activity()
 }
 
-extension UserAPI: TargetType{
+extension UserAPI: TargetType {
     
     var baseURL: URL { return URL(string: "https://www.heraldstudio.com/")! }
     

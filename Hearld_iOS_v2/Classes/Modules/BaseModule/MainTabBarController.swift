@@ -80,7 +80,7 @@ class MainTabBarController: UITabBarController {
         let attibutesTitle = NSMutableAttributedString.init(string: title)
         let length = (title as NSString).length
         let titleRange = NSRange(location: 0,length: length)
-        attibutesTitle.addAttributes(titleTextAttributes as! [String : Any], range: titleRange)
+        attibutesTitle.addAttributes(titleTextAttributes, range: titleRange)
         titleButton.setAttributedTitle(attibutesTitle, for: .normal)
         
         self.navigationItem.rightBarButtonItem = rightBarButton
