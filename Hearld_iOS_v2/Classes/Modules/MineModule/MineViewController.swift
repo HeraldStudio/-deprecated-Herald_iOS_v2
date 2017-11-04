@@ -13,18 +13,24 @@ import RxSwift
 import RxDataSources
 
 class MineViewController: UIViewController {
+    
+    var staticTableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        view.addSubview(staticTableView)
+        
     }
     
+    private func layoutSubviews(){
+        if let navigationController = self.navigationController as? MainNavigationController{
+            staticTableView.frame = CGRect(x: 0,
+                                             y: navigationController.getHeight(),
+                                             width: screenRect.width,
+                                             height: screenRect.height - navigationController.getHeight())
+            staticTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
+        }
+    }
 
     /*
     // MARK: - Navigation

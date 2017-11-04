@@ -14,3 +14,20 @@ extension ActivityViewController: UITableViewDelegate {
         return 246
     }
 }
+
+extension ActivityViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        swiper.syncApperance()
+        puller.syncApperance()
+    }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        swiper.beginDrag()
+        puller.beginDrag()
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        swiper.endDrag()
+        puller.endDrag()
+    }
+}

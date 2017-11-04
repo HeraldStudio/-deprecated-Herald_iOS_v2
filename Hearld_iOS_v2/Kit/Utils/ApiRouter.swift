@@ -20,6 +20,7 @@ struct ApiHelper {
         return ApiHelper.api_root + subPath
     }
     
+    // 更改url为HTTPS请求
     static func changeHTTPtoHTTPS(url: String) -> String {
         var newURL = url
         let index = newURL.index(url.startIndex, offsetBy: 4)
@@ -29,12 +30,13 @@ struct ApiHelper {
 }
 
 enum UserAPI {
-    case Login(userID: String, password: String)
-    case Info()
+    case Login(userID: String, password: String)  //登录API
+    case Info()                                   //检查uuid并获取用户详细信息API
 }
 
 enum SubscribeAPI {
-    case Activity()
+    case ActivityDefault()                        //默认获取第1页的活动API
+    case Activity(pageNumber: String)             //获取
 }
 
 extension UserAPI: TargetType {
@@ -101,41 +103,45 @@ extension SubscribeAPI: TargetType{
     
     var path: String{
         switch self {
-        case .Activity():
+        case .ActivityDefault():
+            return "herald/" + ApiHelper.api("v1/huodong/get")
+        case .Activity(_):
             return "herald/" + ApiHelper.api("v1/huodong/get")
         }
     }
     
     var method: Moya.Method{
         switch self {
-        case .Activity():
+        case .ActivityDefault(), .Activity(_):
             return .get
         }
     }
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .Activity():
+        case .ActivityDefault(), .Activity(_):
             return URLEncoding.default
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .Activity():
+        case .ActivityDefault(), .Activity(_):
             return "Activity".utf8Encoded
         }
     }
     
     var task: Task {
         switch self {
-        case .Activity:
+        case .ActivityDefault():
             return .requestPlain
+        case .Activity(let page):
+            return .requestParameters(parameters: ["page" : page], encoding: URLEncoding.queryString)
         }
     }
     var headers: [String: String]? {
         switch self {
-        case .Activity():
+        case .ActivityDefault(), .Activity(_):
             return ["Content-type": "application/x-www-form-urlencoded"]
         }
     }

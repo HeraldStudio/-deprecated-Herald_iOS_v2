@@ -17,7 +17,11 @@ import SVProgressHUD
 class ActivityViewController: UIViewController {
 
     var activityTableView = UITableView()
-    var page = 0
+    var page = 1
+    
+    //设置swiper和loader
+    let swiper = SwipeRefreshHeader()
+    let puller = PullLoadFooter()
     
     var viewModel = ActivityViewModel()
     let bag = DisposeBag()
@@ -26,13 +30,45 @@ class ActivityViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 初始化子视图
         view.addSubview(activityTableView)
         layoutSubviews()
         
+        // 设置下拉刷新控件为列表页头视图
+        activityTableView.tableHeaderView = swiper
+        activityTableView.tableFooterView = puller
+        
+        // 订阅下滑刷新控件的刷新事件
+        swiper.isEvent.asObservable().subscribe(
+            onNext:{ isEvent in
+                if isEvent == true{
+                    self.showProgressDialog()
+                    self.viewModel.prepareData(isRefresh: true){
+                        self.hideProgressDialog()
+                    }
+                }
+        }).addDisposableTo(bag)
+        
+        // 订阅上拉刷新控件的刷新事件
+        puller.isEvent.asObservable().subscribe(
+            onNext:{ isEvent in
+                if isEvent == true{
+                    self.showProgressDialog()
+                    self.perform(#selector(self.loadNextPage), with: nil, afterDelay: 2)
+//                    self.viewModel.requestNextPage(from: String(describing: (self.page + 1))){
+//                        self.page += 1
+//                        self.hideProgressDialog()
+//                    }
+                }
+        }).addDisposableTo(bag)
+        
+        // 注册Cell并设置ConfigureCell
         activityTableView.delegate = self
         activityTableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: "Activity")
         setConfigureCell()
         
+        // 订阅数据
         viewModel.ActivityList.subscribe(
             onNext:{ activityArray in
                 self.activityTableView.dataSource = nil
@@ -44,10 +80,17 @@ class ActivityViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
-        //PrepareData
-        viewModel.prepareData()
+        // 准备数据,默认先查询数据库
+        viewModel.prepareData(isRefresh: false) {}
     }
     
+    func loadNextPage() {
+        self.viewModel.requestNextPage(from: String(describing: (self.page + 1))){
+            self.page += 1
+            self.hideProgressDialog()
+        }
+    }
+     
     private func setConfigureCell() {
         dataSource.configureCell = {(_,tv,indexPath,item) in
             let cell = tv.dequeueReusableCell(withIdentifier: "Activity", for: indexPath) as! ActivityTableViewCell
@@ -57,8 +100,8 @@ class ActivityViewController: UIViewController {
             rich_title.addAttributes(titleTextAttributes, range: NSMakeRange(0,title_length))
             cell.titleLabel.attributedText = rich_title
             
-            let rich_state = NSMutableAttributedString.init(string: item.start_time)
-            let state_length = (item.start_time as NSString).length
+            let rich_state = NSMutableAttributedString.init(string: item.state.rawValue)
+            let state_length = (item.state.rawValue as NSString).length
             rich_state.addAttributes(greyTextAttributes, range: NSMakeRange(0, state_length))
             cell.stateLabel.attributedText = rich_state
             
@@ -85,16 +128,4 @@ class ActivityViewController: UIViewController {
             activityTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
         }
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -10,15 +10,17 @@ import Foundation
 import Realm
 import RealmSwift
 
-public func addObjc(_ object : Object, with realm: Realm ){
+public func addObjc(_ object: Object, with realm: Realm ){
     try! realm.write {
         realm.add(object)
     }
 }
 
-public func updateObjc(_ object : Object, with realm: Realm){
+public func updateObjc(_ object: Object, with realm: Realm){
     try! realm.write {
         realm.add(object, update: true)
     }
 }
+
+
 

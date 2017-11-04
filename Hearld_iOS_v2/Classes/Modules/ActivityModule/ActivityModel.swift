@@ -10,8 +10,8 @@ import Foundation
 import Realm
 import RealmSwift
 
-//命名与JSON数据保持一致
-class ActivityModel: Object{
+/// 命名与JSON数据保持一致
+class ActivityModel: Object {
     @objc dynamic var title: String = ""
     @objc dynamic var introduction: String = ""
     @objc dynamic var start_time: String = ""
@@ -24,5 +24,37 @@ class ActivityModel: Object{
     
     override static func primaryKey() -> String? {
         return "title"
+    }
+    
+    /// 活动状态的枚举类，以 String 为值，便于直接显示
+    enum ActivityState : String {
+        case Coming = "即将开始"
+        case Going = "进行中"
+        case Gone = "已结束"
+    }
+    
+    /// 开始时间，用 GCalendar 表示
+    var start : GCalendar {
+        return GCalendar(start_time)
+    }
+    
+    /// 结束时间，用 GCalendar 表示
+    var end : GCalendar {
+        return GCalendar(end_time)
+    }
+    
+    /// 活动状态，用枚举表示
+    var state : ActivityState {
+        let now = GCalendar(.Day)
+        if now < start {
+            return .Coming
+        }
+        if now <= end {
+            return .Going
+        }
+        if now > end {
+            return .Gone
+        }
+        return .Gone
     }
 }

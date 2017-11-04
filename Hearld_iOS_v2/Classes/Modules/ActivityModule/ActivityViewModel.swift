@@ -24,20 +24,71 @@ class ActivityViewModel {
     }
     let bag = DisposeBag()
     
-    func prepareData() {
-        requestActivities()
+    // 准备数据，若Refresh则发起网络请求更新数据库
+    // 否则查询数据库，查询结果为空则发起网络请求
+    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+        let realm = try! Realm()
+        if isRefresh {
+            // 清空数据库
+            let results = realm.objects(ActivityModel.self)
+            try! realm.write {
+                realm.delete(results)
+            }
+            // 发起网络请求
+            requestActivities { completionHandler() }
+        }else {
+            let results = realm.objects(ActivityModel.self)
+            if results.count > 0 {
+                var activityList : [ActivityModel] = []
+                for activity in results{
+                    activityList.append(activity)
+                    self.ActivitySubject.onNext(activityList)
+                }
+            }else {
+                requestActivities { completionHandler() }
+            }
+        }
     }
     
-    private func requestActivities() {
+    // 请求下一页数据
+    func requestNextPage(from page: String, completionHandler: @escaping ()->()) {
         let provider = MoyaProvider<SubscribeAPI>()
         
-        provider.request(.Activity()) { (result) in
+        provider.request(.Activity(pageNumber: page)) { (result) in
+            switch result{
+            case let .success(moyaResponse):
+                let data = moyaResponse.data
+                let json = JSON(data)
+                self.model = self.parseActivityModel(json)
+                
+                let realm = try! Realm()
+                let results = realm.objects(ActivityModel.self)
+                if results.count > 0 {
+                    var activityList : [ActivityModel] = []
+                    for activity in results{
+                        activityList.append(activity)
+                        self.ActivitySubject.onNext(activityList)
+                    }
+                }
+                completionHandler()
+            case .failure(_):
+                self.ActivitySubject.onError(HearldError.NetworkError)
+            }
+        }
+    }
+    
+    // 默认请求第一页活动
+    private func requestActivities(completionHandler: @escaping ()->()) {
+        let provider = MoyaProvider<SubscribeAPI>()
+        
+        provider.request(.ActivityDefault()) { (result) in
             switch result{
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 let json = JSON(data)
                 self.model = self.parseActivityModel(json)
                 self.ActivitySubject.onNext(self.model)
+                completionHandler()
             case .failure(_):
                 self.ActivitySubject.onError(HearldError.NetworkError)
             }
