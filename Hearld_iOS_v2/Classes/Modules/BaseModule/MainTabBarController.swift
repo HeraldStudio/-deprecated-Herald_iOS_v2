@@ -56,6 +56,10 @@ class MainTabBarController: UITabBarController {
         return tabBar.frame.height
     }
     
+    func getWidth() -> CGFloat{
+        return tabBar.frame.width
+    }
+    
     private func setCustomItem(title:String?, image: UIImage?, selectedImage: UIImage?, index : Int){
         guard let image = image,let selectedImage = selectedImage else {
             return

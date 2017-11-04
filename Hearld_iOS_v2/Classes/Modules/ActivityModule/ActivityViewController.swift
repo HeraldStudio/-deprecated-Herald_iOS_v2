@@ -35,6 +35,10 @@ class ActivityViewController: UIViewController {
         view.addSubview(activityTableView)
         layoutSubviews()
         
+        if let tabBarController = self.tabBarController as? MainTabBarController{
+            puller.frame = CGRect(x: 0, y: 0, width: tabBarController.getWidth(),height: tabBarController.getHeight())
+        }
+        
         // 设置下拉刷新控件为列表页头视图
         activityTableView.tableHeaderView = swiper
         activityTableView.tableFooterView = puller
@@ -44,8 +48,10 @@ class ActivityViewController: UIViewController {
             onNext:{ isEvent in
                 if isEvent == true{
                     self.showProgressDialog()
+                    self.puller.enable()
                     self.viewModel.prepareData(isRefresh: true){
                         self.hideProgressDialog()
+                        self.page = 1
                     }
                 }
         }).addDisposableTo(bag)
@@ -55,11 +61,15 @@ class ActivityViewController: UIViewController {
             onNext:{ isEvent in
                 if isEvent == true{
                     self.showProgressDialog()
-                    self.perform(#selector(self.loadNextPage), with: nil, afterDelay: 2)
-//                    self.viewModel.requestNextPage(from: String(describing: (self.page + 1))){
-//                        self.page += 1
-//                        self.hideProgressDialog()
-//                    }
+//                    self.perform(#selector(self.loadNextPage), with: nil, afterDelay: 1)
+                    self.viewModel.requestNextPage(from: String(describing: (self.page + 1)), completionHandler: {
+                        self.page += 1
+                        self.hideProgressDialog()
+                    }, failHandler: {
+                        self.hideProgressDialog()
+                        SVProgressHUD.showInfo(withStatus: "没有更多数据")
+                        self.puller.disable("没有更多数据")
+                    })
                 }
         }).addDisposableTo(bag)
         
@@ -68,11 +78,12 @@ class ActivityViewController: UIViewController {
         activityTableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: "Activity")
         setConfigureCell()
         
-        // 订阅数据
+        // 订阅数据,保证视图的cell与model保持一致
         viewModel.ActivityList.subscribe(
             onNext:{ activityArray in
                 self.activityTableView.dataSource = nil
-                Observable.just(self.createSectionModel(activityArray))
+                self.viewModel.model += activityArray
+                Observable.just(self.createSectionModel(self.viewModel.model))
                     .bind(to: self.activityTableView.rx.items(dataSource: self.dataSource))
                     .addDisposableTo(self.bag)
             },
@@ -84,13 +95,13 @@ class ActivityViewController: UIViewController {
         viewModel.prepareData(isRefresh: false) {}
     }
     
-    func loadNextPage() {
-        self.viewModel.requestNextPage(from: String(describing: (self.page + 1))){
-            self.page += 1
-            self.hideProgressDialog()
-        }
-    }
-     
+//    func loadNextPage() {
+//        self.viewModel.requestNextPage(from: String(describing: (self.page + 1))){
+//            self.page += 1
+//            self.hideProgressDialog()
+//        }
+//    }
+    
     private func setConfigureCell() {
         dataSource.configureCell = {(_,tv,indexPath,item) in
             let cell = tv.dequeueReusableCell(withIdentifier: "Activity", for: indexPath) as! ActivityTableViewCell
