@@ -63,6 +63,8 @@ extension UserAPI: TargetType {
         switch self {
         case .Login, .Info:
             return URLEncoding.default
+//        case .Login, .Info:
+//            return URLEncoding.queryString
         }
     }
     

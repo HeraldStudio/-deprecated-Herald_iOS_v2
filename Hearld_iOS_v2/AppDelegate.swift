@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let realm = try! Realm()
-        
+
         if HearldUserDefault.uuid != nil && realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").isEmpty == false{
             HearldUserDefault.isLogin = true
             let navigationVC = MainNavigationController()

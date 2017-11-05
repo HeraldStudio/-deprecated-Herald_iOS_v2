@@ -10,15 +10,21 @@ import Foundation
 import Realm
 import RealmSwift
 
-public func addObjc(_ object: Object, with realm: Realm ){
+public func db_addObjc(_ object: Object, with realm: Realm ){
     try! realm.write {
         realm.add(object)
     }
 }
 
-public func updateObjc(_ object: Object, with realm: Realm){
+public func db_updateObjc(_ object: Object, with realm: Realm){
     try! realm.write {
         realm.add(object, update: true)
+    }
+}
+
+public func db_deleteObjcs<T>(_ objects: Results<T>,with realm: Realm){
+    try! realm.write {
+        realm.delete(objects)
     }
 }
 

@@ -25,6 +25,8 @@ class ActivityViewController: UIViewController {
     
     var viewModel = ActivityViewModel()
     let bag = DisposeBag()
+//    let dataSource = RxTableViewSectionedAnimatedDataSource<SectionTableModel>()
+//    typealias SectionTableModel = AnimatableSectionModel<String,ActivityModel>
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
     typealias SectionTableModel = SectionModel<String,ActivityModel>
     
@@ -35,9 +37,9 @@ class ActivityViewController: UIViewController {
         view.addSubview(activityTableView)
         layoutSubviews()
         
-        if let tabBarController = self.tabBarController as? MainTabBarController{
-            puller.frame = CGRect(x: 0, y: 0, width: tabBarController.getWidth(),height: tabBarController.getHeight())
-        }
+//        if let tabBarController = self.tabBarController as? MainTabBarController{
+//            puller.frame = CGRect(x: 0, y: 0, width: tabBarController.getWidth(),height: tabBarController.getHeight())
+//        }
         
         // 设置下拉刷新控件为列表页头视图
         activityTableView.tableHeaderView = swiper
@@ -61,11 +63,10 @@ class ActivityViewController: UIViewController {
             onNext:{ isEvent in
                 if isEvent == true{
                     self.showProgressDialog()
-//                    self.perform(#selector(self.loadNextPage), with: nil, afterDelay: 1)
                     self.viewModel.requestNextPage(from: String(describing: (self.page + 1)), completionHandler: {
                         self.page += 1
                         self.hideProgressDialog()
-                    }, failHandler: {
+                    }, failedHandler: {
                         self.hideProgressDialog()
                         SVProgressHUD.showInfo(withStatus: "没有更多数据")
                         self.puller.disable("没有更多数据")
@@ -73,10 +74,15 @@ class ActivityViewController: UIViewController {
                 }
         }).addDisposableTo(bag)
         
-        // 注册Cell并设置ConfigureCell
+        // 注册Cell并设置ConfigureCell以及ConfigureAnimation
         activityTableView.delegate = self
         activityTableView.register(ActivityTableViewCell.self, forCellReuseIdentifier: "Activity")
         setConfigureCell()
+        activityTableView.separatorStyle = .none
+        activityTableView.estimatedRowHeight = 300
+        activityTableView.rowHeight = UITableViewAutomaticDimension
+        activityTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
+//        setAnimationConfiguration()
         
         // 订阅数据,保证视图的cell与model保持一致
         viewModel.ActivityList.subscribe(
@@ -95,36 +101,46 @@ class ActivityViewController: UIViewController {
         viewModel.prepareData(isRefresh: false) {}
     }
     
-//    func loadNextPage() {
-//        self.viewModel.requestNextPage(from: String(describing: (self.page + 1))){
-//            self.page += 1
-//            self.hideProgressDialog()
-//        }
-//    }
-    
     private func setConfigureCell() {
         dataSource.configureCell = {(_,tv,indexPath,item) in
             let cell = tv.dequeueReusableCell(withIdentifier: "Activity", for: indexPath) as! ActivityTableViewCell
             
-            let rich_title = NSMutableAttributedString.init(string: item.title)
-            let title_length = (item.title as NSString).length
-            rich_title.addAttributes(titleTextAttributes, range: NSMakeRange(0,title_length))
-            cell.titleLabel.attributedText = rich_title
+            // 标题
+            cell.titleLabel.text = item.title
             
-            let rich_state = NSMutableAttributedString.init(string: item.state.rawValue)
-            let state_length = (item.state.rawValue as NSString).length
-            rich_state.addAttributes(greyTextAttributes, range: NSMakeRange(0, state_length))
-            cell.stateLabel.attributedText = rich_state
+            // 状态
+            cell.stateLabel.text = item.state.rawValue
+            switch item.state{
+            case .Coming:
+                cell.bg_color = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
+                cell.text_color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            case .Going:
+                cell.bg_color = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+                cell.text_color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+            case .Gone:
+                cell.bg_color = #colorLiteral(red: 0.8871227225, green: 0.8871227225, blue: 0.8871227225, alpha: 1)
+                cell.text_color = #colorLiteral(red: 0.4568924492, green: 0.4568924492, blue: 0.4568924492, alpha: 1)
+            }
             
+            // 图片
             cell.picture.sd_setImage(with: URL(string: ApiHelper.changeHTTPtoHTTPS(url: item.pic_url)) , placeholderImage: #imageLiteral(resourceName: "default_herald"))
             
-            let rich_info = NSMutableAttributedString.init(string: item.introduction)
-            let info_length = (item.introduction as NSString).length
-            rich_info.addAttributes(greyTextAttributes, range: NSMakeRange(0, info_length))
-            cell.infoLabel.attributedText = rich_info
+            // 介绍
+            cell.introductionLabel.text = item.introduction
+            
+            // 时间
+            cell.timeLabel.text = "时间: " + item.activity_time
+            
+            //地点
+            cell.locationLabel.text = "地点: " + item.location
+            
             return cell
         }
     }
+    
+//    private func setAnimationConfiguration() {
+//        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
+//    }
     
     private func createSectionModel(_ activityList: [ActivityModel]) -> [SectionTableModel]{
         return [SectionTableModel(model: "", items: activityList)]

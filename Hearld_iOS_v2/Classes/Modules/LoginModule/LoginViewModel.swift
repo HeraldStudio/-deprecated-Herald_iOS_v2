@@ -49,6 +49,7 @@ struct LoginViewModel{
     
     func checkUUID() {
         let provider = MoyaProvider<UserAPI>()
+        print(HearldUserDefault.uuid!)
         provider.request(.Info()) { (result) in
             switch result{
             case let .success(moyaResponse):
@@ -56,7 +57,6 @@ struct LoginViewModel{
                 if (moyaResponse.response?.statusCode == 200 && schoolNum.characters.count == 8){
                     let data = moyaResponse.data
                     let json = JSON(data)
-                    
                     self.user.username = json["content"]["name"].stringValue
                     self.user.cardID = json["content"]["cardnum"].stringValue
                     self.user.sex = json["content"]["sex"].stringValue
@@ -65,7 +65,7 @@ struct LoginViewModel{
                     guard let realm = try? Realm() else {
                         return
                     }
-                    updateObjc(self.user, with: realm)
+                    db_updateObjc(self.user, with: realm)
                     HearldUserDefault.isLogin = true
                     self.loginInfoSubject.onNext("ok")
                 }else{

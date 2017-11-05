@@ -9,9 +9,15 @@
 import Foundation
 import Realm
 import RealmSwift
+import RxDataSources
+import RxSwift
+import RxCocoa
 
 /// 命名与JSON数据保持一致
 class ActivityModel: Object {
+//    var identity: String = "title"
+//    typealias Identity = String
+    
     @objc dynamic var title: String = ""
     @objc dynamic var introduction: String = ""
     @objc dynamic var start_time: String = ""
@@ -56,5 +62,9 @@ class ActivityModel: Object {
             return .Gone
         }
         return .Gone
+    }
+    
+    public func db_delete(with realm: Realm){
+        realm.delete(self)
     }
 }

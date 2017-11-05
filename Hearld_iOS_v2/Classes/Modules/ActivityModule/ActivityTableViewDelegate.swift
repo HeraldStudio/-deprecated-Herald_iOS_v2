@@ -11,7 +11,8 @@ import UIKit
 
 extension ActivityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 246
+        
+        return UITableViewAutomaticDimension
     }
 }
 

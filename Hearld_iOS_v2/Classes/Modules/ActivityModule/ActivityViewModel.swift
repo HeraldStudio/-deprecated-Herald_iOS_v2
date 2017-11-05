@@ -27,7 +27,6 @@ class ActivityViewModel {
     // 1.准备数据，若Refresh则发起网络请求更新数据库
     //   否则查询数据库，查询结果为空则发起网络请求。
     // 2.不管是从数据库读取，还是网络获取，都默认展示前8条活动信息，所以可默认清除model
-    // 3.
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
         // 清空model
         self.model.removeAll()
@@ -36,13 +35,13 @@ class ActivityViewModel {
         if isRefresh {
             // 清空数据库
             let results = realm.objects(ActivityModel.self)
-            try! realm.write {
-                realm.delete(results)
-            }
+            db_deleteObjcs(results, with: realm)
+            
             self.model.removeAll()
             // 发起网络请求
             requestActivities { completionHandler() }
         }else {
+            // 查询数据库
             let results = realm.objects(ActivityModel.self)
             if results.count > 0 {
                 var activityList : [ActivityModel] = []
@@ -51,27 +50,29 @@ class ActivityViewModel {
                 }
                 self.ActivitySubject.onNext(activityList)
             }else {
+                // 数据库为空，发起网络请求
                 requestActivities { completionHandler() }
             }
         }
     }
     
     // 请求下一页数据
-    func requestNextPage(from page: String, completionHandler: @escaping ()->() ,failHandler: @escaping ()->()) {
+    // 不清空model,即直接在model上添加下一页的list
+    func requestNextPage(from page: String, completionHandler: @escaping ()->() ,failedHandler: @escaping ()->()) {
         let provider = MoyaProvider<SubscribeAPI>()
         
         provider.request(.Activity(pageNumber: page)) { (result) in
+            var activityList : [ActivityModel] = []
             switch result{
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 let json = JSON(data)
                 if json["content"].array?.count != 0{
-                    var activityList : [ActivityModel] = []
                     activityList = self.parseActivityModel(json)
                     self.ActivitySubject.onNext(activityList)
                     completionHandler()
                 }else{
-                    failHandler()
+                    failedHandler()
                 }
             case .failure(_):
                 self.ActivitySubject.onError(HearldError.NetworkError)
@@ -83,7 +84,6 @@ class ActivityViewModel {
     private func requestActivities(completionHandler: @escaping ()->()) {
         var activityList : [ActivityModel] = []
         let provider = MoyaProvider<SubscribeAPI>()
-        
         provider.request(.ActivityDefault()) { (result) in
             switch result{
             case let .success(moyaResponse):
@@ -118,7 +118,7 @@ class ActivityViewModel {
             guard let realm = try? Realm() else {
                 return []
             }
-            updateObjc(activity, with: realm)
+            db_updateObjc(activity, with: realm)
             activityList.append(activity)
         }
         return activityList
