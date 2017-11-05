@@ -28,11 +28,18 @@
 		53877D731FAB792000606E6B /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D721FAB792000606E6B /* ActivityModel.swift */; };
 		53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D741FAB793100606E6B /* ActivityViewModel.swift */; };
 		53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */; };
+		53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D781FAD4DD700606E6B /* GCalendar.swift */; };
+		53877D7B1FAD635E00606E6B /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D7A1FAD635E00606E6B /* SwitchTableViewCell.swift */; };
+		53877D7D1FAD64E900606E6B /* SubTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D7C1FAD64E900606E6B /* SubTitleTableViewCell.swift */; };
+		53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D7F1FADCF4F00606E6B /* SwipeRefreshHeader.swift */; };
+		53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D811FADD6EE00606E6B /* ExtUIViewController.swift */; };
+		53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D831FADDEA300606E6B /* PullLoadFooter.swift */; };
 		53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53915EB81F9CE07800AA0B81 /* AppDelegate.swift */; };
 		53915EBE1F9CE07800AA0B81 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBC1F9CE07800AA0B81 /* Main.storyboard */; };
 		53915EC01F9CE07800AA0B81 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 53915EBF1F9CE07800AA0B81 /* Assets.xcassets */; };
 		53915EC31F9CE07800AA0B81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53915EC11F9CE07800AA0B81 /* LaunchScreen.storyboard */; };
 		53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53915ED31F9CE22900AA0B81 /* LoginViewController.swift */; };
+		539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40471FAF4B6100EBADC1 /* WebViewController.swift */; };
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
 		750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */; };
 /* End PBXBuildFile section */
@@ -61,6 +68,12 @@
 		53877D721FAB792000606E6B /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		53877D741FAB793100606E6B /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
 		53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDelegate.swift; sourceTree = "<group>"; };
+		53877D781FAD4DD700606E6B /* GCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalendar.swift; sourceTree = "<group>"; };
+		53877D7A1FAD635E00606E6B /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		53877D7C1FAD64E900606E6B /* SubTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubTitleTableViewCell.swift; sourceTree = "<group>"; };
+		53877D7F1FADCF4F00606E6B /* SwipeRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRefreshHeader.swift; sourceTree = "<group>"; };
+		53877D811FADD6EE00606E6B /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
+		53877D831FADDEA300606E6B /* PullLoadFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullLoadFooter.swift; sourceTree = "<group>"; };
 		53915EB51F9CE07800AA0B81 /* Hearld_iOS_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hearld_iOS_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53915EB81F9CE07800AA0B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53915EBD1F9CE07800AA0B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -68,6 +81,7 @@
 		53915EC21F9CE07800AA0B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		53915EC41F9CE07800AA0B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53915ED31F9CE22900AA0B81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		539C40471FAF4B6100EBADC1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidInputHelper.swift; sourceTree = "<group>"; };
 		EB0A2B54BC14BC8AEFE8BA0D /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,6 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				533F8FE01FA86CDB00040A01 /* MineViewController.swift */,
+				53877D7A1FAD635E00606E6B /* SwitchTableViewCell.swift */,
+				53877D7C1FAD64E900606E6B /* SubTitleTableViewCell.swift */,
 			);
 			path = MineModule;
 			sourceTree = "<group>";
@@ -143,6 +159,15 @@
 				5385819B1F9E4356003933FA /* MainTabBarController.swift */,
 			);
 			path = BaseModule;
+			sourceTree = "<group>";
+		};
+		53877D7E1FADCF0500606E6B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				53877D7F1FADCF4F00606E6B /* SwipeRefreshHeader.swift */,
+				53877D831FADDEA300606E6B /* PullLoadFooter.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		53915EAC1F9CE07800AA0B81 = {
@@ -226,6 +251,8 @@
 		53915ECF1F9CE1F200AA0B81 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				539C40461FAF4B4200EBADC1 /* ViewControllers */,
+				53877D7E1FADCF0500606E6B /* Views */,
 				53D6F8661F9E55AF00CF248F /* Helpers */,
 				5385818F1F9E1BD8003933FA /* Models */,
 				538581961F9E1EC3003933FA /* UserDefaults */,
@@ -239,6 +266,7 @@
 				5385819E1F9E4556003933FA /* SnapKit.swift */,
 				538581A01F9E4586003933FA /* Realm.swift */,
 				538581A21F9E459D003933FA /* ApiRouter.swift */,
+				53877D781FAD4DD700606E6B /* GCalendar.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -249,6 +277,7 @@
 				538581901F9E1C99003933FA /* ExtUIView.swift */,
 				538581A41F9E45AF003933FA /* ExtString.swift */,
 				538581A61F9E45DD003933FA /* ExtUIImage.swift */,
+				53877D811FADD6EE00606E6B /* ExtUIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +290,14 @@
 				538581921F9E1CC9003933FA /* LoginViewModel.swift */,
 			);
 			path = LoginModule;
+			sourceTree = "<group>";
+		};
+		539C40461FAF4B4200EBADC1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				539C40471FAF4B6100EBADC1 /* WebViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		53D6F8661F9E55AF00CF248F /* Helpers */ = {
@@ -450,13 +487,20 @@
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
+				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
+				53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */,
+				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
+				53877D7D1FAD64E900606E6B /* SubTitleTableViewCell.swift in Sources */,
 				533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
+				53877D7B1FAD635E00606E6B /* SwitchTableViewCell.swift in Sources */,
+				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
 				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
+				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);

@@ -36,7 +36,7 @@ enum UserAPI {
 
 enum SubscribeAPI {
     case ActivityDefault()                        //默认获取第1页的活动API
-    case Activity(pageNumber: String)             //获取
+    case Activity(pageNumber: String)             //获取下一页的活动API
 }
 
 extension UserAPI: TargetType {

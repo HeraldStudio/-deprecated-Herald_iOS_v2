@@ -36,7 +36,7 @@ class LoginViewController: UIViewController {
                                     slogonLabel,logoImageView,productTitle,productSubTitle])
         layoutSubViews()
         
-        //登录事件流
+        // 登录的输入是否合法的变量
         let validVariable = Variable(false)
         
         let usernameObservable = cardIDTextField.rx.text.asObservable().map{
@@ -60,7 +60,7 @@ class LoginViewController: UIViewController {
                 let requestData = LoginModel(self.cardIDTextField.text!, self.passwordTextField.text!)
                 self.viewModel.model = requestData
                 self.viewModel.requestLogin()
-                //锁住
+                // 锁住
                 self.loginButton.isEnabled = false
             }else{
                 SVProgressHUD.showInfo(withStatus: "输入不完整，请重试")
@@ -83,7 +83,6 @@ class LoginViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     private func layoutSubViews(){

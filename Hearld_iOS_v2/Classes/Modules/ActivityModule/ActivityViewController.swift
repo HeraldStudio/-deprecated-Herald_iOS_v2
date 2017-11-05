@@ -97,6 +97,17 @@ class ActivityViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
+        // 订阅select事件
+        activityTableView.rx.itemSelected.asObservable().subscribe(
+            onNext:{ indexPath in
+                let activity = self.viewModel.model[indexPath.row]
+                let url = activity.detail_url
+                let webVC = WebViewController()
+                webVC.webUrl = URL(string: ApiHelper.changeHTTPtoHTTPS(url: url))
+                webVC.navigationItem.title = activity.association
+                self.navigationController?.pushViewController(webVC, animated: true)
+        }).addDisposableTo(bag)
+        
         // 准备数据,默认先查询数据库
         viewModel.prepareData(isRefresh: false) {}
     }
