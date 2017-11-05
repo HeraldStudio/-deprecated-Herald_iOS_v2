@@ -40,6 +40,8 @@
 		53915EC31F9CE07800AA0B81 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 53915EC11F9CE07800AA0B81 /* LaunchScreen.storyboard */; };
 		53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53915ED31F9CE22900AA0B81 /* LoginViewController.swift */; };
 		539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40471FAF4B6100EBADC1 /* WebViewController.swift */; };
+		539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */; };
+		539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */; };
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
 		750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,8 @@
 		53915EC41F9CE07800AA0B81 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		53915ED31F9CE22900AA0B81 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		539C40471FAF4B6100EBADC1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewDelegate.swift; sourceTree = "<group>"; };
+		539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTableViewCell.swift; sourceTree = "<group>"; };
 		53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidInputHelper.swift; sourceTree = "<group>"; };
 		EB0A2B54BC14BC8AEFE8BA0D /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,8 +126,10 @@
 			isa = PBXGroup;
 			children = (
 				533F8FE01FA86CDB00040A01 /* MineViewController.swift */,
-				53877D7A1FAD635E00606E6B /* SwitchTableViewCell.swift */,
+				539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */,
+				539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */,
 				53877D7C1FAD64E900606E6B /* SubTitleTableViewCell.swift */,
+				53877D7A1FAD635E00606E6B /* SwitchTableViewCell.swift */,
 			);
 			path = MineModule;
 			sourceTree = "<group>";
@@ -479,6 +485,7 @@
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
+				539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
 				53877D731FAB792000606E6B /* ActivityModel.swift in Sources */,
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
@@ -501,6 +508,7 @@
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
 				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
 				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,
+				539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);

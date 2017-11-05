@@ -134,7 +134,7 @@ class ActivityViewController: UIViewController {
             }
             
             // 图片
-            cell.picture.sd_setImage(with: URL(string: ApiHelper.changeHTTPtoHTTPS(url: item.pic_url)) , placeholderImage: #imageLiteral(resourceName: "default_herald"))
+            cell.picture.sd_setImage(with: URL(string: ApiHelper.changeHTTPtoHTTPS(url: item.pic_url)), placeholderImage: #imageLiteral(resourceName: "default_herald"), options: SDWebImageOptions.retryFailed)
             
             // 介绍
             cell.introductionLabel.text = item.introduction

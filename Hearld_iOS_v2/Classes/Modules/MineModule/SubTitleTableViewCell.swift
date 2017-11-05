@@ -12,10 +12,12 @@ import SnapKit
 class SubTitleTableViewCell: UITableViewCell {
     var titleLabel = UILabel()
     var subTitleLabel = UILabel()
+    var url: String?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubViews(subViews: [titleLabel,subTitleLabel])
+        self.selectionStyle = .none
         layoutSubviews()
     }
     
@@ -24,7 +26,7 @@ class SubTitleTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        titleLabel.top(8).left(8)
-        subTitleLabel.below(titleLabel,5).left(8)
+        titleLabel.top(8).left(8).width(100).font(16,.semibold).color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        subTitleLabel.below(titleLabel,5).left(8).font(14).width(200).color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
     }
 }
