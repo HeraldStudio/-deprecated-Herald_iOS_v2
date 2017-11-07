@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
+		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
+		5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */; };
 		533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FD81FA78A8700040A01 /* ErrorHelper.swift */; };
 		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
 		533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE01FA86CDB00040A01 /* MineViewController.swift */; };
@@ -50,6 +52,8 @@
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D1024EAAE3CE944C73FE90D /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
+		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
+		5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
 		533F8FD81FA78A8700040A01 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		533F8FE01FA86CDB00040A01 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +142,8 @@
 			isa = PBXGroup;
 			children = (
 				533F8FE31FA86D3400040A01 /* HomeViewController.swift */,
+				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
+				5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -495,6 +501,7 @@
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
+				5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */,
 				53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */,
 				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
 				53877D7D1FAD64E900606E6B /* SubTitleTableViewCell.swift in Sources */,
@@ -507,6 +514,7 @@
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
 				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
+				5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */,
 				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,
 				539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,

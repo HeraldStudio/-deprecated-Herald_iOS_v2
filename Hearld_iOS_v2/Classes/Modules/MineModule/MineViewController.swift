@@ -154,9 +154,9 @@ class MineViewController: UIViewController {
     private func layoutSubviews() {
         if let navigationController = self.navigationController as? MainNavigationController{
             staticTableView.frame = CGRect(x: 0,
-                                             y: navigationController.getHeight(),
-                                             width: screenRect.width,
-                                             height: screenRect.height - navigationController.getHeight())
+                                           y: navigationController.getHeight(),
+                                           width: screenRect.width,
+                                           height: screenRect.height - navigationController.getHeight())
             staticTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
         }
     }
