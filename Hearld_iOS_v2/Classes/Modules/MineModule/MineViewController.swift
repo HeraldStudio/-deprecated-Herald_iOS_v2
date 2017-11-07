@@ -17,7 +17,7 @@ import RealmSwift
 class MineViewController: UIViewController {
     
     var staticTableView = UITableView()
-    fileprivate let MineItemSubject = PublishSubject<[MineItem]>()
+    fileprivate let MineItemSubject = PublishSubject<[[MineItem]]>()
     let bag = DisposeBag()
     
     enum MineItem{
@@ -27,6 +27,10 @@ class MineViewController: UIViewController {
     
     // Mark: Model
     var mineItems : [[MineItem]] = []
+    
+    // 静态元素
+    var user = User()
+    let aboutUS = MineItem.Url("https://app.heraldstudio.com/about.htm?type=ios")
     
     // dataSource
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
@@ -42,6 +46,7 @@ class MineViewController: UIViewController {
         staticTableView.register(NormalTableViewCell.self, forCellReuseIdentifier: "Account")
         staticTableView.register(SubTitleTableViewCell.self, forCellReuseIdentifier: "SubTitle")
         setConfigureCell()
+        // iOS11的bug，为显示tableViewHeader
         staticTableView.estimatedRowHeight = 0
         staticTableView.estimatedSectionHeaderHeight = 0
         staticTableView.estimatedSectionFooterHeight = 0
@@ -50,9 +55,8 @@ class MineViewController: UIViewController {
         // 订阅数据
         MineItemSubject.subscribe(
             onNext:{ itemArray in
-                self.mineItems.append(itemArray)
                 self.staticTableView.dataSource = nil
-                Observable.just(self.createSectionModel(self.mineItems))
+                Observable.just(self.createSectionModel(itemArray))
                     .bind(to: self.staticTableView.rx.items(dataSource: self.dataSource))
                     .addDisposableTo(self.bag)
         }).addDisposableTo(bag)
@@ -63,7 +67,19 @@ class MineViewController: UIViewController {
                 let mineItem = self.mineItems[indexPath.section][indexPath.row]
                 switch mineItem {
                 case .Account(_):
-                    break
+                    if HearldUserDefault.isLogin == true {
+                        let alert = UIAlertController(title: "提示", message: "您确定要退出登录吗", preferredStyle: .alert)
+                        let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.cancel, handler: nil)
+                        alert.addAction(cancelAction)
+                        alert.addAction(UIAlertAction(title: "确定", style: UIAlertActionStyle.default, handler: { action in
+                            HearldUserDefault.isLogin = false
+                            HearldUserDefault.uuid = ""
+                        }))
+                        self.present(alert, animated: true)
+                    }else {
+                        let loginVC = LoginViewController()
+                        self.present(loginVC, animated: true, completion: nil)
+                    }
                 case .Url(let url):
                     let webVC = WebViewController()
                     webVC.webUrl = URL(string: ApiHelper.changeHTTPtoHTTPS(url: url))
@@ -73,14 +89,34 @@ class MineViewController: UIViewController {
         
         // 动态方法实现静态tableView,初始化数据
         let realm = try! Realm()
-        let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first
-        let user = MineItem.Account(currentUser!)
-        MineItemSubject.onNext([user])
+        let results = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'")
+        if results.count > 0{
+            user = results.first!
+        }
         
-        let aboutUS = MineItem.Url("https://app.heraldstudio.com/about.htm?type=ios")
-        MineItemSubject.onNext([aboutUS])
+        prepareData()
+        
+        //订阅是否登录的信息
+        isLoginVariable.asObservable().subscribe(
+            onNext:{ isLogin in
+                if isLogin {
+                    self.prepareData()
+                }else{
+                    self.user = User()
+                    self.prepareData()
+                }
+        }).addDisposableTo(bag)
     }
     
+    // 准备数据
+    private func prepareData() {
+        self.mineItems.removeAll()
+        self.mineItems.append([MineItem.Account(self.user)])
+        self.mineItems.append([self.aboutUS])
+        self.MineItemSubject.onNext(self.mineItems)
+    }
+    
+    // 构造[SectionModel]
     private func createSectionModel(_ itemLists: [[MineItem]]) -> [SectionTableModel]{
         var sections: [SectionTableModel] = []
         var section: SectionTableModel?
@@ -102,7 +138,7 @@ class MineViewController: UIViewController {
             switch mineItem {
             case .Account(_):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Account", for: indexPath) as! NormalTableViewCell
-                cell.normalLabel.text = "退出登录"
+                cell.normalLabel.text = (HearldUserDefault.isLogin! ? "退出登录" : "立即登录")
                 return cell
             case .Url(let url):
                 let cell = tv.dequeueReusableCell(withIdentifier: "SubTitle", for: indexPath) as! SubTitleTableViewCell
