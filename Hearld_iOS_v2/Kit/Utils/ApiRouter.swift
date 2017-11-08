@@ -8,6 +8,8 @@
 
 import Foundation
 import Moya
+import Realm
+import RealmSwift
 
 struct ApiHelper {
     
@@ -37,6 +39,7 @@ enum UserAPI {
 enum SubscribeAPI {
     case ActivityDefault()                        //默认获取第1页的活动API
     case Activity(pageNumber: String)             //获取下一页的活动API
+    case CarouselFigure()                         //获取轮播图API
 }
 
 extension UserAPI: TargetType {
@@ -101,7 +104,14 @@ extension UserAPI: TargetType {
 
 extension SubscribeAPI: TargetType{
     
-    var baseURL: URL { return URL(string: "https://www.heraldstudio.com/")! }
+    var baseURL: URL {
+        switch self {
+        case .Activity(_), .ActivityDefault():
+            return URL(string: "https://www.heraldstudio.com/")!
+        case .CarouselFigure():
+            return URL(string: "https://app.heraldstudio.com/")!
+        }
+    }
     
     var path: String{
         switch self {
@@ -109,6 +119,8 @@ extension SubscribeAPI: TargetType{
             return "herald/" + ApiHelper.api("v1/huodong/get")
         case .Activity(_):
             return "herald/" + ApiHelper.api("v1/huodong/get")
+        case .CarouselFigure():
+            return "checkversion"
         }
     }
     
@@ -116,19 +128,21 @@ extension SubscribeAPI: TargetType{
         switch self {
         case .ActivityDefault(), .Activity(_):
             return .get
+        case .CarouselFigure():
+            return .post
         }
     }
     
     var parameterEncoding: ParameterEncoding {
         switch self {
-        case .ActivityDefault(), .Activity(_):
+        case .ActivityDefault(), .Activity(_), .CarouselFigure():
             return URLEncoding.default
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .ActivityDefault(), .Activity(_):
+        case .ActivityDefault(), .Activity(_), .CarouselFigure():
             return "Activity".utf8Encoded
         }
     }
@@ -139,11 +153,19 @@ extension SubscribeAPI: TargetType{
             return .requestPlain
         case .Activity(let page):
             return .requestParameters(parameters: ["page" : page], encoding: URLEncoding.queryString)
+        case .CarouselFigure():
+            let realm = try! Realm()
+            let shchoolNum = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first?.shchoolNum
+            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!,
+                                                   "shcoolNum": shchoolNum!,
+                                                   "versioncode": "CFBundleVersion",
+                                                   "versionname": "CFBundleShortVerpe",
+                                                   "versiontype": "iOS"], encoding: URLEncoding.queryString)
         }
     }
     var headers: [String: String]? {
         switch self {
-        case .ActivityDefault(), .Activity(_):
+        case .ActivityDefault(), .Activity(_) ,.CarouselFigure():
             return ["Content-type": "application/x-www-form-urlencoded"]
         }
     }

@@ -11,18 +11,39 @@ import SnapKit
 import RxCocoa
 import RxSwift
 import RxDataSources
+import SDWebImage
 
 class HomeViewController: UIViewController {
     
+    // tableView & dataSource
     var homeTableView = UITableView()
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
+    typealias SectionTableModel = SectionModel<String,CarouselFigureModel>
+    
+    // ViewModels
+    var carouselFigureViewModel = CarouselFigureViewModel()
+    let bag = DisposeBag()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addSubview(homeTableView)
         layoutSubViews()
+        
+        // 注册Cell并设置ConfigureCell以及ConfigureAnimation
+        homeTableView.delegate = self
+        homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
+        setConfigureCell()
+        homeTableView.separatorStyle = .none
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    private func setConfigureCell() {
+        dataSource.configureCell = {(_,tv,indexPath,item) in
+            
+        }
     }
     
     private func layoutSubViews() {

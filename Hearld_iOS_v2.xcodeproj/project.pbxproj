@@ -10,6 +10,8 @@
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
 		5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */; };
+		5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */; };
+		5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */; };
 		533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FD81FA78A8700040A01 /* ErrorHelper.swift */; };
 		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
 		533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE01FA86CDB00040A01 /* MineViewController.swift */; };
@@ -54,6 +56,8 @@
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
 		5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
+		5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureModel.swift; sourceTree = "<group>"; };
+		5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureViewModel.swift; sourceTree = "<group>"; };
 		533F8FD81FA78A8700040A01 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		533F8FE01FA86CDB00040A01 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5335CF191FB2F657001AE6E0 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5335CF1C1FB2F6CF001AE6E0 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		5335CF1F1FB2F72B001AE6E0 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
+			);
+			path = TableViewCells;
+			sourceTree = "<group>";
+		};
 		533F8FDC1FA86C6600040A01 /* ActivityModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -141,8 +169,10 @@
 		533F8FE21FA86CDE00040A01 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				5335CF191FB2F657001AE6E0 /* Models */,
+				5335CF1F1FB2F72B001AE6E0 /* TableViewCells */,
+				5335CF1C1FB2F6CF001AE6E0 /* ViewModels */,
 				533F8FE31FA86D3400040A01 /* HomeViewController.swift */,
-				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
 				5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */,
 			);
 			path = HomeModule;
@@ -499,6 +529,7 @@
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
+				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
 				5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */,
@@ -513,6 +544,7 @@
 				53877D7B1FAD635E00606E6B /* SwitchTableViewCell.swift in Sources */,
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
+				5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */,
 				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
 				5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */,
 				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,

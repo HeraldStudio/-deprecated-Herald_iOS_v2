@@ -17,6 +17,7 @@ import SVProgressHUD
 class ActivityViewController: UIViewController {
 
     var activityTableView = UITableView()
+    // 初始活动页
     var page = 1
     
     //设置swiper和loader
@@ -36,10 +37,6 @@ class ActivityViewController: UIViewController {
         // 初始化子视图
         view.addSubview(activityTableView)
         layoutSubviews()
-        
-//        if let tabBarController = self.tabBarController as? MainTabBarController{
-//            puller.frame = CGRect(x: 0, y: 0, width: tabBarController.getWidth(),height: tabBarController.getHeight())
-//        }
         
         // 设置下拉刷新控件为列表页头视图
         activityTableView.tableHeaderView = swiper
@@ -82,7 +79,6 @@ class ActivityViewController: UIViewController {
         activityTableView.estimatedRowHeight = 300
         activityTableView.rowHeight = UITableViewAutomaticDimension
         activityTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
-//        setAnimationConfiguration()
         
         // 订阅数据,保证视图的cell与model保持一致
         viewModel.ActivityList.subscribe(

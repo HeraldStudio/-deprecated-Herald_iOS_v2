@@ -16,7 +16,10 @@ class CarouselFigureCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        CarouselFigure.addSubview(pageControl)
+        contentView.addSubViews(subViews: [CarouselFigure])
         layoutSubviews()
+    
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -24,6 +27,9 @@ class CarouselFigureCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        <#code#>
+        CarouselFigure.left(0).right(0).top(0).bottom(0).height(160)
+        
+        pageControl.centerX().bottom(5).height(20).width(30)
+        pageControl.currentPageIndicatorTintColor = UIColor.blue
     }
 }
