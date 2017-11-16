@@ -157,16 +157,16 @@ extension SubscribeAPI: TargetType{
             let realm = try! Realm()
             let shchoolNum = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first?.shchoolNum
             return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!,
-                                                   "shcoolNum": shchoolNum!,
-                                                   "versioncode": "CFBundleVersion",
-                                                   "versionname": "CFBundleShortVerpe",
+                                                   "shcoolnum": shchoolNum!,
                                                    "versiontype": "iOS"], encoding: URLEncoding.queryString)
         }
     }
     var headers: [String: String]? {
         switch self {
-        case .ActivityDefault(), .Activity(_) ,.CarouselFigure():
+        case .ActivityDefault(), .Activity(_):
             return ["Content-type": "application/x-www-form-urlencoded"]
+        case .CarouselFigure():
+            return ["Content-type": "application/json"]
         }
     }
     

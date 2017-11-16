@@ -19,7 +19,7 @@ class CarouselFigureCell: UITableViewCell {
         CarouselFigure.addSubview(pageControl)
         contentView.addSubViews(subViews: [CarouselFigure])
         layoutSubviews()
-    
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

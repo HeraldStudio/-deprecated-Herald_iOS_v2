@@ -24,6 +24,33 @@ struct CarouselFigureViewModel {
     let bag = DisposeBag()
     
     func prepareData() {
+        let provider = MoyaProvider<SubscribeAPI>()
         
+        provider.request(.CarouselFigure()) { (result) in
+            var figures : [CarouselFigureModel] = []
+            switch result{
+            case let .success(moyaResponse):
+                let data = moyaResponse.data
+                print(moyaResponse.response)
+                let json = JSON(data)
+//                figures = self.parseCarouselFigureModel(json)
+//                self.CarouselFigureSubject.onNext(figures)
+            case .failure(_):
+                self.CarouselFigureSubject.onError(HearldError.NetworkError)
+            }
+        }
+    }
+    
+    private func parseCarouselFigureModel(_ json: JSON) -> [CarouselFigureModel] {
+        var figureArray : [CarouselFigureModel] = []
+        let figures = json["content"]["sliderviews"].arrayValue
+        for figureJSON in figures{
+            let figure = CarouselFigureModel()
+            figure.title = figureJSON["title"].stringValue
+            figure.picture_url = figureJSON["imageurl"].stringValue
+            figure.link = figureJSON["url"].stringValue
+            figureArray.append(figure)
+        }
+        return figureArray
     }
 }

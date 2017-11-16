@@ -12,6 +12,7 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 import SDWebImage
+import SVProgressHUD
 
 class HomeViewController: UIViewController {
     
@@ -34,6 +35,21 @@ class HomeViewController: UIViewController {
         homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
         setConfigureCell()
         homeTableView.separatorStyle = .none
+        
+        // 订阅viewModel
+        carouselFigureViewModel.CarouselFigures.subscribe(
+            onNext:{ figureArray in
+            self.homeTableView.dataSource = nil
+            Observable.just(self.createSectionModel(figureArray))
+                .bind(to: self.homeTableView.rx.items(dataSource: self.dataSource))
+                .addDisposableTo(self.bag)
+            },
+            onError:{error in
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
+        
+        // prepareData
+        carouselFigureViewModel.prepareData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,8 +58,14 @@ class HomeViewController: UIViewController {
     
     private func setConfigureCell() {
         dataSource.configureCell = {(_,tv,indexPath,item) in
-            
+            let cell = tv.dequeueReusableCell(withIdentifier: "CarouselFigure", for: indexPath) as! CarouselFigureCell
+            print("dsdas")
+            return cell
         }
+    }
+    
+    private func createSectionModel(_ figureList: [CarouselFigureModel]) -> [SectionTableModel]{
+        return [SectionTableModel(model: "", items: figureList)]
     }
     
     private func layoutSubViews() {
