@@ -31,10 +31,9 @@ struct CarouselFigureViewModel {
             switch result{
             case let .success(moyaResponse):
                 let data = moyaResponse.data
-                print(moyaResponse.response)
                 let json = JSON(data)
-//                figures = self.parseCarouselFigureModel(json)
-//                self.CarouselFigureSubject.onNext(figures)
+                figures = self.parseCarouselFigureModel(json)
+                self.CarouselFigureSubject.onNext(figures)
             case .failure(_):
                 self.CarouselFigureSubject.onError(HearldError.NetworkError)
             }

@@ -13,6 +13,7 @@ extension ActivityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableViewAutomaticDimension
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         var rotation = CATransform3D()
         rotation = CATransform3DMakeTranslation(0, 50, 20)

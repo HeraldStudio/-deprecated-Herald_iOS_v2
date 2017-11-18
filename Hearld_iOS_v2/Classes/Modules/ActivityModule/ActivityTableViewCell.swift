@@ -20,7 +20,7 @@ class ActivityTableViewCell: UITableViewCell {
     var locationLabel = UILabel()
     
     var bg_color: UIColor? { didSet {stateLabel.background(bg_color!) } }
-    var text_color: UIColor? {didSet{stateLabel.color(text_color!)} }
+    var text_color: UIColor? { didSet{stateLabel.color(text_color!)} }
     var detailURL: String?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
