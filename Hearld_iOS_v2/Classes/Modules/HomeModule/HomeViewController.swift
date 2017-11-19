@@ -19,7 +19,7 @@ class HomeViewController: UIViewController {
     // tableView & dataSource
     var homeTableView = UITableView()
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
-    typealias SectionTableModel = SectionModel<String,CarouselFigureModel>
+    typealias SectionTableModel = SectionModel<String,[CarouselFigureModel]>
     
     // ViewModels
     var carouselFigureViewModel = CarouselFigureViewModel()
@@ -37,6 +37,7 @@ class HomeViewController: UIViewController {
         homeTableView.separatorStyle = .none
         homeTableView.estimatedRowHeight = 300
         homeTableView.rowHeight = UITableViewAutomaticDimension
+        homeTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
         
         // 订阅viewModel
         carouselFigureViewModel.CarouselFigures.subscribe(
@@ -61,17 +62,31 @@ class HomeViewController: UIViewController {
     private func setConfigureCell() {
         self.dataSource.configureCell = {(_,tv,indexPath,item) in
             let cell = tv.dequeueReusableCell(withIdentifier: "CarouselFigure", for: indexPath) as! CarouselFigureCell
-            let figureImage = UIImageView()
-            cell.CarouselFigure.addSubview(figureImage)
-            figureImage.top(0).left(0).right(0).bottom(0)
             
-            figureImage.sd_setImage(with: URL(string: item.picture_url),placeholderImage: #imageLiteral(resourceName: "default_herald"))
+            cell.pageControl.numberOfPages = item.count
+            cell.CarouselFigure.removeAllSubviews()
+            let pictureFrame = cell.CarouselFigure.bounds
+            
+            //设置整体轮播图的contentSize
+            cell.CarouselFigure.contentSize = CGSize(width: pictureFrame.size.width * CGFloat(item.count),
+                                                     height: pictureFrame.size.height)
+            
+            for index in 0..<item.count{
+                let figureImage = UIImageView()
+                figureImage.frame = CGRect(x: pictureFrame.size.width * CGFloat(index),
+                                           y: 0,
+                                           width: pictureFrame.size.width,
+                                           height: pictureFrame.size.height)
+                figureImage.contentMode = .scaleToFill
+                figureImage.sd_setImage(with: URL(string: item[index].picture_url),placeholderImage: #imageLiteral(resourceName: "default_herald"))
+                cell.CarouselFigure.addSubview(figureImage)
+            }
             return cell
         }
     }
     
     private func createSectionModel(_ figureList: [CarouselFigureModel]) -> [SectionTableModel]{
-        return [SectionTableModel(model: "", items: figureList)]
+        return [SectionTableModel(model: "", items: [figureList])]
     }
     
     private func layoutSubViews() {

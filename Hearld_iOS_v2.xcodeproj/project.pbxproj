@@ -12,6 +12,7 @@
 		5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */; };
 		5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */; };
 		5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */; };
+		5335CF211FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF201FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift */; };
 		533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FD81FA78A8700040A01 /* ErrorHelper.swift */; };
 		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
 		533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE01FA86CDB00040A01 /* MineViewController.swift */; };
@@ -58,6 +59,7 @@
 		5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
 		5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureModel.swift; sourceTree = "<group>"; };
 		5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureViewModel.swift; sourceTree = "<group>"; };
+		5335CF201FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouseFigureCellDelegate.swift; sourceTree = "<group>"; };
 		533F8FD81FA78A8700040A01 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		533F8FE01FA86CDB00040A01 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
+				5335CF201FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
+				5335CF211FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
