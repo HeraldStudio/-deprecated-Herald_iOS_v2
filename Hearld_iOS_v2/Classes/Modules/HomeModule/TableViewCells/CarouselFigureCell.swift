@@ -13,12 +13,14 @@ class CarouselFigureCell: UITableViewCell {
     
     var CarouselFigure = UIScrollView()
     var pageControl = UIPageControl()
+    var pictureFrame: CGRect?
+    var itemArray: [CarouselFigureModel] = []
+    var timer: Timer?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         self.contentView.addSubViews(subViews: [CarouselFigure,pageControl])
         layoutSubviews()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -42,9 +44,27 @@ class CarouselFigureCell: UITableViewCell {
         pageControl.addTarget(self, action: #selector(pageChanged(_:)), for: .valueChanged)
     }
     
+    func startAutoScroll() {
+        timer = Timer.scheduledTimer(timeInterval: 3.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
+    }
+    
+    func autoScroll(){
+        var frame = CarouselFigure.frame
+        frame.origin.x = self.CarouselFigure.contentOffset.x + CGFloat(pictureFrame!.size.width)
+        frame.origin.y = 0
+        CarouselFigure.scrollRectToVisible(frame, animated: true)
+        
+        scrollViewDidEndDecelerating(CarouselFigure)
+    }
+    
+    func endAutoScroll(){
+        guard let endTimer = self.timer else{ return }
+        endTimer.invalidate()
+    }
+    
     func pageChanged(_ sender:UIPageControl){
         var frame = CarouselFigure.frame
-        frame.origin.x = frame.size.width * CGFloat(sender.currentPage)
+        frame.origin.x = frame.size.width * CGFloat(sender.currentPage + 1)
         frame.origin.y = 0
         CarouselFigure.scrollRectToVisible(frame, animated: true)
     }
