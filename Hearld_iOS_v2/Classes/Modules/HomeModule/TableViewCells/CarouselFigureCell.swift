@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class CarouselFigureCell: UITableViewCell {
     
@@ -16,6 +17,8 @@ class CarouselFigureCell: UITableViewCell {
     var pictureFrame: CGRect?
     var itemArray: [CarouselFigureModel] = []
     var timer: Timer?
+    
+//    let currentPage = Variable<Int>(0)
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

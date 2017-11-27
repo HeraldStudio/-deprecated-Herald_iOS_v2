@@ -82,6 +82,7 @@ class HomeViewController: UIViewController {
             firstFigureImage.sd_setImage(with: URL(string: item[item.count - 1].picture_url), placeholderImage: #imageLiteral(resourceName: "default_herald"))
             cell.CarouselFigure.addSubview(firstFigureImage)
             
+            // 正常内容的轮播图片
             for index in 0..<item.count{
                 let figureImage = UIImageView()
                 figureImage.frame = CGRect(x: pictureFrame.size.width * CGFloat(index + 1),
@@ -93,7 +94,7 @@ class HomeViewController: UIViewController {
                 cell.CarouselFigure.addSubview(figureImage)
             }
             
-            //将index为0的图片增加到最后一个
+            // 将index为0的图片增加到最后一个
             let lastFigureImage = UIImageView()
             lastFigureImage.frame = CGRect(x: pictureFrame.size.width * CGFloat(item.count + 1),
                                             y: 0,

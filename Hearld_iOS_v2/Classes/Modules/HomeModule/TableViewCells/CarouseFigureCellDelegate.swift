@@ -11,14 +11,11 @@ import UIKit
 
 extension CarouselFigureCell: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        print("滑动结束后的contentOffset")
-//        print(CarouselFigure.contentOffset.x)
-        if(CarouselFigure.contentOffset.x == 0){
+        let judgePage = Int(CarouselFigure.contentOffset.x / (pictureFrame?.size.width)!)
+        if judgePage == 0{
             CarouselFigure.contentOffset.x = (pictureFrame?.size.width)! * CGFloat(itemArray.count)
         }
-        if(CarouselFigure.contentOffset.x == (pictureFrame?.size.width)! * CGFloat(itemArray.count + 1)){
-//            print("focus contentOffset")
-//            print(CarouselFigure.contentOffset.x)
+        if judgePage == itemArray.count + 1{
             CarouselFigure.contentOffset.x = (pictureFrame?.size.width)!
         }
         let page = Int(CarouselFigure.contentOffset.x / (pictureFrame?.size.width)!) - 1
@@ -27,10 +24,11 @@ extension CarouselFigureCell: UIScrollViewDelegate {
     
     // 自动循环调用
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-        if(CarouselFigure.contentOffset.x == 0){
+        let judgePage = Int(CarouselFigure.contentOffset.x / (pictureFrame?.size.width)!)
+        if judgePage == 0{
             CarouselFigure.contentOffset.x = (pictureFrame?.size.width)! * CGFloat(itemArray.count)
         }
-        if(CarouselFigure.contentOffset.x == (pictureFrame?.size.width)! * CGFloat(itemArray.count + 1)){
+        if judgePage == itemArray.count + 1{
             CarouselFigure.contentOffset.x = (pictureFrame?.size.width)!
         }
         let page = Int(CarouselFigure.contentOffset.x / (pictureFrame?.size.width)!) - 1
