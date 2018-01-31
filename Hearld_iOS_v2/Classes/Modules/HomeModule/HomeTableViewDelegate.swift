@@ -14,4 +14,3 @@ extension HomeViewController: UITableViewDelegate {
         return UITableViewAutomaticDimension
     }
 }
-

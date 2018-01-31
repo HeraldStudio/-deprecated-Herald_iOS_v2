@@ -38,16 +38,17 @@ class LoginViewController: UIViewController {
         
         // 登录的输入是否合法的变量
         let validVariable = Variable(false)
-        
+        // username输入的观察对象
         let usernameObservable = cardIDTextField.rx.text.asObservable().map{
             (username: String?) -> Bool in
             return ValidInputHelper.isValidUserName(username: username!)
         }
+        // password输入的观察对象
         let passwordObservable = passwordTextField.rx.text.asObservable().map{
             (password: String?) -> Bool in
             return ValidInputHelper.isValidPassword(password: password!)
         }
-        
+        // combineLatest操作符
         Observable.combineLatest(usernameObservable, passwordObservable){
             (isValidUsername: Bool, isValidPassword: Bool) in
                 return [isValidUsername,isValidPassword]
@@ -55,18 +56,20 @@ class LoginViewController: UIViewController {
                 return input.reduce(true, {$0 && $1})
             }.bind(to: validVariable).addDisposableTo(bag)
         
+        // 订阅loginButton tap事件
         loginButton.rx.tap.asObservable().subscribe({_ in
             if validVariable.value == true{
                 let requestData = LoginModel(self.cardIDTextField.text!, self.passwordTextField.text!)
                 self.viewModel.model = requestData
                 self.viewModel.requestLogin()
-                // 锁住
+                // 改变loginButton状态
                 self.loginButton.isEnabled = false
             }else{
                 SVProgressHUD.showInfo(withStatus: "输入不完整，请重试")
             }
         }).addDisposableTo(bag)
         
+        // view订阅viewModel的loginInfo
         viewModel.loginInfo.subscribe(
             onNext:{ text in
                 let navigationVC = MainNavigationController()
@@ -85,6 +88,7 @@ class LoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
+    // 布局函数
     private func layoutSubViews(){
         loginButton.centerX().centerY().width(280).height(40)
         loginButton.setTitle("登录", for: .normal)

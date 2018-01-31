@@ -150,9 +150,9 @@
 			children = (
 				53877D721FAB792000606E6B /* ActivityModel.swift */,
 				533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */,
+				53877D741FAB793100606E6B /* ActivityViewModel.swift */,
 				53877D701FAB731000606E6B /* ActivityTableViewCell.swift */,
 				53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */,
-				53877D741FAB793100606E6B /* ActivityViewModel.swift */,
 			);
 			path = ActivityModule;
 			sourceTree = "<group>";
@@ -693,6 +693,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hearld_iOS_v2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nathan.Hearld-iOS-v2";
@@ -708,6 +709,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Hearld_iOS_v2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nathan.Hearld-iOS-v2";

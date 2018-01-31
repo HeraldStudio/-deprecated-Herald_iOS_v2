@@ -17,10 +17,10 @@ import SVProgressHUD
 class ActivityViewController: UIViewController {
 
     var activityTableView = UITableView()
-    // 初始活动页
+    // 初始活动页数
     var page = 1
     
-    //设置swiper和loader
+    // 设置swiper和loader
     let swiper = SwipeRefreshHeader()
     let puller = PullLoadFooter()
     
@@ -130,7 +130,8 @@ class ActivityViewController: UIViewController {
             }
             
             // 图片
-            cell.picture.sd_setImage(with: URL(string: ApiHelper.changeHTTPtoHTTPS(url: item.pic_url)), placeholderImage: #imageLiteral(resourceName: "default_herald"), options: SDWebImageOptions.retryFailed)
+            print(item.pic_url)
+            cell.picture.sd_setImage(with: URL(string: item.pic_url), placeholderImage: #imageLiteral(resourceName: "default_herald"), options: SDWebImageOptions.retryFailed)
             
             // 介绍
             cell.introductionLabel.text = item.introduction

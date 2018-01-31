@@ -11,9 +11,11 @@ import RxSwift
 import RxCocoa
 
 let screenRect = UIScreen.main.bounds
+/* 登录状态Variable */
+let isLoginVariable = Variable<Bool>(false)
+
 private let uuidKey = "uuid"
 private let isLoginKey = "isLogin"
-let isLoginVariable = Variable<Bool>(false)
 
 class HearldUserDefault{
     static let defaults = UserDefaults.standard
@@ -39,6 +41,7 @@ class HearldUserDefault{
         }
     }
     
+    /* 清除UserDefault */
     public func cleanAllUserDefault(){
         HearldUserDefault.defaults.removeObject(forKey: uuidKey)
         HearldUserDefault.defaults.removeObject(forKey: isLoginKey)

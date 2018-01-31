@@ -17,15 +17,12 @@ class MainNavigationController: UINavigationController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func getHeight() -> CGFloat{
         return navigationBar.frame.height
     }
     
-    
-
     /*
     // MARK: - Navigation
 

@@ -367,13 +367,13 @@ extension UIView {
 }
 
 extension UIView {
-    
+    /// 背景颜色
     @discardableResult func background(_ color: UIColor) -> Self {
         autoCheckInto()
         self.backgroundColor = color
         return self
     }
-    
+    /// 设置contentMode
     @discardableResult func mode(_ mode: UIViewContentMode) -> Self {
         autoCheckInto()
         self.contentMode = mode

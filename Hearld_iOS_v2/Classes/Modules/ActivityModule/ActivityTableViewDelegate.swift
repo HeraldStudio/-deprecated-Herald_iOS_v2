@@ -14,6 +14,7 @@ extension ActivityViewController: UITableViewDelegate {
         return UITableViewAutomaticDimension
     }
     
+    // 动画效果
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         var rotation = CATransform3D()
         rotation = CATransform3DMakeTranslation(0, 50, 20)

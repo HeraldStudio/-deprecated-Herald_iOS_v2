@@ -27,7 +27,6 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         webView.addSubview(spinner)
         view.addSubview(webView)
         layoutSubViews()
-        
         loadURL()
     }
     
@@ -68,8 +67,4 @@ class WebViewController: UIViewController,UIWebViewDelegate {
             spinner.stopAnimating()
         }
     }
-    
-//    func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-//        return true
-//    }
 }

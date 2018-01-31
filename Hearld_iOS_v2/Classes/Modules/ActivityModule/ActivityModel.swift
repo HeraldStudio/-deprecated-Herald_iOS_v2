@@ -13,7 +13,7 @@ import RxDataSources
 import RxSwift
 import RxCocoa
 
-/// 命名与JSON数据保持一致
+/// 命名与API返回JSON数据保持一致
 class ActivityModel: Object {
 //    var identity: String = "title"
 //    typealias Identity = String

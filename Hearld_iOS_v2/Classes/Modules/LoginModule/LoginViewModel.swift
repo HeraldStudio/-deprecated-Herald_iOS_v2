@@ -19,17 +19,18 @@ struct LoginViewModel{
     var model : LoginModel?
     let user = User()
     
+    // fileprivate防止非法访问
     fileprivate let loginInfoSubject = PublishSubject<String>()
     var loginInfo: Observable<String>{
         return loginInfoSubject.asObservable()
     }
     let bag = DisposeBag()
     
+    // 登录request函数
     func requestLogin(){
         guard let cardID = model?.cardID, let password = model?.password else{
             return
         }
-        
         let provider = MoyaProvider<UserAPI>()
         provider.request(.Login(userID: cardID, password: password)) { (result) in
             switch result{
@@ -49,7 +50,6 @@ struct LoginViewModel{
     
     func checkUUID() {
         let provider = MoyaProvider<UserAPI>()
-        print(HearldUserDefault.uuid!)
         provider.request(.Info()) { (result) in
             switch result{
             case let .success(moyaResponse):
@@ -65,6 +65,7 @@ struct LoginViewModel{
                     guard let realm = try? Realm() else {
                         return
                     }
+                    
                     db_updateObjc(self.user, with: realm)
                     HearldUserDefault.isLogin = true
                     self.loginInfoSubject.onNext("ok")
