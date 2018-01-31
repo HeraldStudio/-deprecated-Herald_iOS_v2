@@ -44,9 +44,9 @@
 ### 关于MVVM/RxSwift/FRP的学习资料
 
 - http://reactivex.io (ReactiveX组织的官网)
-- https://www.gitbook.com/book/mcxiaoke/rxdocs/details(上面的文档中文翻译)
-- https://academy.realm.io/posts/slug-max-alexander-mvvm-rxswift/(某不认识的大牛(maybe)关于MVVM与RxSwift的讲座)
-- https://www.boxueio.com/series/rxswift-101(泊学关于RxSwift的教程,付费)
+- https://www.gitbook.com/book/mcxiaoke/rxdocs/details (上面的文档中文翻译)
+- https://academy.realm.io/posts/slug-max-alexander-mvvm-rxswift/ (某不认识的大牛(maybe)关于MVVM与RxSwift的讲座)
+- https://www.boxueio.com/series/rxswift-101 (泊学关于RxSwift的教程,付费)
 
 ### Moya Router
 
