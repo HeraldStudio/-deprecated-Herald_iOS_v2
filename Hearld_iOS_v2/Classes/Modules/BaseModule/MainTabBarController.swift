@@ -40,7 +40,7 @@ class MainTabBarController: UITabBarController {
         
         tabBar.isTranslucent = false
         
-        self.setViewControllers([HomeViewController(), ActivityViewController(),MineViewController()], animated: false)
+        self.setViewControllers([HomeViewController(),ActivityViewController(),MineViewController()], animated: false)
         
         self.setCustomItem(title: "首页", image: #imageLiteral(resourceName: "tab_home"), selectedImage: #imageLiteral(resourceName: "tab_home"), index: 0)
         

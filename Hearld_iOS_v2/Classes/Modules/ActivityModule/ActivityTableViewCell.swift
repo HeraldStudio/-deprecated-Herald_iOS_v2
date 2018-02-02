@@ -42,7 +42,6 @@ class ActivityTableViewCell: UITableViewCell {
         // 状态
         stateLabel.left(10).top(10).width(45).height(20)
             .clip(true).font(12).align(.center).round(3.0)
-        print(stateLabel.frame)
 
         // 标题
         titleLabel.after(stateLabel,8).top(stateLabel).right(10)

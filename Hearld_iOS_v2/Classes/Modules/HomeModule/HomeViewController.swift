@@ -55,6 +55,17 @@ class HomeViewController: UIViewController {
         carouselFigureViewModel.prepareData()
     }
     
+    /*
+     * 坑注意
+     * AppDelegate中加载tabBarViewController时，直接调用了其的viewDidLoad，此时并未push进navigationController
+     * 所以在homeVC的navigationController为nil
+     * 目前解决办法是在viewWillAppear再调用一次layoutSubViews
+     */
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        layoutSubViews()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -116,30 +127,13 @@ class HomeViewController: UIViewController {
     }
     
     private func layoutSubViews() {
-        /*
-         *To Fix
-         */
-//        if let navigationController = self.navigationController as? MainNavigationController{
-//            print(screenRect)
-//            homeTableView.frame = CGRect(x: 0,
-//                                         y: navigationController.getHeight(),
-//                                         width: screenRect.width,
-//                                         height: screenRect.height - navigationController.getHeight())
-//            homeTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
-//        }
-//        let navigationController = self.navigationController as! MainNavigationController
-
-//        if let haha = self.tabBarController as? MainTabBarController{
-//            print("hw")
-//            if haha.navigationController == nil {
-//                print("what")
-//            }
-//        }
+        if let navigationController = self.navigationController as? MainNavigationController{
             homeTableView.frame = CGRect(x: 0,
-                                         y: 44,
+                                         y: navigationController.getHeight(),
                                          width: screenRect.width,
-                                         height: screenRect.height - 44)
-            homeTableView.top(44).left(0).right(0).bottom(0)
+                                         height: screenRect.height - navigationController.getHeight())
+            homeTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
+        }
     }
 }
 

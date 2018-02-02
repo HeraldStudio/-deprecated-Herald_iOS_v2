@@ -130,7 +130,6 @@ class ActivityViewController: UIViewController {
             }
             
             // 图片
-            print(item.pic_url)
             cell.picture.sd_setImage(with: URL(string: item.pic_url), placeholderImage: #imageLiteral(resourceName: "default_herald"), options: SDWebImageOptions.retryFailed)
             
             // 介绍

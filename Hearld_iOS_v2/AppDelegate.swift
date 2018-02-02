@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             HearldUserDefault.isLogin = true
             let navigationVC = MainNavigationController()
             let mainVC = MainTabBarController()
-            navigationVC.addChildViewController(mainVC)
+            navigationVC.pushViewController(mainVC, animated: false)
             self.window?.rootViewController = navigationVC
         // 否则转场到登录界面
         }else{
