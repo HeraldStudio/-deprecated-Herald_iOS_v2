@@ -11,6 +11,12 @@ import UIKit
 
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        return 160
+    }
+}
+
+extension HomeViewController: CarouselFigureCellProtocol {
+    func navigationPush(to vc: UIViewController, animated: Bool) {
+        self.navigationController?.pushViewController(vc, animated: animated)
     }
 }

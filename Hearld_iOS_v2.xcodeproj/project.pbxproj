@@ -47,6 +47,7 @@
 		539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40471FAF4B6100EBADC1 /* WebViewController.swift */; };
 		539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */; };
 		539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */; };
+		53D4CC8220249E3500341711 /* FigureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4CC8120249E3500341711 /* FigureCollectionViewCell.swift */; };
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
 		750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */; };
 /* End PBXBuildFile section */
@@ -96,6 +97,7 @@
 		539C40471FAF4B6100EBADC1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewDelegate.swift; sourceTree = "<group>"; };
 		539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTableViewCell.swift; sourceTree = "<group>"; };
+		53D4CC8120249E3500341711 /* FigureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureCollectionViewCell.swift; sourceTree = "<group>"; };
 		53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidInputHelper.swift; sourceTree = "<group>"; };
 		EB0A2B54BC14BC8AEFE8BA0D /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -141,6 +143,7 @@
 			children = (
 				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
 				5335CF201FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift */,
+				53D4CC8120249E3500341711 /* FigureCollectionViewCell.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
+				53D4CC8220249E3500341711 /* FigureCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

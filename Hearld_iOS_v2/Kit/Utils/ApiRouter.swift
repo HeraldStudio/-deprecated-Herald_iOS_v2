@@ -24,10 +24,15 @@ struct ApiHelper {
     
     // 更改url为HTTPS请求
     static func changeHTTPtoHTTPS(url: String) -> String {
-        var newURL = url
-        let index = newURL.index(url.startIndex, offsetBy: 4)
-        newURL.insert("s", at: index)
-        return newURL
+        print(url)
+        var index = url.index(url.startIndex, offsetBy: 5)
+        if url[index] != "s" {
+            var newURL = url
+            index = newURL.index(url.startIndex, offsetBy: 4)
+            newURL.insert("s", at: index)
+            return newURL
+        }
+        return url
     }
 }
 
