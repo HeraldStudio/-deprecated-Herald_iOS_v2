@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5325CA8A202969D100FE3974 /* CarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselDelegate.swift */; };
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
 		5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */; };
 		5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */; };
 		5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */; };
-		5335CF211FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF201FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift */; };
 		533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FD81FA78A8700040A01 /* ErrorHelper.swift */; };
 		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
 		533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE01FA86CDB00040A01 /* MineViewController.swift */; };
@@ -47,20 +47,18 @@
 		539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40471FAF4B6100EBADC1 /* WebViewController.swift */; };
 		539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */; };
 		539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */; };
-		53D4CC8220249E3500341711 /* FigureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D4CC8120249E3500341711 /* FigureCollectionViewCell.swift */; };
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
 		750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4D1024EAAE3CE944C73FE90D /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
+		5325CA89202969D100FE3974 /* CarouselDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselDelegate.swift; sourceTree = "<group>"; };
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
 		5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
 		5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureModel.swift; sourceTree = "<group>"; };
 		5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureViewModel.swift; sourceTree = "<group>"; };
-		5335CF201FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouseFigureCellDelegate.swift; sourceTree = "<group>"; };
 		533F8FD81FA78A8700040A01 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
 		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		533F8FE01FA86CDB00040A01 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
@@ -97,9 +95,9 @@
 		539C40471FAF4B6100EBADC1 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewDelegate.swift; sourceTree = "<group>"; };
 		539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTableViewCell.swift; sourceTree = "<group>"; };
-		53D4CC8120249E3500341711 /* FigureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureCollectionViewCell.swift; sourceTree = "<group>"; };
 		53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidInputHelper.swift; sourceTree = "<group>"; };
-		EB0A2B54BC14BC8AEFE8BA0D /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
+		7508DE1DAD4A0E65179A11D2 /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
+		EE83E3FEDD6016DA3F021CE1 /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
-				5335CF201FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift */,
-				53D4CC8120249E3500341711 /* FigureCollectionViewCell.swift */,
+				5325CA89202969D100FE3974 /* CarouselDelegate.swift */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -223,8 +220,8 @@
 			children = (
 				53915EB71F9CE07800AA0B81 /* Hearld_iOS_v2 */,
 				53915EB61F9CE07800AA0B81 /* Products */,
-				DDDD9369DAF3C9EF072183AA /* Pods */,
 				34C141D7E9948B71B528BE7C /* Frameworks */,
+				541E075EE3AB0EB6C0567A53 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -358,11 +355,11 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		DDDD9369DAF3C9EF072183AA /* Pods */ = {
+		541E075EE3AB0EB6C0567A53 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EB0A2B54BC14BC8AEFE8BA0D /* Pods-Hearld_iOS_v2.debug.xcconfig */,
-				4D1024EAAE3CE944C73FE90D /* Pods-Hearld_iOS_v2.release.xcconfig */,
+				7508DE1DAD4A0E65179A11D2 /* Pods-Hearld_iOS_v2.debug.xcconfig */,
+				EE83E3FEDD6016DA3F021CE1 /* Pods-Hearld_iOS_v2.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -374,12 +371,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 53915EC71F9CE07800AA0B81 /* Build configuration list for PBXNativeTarget "Hearld_iOS_v2" */;
 			buildPhases = (
-				52F2E8F6AE052A13EC4E9B6D /* [CP] Check Pods Manifest.lock */,
+				591350325414AD851688FF8C /* [CP] Check Pods Manifest.lock */,
 				53915EB11F9CE07800AA0B81 /* Sources */,
 				53915EB21F9CE07800AA0B81 /* Frameworks */,
 				53915EB31F9CE07800AA0B81 /* Resources */,
-				F317A58B821DEE63E4B15710 /* [CP] Embed Pods Frameworks */,
-				D2365C6D545CBCA31E7F5841 /* [CP] Copy Pods Resources */,
+				A8CFEB3A333324A204ED9859 /* [CP] Embed Pods Frameworks */,
+				E100C664561EA42AE6BC92CF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -438,7 +435,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		52F2E8F6AE052A13EC4E9B6D /* [CP] Check Pods Manifest.lock */ = {
+		591350325414AD851688FF8C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -456,22 +453,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D2365C6D545CBCA31E7F5841 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F317A58B821DEE63E4B15710 /* [CP] Embed Pods Frameworks */ = {
+		A8CFEB3A333324A204ED9859 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -491,6 +473,7 @@
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/UnlimitedCarousel/UnlimitedCarousel.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -507,10 +490,26 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnlimitedCarousel.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E100C664561EA42AE6BC92CF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -533,12 +532,12 @@
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
-				5335CF211FC13F9B001AE6E0 /* CarouseFigureCellDelegate.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
+				5325CA8A202969D100FE3974 /* CarouselDelegate.swift in Sources */,
 				5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */,
 				53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */,
 				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
@@ -558,7 +557,6 @@
 				539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
-				53D4CC8220249E3500341711 /* FigureCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -693,7 +691,7 @@
 		};
 		53915EC81F9CE07800AA0B81 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EB0A2B54BC14BC8AEFE8BA0D /* Pods-Hearld_iOS_v2.debug.xcconfig */;
+			baseConfigurationReference = 7508DE1DAD4A0E65179A11D2 /* Pods-Hearld_iOS_v2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -709,7 +707,7 @@
 		};
 		53915EC91F9CE07800AA0B81 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4D1024EAAE3CE944C73FE90D /* Pods-Hearld_iOS_v2.release.xcconfig */;
+			baseConfigurationReference = EE83E3FEDD6016DA3F021CE1 /* Pods-Hearld_iOS_v2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

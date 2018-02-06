@@ -10,8 +10,9 @@ target 'Hearld_iOS_v2' do
 #    pod 'DGElasticPullToRefresh'
 #    pod 'SwiftDate', '~> 4.0'
     pod 'SDWebImage', '~> 4.0'
-    pod 'RealmSwift'
-    pod 'RxSwift', '~> 3.3'
-    pod 'RxCocoa', '~> 3.3'
+    pod 'RealmSwift', '2.10.2'
+    pod 'RxSwift',    '~> 3.3'
+    pod 'RxCocoa',    '~> 3.3'
     pod 'RxDataSources'
+    pod 'UnlimitedCarousel', :git => 'https://github.com/WhatTheNathan/UnlimitedCarousel.git' 
 end

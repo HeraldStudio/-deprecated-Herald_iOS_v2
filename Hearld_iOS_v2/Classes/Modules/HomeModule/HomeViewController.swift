@@ -74,9 +74,7 @@ class HomeViewController: UIViewController {
         self.dataSource.configureCell = {(_,tv,indexPath,item) in
             let cell = tv.dequeueReusableCell(withIdentifier: "CarouselFigure", for: indexPath) as! CarouselFigureCell
             cell.itemArray = item
-            cell.CarouselFigure.reloadData()
             cell.deleagte = self
-            cell.startAutoScroll()
             return cell
         }
     }

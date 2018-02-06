@@ -102,6 +102,13 @@
 			<key>orderHint</key>
 			<integer>13</integer>
 		</dict>
+		<key>UnlimitedCarousel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>14</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict/>

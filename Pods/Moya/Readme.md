@@ -1,13 +1,16 @@
+<p align="center">
+  <img height="160" src="web/logo_github.png" />
+</p>
+
+# Moya
+
 [![CircleCI](https://img.shields.io/circleci/project/github/Moya/Moya/master.svg)](https://circleci.com/gh/Moya/Moya/tree/master)
 [![codecov.io](https://codecov.io/github/Moya/Moya/coverage.svg?branch=master)](https://codecov.io/github/Moya/Moya?branch=master)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/Moya.svg)](https://cocoapods.org/pods/Moya)
 [![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
-
-<p align="center">
-  <img height="160" src="web/logo_github.png" />
-</p>
+*A Chinese version of this document can be found [here](Readme_CN.md).*
 
 You're a smart developer. You probably use [Alamofire](https://github.com/Alamofire/Alamofire) to abstract away access to
 `URLSession` and all those nasty details you don't really care about. But then,
@@ -40,7 +43,7 @@ You can check out more about the project direction in the [vision document](Visi
 
 ## Sample Project
 
-There's a sample project in the Demo directory. To use it, run `pod install` to download the required libraries. Have fun!
+There's a sample project in the Demo directory. To use it, run `carthage update` to download the required libraries. Have fun!
 
 ## Project Status
 
@@ -52,52 +55,68 @@ ready for production use.
 
 ### Moya version vs Swift version.
 
-Because of the many Swift versions Moya supports, it might be confusing to
-find the version of Moya that you need. Below is a table that shows which version of Moya
-you should use for your Swift version.
+Below is a table that shows which version of Moya you should use for
+your Swift version.
 
-| Swift version | Moya version  |
-| ------------- | ------------- |
-| 3.X           | >= 8.0.0      |
-| 2.3           | 7.0.2 - 7.0.4 |
-| 2.2           | <= 7.0.1      |
+| Swift | Moya          | RxMoya        | ReactiveMoya  |
+| ----- | ------------- |---------------|---------------|
+| 4.X   | >= 9.0        | >= 10.0       | >= 9.0        |
+| 3.X   | 8.0.0 - 8.0.5 | 8.0.0 - 8.0.5 | 8.0.0 - 8.0.5 |
+| 2.3   | 7.0.2 - 7.0.4 | 7.0.2 - 7.0.4 | 7.0.2 - 7.0.4 |
+| 2.2   | <= 7.0.1      | <= 7.0.1      | <= 7.0.1      |
+
+**Upgrading to a new major version of Moya? Check out our [migration guides](https://github.com/Moya/Moya/blob/master/docs/MigrationGuides).**
 
 ### Swift Package Manager
 
 To integrate using Apple's Swift package manager, add the following as a dependency to your `Package.swift`:
 
 ```swift
-.Package(url: "https://github.com/Moya/Moya.git", majorVersion: 8)
+.package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "10.0.0"))
 ```
 
-and then specify `.Target(name: "Moya")` as a dependency of the Target in which you wish to use Moya.
+and then specify `"Moya"` as a dependency of the Target in which you wish to use Moya.
+If you want to use reactive extensions, add also `"ReactiveMoya"` or `"RxMoya"` as your Target dependency respectively.
 Here's an example `PackageDescription`:
 
 ```swift
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
-    name: "MyApp",
+    name: "MyPackage",
+    products: [
+        .library(
+            name: "MyPackage",
+            targets: ["MyPackage"]),
+    ],
     dependencies: [
-        .Package(url: "https://github.com/Moya/Moya.git", majorVersion: 8)
+        .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "10.0.0"))
+    ],
+    targets: [
+        .target(
+            name: "MyPackage",
+            dependencies: ["ReactiveMoya"])
     ]
 )
 ```
+
+Note that as of Moya 10, SPM only works with Swift 4 toolchain and greater.
 
 ### CocoaPods
 
 For Moya, use the following entry in your Podfile:
 
 ```rb
-pod 'Moya'
+pod 'Moya', '~> 10.0'
 
 # or 
 
-pod 'Moya/RxSwift'
+pod 'Moya/RxSwift', '~> 10.0'
 
 # or
 
-pod 'Moya/ReactiveSwift'
+pod 'Moya/ReactiveSwift', '~> 10.0'
 ```
 
 Then run `pod install`.
@@ -119,6 +138,8 @@ github "Moya/Moya"
 Then run `carthage update`.
 
 If this is your first time using Carthage in the project, you'll need to go through some additional steps as explained [over at Carthage](https://github.com/Carthage/Carthage#adding-frameworks-to-an-application).
+
+> NOTE: At this time, Carthage does not provide a way to build only specific repository submodules. All submodules and their dependencies will be built with the above command. However, you don't need to copy frameworks you aren't using into your project. For instance, if you aren't using `ReactiveSwift`, feel free to delete that framework along with `ReactiveMoya` from the Carthage Build directory after `carthage update` completes. Or if you are using `ReactiveSwift` but not `RxSwift`, then `RxMoya`, `RxTest`, `RxCocoa`, etc. can safely be deleted.
 
 ### Manually
 
@@ -256,7 +277,7 @@ responses.
 
 ## Community Projects
 
-[Moya has a great community around it and some people have created some very helpful extensions.](https://github.com/Moya/Moya/blob/master/docs/CommunityProjects.md)
+[Moya has a great community around it and some people have created some very helpful extensions](https://github.com/Moya/Moya/blob/master/docs/CommunityProjects.md).
 
 ## Contributing
 
@@ -273,17 +294,26 @@ following:
 - Helping to manage issue priorities.
 - Fixing bugs/new features.
 
-If any of that sounds cool to you, send a pull request! After a few
-contributions, we'll add you as an admin to the repo so you can merge pull
-requests and help steer the ship :ship: You can read more details about that [in our contributor guidelines](https://github.com/Moya/contributors).
+If any of that sounds cool to you, send a pull request! After your first
+contribution, we will add you as a member to the repo so you can merge pull
+requests and help steer the ship :ship: You can read more details about that [in our contributor guidelines](https://github.com/Moya/Moya/blob/master/Contributing.md).
 
 Moya's community has a tremendous positive energy, and the maintainers are committed to keeping things awesome. Like [in the CocoaPods community](https://github.com/CocoaPods/CocoaPods/wiki/Communication-&-Design-Rules), always assume positive intent; even if a comment sounds mean-spirited, give the person the benefit of the doubt.
 
-Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by [its terms](https://github.com/Moya/contributors/blob/master/Code%20of%20Conduct.md).
+Please note that this project is released with a Contributor Code of Conduct. By participating in this project you agree to abide by [its terms](https://github.com/Moya/Moya/blob/master/Code%20of%20Conduct.md).
 
 ### Adding new source files
 
 If you add or remove a source file from Moya, a corresponding change needs to be made to the `Moya.xcodeproj` project at the root of this repository. This project is used for Carthage. Don't worry, you'll get an automated warning when submitting a pull request if you forget.
+
+### Help us improve Moya documentation
+Whether you’re a core member or a user trying it out for the first time, you can make a valuable contribution to Moya by improving the documentation. Help us by:
+
+- sending us feedback about something you thought was confusing or simply missing
+- suggesting better wording or ways of explaining certain topics
+- sending us a pull request via GitHub
+- improving the [Chinese documentation](Readme_CN.md)
+
 
 ## License
 
