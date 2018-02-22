@@ -78,7 +78,6 @@ class ActivityViewController: UIViewController {
         activityTableView.separatorStyle = .none
         activityTableView.estimatedRowHeight = 300
         activityTableView.rowHeight = UITableViewAutomaticDimension
-        activityTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
         
         // 订阅数据,保证视图的cell与model保持一致
         viewModel.ActivityList.subscribe(
@@ -154,6 +153,7 @@ class ActivityViewController: UIViewController {
     }
     
     private func layoutSubviews() {
+        activityTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
         if let navigationController = self.navigationController as? MainNavigationController{
             activityTableView.frame = CGRect(x: 0,
                                              y: navigationController.getHeight(),

@@ -37,7 +37,6 @@ class HomeViewController: UIViewController {
         homeTableView.separatorStyle = .none
         homeTableView.estimatedRowHeight = 300
         homeTableView.rowHeight = UITableViewAutomaticDimension
-        homeTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
         
         // 订阅viewModel
         carouselFigureViewModel.CarouselFigures.subscribe(
@@ -84,6 +83,7 @@ class HomeViewController: UIViewController {
     }
     
     private func layoutSubViews() {
+        homeTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
         if let navigationController = self.navigationController as? MainNavigationController{
             homeTableView.frame = CGRect(x: 0,
                                          y: navigationController.getHeight(),

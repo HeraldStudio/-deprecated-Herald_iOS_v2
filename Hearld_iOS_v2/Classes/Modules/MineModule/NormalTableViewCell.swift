@@ -24,6 +24,6 @@ class NormalTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        normalLabel.centerY().left(8).font(16,.semibold).color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
+        normalLabel.centerY().left(8).font(16,.regular).color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
 }

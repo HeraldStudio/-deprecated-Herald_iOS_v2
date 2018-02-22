@@ -23,14 +23,21 @@ class MineViewController: UIViewController {
     enum MineItem{
         case Account(User)
         case Url(String)
+        case Switch(String)
     }
     
     // Mark: Model
     var mineItems : [[MineItem]] = []
     
-    // 静态元素
+    /// 静态元素
+    /* Account */
     var user = User()
+    /* Url */
     let aboutUS = MineItem.Url("https://app.heraldstudio.com/about.htm?type=ios")
+    /* Switch*/
+    let lesson = MineItem.Switch("上课提醒")
+    let experiment = MineItem.Switch("实验提醒")
+    let test = MineItem.Switch("考试提醒")
     
     // dataSource
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
@@ -45,12 +52,12 @@ class MineViewController: UIViewController {
         staticTableView.delegate = self
         staticTableView.register(NormalTableViewCell.self, forCellReuseIdentifier: "Account")
         staticTableView.register(SubTitleTableViewCell.self, forCellReuseIdentifier: "SubTitle")
+        staticTableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: "Switch")
         setConfigureCell()
         // iOS11的bug，为显示tableViewHeader
         staticTableView.estimatedRowHeight = 0
         staticTableView.estimatedSectionHeaderHeight = 0
         staticTableView.estimatedSectionFooterHeight = 0
-        staticTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
         
         // 订阅数据
         MineItemSubject.subscribe(
@@ -84,6 +91,7 @@ class MineViewController: UIViewController {
                     let webVC = WebViewController()
                     webVC.webUrl = URL(string: ApiHelper.changeHTTPtoHTTPS(url: url))
                     self.navigationController?.pushViewController(webVC, animated: true)
+                default: break
                 }
         }).addDisposableTo(bag)
         
@@ -93,8 +101,6 @@ class MineViewController: UIViewController {
         if results.count > 0{
             user = results.first!
         }
-        
-        prepareData()
         
         //订阅是否登录的信息
         isLoginVariable.asObservable().subscribe(
@@ -106,13 +112,18 @@ class MineViewController: UIViewController {
                     self.prepareData()
                 }
         }).addDisposableTo(bag)
+        
+        prepareData()
     }
     
     // 准备数据
     private func prepareData() {
         self.mineItems.removeAll()
+        
         self.mineItems.append([MineItem.Account(self.user)])
+        self.mineItems.append([self.lesson,self.experiment,self.test])
         self.mineItems.append([self.aboutUS])
+        
         self.MineItemSubject.onNext(self.mineItems)
     }
     
@@ -126,6 +137,8 @@ class MineViewController: UIViewController {
                 section = SectionTableModel(model: "我的账户", items: itemList)
             case .Url(_):
                 section = SectionTableModel(model: "", items: itemList)
+            case .Switch(_):
+                section = SectionTableModel(model: "", items: itemList)
             }
             sections.append(section!)
         }
@@ -133,6 +146,11 @@ class MineViewController: UIViewController {
     }
     
     private func setConfigureCell() {
+        /*
+         * bug to fix:
+         * cell.accessoryType
+         * cell.cell.accessoryView 调用有问题
+         */
         dataSource.configureCell = {(_,tv,indexPath,item) in
             let mineItem = self.mineItems[indexPath.section][indexPath.row]
             switch mineItem {
@@ -147,11 +165,19 @@ class MineViewController: UIViewController {
                 cell.accessoryType = .disclosureIndicator
                 cell.url = url
                 return cell
+            case .Switch(let text):
+                let cell = tv.dequeueReusableCell(withIdentifier: "Switch", for: indexPath) as! SwitchTableViewCell
+                cell.wordLabel.text = text
+                cell.remindText = text
+//                cell.accessoryView = UISwitch()
+                return cell
             }
         }
     }
     
     private func layoutSubviews() {
+        staticTableView.separatorStyle = .singleLine
+        staticTableView.background(#colorLiteral(red: 0.904571961, green: 0.904571961, blue: 0.904571961, alpha: 1))
         if let navigationController = self.navigationController as? MainNavigationController{
             staticTableView.frame = CGRect(x: 0,
                                            y: navigationController.getHeight(),

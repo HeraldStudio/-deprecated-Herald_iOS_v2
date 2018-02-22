@@ -14,8 +14,15 @@ let screenRect = UIScreen.main.bounds
 /* 登录状态Variable */
 let isLoginVariable = Variable<Bool>(false)
 
-private let uuidKey = "uuid"
-private let isLoginKey = "isLogin"
+let isRemindLesson = Variable<Bool>(false)
+let isRemindExperiment = Variable<Bool>(false)
+let isRemindTest = Variable<Bool>(false)
+
+let uuidKey = "uuid"
+let isLoginKey = "isLogin"
+let isRemindLessonKey = "remindLesson"
+let isRemindExperimentKey = "remindExperiment"
+let isRemindTestKey = "remindTest"
 
 class HearldUserDefault{
     static let defaults = UserDefaults.standard
@@ -45,6 +52,9 @@ class HearldUserDefault{
     public func cleanAllUserDefault(){
         HearldUserDefault.defaults.removeObject(forKey: uuidKey)
         HearldUserDefault.defaults.removeObject(forKey: isLoginKey)
+        HearldUserDefault.defaults.removeObject(forKey: isRemindLessonKey)
+        HearldUserDefault.defaults.removeObject(forKey: isRemindExperimentKey)
+        HearldUserDefault.defaults.removeObject(forKey: isRemindTestKey)
     }
     
     class func set<T>(_ key: String, _ value : T) {
