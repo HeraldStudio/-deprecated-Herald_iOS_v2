@@ -27,7 +27,9 @@ public func db_updateObjc(_ object: Object, with realm: Realm){
 // 删除数据库中所匹配的查询结果
 public func db_deleteObjcs<T>(_ objects: Results<T>,with realm: Realm){
     try! realm.write {
-        realm.delete(objects)
+        if !objects.isInvalidated && !objects.isEmpty {
+            realm.delete(objects)
+        }
     }
 }
 

@@ -63,8 +63,4 @@ class ActivityModel: Object {
         }
         return .Gone
     }
-    
-    public func db_delete(with realm: Realm){
-        realm.delete(self)
-    }
 }

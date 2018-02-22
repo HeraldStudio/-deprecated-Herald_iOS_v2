@@ -36,14 +36,15 @@ class ActivityViewModel {
             // 清空数据库
             let results = realm.objects(ActivityModel.self)
             db_deleteObjcs(results, with: realm)
-            
-            self.model.removeAll()
+        
             // 发起网络请求
-            requestActivities { completionHandler() }
+            requestActivities {
+                completionHandler()
+            }
         }else {
             // 查询数据库
             let results = realm.objects(ActivityModel.self)
-            if results.count > 0 {
+            if !results.isEmpty {
                 var activityList : [ActivityModel] = []
                 for index in 0 ..< 8 {
                     activityList.append(results[index])
