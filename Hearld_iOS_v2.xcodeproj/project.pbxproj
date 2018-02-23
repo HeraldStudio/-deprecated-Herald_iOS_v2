@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5325CA8A202969D100FE3974 /* CarouselDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselDelegate.swift */; };
+		5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselProtocol.swift */; };
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
 		5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */; };
@@ -48,12 +48,17 @@
 		539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */; };
 		539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */; };
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
+		53EDB9B2203F3CA300D51A09 /* CardCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDB9B1203F3CA300D51A09 /* CardCollectionViewCell.swift */; };
+		53EDB9B4203F418400D51A09 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDB9B3203F418400D51A09 /* CardModel.swift */; };
+		53EDB9B6203F419300D51A09 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDB9B5203F419300D51A09 /* CardViewModel.swift */; };
+		53EDB9BD203F436500D51A09 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDB9BC203F436500D51A09 /* CardTableViewCell.swift */; };
+		53EDB9BF203F441000D51A09 /* CardTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53EDB9BE203F441000D51A09 /* CardTableViewCellProtocol.swift */; };
 		750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5325CA89202969D100FE3974 /* CarouselDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselDelegate.swift; sourceTree = "<group>"; };
+		5325CA89202969D100FE3974 /* CarouselProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselProtocol.swift; sourceTree = "<group>"; };
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
 		5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +101,11 @@
 		539C40491FAF568200EBADC1 /* MineTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineTableViewDelegate.swift; sourceTree = "<group>"; };
 		539C404B1FAF6E2600EBADC1 /* NormalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NormalTableViewCell.swift; sourceTree = "<group>"; };
 		53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidInputHelper.swift; sourceTree = "<group>"; };
+		53EDB9B1203F3CA300D51A09 /* CardCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardCollectionViewCell.swift; sourceTree = "<group>"; };
+		53EDB9B3203F418400D51A09 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
+		53EDB9B5203F419300D51A09 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		53EDB9BC203F436500D51A09 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
+		53EDB9BE203F441000D51A09 /* CardTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCellProtocol.swift; sourceTree = "<group>"; };
 		7508DE1DAD4A0E65179A11D2 /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
 		EE83E3FEDD6016DA3F021CE1 /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */,
+				53EDB9B3203F418400D51A09 /* CardModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -132,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */,
+				53EDB9B5203F419300D51A09 /* CardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -139,8 +151,8 @@
 		5335CF1F1FB2F72B001AE6E0 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
-				5325CA89202969D100FE3974 /* CarouselDelegate.swift */,
+				53EDB9B8203F427800D51A09 /* CardTableViewCell */,
+				53EDB9B7203F426700D51A09 /* CarouselFigureCell */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -172,11 +184,11 @@
 		533F8FE21FA86CDE00040A01 /* HomeModule */ = {
 			isa = PBXGroup;
 			children = (
+				533F8FE31FA86D3400040A01 /* HomeViewController.swift */,
+				5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */,
 				5335CF191FB2F657001AE6E0 /* Models */,
 				5335CF1F1FB2F72B001AE6E0 /* TableViewCells */,
 				5335CF1C1FB2F6CF001AE6E0 /* ViewModels */,
-				533F8FE31FA86D3400040A01 /* HomeViewController.swift */,
-				5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */,
 			);
 			path = HomeModule;
 			sourceTree = "<group>";
@@ -355,6 +367,33 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		53EDB9B7203F426700D51A09 /* CarouselFigureCell */ = {
+			isa = PBXGroup;
+			children = (
+				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
+				5325CA89202969D100FE3974 /* CarouselProtocol.swift */,
+			);
+			path = CarouselFigureCell;
+			sourceTree = "<group>";
+		};
+		53EDB9B8203F427800D51A09 /* CardTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				53EDB9BC203F436500D51A09 /* CardTableViewCell.swift */,
+				53EDB9BE203F441000D51A09 /* CardTableViewCellProtocol.swift */,
+				53EDB9BB203F434600D51A09 /* CardCollectionCell */,
+			);
+			path = CardTableViewCell;
+			sourceTree = "<group>";
+		};
+		53EDB9BB203F434600D51A09 /* CardCollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				53EDB9B1203F3CA300D51A09 /* CardCollectionViewCell.swift */,
+			);
+			path = CardCollectionCell;
+			sourceTree = "<group>";
+		};
 		541E075EE3AB0EB6C0567A53 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,24 +559,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				538581951F9E1D2E003933FA /* LoginModel.swift in Sources */,
+				53EDB9BF203F441000D51A09 /* CardTableViewCellProtocol.swift in Sources */,
 				53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */,
 				5385819F1F9E4556003933FA /* SnapKit.swift in Sources */,
 				533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */,
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
+				53EDB9B2203F3CA300D51A09 /* CardCollectionViewCell.swift in Sources */,
 				539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
 				53877D731FAB792000606E6B /* ActivityModel.swift in Sources */,
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
+				53EDB9BD203F436500D51A09 /* CardTableViewCell.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
+				53EDB9B6203F419300D51A09 /* CardViewModel.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
-				5325CA8A202969D100FE3974 /* CarouselDelegate.swift in Sources */,
+				5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */,
 				5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */,
 				53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */,
 				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
@@ -547,6 +590,7 @@
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
+				53EDB9B4203F418400D51A09 /* CardModel.swift in Sources */,
 				53877D7B1FAD635E00606E6B /* SwitchTableViewCell.swift in Sources */,
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,

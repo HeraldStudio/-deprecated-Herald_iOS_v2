@@ -16,13 +16,19 @@ import SVProgressHUD
 
 class HomeViewController: UIViewController {
     
+    enum HomeItem{
+        case Carousel([CarouselFigureModel])
+        case Card([CardModel])
+    }
+    
     // tableView & dataSource
     var homeTableView = UITableView()
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
-    typealias SectionTableModel = SectionModel<String,[CarouselFigureModel]>
+    typealias SectionTableModel = SectionModel<String,HomeItem>
     
     // ViewModels
     var carouselFigureViewModel = CarouselFigureViewModel()
+    var cardViewModel = CardViewModel()
     let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -33,25 +39,29 @@ class HomeViewController: UIViewController {
         // 注册Cell并设置ConfigureCell以及ConfigureAnimation
         homeTableView.delegate = self
         homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
+        homeTableView.register(CardTableViewCell.self, forCellReuseIdentifier: "Card")
         setConfigureCell()
         homeTableView.separatorStyle = .none
         homeTableView.estimatedRowHeight = 300
         homeTableView.rowHeight = UITableViewAutomaticDimension
         
         // 订阅viewModel
-        carouselFigureViewModel.CarouselFigures.subscribe(
-            onNext:{ figureArray in
-                self.homeTableView.dataSource = nil
-                Observable.just(self.createSectionModel(figureArray))
-                    .bind(to: self.homeTableView.rx.items(dataSource: self.dataSource))
-                    .addDisposableTo(self.bag)
-        },
-            onError:{error in
-                SVProgressHUD.showError(withStatus: error.localizedDescription)
-        }).addDisposableTo(bag)
+        let carouselObservable = carouselFigureViewModel.CarouselFigures
+        let cardObservable = cardViewModel.Cards
+        
+        Observable.combineLatest(carouselObservable, cardObservable) {
+            (figureList: [CarouselFigureModel], cardList: [CardModel]) in
+                var items: [HomeItem] = []
+                items.append(HomeItem.Carousel(figureList))
+                items.append(HomeItem.Card(cardList))
+                return items
+            }.map { (sections: [HomeItem]) -> [SectionTableModel] in
+                return self.createSectionModel(sections)
+            }.bind(to: self.homeTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(bag)
         
         // prepareData
         carouselFigureViewModel.prepareData()
+        cardViewModel.prepareData()
     }
     
     /*
@@ -71,15 +81,22 @@ class HomeViewController: UIViewController {
     
     private func setConfigureCell() {
         self.dataSource.configureCell = {(_,tv,indexPath,item) in
-            let cell = tv.dequeueReusableCell(withIdentifier: "CarouselFigure", for: indexPath) as! CarouselFigureCell
-            cell.itemArray = item
-            cell.deleagte = self
-            return cell
+            switch item {
+            case .Carousel(let figureList):
+                let cell = tv.dequeueReusableCell(withIdentifier: "CarouselFigure", for: indexPath) as! CarouselFigureCell
+                cell.itemArray = figureList
+                cell.deleagte = self
+                return cell
+            case .Card(let cardList):
+                let cell = tv.dequeueReusableCell(withIdentifier: "Card", for: indexPath) as! CardTableViewCell
+                cell.cardList = cardList
+                return cell
+            }
         }
     }
     
-    private func createSectionModel(_ figureList: [CarouselFigureModel]) -> [SectionTableModel]{
-        return [SectionTableModel(model: "", items: [figureList])]
+    private func createSectionModel(_ items: [HomeItem]) -> [SectionTableModel] {
+        return [SectionTableModel(model: "", items: items)]
     }
     
     private func layoutSubViews() {
