@@ -99,7 +99,7 @@ class MainTabBarController: UITabBarController {
     }
     //临时测试用按钮
     @objc func presentView() {
-        let VC = LectureViewController()
+        let VC = GPAViewController()
         self.navigationController?.pushViewController(VC, animated: true)
     }
 }

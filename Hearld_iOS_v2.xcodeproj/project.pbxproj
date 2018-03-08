@@ -14,7 +14,6 @@
 		1DB413A42050405C00E156C7 /* GPATableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139D2050405C00E156C7 /* GPATableViewDelegate.swift */; };
 		1DB413A52050405C00E156C7 /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139E2050405C00E156C7 /* GPAViewController.swift */; };
 		1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139F2050405C00E156C7 /* GPAViewModel.swift */; };
-		1DB413A72050405C00E156C7 /* SemesterTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413A02050405C00E156C7 /* SemesterTableViewCell.swift */; };
 		1DB413B1205040AC00E156C7 /* SRTPTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413AB205040AB00E156C7 /* SRTPTableViewDelegate.swift */; };
 		1DB413B2205040AC00E156C7 /* SRTPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */; };
 		1DB413B3205040AC00E156C7 /* SRTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413AD205040AB00E156C7 /* SRTPViewController.swift */; };
@@ -83,7 +82,6 @@
 		1DB4139D2050405C00E156C7 /* GPATableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPATableViewDelegate.swift; sourceTree = "<group>"; };
 		1DB4139E2050405C00E156C7 /* GPAViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
 		1DB4139F2050405C00E156C7 /* GPAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAViewModel.swift; sourceTree = "<group>"; };
-		1DB413A02050405C00E156C7 /* SemesterTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SemesterTableViewCell.swift; sourceTree = "<group>"; };
 		1DB413AB205040AB00E156C7 /* SRTPTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPTableViewDelegate.swift; sourceTree = "<group>"; };
 		1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPTableViewCell.swift; sourceTree = "<group>"; };
 		1DB413AD205040AB00E156C7 /* SRTPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPViewController.swift; sourceTree = "<group>"; };
@@ -169,7 +167,6 @@
 				1DB4139D2050405C00E156C7 /* GPATableViewDelegate.swift */,
 				1DB4139E2050405C00E156C7 /* GPAViewController.swift */,
 				1DB4139F2050405C00E156C7 /* GPAViewModel.swift */,
-				1DB413A02050405C00E156C7 /* SemesterTableViewCell.swift */,
 			);
 			path = GPAModule;
 			sourceTree = "<group>";
@@ -683,7 +680,6 @@
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				1DB413B4205040AC00E156C7 /* SRTPModel.swift in Sources */,
-				1DB413A72050405C00E156C7 /* SemesterTableViewCell.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
 				53EDB9B4203F418400D51A09 /* CardModel.swift in Sources */,

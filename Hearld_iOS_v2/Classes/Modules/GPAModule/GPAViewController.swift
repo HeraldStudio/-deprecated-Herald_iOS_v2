@@ -87,7 +87,6 @@ class GPAViewController: UIViewController {
     
     private func setConfigureCell() {
         dataSource.configureCell = {(_,tv,indexPath,item) in
-            print(indexPath)
             if indexPath[0] == 0 {
                 let cell = tv.dequeueReusableCell(withIdentifier: "GPAStatus", for: indexPath) as! GPAStatusTableViewCell
                 cell.timeLabel.text = "计算时间: " + item.time
