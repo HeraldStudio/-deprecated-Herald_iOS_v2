@@ -16,9 +16,18 @@ class SwitchTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        customInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        customInit()
+    }
+    
+    fileprivate func customInit() {
         self.contentView.addSubViews(subViews: [wordLabel,switchh])
         self.selectionStyle = .none
-        layoutSubviews()
+        layoutUI()
         
         switchh.rx.isOn.asObservable().subscribe { (isOn) in
             switch self.remindText {
@@ -37,11 +46,7 @@ class SwitchTableViewCell: UITableViewCell {
         }
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func layoutSubviews() {
+    private func layoutUI() {
         wordLabel.top(8).left(8).bottom(8).font(16,.regular).color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
         switchh.right(10).centerY(wordLabel)
     }

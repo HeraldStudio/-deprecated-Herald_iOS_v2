@@ -25,17 +25,22 @@ class ActivityTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        cardView.addSubViews(subViews: [titleLabel,stateLabel,picture,introductionLabel,timeLabel,locationLabel])
-        self.contentView.addSubViews(subViews: [cardView])
-        self.selectionStyle = .none
-        layoutSubviews()
+        customInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        customInit()
     }
     
-    override func layoutSubviews() {
+    fileprivate func customInit() {
+        cardView.addSubViews(subViews: [titleLabel,stateLabel,picture,introductionLabel,timeLabel,locationLabel])
+        self.contentView.addSubViews(subViews: [cardView])
+        self.selectionStyle = .none
+        layoutUI()
+    }
+    
+    private func layoutUI() {
         // 背景
         contentView.background(#colorLiteral(red: 0.9566619039, green: 0.9566619039, blue: 0.9566619039, alpha: 1))
         

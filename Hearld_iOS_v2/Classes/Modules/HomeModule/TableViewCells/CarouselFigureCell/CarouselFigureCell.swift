@@ -24,16 +24,21 @@ class CarouselFigureCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        carousel = UnlimitedCarousel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
-        self.contentView.addSubview(carousel)
-        layoutSubviews()
+        customInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        customInit()
     }
     
-    override func layoutSubviews() {
+    fileprivate func customInit() {
+        carousel = UnlimitedCarousel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
+        self.contentView.addSubview(carousel)
+        layoutUI()
+    }
+    
+    private func layoutUI() {
         contentView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
     }
 }

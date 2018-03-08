@@ -26,7 +26,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         super.viewDidLoad()
         webView.addSubview(spinner)
         view.addSubview(webView)
-        layoutSubViews()
+        layoutUI()
         loadURL()
     }
     
@@ -38,7 +38,7 @@ class WebViewController: UIViewController,UIWebViewDelegate {
         }
     }
     
-    private func layoutSubViews() {
+    private func layoutUI() {
         if let navigationController = self.navigationController as? MainNavigationController{
             webView.frame = CGRect(x: 0,
                                    y: navigationController.getHeight(),

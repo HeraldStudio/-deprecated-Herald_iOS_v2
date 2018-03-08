@@ -36,7 +36,7 @@ class ActivityViewController: UIViewController {
         
         // 初始化子视图
         view.addSubview(activityTableView)
-        layoutSubviews()
+        layoutUI()
         
         // 设置下拉刷新控件为列表页头视图
         activityTableView.tableHeaderView = swiper
@@ -152,7 +152,7 @@ class ActivityViewController: UIViewController {
         return [SectionTableModel(model: "", items: activityList)]
     }
     
-    private func layoutSubviews() {
+    private func layoutUI() {
         activityTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
         if let navigationController = self.navigationController as? MainNavigationController{
             activityTableView.frame = CGRect(x: 0,
