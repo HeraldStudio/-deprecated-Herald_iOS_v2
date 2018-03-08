@@ -15,15 +15,20 @@ class CardCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.contentView.addSubViews(subViews: [image,textLabel])
-        layoutSubviews()
+        customInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        customInit()
     }
     
-    override func layoutSubviews() {
+    fileprivate func customInit() {
+        self.contentView.addSubViews(subViews: [image,textLabel])
+        layoutUI()
+    }
+    
+    private func layoutUI() {
         image.left(5).top(5).bottom(5).height(self.frame.height - 10).width(self.frame.height - 10)
         textLabel.after(image,5).top(5).bottom(5).width(60).height(self.frame.height - 10).font(13,.regular)
     }

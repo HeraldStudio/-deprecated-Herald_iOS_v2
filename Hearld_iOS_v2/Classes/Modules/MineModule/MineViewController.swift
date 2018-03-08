@@ -46,7 +46,7 @@ class MineViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(staticTableView)
-        layoutSubviews()
+        layoutUI()
         
         // 设置tableview
         staticTableView.delegate = self
@@ -102,7 +102,7 @@ class MineViewController: UIViewController {
             user = results.first!
         }
         
-        //订阅是否登录的信息
+        // 订阅是否登录的信息
         isLoginVariable.asObservable().subscribe(
             onNext:{ isLogin in
                 if isLogin {
@@ -174,8 +174,8 @@ class MineViewController: UIViewController {
             }
         }
     }
-    
-    private func layoutSubviews() {
+
+    private func layoutUI() {
         staticTableView.separatorStyle = .singleLine
         staticTableView.background(#colorLiteral(red: 0.904571961, green: 0.904571961, blue: 0.904571961, alpha: 1))
         if let navigationController = self.navigationController as? MainNavigationController{

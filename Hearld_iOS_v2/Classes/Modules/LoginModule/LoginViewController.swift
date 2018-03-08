@@ -34,7 +34,7 @@ class LoginViewController: UIViewController {
         self.view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         view.addSubViews(subViews: [cardIDTextField,passwordTextField,loginButton,hintLabel,
                                     slogonLabel,logoImageView,productTitle,productSubTitle])
-        layoutSubViews()
+        layoutUI()
         
         // 登录的输入是否合法的变量
         let validVariable = Variable(false)
@@ -89,7 +89,7 @@ class LoginViewController: UIViewController {
     }
     
     // 布局函数
-    private func layoutSubViews(){
+    private func layoutUI(){
         loginButton.centerX().centerY().width(280).height(40)
         loginButton.setTitle("登录", for: .normal)
         loginButton.backgroundColor = #colorLiteral(red: 0.1411764771, green: 0.3960784376, blue: 0.5647059083, alpha: 1)

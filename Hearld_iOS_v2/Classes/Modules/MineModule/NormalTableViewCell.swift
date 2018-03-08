@@ -14,16 +14,21 @@ class NormalTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.contentView.addSubview(normalLabel)
-        self.selectionStyle = .none
-        layoutSubviews()
+        customInit()
     }
     
     required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        customInit()
     }
     
-    override func layoutSubviews() {
+    fileprivate func customInit() {
+        self.contentView.addSubview(normalLabel)
+        self.selectionStyle = .none
+        layoutUI()
+    }
+    
+    private func layoutUI() {
         normalLabel.centerY().left(8).font(16,.regular).color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
     }
 }
