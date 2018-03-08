@@ -473,6 +473,13 @@ extension UILabel {
         return self
     }
     
+    //设置lineBreakMode
+    @discardableResult func breakMode(_ breakMode: NSLineBreakMode) -> Self {
+        autoCheckInto()
+        self.lineBreakMode = breakMode
+        return self
+    }
+    
     @discardableResult func spacing(_ spacing: CGFloat) -> Self {
         autoCheckInto()
         let attrs = NSMutableAttributedString(attributedString: self.attributedText ?? NSAttributedString(string: self.text ?? ""))
