@@ -47,6 +47,12 @@ enum SubscribeAPI {
     case CarouselFigure()                         //获取轮播图API
 }
 
+enum QueryAPI {
+    case GPA()                                    //查询成绩API
+    case SRTP()                                   //查询SRTP
+    case Lecture()                                //查询人文讲座
+}
+
 extension UserAPI: TargetType {
     
     var baseURL: URL { return URL(string: "https://www.heraldstudio.com/")! }
@@ -176,4 +182,60 @@ extension SubscribeAPI: TargetType{
     public func url(route: TargetType) -> String {
         return route.baseURL.appendingPathComponent(route.path).absoluteString
     }
+}
+
+extension QueryAPI: TargetType{
+    var baseURL: URL {
+        switch self {
+        case .Lecture(), .SRTP(), .GPA():
+            return URL(string: "https://www.heraldstudio.com/")!
+        }
+    }
+    
+    var path: String {
+        switch self {
+        case .GPA():
+            return ApiHelper.api("gpa")
+        case .SRTP():
+            return ApiHelper.api("srtp")
+        case .Lecture():
+            return ApiHelper.api("lecture")
+        }
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        case .Lecture(), .GPA(), .SRTP():
+            return .post
+        }
+    }
+    
+    var sampleData: Data {
+        switch self {
+        case .Lecture(), .GPA(), .SRTP():
+            return "Query".utf8Encoded
+        }
+    }
+    
+    var task: Task {
+        switch self {
+        case .GPA():
+            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!], encoding: URLEncoding.queryString)
+        case .Lecture(), .SRTP():
+            let realm = try! Realm()
+            let shchoolNum = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first?.shchoolNum
+            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!,
+                                                   "schoolnum": shchoolNum!], encoding: URLEncoding.queryString)
+        }
+    }
+    
+
+    var headers: [String: String]? {
+        switch self {
+        case .SRTP(), .Lecture(), .GPA():
+            return ["Content-type": "application/json"]
+        }
+    }
+    
+    
 }
