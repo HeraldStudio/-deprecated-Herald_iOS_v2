@@ -10,9 +10,16 @@ import Foundation
 import UIKit
 
 extension HomeViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        if indexPath[1] == 1 {
+            return 80
+        }else {
+            return 160
+        }
+        
     }
+ 
 }
 
 extension HomeViewController: CarouselFigureCellProtocol {

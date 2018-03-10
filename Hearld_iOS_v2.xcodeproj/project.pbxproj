@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1D826D942050FE83006C8478 /* LectureStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D932050FE83006C8478 /* LectureStatusTableViewCell.swift */; };
+		1D826D9620514E70006C8478 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D9520514E70006C8478 /* InfoModel.swift */; };
+		1D826D992052BD38006C8478 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D982052BD38006C8478 /* InfoTableViewCell.swift */; };
+		1D826D9B2052BDA2006C8478 /* InfoTableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D9A2052BDA2006C8478 /* InfoTableViewCellProtocol.swift */; };
+		1D826D9E2052BE5D006C8478 /* InfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D9D2052BE5D006C8478 /* InfoCollectionViewCell.swift */; };
+		1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D9F2052C223006C8478 /* InfoViewModel.swift */; };
 		1DB413A12050405C00E156C7 /* GPATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139A2050405C00E156C7 /* GPATableViewCell.swift */; };
 		1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139B2050405C00E156C7 /* GPAModel.swift */; };
 		1DB413A32050405C00E156C7 /* GPAStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139C2050405C00E156C7 /* GPAStatusTableViewCell.swift */; };
@@ -76,6 +81,11 @@
 
 /* Begin PBXFileReference section */
 		1D826D932050FE83006C8478 /* LectureStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureStatusTableViewCell.swift; sourceTree = "<group>"; };
+		1D826D9520514E70006C8478 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
+		1D826D982052BD38006C8478 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
+		1D826D9A2052BDA2006C8478 /* InfoTableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCellProtocol.swift; sourceTree = "<group>"; };
+		1D826D9D2052BE5D006C8478 /* InfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoCollectionViewCell.swift; sourceTree = "<group>"; };
+		1D826D9F2052C223006C8478 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		1DB4139A2050405C00E156C7 /* GPATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPATableViewCell.swift; sourceTree = "<group>"; };
 		1DB4139B2050405C00E156C7 /* GPAModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAModel.swift; sourceTree = "<group>"; };
 		1DB4139C2050405C00E156C7 /* GPAStatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAStatusTableViewCell.swift; sourceTree = "<group>"; };
@@ -158,6 +168,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D826D972052BD03006C8478 /* InfoTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1D826D9C2052BE36006C8478 /* InfoCollectionViewCell */,
+				1D826D982052BD38006C8478 /* InfoTableViewCell.swift */,
+				1D826D9A2052BDA2006C8478 /* InfoTableViewCellProtocol.swift */,
+			);
+			path = InfoTableViewCell;
+			sourceTree = "<group>";
+		};
+		1D826D9C2052BE36006C8478 /* InfoCollectionViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				1D826D9D2052BE5D006C8478 /* InfoCollectionViewCell.swift */,
+			);
+			path = InfoCollectionViewCell;
+			sourceTree = "<group>";
+		};
 		1DB413992050405C00E156C7 /* GPAModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +239,7 @@
 			children = (
 				5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */,
 				53EDB9B3203F418400D51A09 /* CardModel.swift */,
+				1D826D9520514E70006C8478 /* InfoModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -220,6 +249,7 @@
 			children = (
 				5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */,
 				53EDB9B5203F419300D51A09 /* CardViewModel.swift */,
+				1D826D9F2052C223006C8478 /* InfoViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -227,6 +257,7 @@
 		5335CF1F1FB2F72B001AE6E0 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
+				1D826D972052BD03006C8478 /* InfoTableViewCell */,
 				53EDB9B8203F427800D51A09 /* CardTableViewCell */,
 				53EDB9B7203F426700D51A09 /* CarouselFigureCell */,
 			);
@@ -660,13 +691,16 @@
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
 				1D826D942050FE83006C8478 /* LectureStatusTableViewCell.swift in Sources */,
+				1D826D9B2052BDA2006C8478 /* InfoTableViewCellProtocol.swift in Sources */,
 				1DB413B2205040AC00E156C7 /* SRTPTableViewCell.swift in Sources */,
+				1D826D9E2052BE5D006C8478 /* InfoCollectionViewCell.swift in Sources */,
 				53EDB9BD203F436500D51A09 /* CardTableViewCell.swift in Sources */,
 				1DB413B3205040AC00E156C7 /* SRTPViewController.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				53EDB9B6203F419300D51A09 /* CardViewModel.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
+				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
@@ -676,6 +710,7 @@
 				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
 				1DB413BD205040C000E156C7 /* LectureViewModel.swift in Sources */,
 				53877D7D1FAD64E900606E6B /* SubTitleTableViewCell.swift in Sources */,
+				1D826D992052BD38006C8478 /* InfoTableViewCell.swift in Sources */,
 				533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
@@ -686,6 +721,7 @@
 				1DB413BE205040C000E156C7 /* LectureViewController.swift in Sources */,
 				1DB413A42050405C00E156C7 /* GPATableViewDelegate.swift in Sources */,
 				1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */,
+				1D826D9620514E70006C8478 /* InfoModel.swift in Sources */,
 				1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */,
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,
 				53877D7B1FAD635E00606E6B /* SwitchTableViewCell.swift in Sources */,

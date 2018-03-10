@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     enum HomeItem{
         case Carousel([CarouselFigureModel])
         case Card([CardModel])
+        case Info([InfoModel])
     }
     
     // tableView & dataSource
@@ -28,6 +29,7 @@ class HomeViewController: UIViewController {
     
     // ViewModels
     var carouselFigureViewModel = CarouselFigureViewModel()
+    var infoViewModel = InfoViewModel()
     var cardViewModel = CardViewModel()
     let bag = DisposeBag()
     
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController {
         homeTableView.delegate = self
         homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
         homeTableView.register(CardTableViewCell.self, forCellReuseIdentifier: "Card")
+        homeTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: "Info")
         setConfigureCell()
         homeTableView.separatorStyle = .none
         homeTableView.estimatedRowHeight = 300
@@ -48,11 +51,13 @@ class HomeViewController: UIViewController {
         // 订阅viewModel
         let carouselObservable = carouselFigureViewModel.CarouselFigures
         let cardObservable = cardViewModel.Cards
+        let infoObservable = infoViewModel.Info
         
-        Observable.combineLatest(carouselObservable, cardObservable) {
-            (figureList: [CarouselFigureModel], cardList: [CardModel]) in
+        Observable.combineLatest(carouselObservable, cardObservable, infoObservable) {
+            (figureList: [CarouselFigureModel], cardList: [CardModel], infoList: [InfoModel]) in
                 var items: [HomeItem] = []
                 items.append(HomeItem.Carousel(figureList))
+                items.append(HomeItem.Info(infoList))
                 items.append(HomeItem.Card(cardList))
                 return items
             }.map { (sections: [HomeItem]) -> [SectionTableModel] in
@@ -62,6 +67,7 @@ class HomeViewController: UIViewController {
         // prepareData
         carouselFigureViewModel.prepareData()
         cardViewModel.prepareData()
+        infoViewModel.prepareData()
     }
     
     /*
@@ -90,6 +96,10 @@ class HomeViewController: UIViewController {
             case .Card(let cardList):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Card", for: indexPath) as! CardTableViewCell
                 cell.cardList = cardList
+                return cell
+            case .Info(let infoList):
+                let cell = tv.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! InfoTableViewCell
+                cell.infoList = infoList
                 return cell
             }
         }

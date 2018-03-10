@@ -97,7 +97,6 @@ class GPAViewController: UIViewController {
             }else {
                 
                 let cell = tv.dequeueReusableCell(withIdentifier: "GPA", for: indexPath) as! GPATableViewCell
-                print(indexPath)
                 // 课程
                 cell.nameLabel.text = item.name
                 // 得分和学分
