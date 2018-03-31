@@ -37,8 +37,8 @@ struct LoginViewModel{
             case let .success(moyaResponse):
                 //Response body
                 let data = moyaResponse.data
-                let NSuuid = NSString(data: data, encoding: String.Encoding.utf8.rawValue)
-                let uuid = NSuuid! as String
+                let json = JSON(data)
+                let uuid = json["result"].stringValue
                 self.user.uuid = uuid
                 HearldUserDefault.uuid = uuid
                 self.checkUUID()
@@ -53,14 +53,14 @@ struct LoginViewModel{
         provider.request(.Info()) { (result) in
             switch result{
             case let .success(moyaResponse):
-                let schoolNum = JSON(moyaResponse.data)["content"]["schoolnum"].stringValue
+                let schoolNum = JSON(moyaResponse.data)["result"]["schoolnum"].stringValue
                 if (moyaResponse.response?.statusCode == 200 && schoolNum.characters.count == 8){
                     let data = moyaResponse.data
                     let json = JSON(data)
-                    self.user.username = json["content"]["name"].stringValue
-                    self.user.cardID = json["content"]["cardnum"].stringValue
-                    self.user.sex = json["content"]["sex"].stringValue
-                    self.user.shchoolNum = json["content"]["schoolnum"].stringValue
+                    self.user.username = json["result"]["name"].stringValue
+                    self.user.cardID = json["result"]["cardnum"].stringValue
+                    self.user.shchoolNum = json["result"]["schoolnum"].stringValue
+                    self.user.identity = json["result"]["identity"].stringValue
                     
                     guard let realm = try? Realm() else {
                         return

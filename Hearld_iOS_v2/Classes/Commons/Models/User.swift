@@ -17,6 +17,7 @@ class User : Object{
     @objc dynamic var uuid : String = ""
     @objc dynamic var sex : String = ""
     @objc dynamic var shchoolNum : String = ""
+    @objc dynamic var identity : String = ""
     
     override static func primaryKey() -> String? {
         return "cardID"
