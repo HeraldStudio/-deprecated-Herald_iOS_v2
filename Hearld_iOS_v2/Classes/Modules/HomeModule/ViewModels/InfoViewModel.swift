@@ -2,7 +2,7 @@
 //  InfoViewModel.swift
 //  Hearld_iOS_v2
 //
-//  Created by 乔哲锋 on 09/03/2018.
+//  Created by Nathan on 01/04/2018.
 //  Copyright © 2018 Nathan. All rights reserved.
 //
 
@@ -12,21 +12,22 @@ import RxSwift
 import RxCocoa
 
 class InfoViewModel {
-    var model: [InfoModel] = []
+    var model: [infoItem] = []
     
-    fileprivate let InfoSubject = PublishSubject<[InfoModel]>()
-    var Info: Observable<[InfoModel]>{
-        return InfoSubject.asObservable()
+    fileprivate let infoSubject = PublishSubject<[infoItem]>()
+    var Info: Observable<[infoItem]>{
+        return infoSubject.asObservable()
     }
     let bag = DisposeBag()
     
     func prepareData() {
         model.removeAll()
-        model.append(InfoModel("一卡通余额","135.5"))
-        model.append(InfoModel("人文讲座","6"))
-        model.append(InfoModel("课外研学","5.5"))
-        model.append(InfoModel("首修绩点","4.0"))
-        self.InfoSubject.onNext(model)
+        model.append(infoItem.cardExtra)
+        model.append(infoItem.grade)
+        model.append(infoItem.lecture)
+        model.append(infoItem.pe)
+        model.append(infoItem.srtp)
+        infoSubject.onNext(model)
     }
 }
 

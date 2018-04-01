@@ -11,7 +11,7 @@ import Foundation
 enum infoItem {
     case cardExtra
     case pe
-    case lecture(LectureModel)
-    case strp(SRTPModel)
-    case grade(GPAModel)
+    case lecture
+    case srtp
+    case grade
 }

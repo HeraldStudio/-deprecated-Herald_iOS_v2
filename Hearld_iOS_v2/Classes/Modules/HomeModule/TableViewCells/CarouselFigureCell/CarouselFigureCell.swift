@@ -33,13 +33,14 @@ class CarouselFigureCell: UITableViewCell {
     }
     
     fileprivate func customInit() {
-        carousel = UnlimitedCarousel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
-        self.contentView.addSubview(carousel)
         layoutUI()
     }
     
     private func layoutUI() {
         contentView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
+        
+        carousel = UnlimitedCarousel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
+        carousel.into(contentView).top(0).left(0).right(0).bottom(0).height(160)
     }
 }
 

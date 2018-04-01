@@ -18,7 +18,7 @@ class HomeViewController: UIViewController {
     
     enum HomeItem{
         case Carousel([CarouselFigureModel])
-        case Info([InfoModel])
+        case Info([infoItem])
     }
     
     // tableView & dataSource
@@ -50,7 +50,7 @@ class HomeViewController: UIViewController {
         let infoObservable = infoViewModel.Info
         
         Observable.combineLatest(carouselObservable, infoObservable) {
-            (figureList: [CarouselFigureModel],infoList: [InfoModel]) in
+            (figureList: [CarouselFigureModel],infoList: [infoItem]) in
                 var items: [HomeItem] = []
                 items.append(HomeItem.Carousel(figureList))
                 items.append(HomeItem.Info(infoList))

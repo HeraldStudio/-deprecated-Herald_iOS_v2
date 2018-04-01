@@ -37,7 +37,7 @@ extension NSMutableAttributedString {
     }
     
     @discardableResult func color(_ color: UIColor, _ range: NSRange) -> Self{
-        let colorAttribute = [NSFontAttributeName: color]
+        let colorAttribute = [NSForegroundColorAttributeName: color]
         self.addAttributes(colorAttribute, range: range)
         return self
     }
