@@ -18,7 +18,6 @@ class HomeViewController: UIViewController {
     
     enum HomeItem{
         case Carousel([CarouselFigureModel])
-        case Card([CardModel])
         case Info([InfoModel])
     }
     
@@ -30,7 +29,6 @@ class HomeViewController: UIViewController {
     // ViewModels
     var carouselFigureViewModel = CarouselFigureViewModel()
     var infoViewModel = InfoViewModel()
-    var cardViewModel = CardViewModel()
     let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -41,7 +39,6 @@ class HomeViewController: UIViewController {
         // 注册Cell并设置ConfigureCell以及ConfigureAnimation
         homeTableView.delegate = self
         homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
-        homeTableView.register(CardTableViewCell.self, forCellReuseIdentifier: "Card")
         homeTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: "Info")
         setConfigureCell()
         homeTableView.separatorStyle = .none
@@ -50,15 +47,13 @@ class HomeViewController: UIViewController {
         
         // 订阅viewModel
         let carouselObservable = carouselFigureViewModel.CarouselFigures
-        let cardObservable = cardViewModel.Cards
         let infoObservable = infoViewModel.Info
         
-        Observable.combineLatest(carouselObservable, cardObservable, infoObservable) {
-            (figureList: [CarouselFigureModel], cardList: [CardModel], infoList: [InfoModel]) in
+        Observable.combineLatest(carouselObservable, infoObservable) {
+            (figureList: [CarouselFigureModel],infoList: [InfoModel]) in
                 var items: [HomeItem] = []
                 items.append(HomeItem.Carousel(figureList))
                 items.append(HomeItem.Info(infoList))
-                items.append(HomeItem.Card(cardList))
                 return items
             }.map { (sections: [HomeItem]) -> [SectionTableModel] in
                 return self.createSectionModel(sections)
@@ -66,7 +61,6 @@ class HomeViewController: UIViewController {
         
         // prepareData
         carouselFigureViewModel.prepareData()
-        cardViewModel.prepareData()
         infoViewModel.prepareData()
     }
     
@@ -92,10 +86,6 @@ class HomeViewController: UIViewController {
                 let cell = tv.dequeueReusableCell(withIdentifier: "CarouselFigure", for: indexPath) as! CarouselFigureCell
                 cell.itemArray = figureList
                 cell.deleagte = self
-                return cell
-            case .Card(let cardList):
-                let cell = tv.dequeueReusableCell(withIdentifier: "Card", for: indexPath) as! CardTableViewCell
-                cell.cardList = cardList
                 return cell
             case .Info(let infoList):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! InfoTableViewCell

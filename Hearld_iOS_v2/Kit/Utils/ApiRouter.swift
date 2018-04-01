@@ -169,7 +169,7 @@ extension SubscribeAPI: TargetType{
             let shchoolNum = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first?.shchoolNum
             return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!,
                                                    "schoolnum": shchoolNum!,
-                                                   "versiontype": "iOS"], encoding: URLEncoding.queryString)
+                                                   "versiontype": "iOS"], encoding: JSONEncoding.default)
         }
     }
     var headers: [String: String]? {

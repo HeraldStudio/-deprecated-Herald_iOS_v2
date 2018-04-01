@@ -21,6 +21,10 @@ extension String{
         return self[startIndex..<endIndex]
     }
     
+    func length() -> Int{
+        return (self as NSString).length
+    }
+    
     var urlEscaped: String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
     }

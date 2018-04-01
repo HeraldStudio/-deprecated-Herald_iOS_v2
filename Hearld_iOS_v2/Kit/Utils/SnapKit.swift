@@ -556,25 +556,34 @@ extension UITextField {
     }
 }
 
-//extension UIImageView {
-//
-//    @discardableResult func image(url: String = "", orImage image: UIImage? = nil) -> Self {
-//        autoCheckInto()
-//        if let url = URL(string: url) {
-//            self.sd_setImage(with: url, placeholderImage: image)
-//        } else {
-//            self.image = image
-//        }
-//        return self
-//    }
-//
-//    @discardableResult func image(_ image: UIImage? = nil, orUrl url: String = "") -> Self {
-//        autoCheckInto()
-//        if let image = image {
-//            self.image = image
-//        } else if let url = URL(string: url) {
-//            self.sd_setImage(with: url)
-//        }
-//        return self
-//    }
-//}
+extension UIButton {
+    @discardableResult func title(_ title: String, _ state: UIControlState = .normal) -> Self {
+        autoCheckInto()
+        self.setTitle(title,for: state)
+        return self
+    }
+    
+    @discardableResult func color(_ color: UIColor, _ state: UIControlState = .normal) -> Self{
+        autoCheckInto()
+        self.setTitleColor(color, for: state)
+        return self
+    }
+    
+    @discardableResult func numberOfLines(_ lines: Int = 0) -> Self{
+        autoCheckInto()
+        self.titleLabel?.numberOfLines = lines
+        return self
+    }
+    
+    @discardableResult func align(_ align: NSTextAlignment) -> Self {
+        autoCheckInto()
+        self.titleLabel?.textAlignment = align
+        return self
+    }
+    
+    @discardableResult func contentAlign(_ align: UIControlContentHorizontalAlignment ) -> Self {
+        autoCheckInto()
+        self.contentHorizontalAlignment = align
+        return self
+    }
+}
