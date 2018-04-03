@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     // ViewModels
     var carouselFigureViewModel = CarouselFigureViewModel()
     var infoViewModel = InfoViewModel()
+    var gpaViewModel = GPAViewModel()
     let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -49,7 +50,7 @@ class HomeViewController: UIViewController {
         let carouselObservable = carouselFigureViewModel.CarouselFigures
         let infoObservable = infoViewModel.Info
         
-        Observable.combineLatest(carouselObservable, infoObservable) {
+        Observable.combineLatest(carouselObservable,infoObservable) {
             (figureList: [CarouselFigureModel],infoList: [infoItem]) in
                 var items: [HomeItem] = []
                 items.append(HomeItem.Carousel(figureList))
@@ -90,6 +91,7 @@ class HomeViewController: UIViewController {
             case .Info(let infoList):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! InfoTableViewCell
                 cell.infoList = infoList
+                cell.strpViewModel.prepareData(isRefresh: true, completionHandler: {})
                 return cell
             }
         }

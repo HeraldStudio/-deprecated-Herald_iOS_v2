@@ -14,8 +14,6 @@ import RxSwift
 import RealmSwift
 import RxCocoa
 
-
-
 class LectureViewModel {
     
     var model: [LectureModel] = []
@@ -85,15 +83,17 @@ class LectureViewModel {
     private func parseLectureModel(_ json: JSON) -> [LectureModel] {
         //解析返回的JSON数据
         var lectureList : [LectureModel] = []
-        let lectures = json["content"]["detial"].arrayValue
+        let lectures = json["result"].arrayValue
 
         for lectureJSON in lectures{
             let lecture = LectureModel()
-            lecture.place = lectureJSON["place"].stringValue
-            
-            let dateTime = lectureJSON["date"].stringValue.components(separatedBy: " ")
-            lecture.date = dateTime[0]
-            lecture.time = dateTime[1]
+//            lecture.place = lectureJSON["place"].stringValue
+//
+//            let dateTime = lectureJSON["date"].stringValue.components(separatedBy: " ")
+//            lecture.date = dateTime[0]
+//            lecture.time = dateTime[1]
+            lecture.time = lectureJSON["time"].stringValue
+            lecture.place = lectureJSON["location"].stringValue
             
             guard let realm = try? Realm() else {
                 return []

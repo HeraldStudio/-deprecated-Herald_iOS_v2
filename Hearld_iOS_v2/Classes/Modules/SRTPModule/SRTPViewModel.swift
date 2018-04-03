@@ -27,13 +27,11 @@ class SRTPViewModel {
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
         ModelOfSRTP.removeAll()
 
-        
         let realm = try! Realm()
         if isRefresh {
             let resultOfSRTP = realm.objects(SRTPModel.self)
             db_deleteObjcs(resultOfSRTP, with: realm)
 
-            
             requestSRTP{ completionHandler() }
         } else {
             let resultOfSRTP = realm.objects(SRTPModel.self)
@@ -76,23 +74,22 @@ class SRTPViewModel {
     private func parseSRTPModel(_ json: JSON) -> [SRTPModel] {
         //解析返回的JSON数据
         var srtpList: [SRTPModel] = []
-        let srtp = json["content"].arrayValue
+        let srtp = json["result"]["projects"].arrayValue
         
-        let srtpItem = SRTPModel()
-        srtpItem.id = srtp[0]["card number"].stringValue
-        srtpItem.allTotal = srtp[0]["total"].stringValue
-        srtpItem.score = srtp[0]["score"].stringValue
-        guard let realm = try? Realm() else {
-            return []
-        }
-        db_updateObjc(srtpItem, with: realm)
-        srtpList.append(srtpItem)
+//        let srtpItem = SRTPModel()
+//        srtpItem.allTotal = srtp[0]["points"].stringValue
+//        srtpItem.score = srtp[0]["grade"].stringValue
+//        guard let realm = try? Realm() else {
+//            return []
+//        }
+//        db_updateObjc(srtpItem, with: realm)
+//        srtpList.append(srtpItem)
         //print(realm.configuration.fileURL)
         
-        for srtpJSON in srtp.dropFirst() {
+        for srtpJSON in srtp {
             let srtpItem = SRTPModel()
             srtpItem.id = srtpJSON["project"].stringValue
-            srtpItem.total = srtpJSON["total credit"].stringValue
+//            srtpItem.total = srtpJSON["total credit"].stringValue
             srtpItem.date = srtpJSON["date"].stringValue
             srtpItem.credit = srtpJSON["credit"].stringValue
             srtpItem.type = srtpJSON["type"].stringValue

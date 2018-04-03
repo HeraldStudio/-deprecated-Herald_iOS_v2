@@ -19,7 +19,7 @@ class LectureModel: Object {
     @objc dynamic var time:String = ""
     
     override static func primaryKey() -> String? {
-        return "date"
+        return "time"
     }
     
     public func db_delete(with realm: Realm){

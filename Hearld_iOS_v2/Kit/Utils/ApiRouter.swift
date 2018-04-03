@@ -190,7 +190,7 @@ extension QueryAPI: TargetType{
     var baseURL: URL {
         switch self {
         case .Lecture(), .SRTP(), .GPA():
-            return URL(string: "https://www.heraldstudio.com/")!
+            return URL(string: "https://myseu.cn/ws3/")!
         }
     }
     
@@ -208,7 +208,7 @@ extension QueryAPI: TargetType{
     var method: Moya.Method {
         switch self {
         case .Lecture(), .GPA(), .SRTP():
-            return .post
+            return .get
         }
     }
     
@@ -221,13 +221,8 @@ extension QueryAPI: TargetType{
     
     var task: Task {
         switch self {
-        case .GPA():
-            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!], encoding: URLEncoding.queryString)
-        case .Lecture(), .SRTP():
-            let realm = try! Realm()
-            let shchoolNum = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first?.shchoolNum
-            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!,
-                                                   "schoolnum": shchoolNum!], encoding: URLEncoding.queryString)
+        case .GPA(),.Lecture(), .SRTP():
+            return .requestPlain
         }
     }
     
@@ -235,9 +230,7 @@ extension QueryAPI: TargetType{
     var headers: [String: String]? {
         switch self {
         case .SRTP(), .Lecture(), .GPA():
-            return ["Content-type": "application/json"]
+            return ["Content-type": "application/json","token": HearldUserDefault.uuid!]
         }
     }
-    
-    
 }

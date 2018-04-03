@@ -11,6 +11,7 @@ import RxCocoa
 import RxSwift
 import Realm
 import RealmSwift
+import SVProgressHUD
 
 class InfoTableViewCell: UITableViewCell {
     
@@ -35,9 +36,12 @@ class InfoTableViewCell: UITableViewCell {
     var verticalLine_3 = UIView()
     var verticalLine_4 = UIView()
 
-    // Mark - UI stuff
     var infoList: [infoItem] = [] { didSet { updateUI() }}
     
+    // Mark : ViewModel
+    var strpViewModel = SRTPViewModel()
+    var lectureViewModel = LectureViewModel()
+    var gpaViewModel = GPAViewModel()
     let bag = DisposeBag()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -63,6 +67,21 @@ class InfoTableViewCell: UITableViewCell {
 //                    self.prepareData()
 //                }
 //        }).addDisposableTo(bag)
+        
+        /// 分别订阅5个Button对应的网络请求
+        subscribeButton()
+    }
+    
+    private func subscribeButton() {
+        strpViewModel.SRTPList.subscribe(
+            onNext:{ strpArray in
+                let desc = "STRP\n"
+                let number = strpArray[0].credit
+                self.dealWithButton(self.strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+        },
+            onError: { error in
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
     }
     
     private func setupSubviews() {
@@ -126,23 +145,23 @@ class InfoTableViewCell: UITableViewCell {
             switch info {
             case .cardExtra:
                 desc = "余额\n"
-                number = "100"
+                number = "···"
                 dealWithButton(cardExtraButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
             case .pe:
                 desc = "跑操\n"
-                number = "45"
+                number = "···"
                 dealWithButton(peButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
             case .lecture():
                 desc = "讲座\n"
-                number = "6"
+                number = "···"
                 dealWithButton(lectureButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
             case .srtp():
                 desc = "STRP\n"
-                number = "40.0"
+                number = "···"
                 dealWithButton(strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
             case .grade():
                 desc = "绩点\n"
-                number = "4.8"
+                number = "···"
                 dealWithButton(gradeButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
             }
         }

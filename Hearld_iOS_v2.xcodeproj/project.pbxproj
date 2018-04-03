@@ -167,12 +167,12 @@
 		1DB413992050405C00E156C7 /* GPAModule */ = {
 			isa = PBXGroup;
 			children = (
-				1DB4139A2050405C00E156C7 /* GPATableViewCell.swift */,
 				1DB4139B2050405C00E156C7 /* GPAModel.swift */,
-				1DB4139C2050405C00E156C7 /* GPAStatusTableViewCell.swift */,
-				1DB4139D2050405C00E156C7 /* GPATableViewDelegate.swift */,
 				1DB4139E2050405C00E156C7 /* GPAViewController.swift */,
 				1DB4139F2050405C00E156C7 /* GPAViewModel.swift */,
+				1DB4139D2050405C00E156C7 /* GPATableViewDelegate.swift */,
+				1DB4139A2050405C00E156C7 /* GPATableViewCell.swift */,
+				1DB4139C2050405C00E156C7 /* GPAStatusTableViewCell.swift */,
 			);
 			path = GPAModule;
 			sourceTree = "<group>";
@@ -180,12 +180,12 @@
 		1DB413AA205040AB00E156C7 /* SRTPModule */ = {
 			isa = PBXGroup;
 			children = (
+				1DB413AE205040AB00E156C7 /* SRTPModel.swift */,
+				1DB413AD205040AB00E156C7 /* SRTPViewController.swift */,
+				1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */,
 				1DB413AB205040AB00E156C7 /* SRTPTableViewDelegate.swift */,
 				1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */,
-				1DB413AD205040AB00E156C7 /* SRTPViewController.swift */,
-				1DB413AE205040AB00E156C7 /* SRTPModel.swift */,
 				1DB413AF205040AB00E156C7 /* SRTPStatusTableViewCell.swift */,
-				1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */,
 			);
 			name = SRTPModule;
 			path = Hearld_iOS_v2/Classes/Modules/SRTPModule;
@@ -194,11 +194,11 @@
 		1DB413B7205040C000E156C7 /* LectureModule */ = {
 			isa = PBXGroup;
 			children = (
-				1DB413B8205040C000E156C7 /* LectureViewModel.swift */,
+				1DB413BB205040C000E156C7 /* LectureModel.swift */,
 				1DB413B9205040C000E156C7 /* LectureViewController.swift */,
+				1DB413B8205040C000E156C7 /* LectureViewModel.swift */,
 				1D826D932050FE83006C8478 /* LectureStatusTableViewCell.swift */,
 				1DB413BA205040C000E156C7 /* LectureTableViewDelegate.swift */,
-				1DB413BB205040C000E156C7 /* LectureModel.swift */,
 				1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */,
 			);
 			path = LectureModule;
