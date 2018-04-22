@@ -43,7 +43,7 @@ struct LoginViewModel{
                 HearldUserDefault.uuid = uuid
                 self.checkUUID()
             case .failure(_):
-                self.loginInfoSubject.onError(HearldError.NetworkError)
+                self.loginInfoSubject.onError(HeraldError.NetworkError)
             }
         }
     }
@@ -70,10 +70,10 @@ struct LoginViewModel{
                     HearldUserDefault.isLogin = true
                     self.loginInfoSubject.onNext("ok")
                 }else{
-                    self.loginInfoSubject.onError(HearldError.UserNotExist)
+                    self.loginInfoSubject.onError(HeraldError.UserNotExist)
                 }
             case .failure(_):
-                self.loginInfoSubject.onError(HearldError.NetworkError)
+                self.loginInfoSubject.onError(HeraldError.NetworkError)
             }
         }
     }

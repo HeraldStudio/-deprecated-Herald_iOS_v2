@@ -27,6 +27,10 @@
 		1DB413BF205040C000E156C7 /* LectureTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BA205040C000E156C7 /* LectureTableViewDelegate.swift */; };
 		1DB413C0205040C000E156C7 /* LectureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BB205040C000E156C7 /* LectureModel.swift */; };
 		1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */; };
+		5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00D208C7959002E60DF /* NoticeModel.swift */; };
+		5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00F208C7A29002E60DF /* NoticeViewModel.swift */; };
+		5305D013208C7FB9002E60DF /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D012208C7FB9002E60DF /* NoticeTableViewCell.swift */; };
+		5305D015208C803E002E60DF /* NoticeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D014208C803E002E60DF /* NoticeCell.swift */; };
 		5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselProtocol.swift */; };
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
@@ -95,6 +99,10 @@
 		1DB413BB205040C000E156C7 /* LectureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureModel.swift; sourceTree = "<group>"; };
 		1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewCell.swift; sourceTree = "<group>"; };
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5305D00D208C7959002E60DF /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
+		5305D00F208C7A29002E60DF /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
+		5305D012208C7FB9002E60DF /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		5305D014208C803E002E60DF /* NoticeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCell.swift; sourceTree = "<group>"; };
 		5325CA89202969D100FE3974 /* CarouselProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselProtocol.swift; sourceTree = "<group>"; };
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
@@ -212,6 +220,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5305D00C208C791F002E60DF /* NoticeModule */ = {
+			isa = PBXGroup;
+			children = (
+				5305D00D208C7959002E60DF /* NoticeModel.swift */,
+				5305D00F208C7A29002E60DF /* NoticeViewModel.swift */,
+			);
+			path = NoticeModule;
+			sourceTree = "<group>";
+		};
+		5305D011208C7F6E002E60DF /* NoticeCell */ = {
+			isa = PBXGroup;
+			children = (
+				5305D012208C7FB9002E60DF /* NoticeTableViewCell.swift */,
+				5305D014208C803E002E60DF /* NoticeCell.swift */,
+			);
+			path = NoticeCell;
+			sourceTree = "<group>";
+		};
 		5335CF191FB2F657001AE6E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,8 +259,9 @@
 		5335CF1F1FB2F72B001AE6E0 /* TableViewCells */ = {
 			isa = PBXGroup;
 			children = (
-				1D826D972052BD03006C8478 /* InfoTableViewCell */,
 				53EDB9B7203F426700D51A09 /* CarouselFigureCell */,
+				1D826D972052BD03006C8478 /* InfoTableViewCell */,
+				5305D011208C7F6E002E60DF /* NoticeCell */,
 			);
 			path = TableViewCells;
 			sourceTree = "<group>";
@@ -382,6 +409,7 @@
 				1DB413B7205040C000E156C7 /* LectureModule */,
 				1DB413AA205040AB00E156C7 /* SRTPModule */,
 				1DB413992050405C00E156C7 /* GPAModule */,
+				5305D00C208C791F002E60DF /* NoticeModule */,
 				533F8FE21FA86CDE00040A01 /* HomeModule */,
 				533F8FDC1FA86C6600040A01 /* ActivityModule */,
 				533F8FDF1FA86CBF00040A01 /* MineModule */,
@@ -628,6 +656,7 @@
 			files = (
 				1DB413B1205040AC00E156C7 /* SRTPTableViewDelegate.swift in Sources */,
 				538581951F9E1D2E003933FA /* LoginModel.swift in Sources */,
+				5305D013208C7FB9002E60DF /* NoticeTableViewCell.swift in Sources */,
 				1DB413C0205040C000E156C7 /* LectureModel.swift in Sources */,
 				53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */,
 				1DB413B5205040AC00E156C7 /* SRTPStatusTableViewCell.swift in Sources */,
@@ -638,8 +667,10 @@
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
 				1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
+				5305D015208C803E002E60DF /* NoticeCell.swift in Sources */,
 				1DB413A52050405C00E156C7 /* GPAViewController.swift in Sources */,
 				1DB413A32050405C00E156C7 /* GPAStatusTableViewCell.swift in Sources */,
+				5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */,
 				1DB413BF205040C000E156C7 /* LectureTableViewDelegate.swift in Sources */,
 				539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
@@ -677,6 +708,7 @@
 				53877D7B1FAD635E00606E6B /* SwitchTableViewCell.swift in Sources */,
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
+				5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */,
 				5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */,
 				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
 				5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */,

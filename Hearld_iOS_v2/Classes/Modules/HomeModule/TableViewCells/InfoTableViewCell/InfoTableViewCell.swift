@@ -73,6 +73,7 @@ class InfoTableViewCell: UITableViewCell {
     }
     
     private func subscribeButton() {
+        // 订阅strp请求
         strpViewModel.SRTPList.subscribe(
             onNext:{ strpArray in
                 let desc = "STRP\n"
@@ -81,6 +82,27 @@ class InfoTableViewCell: UITableViewCell {
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
+        
+        // 订阅Lecture请求
+        lectureViewModel.LectureList.subscribe(
+            onNext: { lectureArray in
+                let desc = "讲座\n"
+                let number = lectureArray.count
+                self.dealWithButton(self.lectureButton, number: String(number), desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+            },
+            onError: { error in
+                SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
+        
+        gpaViewModel.GPAList.subscribe(
+            onNext: { gpaArray in
+                let desc = "绩点\n"
+                let gpa = gpaArray[0].makeUpGPA
+                self.dealWithButton(self.gradeButton, number: gpa, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+            },
+            onError: { error in
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
     }
     

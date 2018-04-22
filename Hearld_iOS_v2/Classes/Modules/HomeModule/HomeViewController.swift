@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     enum HomeItem{
         case Carousel([CarouselFigureModel])
         case Info([infoItem])
+        case Notice([NoticeModel])
     }
     
     // tableView & dataSource
@@ -29,7 +30,8 @@ class HomeViewController: UIViewController {
     // ViewModels
     var carouselFigureViewModel = CarouselFigureViewModel()
     var infoViewModel = InfoViewModel()
-    var gpaViewModel = GPAViewModel()
+    var noticeViewModel = NoticeViewModel()
+    
     let bag = DisposeBag()
     
     override func viewDidLoad() {
@@ -41,20 +43,24 @@ class HomeViewController: UIViewController {
         homeTableView.delegate = self
         homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
         homeTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: "Info")
+        homeTableView.register(NoticeTableViewCell.self, forCellReuseIdentifier: "Notice")
         setConfigureCell()
         homeTableView.separatorStyle = .none
+        homeTableView.allowsSelection = false
         homeTableView.estimatedRowHeight = 300
         homeTableView.rowHeight = UITableViewAutomaticDimension
         
         // 订阅viewModel
         let carouselObservable = carouselFigureViewModel.CarouselFigures
         let infoObservable = infoViewModel.Info
+        let noticeObservale = noticeViewModel.noticeList
         
-        Observable.combineLatest(carouselObservable,infoObservable) {
-            (figureList: [CarouselFigureModel],infoList: [infoItem]) in
+        Observable.combineLatest(carouselObservable,infoObservable,noticeObservale) {
+            (figureList: [CarouselFigureModel],infoList: [infoItem], noticeList: [NoticeModel]) in
                 var items: [HomeItem] = []
                 items.append(HomeItem.Carousel(figureList))
                 items.append(HomeItem.Info(infoList))
+                items.append(HomeItem.Notice(noticeList))
                 return items
             }.map { (sections: [HomeItem]) -> [SectionTableModel] in
                 return self.createSectionModel(sections)
@@ -63,6 +69,7 @@ class HomeViewController: UIViewController {
         // prepareData
         carouselFigureViewModel.prepareData()
         infoViewModel.prepareData()
+        noticeViewModel.prepareData(completionHandler: {})
     }
     
     /*
@@ -91,7 +98,15 @@ class HomeViewController: UIViewController {
             case .Info(let infoList):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! InfoTableViewCell
                 cell.infoList = infoList
-                cell.strpViewModel.prepareData(isRefresh: true, completionHandler: {})
+                DispatchQueue.global().async {
+                    cell.strpViewModel.prepareData(isRefresh: true, completionHandler: {})
+                    cell.lectureViewModel.prepareData(isRefresh: true, completionHandler: {})
+                    cell.gpaViewModel.prepareData(isRefresh: true, completionHandler: {})
+                }
+                return cell
+            case .Notice(let noticeList):
+                let cell = tv.dequeueReusableCell(withIdentifier: "Notice", for: indexPath) as! NoticeTableViewCell
+                cell.noticeList = noticeList
                 return cell
             }
         }

@@ -67,12 +67,16 @@ class GPAViewModel {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 let json = JSON(data)
-                gpaList = self.parseGPAModel(json)
-                
-                self.GPASubject.onNext(gpaList)
-                completionHandler()
+                let code = json["code"].stringValue
+                if code == "200" {
+                    gpaList = self.parseGPAModel(json)
+                    self.GPASubject.onNext(gpaList)
+                    completionHandler()
+                } else if code == "408"{
+                    self.GPASubject.onError(HeraldError.NetworkError)
+                }
             case .failure(_):
-                self.GPASubject.onError(HearldError.NetworkError)
+                self.GPASubject.onError(HeraldError.NetworkError)
             }
         }
     }
@@ -80,12 +84,11 @@ class GPAViewModel {
     private func parseGPAModel(_ json: JSON) -> [GPAModel] {
         //解析返回的JSON数据
         var gpaList : [GPAModel] = []
-        let gpa = json["content"].arrayValue
         
         let gpaItem = GPAModel()
-        gpaItem.makeUpGPA = gpa[0]["gpa"].stringValue
-        gpaItem.gpa = gpa[0]["gpa without revamp"].stringValue
-        gpaItem.time = gpa[0]["calculate time"].stringValue
+        gpaItem.makeUpGPA = json["result"]["gpa"].stringValue
+        gpaItem.gpa = json["result"]["gpaBeforeMakeup"].stringValue
+        gpaItem.time = json["result"]["calculationTime"].stringValue
         
         guard let realm = try? Realm() else {
             return []
@@ -97,7 +100,7 @@ class GPAViewModel {
         db_updateObjc(gpaItem, with: realm)
         gpaList.append(gpaItem)
         
-        for gpaJSON in gpa.dropFirst() {
+        for gpaJSON in json["result"]["detail"].arrayValue {
             let gpaItem = GPAModel()
             gpaItem.name = gpaJSON["name"].stringValue
             gpaItem.semester = gpaJSON["semester"].stringValue

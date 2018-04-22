@@ -60,12 +60,16 @@ class SRTPViewModel {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 let json = JSON(data)
-                srtpList = self.parseSRTPModel(json)
-                
-                self.SRTPSubject.onNext(srtpList)
-                completionHandler()
+                let code = json["code"].stringValue
+                if code == "200" {
+                    srtpList = self.parseSRTPModel(json)
+                    self.SRTPSubject.onNext(srtpList)
+                    completionHandler()
+                } else if code == "408"{
+                    self.SRTPSubject.onError(HeraldError.NetworkError)
+                }
             case .failure(_):
-                self.SRTPSubject.onError(HearldError.NetworkError)
+                self.SRTPSubject.onError(HeraldError.NetworkError)
             }
         }
     }

@@ -76,7 +76,7 @@ class ActivityViewModel {
                     failedHandler()
                 }
             case .failure(_):
-                self.ActivitySubject.onError(HearldError.NetworkError)
+                self.ActivitySubject.onError(HeraldError.NetworkError)
             }
         }
     }
@@ -94,7 +94,7 @@ class ActivityViewModel {
                 self.ActivitySubject.onNext(activityList)
                 completionHandler()
             case .failure(_):
-                self.ActivitySubject.onError(HearldError.NetworkError)
+                self.ActivitySubject.onError(HeraldError.NetworkError)
             }
         }
     }

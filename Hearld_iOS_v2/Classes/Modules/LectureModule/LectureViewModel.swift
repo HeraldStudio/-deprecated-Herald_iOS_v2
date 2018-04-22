@@ -71,11 +71,16 @@ class LectureViewModel {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 let json = JSON(data)
-                lectureList = self.parseLectureModel(json)
-                self.LectureSubject.onNext(lectureList)
-                completionHandler()
+                let code = json["code"].stringValue
+                if code == "200" {
+                    lectureList = self.parseLectureModel(json)
+                    self.LectureSubject.onNext(lectureList)
+                    completionHandler()
+                } else if code == "408"{
+                    self.LectureSubject.onError(HeraldError.NetworkError)
+                }
             case .failure(_):
-                self.LectureSubject.onError(HearldError.NetworkError)
+                self.LectureSubject.onError(HeraldError.NetworkError)
             }
         }
     }

@@ -35,7 +35,7 @@ struct CarouselFigureViewModel {
                 figures = self.parseCarouselFigureModel(json)
                 self.CarouselFigureSubject.onNext(figures)
             case .failure(_):
-                self.CarouselFigureSubject.onError(HearldError.NetworkError)
+                self.CarouselFigureSubject.onError(HeraldError.NetworkError)
             }
         }
     }
