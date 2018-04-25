@@ -28,6 +28,7 @@ PODS:
   - UnlimitedCarousel (1.3.1):
     - SDWebImage (~> 4.0)
     - SnapKit (~> 3.0)
+  - YYCache (1.0.4)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4.0)
@@ -41,6 +42,7 @@ DEPENDENCIES:
   - SVProgressHUD
   - SwiftyJSON
   - UnlimitedCarousel (from `https://github.com/WhatTheNathan/UnlimitedCarousel.git`)
+  - YYCache
 
 EXTERNAL SOURCES:
   UnlimitedCarousel:
@@ -66,7 +68,8 @@ SPEC CHECKSUMS:
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   UnlimitedCarousel: 4bd0fa12b3761a617bfdd7a24f3058061601dcc9
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 1691f36b307e7563e0e34b4b5adc36e21af74b93
+PODFILE CHECKSUM: 787c173c8f54b13171cc77b9f646a5aaea10db41
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.3.1

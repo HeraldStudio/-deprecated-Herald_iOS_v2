@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C8442B1512C76EED4D76530F92B369FC"
+               BlueprintIdentifier = "39D45836BB1163AC88940A21EA31BDAB"
                BuildableName = "Pods_Hearld_iOS_v2.framework"
                BlueprintName = "Pods-Hearld_iOS_v2"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,7 +26,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -37,7 +36,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -47,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C8442B1512C76EED4D76530F92B369FC"
+            BlueprintIdentifier = "39D45836BB1163AC88940A21EA31BDAB"
             BuildableName = "Pods_Hearld_iOS_v2.framework"
             BlueprintName = "Pods-Hearld_iOS_v2"
             ReferencedContainer = "container:Pods.xcodeproj">
