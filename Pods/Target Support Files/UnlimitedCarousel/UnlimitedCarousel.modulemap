@@ -1,6 +1,0 @@
-framework module UnlimitedCarousel {
-  umbrella header "UnlimitedCarousel-umbrella.h"
-
-  export *
-  module * { export * }
-}
