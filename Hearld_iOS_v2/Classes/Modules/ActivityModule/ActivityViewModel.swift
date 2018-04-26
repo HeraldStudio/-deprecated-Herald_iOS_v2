@@ -12,7 +12,7 @@ import RxCocoa
 import Moya
 import SwiftyJSON
 import Alamofire
-import RealmSwift
+import YYCache
 
 class ActivityViewModel {
     
@@ -23,6 +23,7 @@ class ActivityViewModel {
         return ActivitySubject.asObservable()
     }
     let bag = DisposeBag()
+    private let cache = YYCache.init(name: "Activity")
     
     // 1.准备数据，若Refresh则发起网络请求更新数据库
     //   否则查询数据库，查询结果为空则发起网络请求。
@@ -31,27 +32,22 @@ class ActivityViewModel {
         // 清空model
         self.model.removeAll()
         
-        let realm = try! Realm()
         if isRefresh {
-            // 清空数据库
-            let results = realm.objects(ActivityModel.self)
-            db_deleteObjcs(results, with: realm)
-        
+            // 清空缓存
+            cache?.memoryCache.removeObject(forKey: "activity")
             // 发起网络请求
-            requestActivities {
-                completionHandler()
-            }
+            requestActivities { completionHandler() }
         }else {
-            // 查询数据库
-            let results = realm.objects(ActivityModel.self)
-            if !results.isEmpty {
+            // 查询缓存
+            if let activityObjects = cache?.memoryCache.object(forKey: "activity") as? [ActivityModel], activityObjects.count > 0 {
                 var activityList : [ActivityModel] = []
-                for index in 0 ..< 8 {
-                    activityList.append(results[index])
+                let ceiling = activityObjects.count >= 8 ? 8 : activityObjects.count
+                for index in 0 ..< ceiling {
+                    activityList.append(activityObjects[index])
                 }
                 self.ActivitySubject.onNext(activityList)
             }else {
-                // 数据库为空，发起网络请求
+                // 缓存为空，发起网络请求
                 requestActivities { completionHandler() }
             }
         }
@@ -105,23 +101,28 @@ class ActivityViewModel {
         let activities = json["content"].arrayValue
         for activityJSON in activities{
             //Parse activity
-            let activity = ActivityModel()
-            activity.title = activityJSON["title"].stringValue
-            activity.introduction = activityJSON["introduction"].stringValue
-            activity.start_time = activityJSON["start_time"].stringValue
-            activity.end_time = activityJSON["end_time"].stringValue
-            activity.activity_time = activityJSON["activity_time"].stringValue
-            activity.detail_url = activityJSON["detail_url"].stringValue
-            activity.pic_url = activityJSON["pic_url"].stringValue
-            activity.association = activityJSON["association"].stringValue
-            activity.location = activityJSON["location"].stringValue
-            
-            guard let realm = try? Realm() else {
-                return []
-            }
-            db_updateObjc(activity, with: realm)
+            let title = activityJSON["title"].stringValue
+            let introduction = activityJSON["introduction"].stringValue
+            let start_time = activityJSON["start_time"].stringValue
+            let end_time = activityJSON["end_time"].stringValue
+            let activity_time = activityJSON["activity_time"].stringValue
+            let detail_url = activityJSON["detail_url"].stringValue
+            let pic_url = activityJSON["pic_url"].stringValue
+            let association = activityJSON["association"].stringValue
+            let location = activityJSON["location"].stringValue
+            let activity = ActivityModel(title,
+                                         introduction,
+                                         start_time,
+                                         end_time,
+                                         activity_time,
+                                         detail_url,
+                                         pic_url,
+                                         association,
+                                         location)
             activityList.append(activity)
         }
+        // 存入缓存中
+        cache?.memoryCache.setObject(activityList, forKey: "activity")
         return activityList
     }
 }

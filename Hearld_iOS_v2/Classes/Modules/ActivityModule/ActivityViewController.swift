@@ -26,8 +26,6 @@ class ActivityViewController: UIViewController {
     
     var viewModel = ActivityViewModel()
     let bag = DisposeBag()
-//    let dataSource = RxTableViewSectionedAnimatedDataSource<SectionTableModel>()
-//    typealias SectionTableModel = AnimatableSectionModel<String,ActivityModel>
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
     typealias SectionTableModel = SectionModel<String,ActivityModel>
     
@@ -143,10 +141,6 @@ class ActivityViewController: UIViewController {
             return cell
         }
     }
-    
-//    private func setAnimationConfiguration() {
-//        dataSource.animationConfiguration = AnimationConfiguration(insertAnimation: .fade, reloadAnimation: .fade, deleteAnimation: .fade)
-//    }
     
     private func createSectionModel(_ activityList: [ActivityModel]) -> [SectionTableModel]{
         return [SectionTableModel(model: "", items: activityList)]
