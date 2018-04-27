@@ -98,7 +98,11 @@ class InfoTableViewCell: UITableViewCell {
         gpaViewModel.GPAList.subscribe(
             onNext: { gpaArray in
                 let desc = "绩点\n"
-                let gpa = gpaArray[0].makeUpGPA
+                var gpa = "..."
+                let realm = try! Realm()
+                if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
+                    gpa = user.gpa
+                }
                 self.dealWithButton(self.gradeButton, number: gpa, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
             },
             onError: { error in

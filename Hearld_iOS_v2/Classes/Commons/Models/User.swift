@@ -19,6 +19,11 @@ class User : Object{
     @objc dynamic var shchoolNum : String = ""
     @objc dynamic var identity : String = ""
     
+    // GPA stuff
+    @objc dynamic var gpa : String = ""
+    @objc dynamic var gpaBeforeMakeup : String = ""
+    @objc dynamic var gpaCalcutionTime : String = ""
+    
     override static func primaryKey() -> String? {
         return "cardID"
     }

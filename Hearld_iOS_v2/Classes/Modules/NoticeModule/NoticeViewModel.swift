@@ -23,8 +23,23 @@ class NoticeViewModel {
     
     let bag = DisposeBag()
     
-    func prepareData(completionHandler: @escaping ()->()) {
-        requestNotice { completionHandler() }
+    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+        let realm = try! Realm()
+        if isRefresh {
+            let resultOfNotice = realm.objects(NoticeModel.self)
+            db_deleteObjcs(resultOfNotice, with: realm)
+            
+            requestNotice { completionHandler() }
+        }  else {
+            let resultOfNotice = realm.objects(NoticeModel.self)
+            if resultOfNotice.count > 0 {
+                var noticeList: [NoticeModel] = []
+                resultOfNotice.forEach { noticeList.append($0) }
+                self.noticeSubject.onNext(noticeList)
+            } else {
+                requestNotice { completionHandler() }
+            }
+        }
     }
     
     private func requestNotice(completionHandler: @escaping ()->()) {
@@ -35,7 +50,6 @@ class NoticeViewModel {
             case .success(let response):
                 let data = response.data
                 let json = JSON(data)
-                print(json)
                 let code = json["code"].stringValue
                 if code == "200" {
                     noticeList = self.parseNoticeModel(json)
@@ -49,6 +63,9 @@ class NoticeViewModel {
     }
     
     private func parseNoticeModel(_ json: JSON) -> [NoticeModel] {
+        guard let realm = try? Realm() else {
+            return []
+        }
         var noticeList : [NoticeModel] = []
         let noticeArray = json["result"].arrayValue
         for noticeJSON in noticeArray {
@@ -60,6 +77,7 @@ class NoticeViewModel {
             noticeItem.isImportant = noticeJSON["isImportant"].stringValue
             noticeItem.time = noticeJSON["time"].stringValue
             
+            db_updateObjc(noticeItem, with: realm)
             noticeList.append(noticeItem)
         }
         return noticeList

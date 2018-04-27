@@ -46,8 +46,7 @@ class GPAViewController: UIViewController {
         viewModel.GPAList.subscribe(
             onNext:{ gpaArray in
                 self.GPATableView.dataSource = nil
-                self.viewModel.modelOfGPA += gpaArray
-                Observable.just(self.createSectionModel(self.viewModel.modelOfGPA))
+                Observable.just(self.createSectionModel(gpaArray))
                     .bind(to: self.GPATableView.rx.items(dataSource: self.dataSource))
                     .addDisposableTo(self.bag)
         },
@@ -87,23 +86,13 @@ class GPAViewController: UIViewController {
     
     private func setConfigureCell() {
         dataSource.configureCell = {(_,tv,indexPath,item) in
-            if indexPath[0] == 0 {
-                let cell = tv.dequeueReusableCell(withIdentifier: "GPAStatus", for: indexPath) as! GPAStatusTableViewCell
-                cell.timeLabel.text = "计算时间: " + item.time
-                cell.gpaLabel.text = "首修: " + item.gpa
-                cell.makeUpLabel.text = "绩点: " + item.makeUpGPA
-                
-                return cell
-            }else {
-                
-                let cell = tv.dequeueReusableCell(withIdentifier: "GPA", for: indexPath) as! GPATableViewCell
-                // 课程
-                cell.nameLabel.text = item.name
-                // 得分和学分
-                cell.scoreLabel.text = item.score + "(" + item.credit + "学分)"
-                
-                return cell
-            }
+            let cell = tv.dequeueReusableCell(withIdentifier: "GPA", for: indexPath) as! GPATableViewCell
+            // 课程
+            cell.nameLabel.text = item.courseName
+            // 得分和学分
+            cell.scoreLabel.text = item.score + "(" + item.credit + "学分)"
+            
+            return cell
         }
     }
     

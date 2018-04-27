@@ -25,9 +25,9 @@ class ActivityViewModel {
     let bag = DisposeBag()
     private let cache = YYMemoryCache.init()
     
-    // 1.准备数据，若Refresh则发起网络请求更新数据库
-    //   否则查询数据库，查询结果为空则发起网络请求。
-    // 2.不管是从数据库读取，还是网络获取，都默认展示前8条活动信息，所以可默认清除model
+    // 1.准备数据，若Refresh则发起网络请求更新缓存
+    //   否则查询缓存，查询结果为空则发起网络请求。
+    // 2.不管是从缓存读取，还是网络获取，都默认展示前8条活动信息，所以可默认清除model
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
         // 清空model
         self.model.removeAll()

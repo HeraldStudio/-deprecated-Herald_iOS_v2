@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
         // prepareData
         carouselFigureViewModel.prepareData()
         infoViewModel.prepareData()
-        noticeViewModel.prepareData(completionHandler: {})
+        noticeViewModel.prepareData(isRefresh: true, completionHandler: {})
     }
     
     /*
