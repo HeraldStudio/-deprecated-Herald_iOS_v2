@@ -12,23 +12,49 @@ import Realm
 import RealmSwift
 import RxCocoa
 
-class SRTPModel: Object {
-    //为图省事SRTP只用一套数据库的Model
-    //实际值为card number或者project
-    @objc dynamic var id = ""
+class SRTPModel: NSCoding {
+    var credit: String
+    var date: String
+    var department: String
+    var project: String
+    var proportion: String
+    var total: String
+    var type: String
     
-    @objc dynamic var score = ""
-    @objc dynamic var allTotal = ""
+    init(_ credit: String,
+         _ date: String,
+         _ department: String,
+         _ project: String,
+         _ proportion: String,
+         _ total: String,
+         _ type: String) {
+        self.credit = credit
+        self.date = date
+        self.department = department
+        self.project = project
+        self.proportion = proportion
+        self.total = total
+        self.type = type
+    }
     
-    @objc dynamic var credit = ""
-    @objc dynamic var proportion = ""
-    @objc dynamic var department = ""
-    @objc dynamic var date = ""
-    @objc dynamic var type = ""
-    @objc dynamic var total = ""
+    required init?(coder aDecoder: NSCoder) {
+        self.credit = aDecoder.decodeObject(forKey: "strp_credit") as! String
+        self.date = aDecoder.decodeObject(forKey: "strp_date") as! String
+        self.department = aDecoder.decodeObject(forKey: "strp_department") as! String
+        self.project = aDecoder.decodeObject(forKey: "strp_project") as! String
+        self.proportion = aDecoder.decodeObject(forKey: "strp_proportiont") as! String
+        self.total = aDecoder.decodeObject(forKey: "strp_total") as! String
+        self.type = aDecoder.decodeObject(forKey: "strp_type") as! String
+    }
     
-    override static func primaryKey() -> String? {
-        return "id"
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.credit, forKey: "strp_credit")
+        aCoder.encode(self.date, forKey: "strp_date")
+        aCoder.encode(self.department, forKey: "strp_department")
+        aCoder.encode(self.project, forKey: "strp_project")
+        aCoder.encode(self.proportion, forKey: "strp_proportion")
+        aCoder.encode(self.total, forKey: "strp_total")
+        aCoder.encode(self.type, forKey: "strp_type")
     }
 }
 

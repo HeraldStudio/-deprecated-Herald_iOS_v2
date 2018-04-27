@@ -67,8 +67,7 @@ class SRTPViewController: UIViewController {
         viewModel.SRTPList.subscribe(
             onNext:{ srtpArray in
                 self.srtpTableView.dataSource = nil
-                self.viewModel.ModelOfSRTP += srtpArray
-                Observable.just(self.createSRTPSectionModel(self.viewModel.ModelOfSRTP))
+                Observable.just(self.createSRTPSectionModel(srtpArray))
                     .bind(to: self.srtpTableView.rx.items(dataSource: self.dataSource))
                     .addDisposableTo(self.bag)
         },
@@ -92,25 +91,25 @@ class SRTPViewController: UIViewController {
         dataSource.configureCell = {(_,tv,indexPath,item) in
             if indexPath[1] == 0 {
                 let cell = tv.dequeueReusableCell(withIdentifier: "SRTPStatus", for: indexPath) as! SRTPStatusTableViewCell
-                cell.scoreLabel.text = "SRTP状态: " + item.score
-                cell.totalLabel.text = "SRTP学分: " + item.allTotal
+                cell.scoreLabel.text = "SRTP状态: " + item.project
+//                cell.totalLabel.text = "SRTP学分: " + item.total
                 
                 return cell
             }else {
                 let cell = tv.dequeueReusableCell(withIdentifier: "SRTP", for: indexPath) as! SRTPTableViewCell
                 
                 // 项目
-                cell.projectLabel.text = item.id.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
+//                cell.projectLabel.text = item.id.replacingOccurrences(of: " ", with: "", options: .literal, range: nil)
                 
                 // 项目类型和时间
                 cell.infoLabel.text = item.date + "·" + item.type
                 
                 // 实际得分和比重
-                if item.proportion.isEmpty {
-                    cell.creditLabel.text = item.credit
-                }else {
-                    cell.creditLabel.text = item.credit + "(" + item.proportion + ")"
-                }
+//                if item.proportion.isEmpty {
+//                    cell.creditLabel.text = item.credit
+//                }else {
+//                    cell.creditLabel.text = item.credit + "(" + item.proportion + ")"
+//                }
                 
                 return cell
             }

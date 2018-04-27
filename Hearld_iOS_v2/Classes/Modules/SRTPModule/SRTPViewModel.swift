@@ -13,38 +13,26 @@ import SwiftyJSON
 import RxSwift
 import RxCocoa
 import RealmSwift
+import YYCache
 
 class SRTPViewModel {
-    var ModelOfSRTP: [SRTPModel] = []
 
     fileprivate let SRTPSubject = PublishSubject<[SRTPModel]>()
     var SRTPList: Observable<[SRTPModel]> {
         return SRTPSubject.asObservable()
     }
    
+    let cache = YYMemoryCache.init()
+    
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
-        ModelOfSRTP.removeAll()
-
-        let realm = try! Realm()
         if isRefresh {
-            let resultOfSRTP = realm.objects(SRTPModel.self)
-            db_deleteObjcs(resultOfSRTP, with: realm)
-
+            cache.removeObject(forKey: "strp")
             requestSRTP{ completionHandler() }
         } else {
-            let resultOfSRTP = realm.objects(SRTPModel.self)
-            
-            if resultOfSRTP.count > 0 {
-                
-                var srtpList: [SRTPModel] = []
-                let count = resultOfSRTP.count
-                for index in 0 ..< count {
-                    srtpList.append(resultOfSRTP[index])
-                }
-
-                SRTPSubject.onNext(srtpList)
+            if let strpObjects = cache.object(forKey: "srtp") as? [SRTPModel], strpObjects.count > 0 {
+                self.SRTPSubject.onNext(strpObjects)
             }else {
                 requestSRTP{ completionHandler() }
             }
@@ -76,34 +64,33 @@ class SRTPViewModel {
     
     
     private func parseSRTPModel(_ json: JSON) -> [SRTPModel] {
-        //解析返回的JSON数据
+        guard let realm = try? Realm() else {
+            return []
+        }
+        
         var srtpList: [SRTPModel] = []
-        let srtp = json["result"]["projects"].arrayValue
         
-//        let srtpItem = SRTPModel()
-//        srtpItem.allTotal = srtp[0]["points"].stringValue
-//        srtpItem.score = srtp[0]["grade"].stringValue
-//        guard let realm = try? Realm() else {
-//            return []
-//        }
-//        db_updateObjc(srtpItem, with: realm)
-//        srtpList.append(srtpItem)
-        //print(realm.configuration.fileURL)
-        
-        for srtpJSON in srtp {
-            let srtpItem = SRTPModel()
-            srtpItem.id = srtpJSON["project"].stringValue
-//            srtpItem.total = srtpJSON["total credit"].stringValue
-            srtpItem.date = srtpJSON["date"].stringValue
-            srtpItem.credit = srtpJSON["credit"].stringValue
-            srtpItem.type = srtpJSON["type"].stringValue
-            srtpItem.proportion = srtpJSON["proportion"].stringValue
-            srtpItem.department = srtpJSON["department"].stringValue
-            
-            guard let realm = try? Realm() else {
-                return []
+        if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first{
+            try! realm.write {
+                user.points = json["result"]["info"]["points"].stringValue
+                user.grade = json["result"]["info"]["grade"].stringValue
+                realm.add(user, update: true)
             }
-            db_updateObjc(srtpItem, with: realm)
+        }
+        
+        let srtpArrayValue = json["result"]["projects"].arrayValue
+        
+        for srtpJSON in srtpArrayValue {
+            let date = srtpJSON["date"].stringValue
+            let credit = srtpJSON["credit"].stringValue
+            let type = srtpJSON["type"].stringValue
+            let proportion = srtpJSON["proportion"].stringValue
+            let department = srtpJSON["department"].stringValue
+            let total = srtpJSON["total"].stringValue
+            let project = srtpJSON["project"].stringValue
+            
+            let srtpItem = SRTPModel(credit, date, department, project, proportion, total, type)
+            
             srtpList.append(srtpItem)
         }
         return srtpList
