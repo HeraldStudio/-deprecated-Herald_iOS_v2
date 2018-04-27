@@ -68,7 +68,7 @@
 
 我原本想着YYCache虽然是OC框架，但应该还能用吧…经过各种测试，YYDiskCache真的用不了，但YYMemoryCache还行。之后我也看了包括AwesomeCache、Track等Swift写的缓存框架，都有各自的问题，而且全部都..不再维护了…简直是逼我直接用NSCache算了。
 
-捣鼓那么久，最后决定使用YYCache+Realm吧，明天够时间的话把所有缓存与网络请求都更新一遍。
+捣鼓那么久，最后决定使用YYCache+Realm吧。
 
 ## 开发文档
 
