@@ -7,22 +7,24 @@
 //
 
 import Foundation
-import RxCocoa
-import Realm
-import RealmSwift
-import RxDataSources
-import RxSwift
 
-class LectureModel: Object {
-    @objc dynamic var date:String = ""
-    @objc dynamic var place:String = ""
-    @objc dynamic var time:String = ""
+class LectureModel: NSCoding {
+    var location: String = ""
+    var time: String = ""
     
-    override static func primaryKey() -> String? {
-        return "time"
+    init(_ location: String,
+         _ time: String) {
+        self.location = location
+        self.time = time
     }
     
-    public func db_delete(with realm: Realm){
-        realm.delete(self)
+    required init?(coder aDecoder: NSCoder) {
+        self.location = aDecoder.decodeObject(forKey: "lecture_location") as! String
+        self.time = aDecoder.decodeObject(forKey: "lecture_time") as! String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.location, forKey: "lecture_location")
+        aCoder.encode(self.time, forKey: "lecture_time")
     }
 }

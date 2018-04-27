@@ -67,8 +67,7 @@ class LectureViewController: UIViewController {
             onNext:{ lecturesArray in
                 self.lectureTableView.dataSource = nil
                 self.count = lecturesArray.count
-                self.viewModel.model += lecturesArray
-                Observable.just(self.createSectionModel(self.viewModel.model))
+                Observable.just(self.createSectionModel(lecturesArray))
                     .bind(to: self.lectureTableView.rx.items(dataSource: self.dataSource))
                     .addDisposableTo(self.bag)
         },
@@ -103,9 +102,9 @@ class LectureViewController: UIViewController {
                 let cell = tv.dequeueReusableCell(withIdentifier: "Lecture", for: indexPath) as! LectureTableViewCell
                 
                 // 日期
-                cell.timeLabel.text = item.date
+                cell.timeLabel.text = item.time
                 // 地点
-                cell.locationLabel.text = item.place
+                cell.locationLabel.text = item.location
                 
                 return cell
             }

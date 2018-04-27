@@ -11,53 +11,29 @@ import Moya
 import Alamofire
 import SwiftyJSON
 import RxSwift
-import RealmSwift
 import RxCocoa
+import YYCache
 
 class LectureViewModel {
-    
-    var model: [LectureModel] = []
     
     fileprivate let LectureSubject = PublishSubject<[LectureModel]>()
     var LectureList: Observable<[LectureModel]>{
         return LectureSubject.asObservable()
     }
     
+    let cache = YYMemoryCache.init()
+    
     let bag = DisposeBag()
     
-    //仿照ActivityViewModel写的数据准备函数
-    //根据是否refresh判断是否发起网络请求
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
-        // 清空model
-        self.model.removeAll()
-        
-        let realm = try! Realm()
-        if isRefresh {
-            // 清空数据库
-            let results = realm.objects(LectureModel.self)
-            db_deleteObjcs(results, with: realm)
 
-            // 发起网络请求
+        if isRefresh {
+            cache.removeObject(forKey: "lecture")
             requestLectures { completionHandler() }
         }else {
-            // 查询数据库
-            let results = realm.objects(LectureModel.self)
-            if results.count > 0 {
-                
-                /*
-                let lectureList : [LectureModel] = Array(results)
-                self.LectureSubject.onNext(lectureList)
-                */
-                
-                var lectureList : [LectureModel] = []
-                let count = results.count 
-                for index in 0 ..< count {
-                    lectureList.append(results[index])
-                }
-                self.LectureSubject.onNext(lectureList)
-                
+            if let lectureObjects = cache.object(forKey: "lecture") as? [LectureModel], lectureObjects.count > 0 {
+                self.LectureSubject.onNext(lectureObjects)
             }else {
-                // 数据库为空，发起网络请求
                 requestLectures { completionHandler() }
             }
         }
@@ -88,25 +64,16 @@ class LectureViewModel {
     private func parseLectureModel(_ json: JSON) -> [LectureModel] {
         //解析返回的JSON数据
         var lectureList : [LectureModel] = []
-        let lectures = json["result"].arrayValue
+        let lectureArrayValue = json["result"].arrayValue
 
-        for lectureJSON in lectures{
-            let lecture = LectureModel()
-//            lecture.place = lectureJSON["place"].stringValue
-//
-//            let dateTime = lectureJSON["date"].stringValue.components(separatedBy: " ")
-//            lecture.date = dateTime[0]
-//            lecture.time = dateTime[1]
-            lecture.time = lectureJSON["time"].stringValue
-            lecture.place = lectureJSON["location"].stringValue
+        for lectureJSON in lectureArrayValue{
+            let time = lectureJSON["time"].stringValue
+            let location = lectureJSON["location"].stringValue
+            let lecture = LectureModel(location, time)
             
-            guard let realm = try? Realm() else {
-                return []
-            }
-            db_updateObjc(lecture, with: realm)
             lectureList.append(lecture)
         }
-       
+        cache.setObject(lectureList, forKey: "lecture")
         return lectureList
     }
         
