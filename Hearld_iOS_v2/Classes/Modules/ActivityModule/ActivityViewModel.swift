@@ -23,7 +23,7 @@ class ActivityViewModel {
         return ActivitySubject.asObservable()
     }
     let bag = DisposeBag()
-    private let cache = YYCache.init(name: "Activity")
+    private let cache = YYMemoryCache.init()
     
     // 1.准备数据，若Refresh则发起网络请求更新数据库
     //   否则查询数据库，查询结果为空则发起网络请求。
@@ -34,12 +34,12 @@ class ActivityViewModel {
         
         if isRefresh {
             // 清空缓存
-            cache?.memoryCache.removeObject(forKey: "activity")
+            cache.removeObject(forKey: "activity")
             // 发起网络请求
             requestActivities { completionHandler() }
         }else {
             // 查询缓存
-            if let activityObjects = cache?.memoryCache.object(forKey: "activity") as? [ActivityModel], activityObjects.count > 0 {
+            if let activityObjects = cache.object(forKey: "activity") as? [ActivityModel], activityObjects.count > 0 {
                 var activityList : [ActivityModel] = []
                 let ceiling = activityObjects.count >= 8 ? 8 : activityObjects.count
                 for index in 0 ..< ceiling {
@@ -122,7 +122,7 @@ class ActivityViewModel {
             activityList.append(activity)
         }
         // 存入缓存中
-        cache?.memoryCache.setObject(activityList, forKey: "activity")
+        cache.setObject(activityList, forKey: "activity")
         return activityList
     }
 }

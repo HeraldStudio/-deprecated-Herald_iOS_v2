@@ -25,8 +25,7 @@ PODS:
   - SnapKit (3.2.0)
   - SVProgressHUD (2.2.2)
   - SwiftyJSON (4.0.0)
-  - Track (2.0.0)
-  - UnlimitedCarousel (1.3.1):
+  - UnlimitedCarousel (1.3.4):
     - SDWebImage (~> 4.0)
     - SnapKit (~> 3.0)
   - YYCache (1.0.4)
@@ -42,7 +41,6 @@ DEPENDENCIES:
   - SnapKit (~> 3.0)
   - SVProgressHUD
   - SwiftyJSON
-  - Track
   - UnlimitedCarousel (from `https://github.com/WhatTheNathan/UnlimitedCarousel.git`)
   - YYCache
 
@@ -61,7 +59,6 @@ SPEC REPOS:
     - SnapKit
     - SVProgressHUD
     - SwiftyJSON
-    - Track
     - YYCache
 
 EXTERNAL SOURCES:
@@ -70,7 +67,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   UnlimitedCarousel:
-    :commit: 806509c27f1d406519fb18d1a44bffb5aea730a1
+    :commit: 872149dbe6502b45da9326c57567991ac3505a0d
     :git: https://github.com/WhatTheNathan/UnlimitedCarousel.git
 
 SPEC CHECKSUMS:
@@ -87,10 +84,9 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  Track: 45590b4545034d30f61622e82bef0534b168d9a9
-  UnlimitedCarousel: 4bd0fa12b3761a617bfdd7a24f3058061601dcc9
+  UnlimitedCarousel: a3456c9489d390af1fb45eeb9f348425bb7da88b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: d74db7cb032b2eb6e15270ab4f5af7a954c31c16
+PODFILE CHECKSUM: 787c173c8f54b13171cc77b9f646a5aaea10db41
 
 COCOAPODS: 1.5.0
