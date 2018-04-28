@@ -43,7 +43,7 @@ class ActivityTableViewCell: UITableViewCell {
         contentView.background(#colorLiteral(red: 0.9566619039, green: 0.9566619039, blue: 0.9566619039, alpha: 1))
         
         // 状态
-        stateLabel.into(cardView).left(10).top(10).width(45).height(20)
+        stateLabel.into(cardView).left(10).top(10).width(50).height(20)
             .clip(true).font(12).align(.center).round(3.0)
 
         // 标题

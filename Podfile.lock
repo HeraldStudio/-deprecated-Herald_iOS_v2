@@ -24,6 +24,7 @@ PODS:
   - SDWebImage/Core (4.3.0)
   - SnapKit (3.2.0)
   - SVProgressHUD (2.2.2)
+  - SwiftDate (4.3.0)
   - SwiftyJSON (4.0.0)
   - UnlimitedCarousel (1.3.4):
     - SDWebImage (~> 4.0)
@@ -40,6 +41,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
   - SnapKit (~> 3.0)
   - SVProgressHUD
+  - SwiftDate (~> 4.3.0)
   - SwiftyJSON
   - UnlimitedCarousel (from `https://github.com/WhatTheNathan/UnlimitedCarousel.git`)
   - YYCache
@@ -58,6 +60,7 @@ SPEC REPOS:
     - SDWebImage
     - SnapKit
     - SVProgressHUD
+    - SwiftDate
     - SwiftyJSON
     - YYCache
 
@@ -83,10 +86,11 @@ SPEC CHECKSUMS:
   SDWebImage: 6da6c8bca115addc4de8613362e1b15f66333825
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
+  SwiftDate: 64e2312711c5c506f7b51794308ce91f19eb494a
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   UnlimitedCarousel: a3456c9489d390af1fb45eeb9f348425bb7da88b
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
 
-PODFILE CHECKSUM: 787c173c8f54b13171cc77b9f646a5aaea10db41
+PODFILE CHECKSUM: 64bbc4ac6f89c4189f66a0caf0b107fb3265d8d2
 
 COCOAPODS: 1.5.0

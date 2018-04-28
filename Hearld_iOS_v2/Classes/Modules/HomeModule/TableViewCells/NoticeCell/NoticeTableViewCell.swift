@@ -35,7 +35,7 @@ class NoticeTableViewCell: UITableViewCell {
     }
     
     private func setupSubViews() {
-        noticeTableView.into(contentView).top(0).left(0).right(0).bottom(0).height(665)
+        noticeTableView.into(contentView).top(0).left(0).right(0).bottom(0)
     }
     
     private func updateUI() {
@@ -44,7 +44,9 @@ class NoticeTableViewCell: UITableViewCell {
 }
 
 extension NoticeTableViewCell : UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
 }
 
 extension NoticeTableViewCell : UITableViewDataSource {

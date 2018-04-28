@@ -48,7 +48,7 @@ class HomeViewController: UIViewController {
         homeTableView.separatorStyle = .none
         homeTableView.allowsSelection = false
         homeTableView.estimatedRowHeight = 300
-        homeTableView.rowHeight = UITableViewAutomaticDimension
+//        homeTableView.rowHeight = UITableViewAutomaticDimension
         
         // 订阅viewModel
         let carouselObservable = carouselFigureViewModel.CarouselFigures

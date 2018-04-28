@@ -76,6 +76,7 @@ class NoticeViewModel {
             noticeItem.isAttachment = noticeJSON["isAttachment"].stringValue
             noticeItem.isImportant = noticeJSON["isImportant"].stringValue
             noticeItem.time = noticeJSON["time"].stringValue
+            noticeItem.time = noticeItem.time.substring(NSRange(location: 0, length: noticeItem.time.length()-3))
             
             db_updateObjc(noticeItem, with: realm)
             noticeList.append(noticeItem)
