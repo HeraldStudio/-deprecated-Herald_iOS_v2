@@ -10,6 +10,7 @@ import UIKit
 
 class NoticeTableViewCell: UITableViewCell {
     
+    var staticLabel = UILabel()
     let noticeTableView = UITableView()
     
     var noticeList : [NoticeModel] = [] { didSet { updateUI() } }
@@ -35,7 +36,8 @@ class NoticeTableViewCell: UITableViewCell {
     }
     
     private func setupSubViews() {
-        noticeTableView.into(contentView).top(0).left(0).right(0).bottom(0)
+        staticLabel.into(contentView).top(15).centerX().height(20).width(80).text("通知公告").align(.center).font(16,.bold)
+        noticeTableView.into(contentView).below(staticLabel, 8).left(0).right(0).bottom(0).height(1000)
     }
     
     private func updateUI() {
@@ -45,7 +47,13 @@ class NoticeTableViewCell: UITableViewCell {
 
 extension NoticeTableViewCell : UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableViewAutomaticDimension
+        let label = UILabel(frame: CGRect(x: 10, y: 10, width: screenRect.width - 20, height: 0))
+        let notice = noticeList[indexPath.row]
+        label.numberOfLines = 0
+        label.text = notice.title
+        label.font = UIFont.systemFont(ofSize: 16, weight: UIFontWeightSemibold)
+        let size = label.sizeThatFits(CGSize(width: screenRect.width - 40, height: 0))
+        return 10 + size.height + 5 + 30 + 8 + 1
     }
 }
 
