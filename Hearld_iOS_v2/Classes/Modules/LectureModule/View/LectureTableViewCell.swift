@@ -33,9 +33,6 @@ class LectureTableViewCell: UITableViewCell {
     }
     
     private func layoutUI() {
-        // 背景
-        contentView.background(#colorLiteral(red: 0.9566619039, green: 0.9566619039, blue: 0.9566619039, alpha: 1))
-        
         // 时间
         timeLabel.into(contentView).top(10).left(15).width(150).height(17).bottom(10)
             .font(15,.semibold).color(#colorLiteral(red: 0, green: 0.6705882353, blue: 0.7647058824, alpha: 1))

@@ -42,6 +42,7 @@
 		537B4FFE2095A00D0003A070 /* LectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFD2095A00D0003A070 /* LectureView.swift */; };
 		537B50002095A24A0003A070 /* lectureViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFF2095A24A0003A070 /* lectureViewDelegate.swift */; };
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
+		537B50052095DFC60003A070 /* addSubViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50042095DFC60003A070 /* addSubViewProtocol.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
@@ -114,6 +115,7 @@
 		537B4FFD2095A00D0003A070 /* LectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureView.swift; sourceTree = "<group>"; };
 		537B4FFF2095A24A0003A070 /* lectureViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lectureViewDelegate.swift; sourceTree = "<group>"; };
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
+		537B50042095DFC60003A070 /* addSubViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubViewProtocol.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				53E354262070C2DB00D48373 /* InfoTableViewCell.swift */,
+				537B50042095DFC60003A070 /* addSubViewProtocol.swift */,
 			);
 			path = InfoTableViewCell;
 			sourceTree = "<group>";
@@ -680,6 +683,7 @@
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
+				537B50052095DFC60003A070 /* addSubViewProtocol.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
 				5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */,

@@ -97,6 +97,7 @@ class HomeViewController: UIViewController {
             case .Info(let infoList):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! InfoTableViewCell
                 cell.infoList = infoList
+                cell.delegate = self
                 DispatchQueue.global().async {
                     cell.strpViewModel.prepareData(isRefresh: true, completionHandler: {})
                     cell.lectureViewModel.prepareData(isRefresh: true, completionHandler: {})
@@ -124,5 +125,15 @@ class HomeViewController: UIViewController {
                                          height: screenRect.height - navigationController.getHeight())
             homeTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
         }
+    }
+}
+
+extension HomeViewController : addSubViewProtocol {
+    func addSubViewFromCell(_ subView: UIView) {
+        view.addSubview(subView)
+    }
+    
+    func changeAlphaTo(_ num: CGFloat) {
+        homeTableView.alpha = num
     }
 }

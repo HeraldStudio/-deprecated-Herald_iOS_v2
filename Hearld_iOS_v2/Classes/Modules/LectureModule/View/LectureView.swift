@@ -43,10 +43,10 @@ class LectureView : UIView {
         lectureViewModel.LectureList.subscribe(
             onNext: { lectureArray in
                 self.lectureList = lectureArray
-                self.lectureTableView.reloadData()
                 self.doneLabel.text = "已听讲座次数 " + String(lectureArray.count)
                 let remianCount = (lectureArray.count) > 8 ? 0 : (8 - lectureArray.count)
                 self.remainLabel.text = "剩余讲座次数 " + String(remianCount)
+                self.lectureTableView.reloadData()
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
@@ -56,10 +56,11 @@ class LectureView : UIView {
     private func setupSubviews() {
         staticLabel.into(self).top(20).centerX().height(35).width(100).color(#colorLiteral(red: 0.3330089152, green: 0.333286792, blue: 0.3330519199, alpha: 1)).text("人文讲座").font(18,.semibold).align(.center)
         
-        doneLabel.into(self).below(staticLabel, 25).left(50).height(25).width(130).background(#colorLiteral(red: 0.8659575582, green: 0.9832728505, blue: 0.9997953773, alpha: 1)).font(16,.semibold).align(.center)
+        doneLabel.into(self).below(staticLabel, 25).left(50).height(30).width(130).background(#colorLiteral(red: 0.8659575582, green: 0.9832728505, blue: 0.9997953773, alpha: 1)).font(17,.semibold).align(.center)
         
-        remainLabel.into(self).below(staticLabel, 25).right(50).height(25).width(130).background(#colorLiteral(red: 0.8659575582, green: 0.9832728505, blue: 0.9997953773, alpha: 1)).font(16,.semibold).align(.center)
+        remainLabel.into(self).below(staticLabel, 25).right(50).height(30).width(130).background(#colorLiteral(red: 0.8659575582, green: 0.9832728505, blue: 0.9997953773, alpha: 1)).font(17,.semibold).align(.center)
         
         lectureTableView.into(self).below(doneLabel, 10).left(5).right(5).bottom(5)
+        lectureTableView.isScrollEnabled = false
     }
 }

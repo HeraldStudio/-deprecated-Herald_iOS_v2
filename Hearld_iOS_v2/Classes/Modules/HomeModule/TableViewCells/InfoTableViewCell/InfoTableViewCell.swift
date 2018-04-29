@@ -38,7 +38,8 @@ class InfoTableViewCell: UITableViewCell {
     
     // Mark - 实现上弹视图
     var emptyView = UIView(frame: screenRect)
-    var lectureView = LectureView(frame: CGRect(x: 0, y: screenRect.height + 300, width: screenRect.width, height: 300))
+    var lectureView = LectureView(frame: CGRect(x: 0, y: screenRect.height + 280, width: screenRect.width, height: 260))
+    var delegate : addSubViewProtocol?
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
     
@@ -74,6 +75,9 @@ class InfoTableViewCell: UITableViewCell {
         
         /// 分别订阅5个Button对应的网络请求
         subscribeButton()
+        
+        /// 初始化emptyView
+        initialEmptyView()
         
         /// 5个Button addTarget
         addTargets()
@@ -118,6 +122,34 @@ class InfoTableViewCell: UITableViewCell {
         }).addDisposableTo(bag)
     }
     
+    private func initialEmptyView() {
+        // tap撤回上弹窗口的手势
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDropDownView(_:)))
+        // 手势需要遵循的代理：UIGestureRecognizerDelegate
+        tapGestureRecognizer.delegate = self
+        
+        // 滑动撤回上弹窗口的手势
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeLeft.direction = .left
+        swipeLeft.numberOfTouchesRequired = 1
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeRight.direction = .right
+        swipeRight.numberOfTouchesRequired = 1
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeDown.direction = .down
+        swipeDown.numberOfTouchesRequired = 1
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeUp.direction = .up
+        swipeUp.numberOfTouchesRequired = 1
+        
+        emptyView.isUserInteractionEnabled = true
+        emptyView.addGestureRecognizer(tapGestureRecognizer)
+        emptyView.addGestureRecognizer(swipeLeft)
+        emptyView.addGestureRecognizer(swipeRight)
+        emptyView.addGestureRecognizer(swipeDown)
+        emptyView.addGestureRecognizer(swipeUp)
+    }
+    
     private func addTargets() {
         cardExtraButton.tag = 101
         cardExtraButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
@@ -136,33 +168,58 @@ class InfoTableViewCell: UITableViewCell {
     }
     
     @objc private func popView(_ sender: UIButton) {
-//        var popUpView : UIView
-//        switch sender.tag {
-//        case 103:
-//            popUpView = lectureView
-//        default:
-//            return
-//        }
-        // 撤回上弹窗口的手势
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDropDownView(_:)))
-        
-        emptyView.isUserInteractionEnabled = true
-        emptyView.addGestureRecognizer(tapGestureRecognizer)
-        lectureView.alpha = 1
-        lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        
-        lectureView.lectureViewModel.prepareData(isRefresh: false) {
-            // animation
-            UIView.animate(withDuration: 0.3) {
-                self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - 600)
+        if sender.titleLabel?.text != "..." {
+            //        var popUpView : UIView
+            //        switch sender.tag {
+            //        case 103:
+            //            popUpView = lectureView
+            //        default:
+            //            return
+            //        }
+            
+            lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+            
+            lectureView.lectureViewModel.prepareData(isRefresh: false) {
+                // animation
+                UIView.animate(withDuration: 0.3) {
+                    self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - 280 - 40)
+                }
+                self.emptyView.addSubview(self.lectureView)
+                self.delegate?.addSubViewFromCell(self.emptyView)
+                self.delegate?.changeAlphaTo(0.3)
             }
-            self.emptyView.addSubview(self.lectureView)
-            self.contentView.addSubview(self.emptyView)
         }
     }
     
+    // UIGestureRecognizerDelegate
+    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let touchPoint = touch.location(in: emptyView)
+        // 如果touchPoint在上弹窗口内，则不响应手势
+        if lectureView.frame.contains(touchPoint) {
+            return false
+        } else {
+            return true
+        }
+    }
+    
+    //滑动手势popOff上弹窗口
+    func swipe(gesture: UISwipeGestureRecognizer) {
+        popOffView()
+    }
+    
+    // tap手势popOff上弹窗口
     @objc private func dismissDropDownView(_ sender: UITapGestureRecognizer) {
-
+        popOffView()
+    }
+    
+    private func popOffView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height + 280)
+        }) { finished in
+            self.lectureView.removeFromSuperview()
+            self.emptyView.removeFromSuperview()
+            self.delegate?.changeAlphaTo(1)
+        }
     }
     
     private func setupSubviews() {
@@ -262,5 +319,5 @@ class InfoTableViewCell: UITableViewCell {
         textAttrString.font(descSize, descFont, descRange).color(descColor,descRange).font(numSize, numFont, numberRange).color(numColor,numberRange)
         button.setAttributedTitle(textAttrString, for: .normal)
     }
-
+    
 }

@@ -75,7 +75,8 @@ final class LectureViewModel {
         let lectureArrayValue = json["result"].arrayValue
 
         for lectureJSON in lectureArrayValue{
-            let time = lectureJSON["time"].stringValue
+            var time = lectureJSON["time"].stringValue
+            time = time.substring(NSRange(location: 0, length: time.length()-3))
             let location = lectureJSON["location"].stringValue
             let lecture = LectureModel(location, time)
             

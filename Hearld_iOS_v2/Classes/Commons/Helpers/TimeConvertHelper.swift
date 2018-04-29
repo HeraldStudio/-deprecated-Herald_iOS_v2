@@ -27,7 +27,7 @@ class TimeConvertHelper {
         // 2.再判断是否是这周的通知，用于取得「今天」和「昨天」的特殊事件
         // 3.之后为普通情况
         if intervalInMonth >= 1 {
-            displayTime = String(calendar.month) + "\\" + String(calendar.day)
+            displayTime = String(calendar.month) + "/" + String(calendar.day)
         } else if intervalInDay <= 1{
             if intervalInDay == 0 {
                 displayTime = "今天"
