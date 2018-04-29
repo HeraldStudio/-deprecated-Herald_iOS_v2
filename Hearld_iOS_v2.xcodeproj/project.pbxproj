@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1D826D942050FE83006C8478 /* LectureStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D932050FE83006C8478 /* LectureStatusTableViewCell.swift */; };
 		1D826D9620514E70006C8478 /* InfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D9520514E70006C8478 /* InfoModel.swift */; };
 		1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D826D9F2052C223006C8478 /* InfoViewModel.swift */; };
 		1DB413A12050405C00E156C7 /* GPATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139A2050405C00E156C7 /* GPATableViewCell.swift */; };
@@ -23,8 +22,6 @@
 		1DB413B5205040AC00E156C7 /* SRTPStatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413AF205040AB00E156C7 /* SRTPStatusTableViewCell.swift */; };
 		1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */; };
 		1DB413BD205040C000E156C7 /* LectureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413B8205040C000E156C7 /* LectureViewModel.swift */; };
-		1DB413BE205040C000E156C7 /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413B9205040C000E156C7 /* LectureViewController.swift */; };
-		1DB413BF205040C000E156C7 /* LectureTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BA205040C000E156C7 /* LectureTableViewDelegate.swift */; };
 		1DB413C0205040C000E156C7 /* LectureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BB205040C000E156C7 /* LectureModel.swift */; };
 		1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */; };
 		5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00D208C7959002E60DF /* NoticeModel.swift */; };
@@ -42,6 +39,9 @@
 		533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE01FA86CDB00040A01 /* MineViewController.swift */; };
 		533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE31FA86D3400040A01 /* HomeViewController.swift */; };
 		533F8FE61FA86F9F00040A01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE51FA86F9F00040A01 /* User.swift */; };
+		537B4FFE2095A00D0003A070 /* LectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFD2095A00D0003A070 /* LectureView.swift */; };
+		537B50002095A24A0003A070 /* lectureViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFF2095A24A0003A070 /* lectureViewDelegate.swift */; };
+		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
@@ -78,7 +78,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1D826D932050FE83006C8478 /* LectureStatusTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureStatusTableViewCell.swift; sourceTree = "<group>"; };
 		1D826D9520514E70006C8478 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		1D826D9F2052C223006C8478 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		1DB4139A2050405C00E156C7 /* GPATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPATableViewCell.swift; sourceTree = "<group>"; };
@@ -94,8 +93,6 @@
 		1DB413AF205040AB00E156C7 /* SRTPStatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPStatusTableViewCell.swift; sourceTree = "<group>"; };
 		1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPViewModel.swift; sourceTree = "<group>"; };
 		1DB413B8205040C000E156C7 /* LectureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureViewModel.swift; sourceTree = "<group>"; };
-		1DB413B9205040C000E156C7 /* LectureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
-		1DB413BA205040C000E156C7 /* LectureTableViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewDelegate.swift; sourceTree = "<group>"; };
 		1DB413BB205040C000E156C7 /* LectureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureModel.swift; sourceTree = "<group>"; };
 		1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewCell.swift; sourceTree = "<group>"; };
 		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,6 +111,9 @@
 		533F8FE01FA86CDB00040A01 /* MineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewController.swift; sourceTree = "<group>"; };
 		533F8FE31FA86D3400040A01 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		533F8FE51FA86F9F00040A01 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		537B4FFD2095A00D0003A070 /* LectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureView.swift; sourceTree = "<group>"; };
+		537B4FFF2095A24A0003A070 /* lectureViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lectureViewDelegate.swift; sourceTree = "<group>"; };
+		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -203,11 +203,8 @@
 			isa = PBXGroup;
 			children = (
 				1DB413BB205040C000E156C7 /* LectureModel.swift */,
-				1DB413B9205040C000E156C7 /* LectureViewController.swift */,
 				1DB413B8205040C000E156C7 /* LectureViewModel.swift */,
-				1D826D932050FE83006C8478 /* LectureStatusTableViewCell.swift */,
-				1DB413BA205040C000E156C7 /* LectureTableViewDelegate.swift */,
-				1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */,
+				537B50012095A5CC0003A070 /* View */,
 			);
 			path = LectureModule;
 			sourceTree = "<group>";
@@ -300,6 +297,16 @@
 				5335CF1C1FB2F6CF001AE6E0 /* ViewModels */,
 			);
 			path = HomeModule;
+			sourceTree = "<group>";
+		};
+		537B50012095A5CC0003A070 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				537B4FFD2095A00D0003A070 /* LectureView.swift */,
+				537B4FFF2095A24A0003A070 /* lectureViewDelegate.swift */,
+				1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5385818F1F9E1BD8003933FA /* Models */ = {
@@ -475,6 +482,7 @@
 			children = (
 				53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */,
 				533F8FD81FA78A8700040A01 /* ErrorHelper.swift */,
+				537B50022095BAF20003A070 /* TimeConvertHelper.swift */,
 				53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */,
 				53E354282070C5DC00D48373 /* HeraldColorHelper.swift */,
 			);
@@ -644,6 +652,7 @@
 			files = (
 				1DB413B1205040AC00E156C7 /* SRTPTableViewDelegate.swift in Sources */,
 				538581951F9E1D2E003933FA /* LoginModel.swift in Sources */,
+				537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */,
 				5305D013208C7FB9002E60DF /* NoticeTableViewCell.swift in Sources */,
 				1DB413C0205040C000E156C7 /* LectureModel.swift in Sources */,
 				53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */,
@@ -659,13 +668,11 @@
 				1DB413A52050405C00E156C7 /* GPAViewController.swift in Sources */,
 				1DB413A32050405C00E156C7 /* GPAStatusTableViewCell.swift in Sources */,
 				5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */,
-				1DB413BF205040C000E156C7 /* LectureTableViewDelegate.swift in Sources */,
 				539C404C1FAF6E2600EBADC1 /* NormalTableViewCell.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
 				53877D731FAB792000606E6B /* ActivityModel.swift in Sources */,
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
-				1D826D942050FE83006C8478 /* LectureStatusTableViewCell.swift in Sources */,
 				1DB413B2205040AC00E156C7 /* SRTPTableViewCell.swift in Sources */,
 				1DB413B3205040AC00E156C7 /* SRTPViewController.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
@@ -683,14 +690,15 @@
 				53877D7D1FAD64E900606E6B /* SubTitleTableViewCell.swift in Sources */,
 				533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
+				537B4FFE2095A00D0003A070 /* LectureView.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				1DB413B4205040AC00E156C7 /* SRTPModel.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
-				1DB413BE205040C000E156C7 /* LectureViewController.swift in Sources */,
 				1DB413A42050405C00E156C7 /* GPATableViewDelegate.swift in Sources */,
 				1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */,
 				1D826D9620514E70006C8478 /* InfoModel.swift in Sources */,
+				537B50002095A24A0003A070 /* lectureViewDelegate.swift in Sources */,
 				1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */,
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,
 				53877D7B1FAD635E00606E6B /* SwitchTableViewCell.swift in Sources */,

@@ -16,6 +16,13 @@ import RealmSwift
 import YYCache
 
 class SRTPViewModel {
+    
+    /// 单例
+    static let shared = SRTPViewModel()
+    
+    private init() {
+        
+    }
 
     fileprivate let SRTPSubject = PublishSubject<[SRTPModel]>()
     var SRTPList: Observable<[SRTPModel]> {
@@ -33,6 +40,7 @@ class SRTPViewModel {
         } else {
             if let strpObjects = cache.object(forKey: "srtp") as? [SRTPModel], strpObjects.count > 0 {
                 self.SRTPSubject.onNext(strpObjects)
+                completionHandler()
             }else {
                 requestSRTP{ completionHandler() }
             }

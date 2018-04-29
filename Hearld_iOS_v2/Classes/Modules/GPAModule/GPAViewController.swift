@@ -16,7 +16,7 @@ import SVProgressHUD
 class GPAViewController: UIViewController {
     var GPATableView = UITableView()
     
-    var viewModel = GPAViewModel()
+    var viewModel = GPAViewModel.shared
     let bag = DisposeBag()
     
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()

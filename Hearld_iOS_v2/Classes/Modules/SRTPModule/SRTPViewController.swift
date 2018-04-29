@@ -20,7 +20,7 @@ class SRTPViewController: UIViewController {
     // 设置swiper
     let swiper = SwipeRefreshHeader()
     
-    var viewModel = SRTPViewModel()
+    var viewModel = SRTPViewModel.shared
     let bag = DisposeBag()
     
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()

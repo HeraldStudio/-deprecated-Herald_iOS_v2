@@ -35,13 +35,17 @@ class InfoTableViewCell: UITableViewCell {
     var verticalLine_2 = UIView()
     var verticalLine_3 = UIView()
     var verticalLine_4 = UIView()
+    
+    // Mark - 实现上弹视图
+    var emptyView = UIView(frame: screenRect)
+    var lectureView = LectureView(frame: CGRect(x: 0, y: screenRect.height + 300, width: screenRect.width, height: 300))
 
-    var infoList: [infoItem] = [] { didSet { updateUI() }}
+    var infoList: [infoItem] = [] { didSet { updateUI() } }
     
     // Mark : ViewModel
-    var strpViewModel = SRTPViewModel()
-    var lectureViewModel = LectureViewModel()
-    var gpaViewModel = GPAViewModel()
+    var strpViewModel = SRTPViewModel.shared
+    var lectureViewModel = LectureViewModel.shared
+    var gpaViewModel = GPAViewModel.shared
     let bag = DisposeBag()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -70,6 +74,9 @@ class InfoTableViewCell: UITableViewCell {
         
         /// 分别订阅5个Button对应的网络请求
         subscribeButton()
+        
+        /// 5个Button addTarget
+        addTargets()
     }
     
     private func subscribeButton() {
@@ -95,6 +102,7 @@ class InfoTableViewCell: UITableViewCell {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
+        // 订阅GPA请求
         gpaViewModel.GPAList.subscribe(
             onNext: { gpaArray in
                 let desc = "绩点\n"
@@ -108,6 +116,53 @@ class InfoTableViewCell: UITableViewCell {
             onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
+    }
+    
+    private func addTargets() {
+        cardExtraButton.tag = 101
+        cardExtraButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
+        
+        peButton.tag = 102
+        peButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
+        
+        lectureButton.tag = 103
+        lectureButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
+        
+        strpButton.tag = 104
+        strpButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
+        
+        gradeButton.tag = 105
+        gradeButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
+    }
+    
+    @objc private func popView(_ sender: UIButton) {
+//        var popUpView : UIView
+//        switch sender.tag {
+//        case 103:
+//            popUpView = lectureView
+//        default:
+//            return
+//        }
+        // 撤回上弹窗口的手势
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDropDownView(_:)))
+        
+        emptyView.isUserInteractionEnabled = true
+        emptyView.addGestureRecognizer(tapGestureRecognizer)
+        lectureView.alpha = 1
+        lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
+        lectureView.lectureViewModel.prepareData(isRefresh: false) {
+            // animation
+            UIView.animate(withDuration: 0.3) {
+                self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - 600)
+            }
+            self.emptyView.addSubview(self.lectureView)
+            self.contentView.addSubview(self.emptyView)
+        }
+    }
+    
+    @objc private func dismissDropDownView(_ sender: UITapGestureRecognizer) {
+
     }
     
     private func setupSubviews() {

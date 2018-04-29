@@ -17,6 +17,13 @@ import YYCache
 
 class GPAViewModel {
     
+    /// 单例
+    static let shared = GPAViewModel()
+    
+    private init() {
+        
+    }
+    
     fileprivate let GPASubject = PublishSubject<[GPAModel]>()
     var GPAList: Observable<[GPAModel]>{
         return GPASubject.asObservable()
@@ -36,6 +43,7 @@ class GPAViewModel {
             // 查询缓存
             if let gpaObjects = cache.object(forKey: "gpa") as? [GPAModel], gpaObjects.count > 0 {
                 self.GPASubject.onNext(gpaObjects)
+                completionHandler()
             } else {
                 // 缓存为空，发起网络请求
                 requestGPA { completionHandler() }

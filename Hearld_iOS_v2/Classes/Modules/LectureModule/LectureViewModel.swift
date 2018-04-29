@@ -2,8 +2,8 @@
 //  LectureViewModel.swift
 //  Hearld_iOS_v2
 //
-//  Created by 乔哲锋 on 14/02/2018.
-//  Copyright © 2018 乔哲锋. All rights reserved.
+//  Created by Nathan on 14/04/2018.
+//  Copyright © 2018 Nathan. All rights reserved.
 //
 
 import Foundation
@@ -14,7 +14,14 @@ import RxSwift
 import RxCocoa
 import YYCache
 
-class LectureViewModel {
+final class LectureViewModel {
+    
+    /// 单例
+    static let shared = LectureViewModel()
+    
+    private init() {
+        
+    }
     
     fileprivate let LectureSubject = PublishSubject<[LectureModel]>()
     var LectureList: Observable<[LectureModel]>{
@@ -33,6 +40,7 @@ class LectureViewModel {
         }else {
             if let lectureObjects = cache.object(forKey: "lecture") as? [LectureModel], lectureObjects.count > 0 {
                 self.LectureSubject.onNext(lectureObjects)
+                completionHandler()
             }else {
                 requestLectures { completionHandler() }
             }
