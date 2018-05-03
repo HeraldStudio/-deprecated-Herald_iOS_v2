@@ -117,7 +117,7 @@ class HomeViewController: UIViewController {
     }
     
     private func layoutUI() {
-        homeTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
+        homeTableView.background(HeraldColorHelper.background)
         if let navigationController = self.navigationController as? MainNavigationController{
             homeTableView.frame = CGRect(x: 0,
                                          y: navigationController.getHeight(),

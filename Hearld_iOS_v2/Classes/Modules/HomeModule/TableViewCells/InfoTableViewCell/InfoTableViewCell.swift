@@ -89,7 +89,7 @@ class InfoTableViewCell: UITableViewCell {
             onNext:{ strpArray in
                 let desc = "STRP\n"
                 let number = strpArray[0].credit
-                self.dealWithButton(self.strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                self.dealWithButton(self.strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
@@ -100,7 +100,7 @@ class InfoTableViewCell: UITableViewCell {
             onNext: { lectureArray in
                 let desc = "讲座\n"
                 let number = lectureArray.count
-                self.dealWithButton(self.lectureButton, number: String(number), desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                self.dealWithButton(self.lectureButton, number: String(number), desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
             },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
@@ -115,7 +115,7 @@ class InfoTableViewCell: UITableViewCell {
                 if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
                     gpa = user.gpa
                 }
-                self.dealWithButton(self.gradeButton, number: gpa, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                self.dealWithButton(self.gradeButton, number: gpa, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
             },
             onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
@@ -227,46 +227,46 @@ class InfoTableViewCell: UITableViewCell {
         staticLabel.into(contentView).top(15).centerX().height(20).width(50).text("信息板").font(16,.bold)
         
         // 名字
-        nameLabel.into(contentView).below(staticLabel,8).left(15).height(30).font(16,.light)
+        nameLabel.into(contentView).below(staticLabel,8).left(15).height(30).font(16,.regular).color(HeraldColorHelper.Regular)
         
         // 身份
-        identityLabel.into(contentView).after(nameLabel,15).below(staticLabel,18).height(15).font(13,.regular).color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+        identityLabel.into(contentView).after(nameLabel,15).below(staticLabel,18).height(15).font(13,.regular).color(HeraldColorHelper.Secondary)
         
         // 注销按钮
 //        logoutButton.into(contentView).below(staticLabel,10).right(15)
         
         // 画线
-        underLine_1.into(contentView).below(nameLabel,4).width(screenRect.width).height(1).background(#colorLiteral(red: 0.9103347081, green: 0.9103347081, blue: 0.9103347081, alpha: 1))
+        underLine_1.into(contentView).below(nameLabel,4).width(screenRect.width).height(1).background(HeraldColorHelper.line)
         
         // 一卡通余额按钮
         cardExtraButton.into(contentView).below(underLine_1,10).left(3).width(buttonWidth).height(70).numberOfLines(0).align(.center)
         
         // 竖直线1
-        verticalLine_1.into(contentView).below(underLine_1,10).after(cardExtraButton,0).width(1).height(70).background(#colorLiteral(red: 0.9103347081, green: 0.9103347081, blue: 0.9103347081, alpha: 1))
+        verticalLine_1.into(contentView).below(underLine_1,10).after(cardExtraButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // 跑操按钮
         peButton.into(contentView).below(underLine_1,10).after(verticalLine_1,0).width(buttonWidth).height(70).numberOfLines(0).align(.center)
         
         // 竖直线2
-        verticalLine_2.into(contentView).below(underLine_1,10).after(peButton,0).width(1).height(70).background(#colorLiteral(red: 0.9103347081, green: 0.9103347081, blue: 0.9103347081, alpha: 1))
+        verticalLine_2.into(contentView).below(underLine_1,10).after(peButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // 讲座按钮
         lectureButton.into(contentView).below(underLine_1,10).after(verticalLine_2,0).width(buttonWidth).height(70).numberOfLines(0).align(.center)
         
         // 竖直线3
-        verticalLine_3.into(contentView).below(underLine_1,10).after(lectureButton,0).width(1).height(70).background(#colorLiteral(red: 0.9103347081, green: 0.9103347081, blue: 0.9103347081, alpha: 1))
+        verticalLine_3.into(contentView).below(underLine_1,10).after(lectureButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // STRP按钮
         strpButton.into(contentView).after(verticalLine_3,0).below(underLine_1,10).width(buttonWidth).height(70).numberOfLines(0).align(.center)
         
         // 竖直线4
-        verticalLine_4.into(contentView).below(underLine_1,10).after(strpButton,0).width(1).height(70).background(#colorLiteral(red: 0.9103347081, green: 0.9103347081, blue: 0.9103347081, alpha: 1))
+        verticalLine_4.into(contentView).below(underLine_1,10).after(strpButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // 绩点按钮
         gradeButton.into(contentView).below(underLine_1,10).after(verticalLine_4,0).width(buttonWidth).height(70).numberOfLines(0).align(.center)
 
         // 画线
-        underLine_2.into(contentView).below(cardExtraButton,4).width(screenRect.width).height(1).background(#colorLiteral(red: 0.9103347081, green: 0.9103347081, blue: 0.9103347081, alpha: 1)).bottom(1)
+        underLine_2.into(contentView).below(cardExtraButton,4).width(screenRect.width).height(1).background(HeraldColorHelper.line).bottom(1)
     }
     
     private func updateUI() {
@@ -284,23 +284,23 @@ class InfoTableViewCell: UITableViewCell {
             case .cardExtra:
                 desc = "余额\n"
                 number = "···"
-                dealWithButton(cardExtraButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                dealWithButton(cardExtraButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
             case .pe:
                 desc = "跑操\n"
                 number = "···"
-                dealWithButton(peButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                dealWithButton(peButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
             case .lecture():
                 desc = "讲座\n"
                 number = "···"
-                dealWithButton(lectureButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                dealWithButton(lectureButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
             case .srtp():
                 desc = "STRP\n"
                 number = "···"
-                dealWithButton(strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                dealWithButton(strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
             case .grade():
                 desc = "绩点\n"
                 number = "···"
-                dealWithButton(gradeButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: #colorLiteral(red: 0.004808220547, green: 0.6691957116, blue: 0.7637698054, alpha: 1), descSize: 15, descFont: .semibold, descColor: #colorLiteral(red: 0.8566188135, green: 0.8566188135, blue: 0.8566188135, alpha: 1))
+                dealWithButton(gradeButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
             }
         }
     }

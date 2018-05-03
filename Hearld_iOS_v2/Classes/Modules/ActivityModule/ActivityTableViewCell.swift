@@ -40,7 +40,7 @@ class ActivityTableViewCell: UITableViewCell {
     
     private func layoutUI() {
         // 背景
-        contentView.background(#colorLiteral(red: 0.9566619039, green: 0.9566619039, blue: 0.9566619039, alpha: 1))
+        contentView.background(HeraldColorHelper.background)
         
         // 状态
         stateLabel.into(cardView).left(10).top(10).width(50).height(20)
@@ -48,23 +48,15 @@ class ActivityTableViewCell: UITableViewCell {
 
         // 标题
         titleLabel.into(cardView).after(stateLabel,8).top(stateLabel).right(10)
-            .font(16,.semibold).color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)).lines(0)
+            .font(16,.regular).color(HeraldColorHelper.Regular).lines(0)
 
         // 图片
         picture.into(cardView).below(titleLabel,12).left(10).right(10).height(125)
             .clip(true).round(5.0)
 
         // 介绍 用Autolayout帮我们解决动态label高度的问题
-        introductionLabel.into(cardView).below(picture,10).left(10).right(10)
-            .lines(0).font(15,.semibold).color(#colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)).align(.natural)
-
-        // 时间
-        timeLabel.into(cardView).below(introductionLabel,12).left(10).right(10).height(16)
-            .font(15,.semibold).color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
-
-        // 地点
-        locationLabel.into(cardView).below(timeLabel,5).left(10).right(10).height(16).bottom(12)
-            .font(14,.semibold).color(#colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1))
+        introductionLabel.into(cardView).below(picture,10).left(10).right(10).bottom(12)
+            .lines(0).font(14,.regular).color(HeraldColorHelper.Secondary).align(.natural)
         
         // 卡片容器
         cardView.into(contentView).top(5).left(8).right(8).bottom(5)
