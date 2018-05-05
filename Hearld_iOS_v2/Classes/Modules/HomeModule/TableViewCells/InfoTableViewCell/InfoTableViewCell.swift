@@ -209,7 +209,7 @@ class InfoTableViewCell: UITableViewCell {
         }
     }
     
-    //滑动手势popOff上弹窗口
+    // 滑动手势popOff上弹窗口
     func swipe(gesture: UISwipeGestureRecognizer) {
         popOffView()
     }
