@@ -2,8 +2,8 @@
 //  SRTPViewModel.swift
 //  Hearld_iOS_v2
 //
-//  Created by 乔哲锋 on 24/02/2018.
-//  Copyright © 2018 乔哲锋. All rights reserved.
+//  Created by Nathan on 24/02/2018.
+//  Copyright © 2018 Nathan. All rights reserved.
 //
 
 import Foundation
@@ -23,6 +23,8 @@ class SRTPViewModel {
     private init() {
         
     }
+    
+    var srtpList : [SRTPModel] = []
 
     fileprivate let SRTPSubject = PublishSubject<[SRTPModel]>()
     var SRTPList: Observable<[SRTPModel]> {
@@ -35,6 +37,7 @@ class SRTPViewModel {
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
         if isRefresh {
+            srtpList.removeAll()
             cache.removeObject(forKey: "strp")
             requestSRTP{ completionHandler() }
         } else {
@@ -42,14 +45,13 @@ class SRTPViewModel {
                 self.SRTPSubject.onNext(strpObjects)
                 completionHandler()
             }else {
+                srtpList.removeAll()
                 requestSRTP{ completionHandler() }
             }
         }
     }
     
     func requestSRTP(completionHandler: @escaping ()->()) {
-        var srtpList: [SRTPModel] = []
-
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.SRTP()) { (result) in
             switch result{
@@ -58,8 +60,8 @@ class SRTPViewModel {
                 let json = JSON(data)
                 let code = json["code"].stringValue
                 if code == "200" {
-                    srtpList = self.parseSRTPModel(json)
-                    self.SRTPSubject.onNext(srtpList)
+                    self.parseSRTPModel(json)
+                    self.SRTPSubject.onNext(self.srtpList)
                     completionHandler()
                 } else if code == "408"{
                     self.SRTPSubject.onError(HeraldError.NetworkError)
@@ -71,12 +73,10 @@ class SRTPViewModel {
     }
     
     
-    private func parseSRTPModel(_ json: JSON) -> [SRTPModel] {
+    private func parseSRTPModel(_ json: JSON) {
         guard let realm = try? Realm() else {
-            return []
+            return
         }
-        
-        var srtpList: [SRTPModel] = []
         
         if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first{
             try! realm.write {
@@ -92,15 +92,15 @@ class SRTPViewModel {
             let date = srtpJSON["date"].stringValue
             let credit = srtpJSON["credit"].stringValue
             let type = srtpJSON["type"].stringValue
-            let proportion = srtpJSON["proportion"].stringValue
+            let proportion = srtpJSON["proportion"].doubleValue
             let department = srtpJSON["department"].stringValue
             let total = srtpJSON["total"].stringValue
             let project = srtpJSON["project"].stringValue
             
             let srtpItem = SRTPModel(credit, date, department, project, proportion, total, type)
             
+            cache.setObject(srtpList, forKey: "srtp")
             srtpList.append(srtpItem)
         }
-        return srtpList
     }
 }

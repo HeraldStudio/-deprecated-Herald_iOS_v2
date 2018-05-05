@@ -18,12 +18,12 @@ extension LectureView : UITableViewDelegate {
 extension LectureView : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return lectureList.count
+        return lectureViewModel.lectureModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "lecture", for: indexPath) as! LectureTableViewCell
-        cell.lecture = lectureList[indexPath.row]
+        cell.lecture = lectureViewModel.lectureModels[indexPath.row]
         return cell
     }
 }

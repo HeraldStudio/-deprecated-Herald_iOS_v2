@@ -41,6 +41,7 @@ class InfoTableViewCell: UITableViewCell {
     
     var emptyView = UIView(frame: screenRect)
     var lectureView = LectureView()
+    var srtpView = SRTPView()
     var delegate : addSubViewProtocol?
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
@@ -171,13 +172,15 @@ class InfoTableViewCell: UITableViewCell {
     
     @objc private func popView(_ sender: UIButton) {
         if sender.titleLabel?.text != "..." {
-            //        var popUpView : UIView
-            //        switch sender.tag {
-            //        case 103:
-            //            popUpView = lectureView
-            //        default:
-            //            return
-            //        }
+//            var popUpView : UIView
+//            switch sender.tag {
+//            case 103:
+//                popUpView = lectureView
+//            case 104:
+//                popUpView = srtpView
+//            default:
+//                return
+//            }
             
             lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             

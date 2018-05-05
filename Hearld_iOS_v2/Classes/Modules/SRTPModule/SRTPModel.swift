@@ -2,8 +2,8 @@
 //  SRTPModel.swift
 //  Hearld_iOS_v2
 //
-//  Created by 乔哲锋 on 23/02/2018.
-//  Copyright © 2018 乔哲锋. All rights reserved.
+//  Created by Nathan on 23/02/2018.
+//  Copyright © 2018 Nathan. All rights reserved.
 //
 
 import Foundation
@@ -17,7 +17,7 @@ class SRTPModel: NSCoding {
     var date: String
     var department: String
     var project: String
-    var proportion: String
+    var proportion: Double
     var total: String
     var type: String
     
@@ -25,7 +25,7 @@ class SRTPModel: NSCoding {
          _ date: String,
          _ department: String,
          _ project: String,
-         _ proportion: String,
+         _ proportion: Double,
          _ total: String,
          _ type: String) {
         self.credit = credit
@@ -42,7 +42,7 @@ class SRTPModel: NSCoding {
         self.date = aDecoder.decodeObject(forKey: "strp_date") as! String
         self.department = aDecoder.decodeObject(forKey: "strp_department") as! String
         self.project = aDecoder.decodeObject(forKey: "strp_project") as! String
-        self.proportion = aDecoder.decodeObject(forKey: "strp_proportiont") as! String
+        self.proportion = aDecoder.decodeDouble(forKey: "srtp_proportion")
         self.total = aDecoder.decodeObject(forKey: "strp_total") as! String
         self.type = aDecoder.decodeObject(forKey: "strp_type") as! String
     }

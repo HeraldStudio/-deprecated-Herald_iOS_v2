@@ -18,7 +18,6 @@ class LectureView : UIView {
     var remainLabel = UILabel()
     var lectureTableView = UITableView()
     
-    var lectureList : [LectureModel] = []
     let lectureViewModel = LectureViewModel.shared
     let bag = DisposeBag()
     
@@ -42,7 +41,6 @@ class LectureView : UIView {
         // 订阅Lecture请求
         lectureViewModel.LectureList.subscribe(
             onNext: { lectureArray in
-                self.lectureList = lectureArray
                 self.doneLabel.text = "已听讲座次数 " + String(lectureArray.count)
                 let remianCount = (lectureArray.count) > 8 ? 0 : (8 - lectureArray.count)
                 self.remainLabel.text = "剩余讲座次数 " + String(remianCount)
