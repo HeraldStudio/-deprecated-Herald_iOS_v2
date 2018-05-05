@@ -37,8 +37,10 @@ class InfoTableViewCell: UITableViewCell {
     var verticalLine_4 = UIView()
     
     // Mark - 实现上弹视图
+    var popViewFrame: CGRect?
+    
     var emptyView = UIView(frame: screenRect)
-    var lectureView = LectureView(frame: CGRect(x: 0, y: screenRect.height + 280, width: screenRect.width, height: 260))
+    var lectureView = LectureView()
     var delegate : addSubViewProtocol?
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
@@ -180,9 +182,14 @@ class InfoTableViewCell: UITableViewCell {
             lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
             
             lectureView.lectureViewModel.prepareData(isRefresh: false) {
+                let totalRowHeight = self.lectureView.lectureViewModel.lectureModels.count * 37
+                let finalHeight = (CGFloat)(125 + totalRowHeight)
+                self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
+                self.lectureView.frame = self.popViewFrame!
+                
                 // animation
                 UIView.animate(withDuration: 0.3) {
-                    self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - 280 - 40)
+                    self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
                 }
                 self.emptyView.addSubview(self.lectureView)
                 self.delegate?.addSubViewFromCell(self.emptyView)
@@ -214,7 +221,7 @@ class InfoTableViewCell: UITableViewCell {
     
     private func popOffView() {
         UIView.animate(withDuration: 0.3, animations: {
-            self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height + 280)
+            self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height)
         }) { finished in
             self.lectureView.removeFromSuperview()
             self.emptyView.removeFromSuperview()

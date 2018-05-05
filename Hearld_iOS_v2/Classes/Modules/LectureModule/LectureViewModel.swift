@@ -16,6 +16,8 @@ import YYCache
 
 final class LectureViewModel {
     
+    var lectureModels : [LectureModel] = []
+    
     /// 单例
     static let shared = LectureViewModel()
     
@@ -36,19 +38,20 @@ final class LectureViewModel {
 
         if isRefresh {
             cache.removeObject(forKey: "lecture")
+            lectureModels.removeAll()
             requestLectures { completionHandler() }
         }else {
             if let lectureObjects = cache.object(forKey: "lecture") as? [LectureModel], lectureObjects.count > 0 {
                 self.LectureSubject.onNext(lectureObjects)
                 completionHandler()
             }else {
+                lectureModels.removeAll()
                 requestLectures { completionHandler() }
             }
         }
     }
     
     func requestLectures(completionHandler: @escaping ()->()) {
-        var lectureList : [LectureModel] = []
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.Lecture()) { (result) in
             switch result{
@@ -57,8 +60,8 @@ final class LectureViewModel {
                 let json = JSON(data)
                 let code = json["code"].stringValue
                 if code == "200" {
-                    lectureList = self.parseLectureModel(json)
-                    self.LectureSubject.onNext(lectureList)
+                    self.parseLectureModel(json)
+                    self.LectureSubject.onNext(self.lectureModels)
                     completionHandler()
                 } else if code == "408"{
                     self.LectureSubject.onError(HeraldError.NetworkError)
@@ -69,9 +72,8 @@ final class LectureViewModel {
         }
     }
     
-    private func parseLectureModel(_ json: JSON) -> [LectureModel] {
+    private func parseLectureModel(_ json: JSON) {
         //解析返回的JSON数据
-        var lectureList : [LectureModel] = []
         let lectureArrayValue = json["result"].arrayValue
 
         for lectureJSON in lectureArrayValue{
@@ -80,10 +82,9 @@ final class LectureViewModel {
             let location = lectureJSON["location"].stringValue
             let lecture = LectureModel(location, time)
             
-            lectureList.append(lecture)
+            lectureModels.append(lecture)
         }
-        cache.setObject(lectureList, forKey: "lecture")
-        return lectureList
+        cache.setObject(lectureModels, forKey: "lecture")
     }
         
 }
