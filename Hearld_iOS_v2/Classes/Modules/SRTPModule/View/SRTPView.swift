@@ -56,9 +56,9 @@ class SRTPView: UIView {
     private func setupSubViews() {
         staticLabel.into(self).top(20).centerX().height(35).width(100).color(HeraldColorHelper.Regular).text("SRTP").font(18,.semibold).align(.center)
         
-        creditLabel.into(self).below(staticLabel, 25).left(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(17,.semibold).align(.center)
+        creditLabel.into(self).below(staticLabel, 25).left(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
         
-        statusLabel.into(self).below(staticLabel, 25).right(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(17,.semibold).align(.center)
+        statusLabel.into(self).below(staticLabel, 25).right(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
         
         srtpTableView.into(self).below(creditLabel, 10).left(5).right(5).bottom(5)
         srtpTableView.isScrollEnabled = false

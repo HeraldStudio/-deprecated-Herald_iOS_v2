@@ -38,6 +38,7 @@ class InfoTableViewCell: UITableViewCell {
     
     // Mark - 实现上弹视图
     var popViewFrame: CGRect?
+    var currentTag: Int?
     
     var emptyView = UIView(frame: screenRect)
     var lectureView = LectureView()
@@ -172,31 +173,55 @@ class InfoTableViewCell: UITableViewCell {
     
     @objc private func popView(_ sender: UIButton) {
         if sender.titleLabel?.text != "..." {
-//            var popUpView : UIView
-//            switch sender.tag {
-//            case 103:
-//                popUpView = lectureView
-//            case 104:
-//                popUpView = srtpView
-//            default:
-//                return
-//            }
-            
-            lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-            
-            lectureView.lectureViewModel.prepareData(isRefresh: false) {
-                let totalRowHeight = self.lectureView.lectureViewModel.lectureModels.count * 37
-                let finalHeight = (CGFloat)(125 + totalRowHeight)
-                self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
-                self.lectureView.frame = self.popViewFrame!
-                
-                // animation
-                UIView.animate(withDuration: 0.3) {
-                    self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
+            switch sender.tag {
+            case 103:
+                // Mark: Lecture
+                currentTag = 103
+                lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                lectureView.lectureViewModel.prepareData(isRefresh: false) {
+                    let totalRowHeight = self.lectureView.lectureViewModel.lectureModels.count * 37
+                    let finalHeight = (CGFloat)(125 + totalRowHeight)
+                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
+                    self.lectureView.frame = self.popViewFrame!
+                    
+                    // animation
+                    UIView.animate(withDuration: 0.3) {
+                        self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
+                    }
+                    self.emptyView.addSubview(self.lectureView)
+                    self.delegate?.addSubViewFromCell(self.emptyView)
+                    self.delegate?.changeAlphaTo(0.3)
                 }
-                self.emptyView.addSubview(self.lectureView)
-                self.delegate?.addSubViewFromCell(self.emptyView)
-                self.delegate?.changeAlphaTo(0.3)
+            case 104:
+                // Mark: Srtp
+                currentTag = 104
+                srtpView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                var totalHeight : CGFloat = 0
+                srtpView.srtpViewModel.prepareData(isRefresh: false) {
+                    let label = UILabel(frame: CGRect(x: 10, y: 10, width: screenRect.width - 30, height: 0))
+                    var size : CGSize
+                    label.numberOfLines = 0
+                    label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightSemibold)
+
+                    for srtp in self.srtpView.srtpViewModel.srtpList {
+                        label.text = srtp.project
+                        size = label.sizeThatFits(CGSize(width: screenRect.width - 30, height: 0))
+                        totalHeight += (size.height + 45)
+                    }
+                    let finalHeight = (CGFloat)(125 + totalHeight)
+                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight )
+                    self.srtpView.frame = self.popViewFrame!
+
+                    // animation
+                    UIView.animate(withDuration: 0.3) {
+                        self.srtpView.frame.origin = CGPoint(x: 0, y: screenRect.height - totalHeight - 49 - 37 - 125)
+                    }
+                    self.emptyView.addSubview(self.srtpView)
+                    self.delegate?.addSubViewFromCell(self.emptyView)
+                    self.delegate?.changeAlphaTo(0.3)
+                }
+            default:
+                return
             }
         }
     }
@@ -205,11 +230,19 @@ class InfoTableViewCell: UITableViewCell {
     override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
         let touchPoint = touch.location(in: emptyView)
         // 如果touchPoint在上弹窗口内，则不响应手势
-        if lectureView.frame.contains(touchPoint) {
+        switch currentTag {
+        case 103:
+            if self.lectureView.frame.contains(touchPoint) {
+                return false
+            }
+        case 104:
+            if self.srtpView.frame.contains(touchPoint) {
+                return false
+            }
+        default:
             return false
-        } else {
-            return true
         }
+        return true
     }
     
     // 滑动手势popOff上弹窗口
@@ -223,12 +256,25 @@ class InfoTableViewCell: UITableViewCell {
     }
     
     private func popOffView() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height)
-        }) { finished in
-            self.lectureView.removeFromSuperview()
-            self.emptyView.removeFromSuperview()
-            self.delegate?.changeAlphaTo(1)
+        switch currentTag {
+        case 103:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height)
+            }) { finished in
+                self.lectureView.removeFromSuperview()
+                self.emptyView.removeFromSuperview()
+                self.delegate?.changeAlphaTo(1)
+            }
+        case 104:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.srtpView.frame.origin = CGPoint(x: 0, y: screenRect.height)
+            }) { finished in
+                self.srtpView.removeFromSuperview()
+                self.emptyView.removeFromSuperview()
+                self.delegate?.changeAlphaTo(1)
+            }
+        default:
+            return
         }
     }
     

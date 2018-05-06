@@ -50,7 +50,7 @@ class LectureView : UIView {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
     }
-    
+        
     private func setupSubviews() {
         staticLabel.into(self).top(20).centerX().height(35).width(100).color(HeraldColorHelper.Regular).text("人文讲座").font(18,.semibold).align(.center)
         
