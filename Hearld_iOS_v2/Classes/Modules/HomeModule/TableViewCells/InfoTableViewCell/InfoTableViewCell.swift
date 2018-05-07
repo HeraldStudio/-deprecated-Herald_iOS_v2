@@ -43,6 +43,7 @@ class InfoTableViewCell: UITableViewCell {
     var emptyView = UIView(frame: screenRect)
     var lectureView = LectureView()
     var srtpView = SRTPView()
+    var gpaView = GPAView()
     var delegate : addSubViewProtocol?
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
@@ -220,6 +221,24 @@ class InfoTableViewCell: UITableViewCell {
                     self.delegate?.addSubViewFromCell(self.emptyView)
                     self.delegate?.changeAlphaTo(0.3)
                 }
+            case 105:
+            // Mark: GPA
+                currentTag = 105
+                gpaView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                gpaView.gpaViewModel.prepareData(isRefresh: false) {
+                    let totalRowHeight = self.gpaView.gpaViewModel.gpaModels.count * 37
+                    let finalHeight = (CGFloat)(125 + totalRowHeight)
+                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
+                    self.gpaView.frame = self.popViewFrame!
+                    
+                    // animation
+                    UIView.animate(withDuration: 0.3) {
+                        self.gpaView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
+                    }
+                    self.emptyView.addSubview(self.gpaView)
+                    self.delegate?.addSubViewFromCell(self.emptyView)
+                    self.delegate?.changeAlphaTo(0.3)
+                }
             default:
                 return
             }
@@ -237,6 +256,10 @@ class InfoTableViewCell: UITableViewCell {
             }
         case 104:
             if self.srtpView.frame.contains(touchPoint) {
+                return false
+            }
+        case 105:
+            if self.gpaView.frame.contains(touchPoint) {
                 return false
             }
         default:
@@ -270,6 +293,14 @@ class InfoTableViewCell: UITableViewCell {
                 self.srtpView.frame.origin = CGPoint(x: 0, y: screenRect.height)
             }) { finished in
                 self.srtpView.removeFromSuperview()
+                self.emptyView.removeFromSuperview()
+                self.delegate?.changeAlphaTo(1)
+            }
+        case 105:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.gpaView.frame.origin = CGPoint(x: 0, y: screenRect.height)
+            }) { finished in
+                self.gpaView.removeFromSuperview()
                 self.emptyView.removeFromSuperview()
                 self.delegate?.changeAlphaTo(1)
             }

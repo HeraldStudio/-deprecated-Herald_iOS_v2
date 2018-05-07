@@ -28,6 +28,7 @@ class GPATableViewCell: UITableViewCell {
     
     fileprivate func customInit() {
         layoutUI()
+        self.selectionStyle = .none
     }
     
     private func layoutUI() {
@@ -42,7 +43,7 @@ class GPATableViewCell: UITableViewCell {
     
     private func updateUI() {
         lessonLabel.text = gpa?.courseName
-        gradeLabel.text = (gpa?.score)! + " " + (gpa?.credit)! + "学分)"
+        gradeLabel.text = (gpa?.score)! + " (" + (gpa?.credit)! + "学分)"
     }
 }
 

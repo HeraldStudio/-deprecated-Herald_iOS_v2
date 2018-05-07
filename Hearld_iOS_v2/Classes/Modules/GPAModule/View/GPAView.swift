@@ -49,7 +49,8 @@ class GPAView : UIView {
                 
                 self.creditLabel.text = "绩点 " + currentUser.gpa
                 self.noMaskCreditLabel.text = "首修 " + currentUser.gpaBeforeMakeup
-                let date = TimeConvertHelper.convert(from: currentUser.gpaCalcutionTime)
+                let calcutionTime = currentUser.gpaCalcutionTime.substring(NSRange(location: 0, length: currentUser.gpaCalcutionTime.length()-3))
+                let date = TimeConvertHelper.convert(from: calcutionTime)
                 let displayTime = TimeConvertHelper.convert(from: date)
                 self.computedTimeLabel.text = displayTime
                 self.gpaTableView.reloadData()
@@ -62,11 +63,11 @@ class GPAView : UIView {
     private func setupSubViews() {
         staticLabel.into(self).top(20).centerX().height(35).width(100).color(HeraldColorHelper.Regular).text("成绩").font(18,.semibold).align(.center)
         
-        noMaskCreditLabel.into(self).below(staticLabel,25).centerX().width(130).height(30).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+        noMaskCreditLabel.into(self).below(staticLabel,25).centerX().width(100).height(30).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
         
-        creditLabel.into(self).below(staticLabel, 25).before(noMaskCreditLabel, 10).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+        creditLabel.into(self).below(staticLabel, 25).before(noMaskCreditLabel, 3).height(30).width(100).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
         
-        computedTimeLabel.into(self).below(staticLabel, 25).after(noMaskCreditLabel, 10).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+        computedTimeLabel.into(self).below(staticLabel, 25).after(noMaskCreditLabel, 3).height(30).width(100).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
         
         gpaTableView.into(self).below(creditLabel, 10).left(5).right(5).bottom(5)
         gpaTableView.isScrollEnabled = false
