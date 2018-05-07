@@ -2,8 +2,8 @@
 //  GPAModel.swift
 //  Hearld_iOS_v2
 //
-//  Created by 乔哲锋 on 23/02/2018.
-//  Copyright © 2018 乔哲锋. All rights reserved.
+//  Created by Nathan on 23/02/2018.
+//  Copyright © 2018 Nathan. All rights reserved.
 //
 
 import Foundation
