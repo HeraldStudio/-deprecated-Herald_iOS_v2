@@ -39,6 +39,9 @@
 		533FFC0D20A04D6E00381547 /* GPAViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FFC0C20A04D6E00381547 /* GPAViewDelegate.swift */; };
 		5357A43A20A4185C00D23F31 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43920A4185C00D23F31 /* CardModel.swift */; };
 		5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43B20A41B8200D23F31 /* CardViewModel.swift */; };
+		5357A43F20A4246500D23F31 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43E20A4246500D23F31 /* CardView.swift */; };
+		5357A44120A431C300D23F31 /* CardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44020A431C300D23F31 /* CardViewDelegate.swift */; };
+		5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44220A4323800D23F31 /* CardTableViewCell.swift */; };
 		537B4FFE2095A00D0003A070 /* LectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFD2095A00D0003A070 /* LectureView.swift */; };
 		537B50002095A24A0003A070 /* LectureViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFF2095A24A0003A070 /* LectureViewDelegate.swift */; };
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
@@ -112,6 +115,9 @@
 		533FFC0C20A04D6E00381547 /* GPAViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewDelegate.swift; sourceTree = "<group>"; };
 		5357A43920A4185C00D23F31 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		5357A43B20A41B8200D23F31 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		5357A43E20A4246500D23F31 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		5357A44020A431C300D23F31 /* CardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewDelegate.swift; sourceTree = "<group>"; };
+		5357A44220A4323800D23F31 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		537B4FFD2095A00D0003A070 /* LectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureView.swift; sourceTree = "<group>"; };
 		537B4FFF2095A24A0003A070 /* LectureViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewDelegate.swift; sourceTree = "<group>"; };
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
@@ -321,8 +327,19 @@
 			children = (
 				5357A43920A4185C00D23F31 /* CardModel.swift */,
 				5357A43B20A41B8200D23F31 /* CardViewModel.swift */,
+				5357A43D20A4244D00D23F31 /* View */,
 			);
 			path = CardModule;
+			sourceTree = "<group>";
+		};
+		5357A43D20A4244D00D23F31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5357A43E20A4246500D23F31 /* CardView.swift */,
+				5357A44020A431C300D23F31 /* CardViewDelegate.swift */,
+				5357A44220A4323800D23F31 /* CardTableViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		537B50012095A5CC0003A070 /* View */ = {
@@ -716,6 +733,7 @@
 				1DB413BD205040C000E156C7 /* LectureViewModel.swift in Sources */,
 				53877D7D1FAD64E900606E6B /* SubTitleTableViewCell.swift in Sources */,
 				533F8FE11FA86CDB00040A01 /* MineViewController.swift in Sources */,
+				5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
 				537B4FFE2095A00D0003A070 /* LectureView.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
@@ -741,6 +759,8 @@
 				539C404A1FAF568200EBADC1 /* MineTableViewDelegate.swift in Sources */,
 				53E354292070C5DC00D48373 /* HeraldColorHelper.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
+				5357A44120A431C300D23F31 /* CardViewDelegate.swift in Sources */,
+				5357A43F20A4246500D23F31 /* CardView.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
