@@ -51,7 +51,7 @@ class SRTPViewModel {
         }
     }
     
-    func requestSRTP(completionHandler: @escaping ()->()) {
+    private func requestSRTP(completionHandler: @escaping ()->()) {
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.SRTP()) { (result) in
             switch result{
@@ -98,9 +98,9 @@ class SRTPViewModel {
             let project = srtpJSON["project"].stringValue
             
             let srtpItem = SRTPModel(credit, date, department, project, proportion, total, type)
-            
-            cache.setObject(srtpList, forKey: "srtp")
+        
             srtpList.append(srtpItem)
         }
+        cache.setObject(srtpList, forKey: "srtp")
     }
 }

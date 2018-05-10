@@ -28,6 +28,9 @@ class User : Object{
     @objc dynamic var points: String = ""
     @objc dynamic var grade: String = ""
     
+    // Card stuff
+    @objc dynamic var balance: Double = 0.0
+    
     override static func primaryKey() -> String? {
         return "cardID"
     }

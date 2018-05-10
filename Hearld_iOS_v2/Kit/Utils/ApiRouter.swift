@@ -48,6 +48,7 @@ enum SubscribeAPI {
 }
 
 enum QueryAPI {
+    case Card()                                   //查询一卡通
     case GPA()                                    //查询成绩API
     case SRTP()                                   //查询SRTP
     case Lecture()                                //查询人文讲座
@@ -190,13 +191,15 @@ extension SubscribeAPI: TargetType{
 extension QueryAPI: TargetType{
     var baseURL: URL {
         switch self {
-        case .Lecture(), .SRTP(), .GPA(), .Notice():
+        case .Card() ,.Lecture(), .SRTP(), .GPA(), .Notice():
             return URL(string: "https://myseu.cn/ws3/")!
         }
     }
     
     var path: String {
         switch self {
+        case .Card():
+            return ApiHelper.api("card")
         case .GPA():
             return ApiHelper.api("gpa")
         case .SRTP():
@@ -210,21 +213,21 @@ extension QueryAPI: TargetType{
     
     var method: Moya.Method {
         switch self {
-        case .Lecture(), .GPA(), .SRTP(), .Notice():
+        case .Card(), .Lecture(), .GPA(), .SRTP(), .Notice():
             return .get
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .Lecture(), .GPA(), .SRTP(), .Notice():
+        case .Card() ,.Lecture(), .GPA(), .SRTP(), .Notice():
             return "Query".utf8Encoded
         }
     }
     
     var task: Task {
         switch self {
-        case .GPA(),.Lecture(), .SRTP(), .Notice():
+        case .Card() ,.GPA(),.Lecture(), .SRTP(), .Notice():
             return .requestPlain
         }
     }
@@ -232,7 +235,7 @@ extension QueryAPI: TargetType{
 
     var headers: [String: String]? {
         switch self {
-        case .SRTP(), .Lecture(), .GPA(), .Notice():
+        case .Card() ,.SRTP(), .Lecture(), .GPA(), .Notice():
             return ["Content-type": "application/json","token": HearldUserDefault.uuid!]
         }
     }

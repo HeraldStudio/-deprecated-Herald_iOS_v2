@@ -7,10 +7,6 @@
 //
 
 import Foundation
-import RxSwift
-import Realm
-import RealmSwift
-import RxCocoa
 
 class SRTPModel: NSCoding {
     var credit: String
