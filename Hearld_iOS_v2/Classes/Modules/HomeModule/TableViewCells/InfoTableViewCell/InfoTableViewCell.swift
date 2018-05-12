@@ -44,6 +44,7 @@ class InfoTableViewCell: UITableViewCell {
     var lectureView = LectureView()
     var srtpView = SRTPView()
     var gpaView = GPAView()
+    var cardView = CardView()
     var delegate : addSubViewProtocol?
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
@@ -52,6 +53,7 @@ class InfoTableViewCell: UITableViewCell {
     var strpViewModel = SRTPViewModel.shared
     var lectureViewModel = LectureViewModel.shared
     var gpaViewModel = GPAViewModel.shared
+    var cardViewModel = CardViewModel.shared
     let bag = DisposeBag()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -89,6 +91,20 @@ class InfoTableViewCell: UITableViewCell {
     }
     
     private func subscribeButton() {
+        // 订阅card请求
+        cardViewModel.cardList.subscribe(
+            onNext: { cardArray in
+                let desc = "余额\n"
+                var balance = "..."
+                let realm = try! Realm()
+                if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
+                    balance = String(user.balance)
+                }
+                self.dealWithButton(self.cardExtraButton, number: balance, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
+        }, onError: { error in
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
+        
         // 订阅strp请求
         strpViewModel.SRTPList.subscribe(
             onNext:{ strpArray in
@@ -175,6 +191,24 @@ class InfoTableViewCell: UITableViewCell {
     @objc private func popView(_ sender: UIButton) {
         if sender.titleLabel?.text != "..." {
             switch sender.tag {
+            case 101:
+                // Mark: Card
+                currentTag = 101
+                cardView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cardView.cardViewModel.prepareData(isRefresh: false) {
+                    let totalRowHeight = self.cardView.cardViewModel.cardModels.count * 60
+                    let finalHeight = (CGFloat)(160 + totalRowHeight)
+                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
+                    self.cardView.frame = self.popViewFrame!
+                    
+                    // animation
+                    UIView.animate(withDuration: 0.3) {
+                        self.cardView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
+                    }
+                    self.emptyView.addSubview(self.cardView)
+                    self.delegate?.addSubViewFromCell(self.emptyView)
+                    self.delegate?.changeAlphaTo(0.3)
+                }
             case 103:
                 // Mark: Lecture
                 currentTag = 103
@@ -250,6 +284,10 @@ class InfoTableViewCell: UITableViewCell {
         let touchPoint = touch.location(in: emptyView)
         // 如果touchPoint在上弹窗口内，则不响应手势
         switch currentTag {
+        case 101:
+            if self.cardView.frame.contains(touchPoint) {
+                return false;
+            }
         case 103:
             if self.lectureView.frame.contains(touchPoint) {
                 return false
@@ -280,6 +318,14 @@ class InfoTableViewCell: UITableViewCell {
     
     private func popOffView() {
         switch currentTag {
+        case 101:
+            UIView.animate(withDuration: 0.3, animations: {
+                self.cardView.frame.origin = CGPoint(x: 0, y: screenRect.height)
+            }) { finished in
+                self.cardView.removeFromSuperview()
+                self.emptyView.removeFromSuperview()
+                self.delegate?.changeAlphaTo(1)
+            }
         case 103:
             UIView.animate(withDuration: 0.3, animations: {
                 self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height)

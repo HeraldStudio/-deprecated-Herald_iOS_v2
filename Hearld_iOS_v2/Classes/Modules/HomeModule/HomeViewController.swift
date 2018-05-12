@@ -102,6 +102,7 @@ class HomeViewController: UIViewController {
                     cell.strpViewModel.prepareData(isRefresh: true, completionHandler: {})
                     cell.lectureViewModel.prepareData(isRefresh: true, completionHandler: {})
                     cell.gpaViewModel.prepareData(isRefresh: true, completionHandler: {})
+                    cell.cardViewModel.prepareData(isRefresh: true, completionHandler: {})
                 }
                 return cell
             case .Notice(let noticeList):
