@@ -366,6 +366,42 @@ extension UIView {
     }
 }
 
+extension UITextView {
+    @discardableResult func text(_ text: String = "") -> Self {
+        autoCheckInto()
+        self.text = text
+        return self
+    }
+    
+    @discardableResult func color(_ color: UIColor) -> Self {
+        autoCheckInto()
+        self.textColor = color
+        return self
+    }
+    
+    @discardableResult func font(_ size: CGFloat, _ weight: FontWeight = .regular) -> Self {
+        autoCheckInto()
+        self.font = UIFont.systemFont(ofSize: size, weight: weights[weight.rawValue])
+        return self
+    }
+    
+    @discardableResult func align(_ align: NSTextAlignment) -> Self {
+        autoCheckInto()
+        self.textAlignment = align
+        return self
+    }
+    
+    @discardableResult func spacing(_ spacing: CGFloat) -> Self {
+        autoCheckInto()
+        let attrs = NSMutableAttributedString(attributedString: self.attributedText ?? NSAttributedString(string: self.text ?? ""))
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = spacing
+        attrs.addAttributes([NSParagraphStyleAttributeName: style], range: NSRange(location: 0, length: attrs.length))
+        self.attributedText = attrs
+        return self
+    }
+}
+
 extension UIView {
     /// 背景颜色
     @discardableResult func background(_ color: UIColor) -> Self {
