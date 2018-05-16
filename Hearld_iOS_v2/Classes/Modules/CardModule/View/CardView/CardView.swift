@@ -28,6 +28,10 @@ class CardView: UIView {
     let cardViewModel = CardViewModel.shared
     let bag = DisposeBag()
     
+    // MARK - 实现上弹窗口
+    var emptyView = UIView(frame: screenRect)
+    var topUpView = TopUpView()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         customInit()
@@ -52,7 +56,7 @@ class CardView: UIView {
                 let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
                 self.balanceLabel.text = "卡余额 " + String(currentUser.balance)
                 self.comsumeTimesLabel.text = "今日消费次数 " + String(cardArray.count)
-                var totalCost = cardArray.reduce(0, { temp, card in
+                let totalCost = cardArray.reduce(0, { temp, card in
                     return temp + card.amount
                 })
                 self.totalCostlabel.text = "今天至今 总支出 " + String(totalCost)
@@ -61,6 +65,10 @@ class CardView: UIView {
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
+        
+        initialEmptyView()
+        
+        topUpButton.addTarget(self, action: #selector(popView), for: .touchDown)
     }
     
     private func setupSubviews() {
@@ -95,5 +103,72 @@ class CardView: UIView {
         let yet_textAttrString = NSMutableAttributedString.init(string: "加载前一天")
         yet_textAttrString.font(15, FontWeight.semibold, NSMakeRange(0, 5))
         loadButton.setAttributedTitle(yet_textAttrString, for: .normal)
+    }
+    
+    private func initialEmptyView() {
+        // tap撤回上弹窗口的手势
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDropDownView(_:)))
+        // 手势需要遵循的代理：UIGestureRecognizerDelegate
+        tapGestureRecognizer.delegate = self
+        
+        // 滑动撤回上弹窗口的手势
+        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeLeft.direction = .left
+        swipeLeft.numberOfTouchesRequired = 1
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeRight.direction = .right
+        swipeRight.numberOfTouchesRequired = 1
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeDown.direction = .down
+        swipeDown.numberOfTouchesRequired = 1
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
+        swipeUp.direction = .up
+        swipeUp.numberOfTouchesRequired = 1
+        
+        emptyView.isUserInteractionEnabled = true
+        emptyView.addGestureRecognizer(tapGestureRecognizer)
+        emptyView.addGestureRecognizer(swipeLeft)
+        emptyView.addGestureRecognizer(swipeRight)
+        emptyView.addGestureRecognizer(swipeDown)
+        emptyView.addGestureRecognizer(swipeUp)
+    }
+    
+    // tap手势popOff上弹窗口
+    @objc private func dismissDropDownView(_ sender: UITapGestureRecognizer) {
+        popOffView()
+    }
+    
+    // 滑动手势popOff上弹窗口
+    @objc func swipe(gesture: UISwipeGestureRecognizer) {
+        popOffView()
+    }
+    
+    @objc private func popView() {
+        topUpView.backgroundColor = UIColor.white
+        topUpView.frame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: 300)
+        UIView.animate(withDuration: 0.3) {
+            self.topUpView.frame.origin = CGPoint(x: 0, y: screenRect.height - 700)
+        }
+        emptyView.addSubview(topUpView)
+        self.addSubview(emptyView)
+    }
+    
+    private func popOffView() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.topUpView.frame.origin = CGPoint(x: 0, y: screenRect.height)
+        }) { finished in
+            self.topUpView.removeFromSuperview()
+            self.emptyView.removeFromSuperview()
+        }
+    }
+}
+
+extension CardView: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        let touchPoint = touch.location(in: emptyView)
+        if topUpView.frame.contains(touchPoint) {
+            return false
+        }
+        return true
     }
 }

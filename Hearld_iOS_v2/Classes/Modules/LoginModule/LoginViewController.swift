@@ -17,13 +17,13 @@ class LoginViewController: UIViewController {
     var viewModel = LoginViewModel()
     let bag = DisposeBag()
     
-    // Mark - 交互性UI控件
+    // MARK - 交互性UI控件
     var cardIDTextField = UITextField()
     var passwordTextField = UITextField()
     var loginButton = UIButton()
     var hintLabel = UILabel()
     
-    // Mark - 装饰的UI控件
+    // MARK - 装饰的UI控件
     var slogonLabel = UILabel()
     var logoImageView = UIImageView()
     var productTitle = UILabel()

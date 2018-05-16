@@ -26,7 +26,7 @@ class MineViewController: UIViewController {
         case Switch(String)
     }
     
-    // Mark: Model
+    // MARK: Model
     var mineItems : [[MineItem]] = []
     
     /// 静态元素

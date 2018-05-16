@@ -9,7 +9,7 @@
 import UIKit
 
 class TopUpView: UIView {
-    // Mark - UI stuff
+    // MARK - UI stuff
     var staticLabel = UILabel()
     var textView = UITextView()
     var fiftyButton = UIButton()
@@ -48,6 +48,7 @@ class TopUpView: UIView {
         containerView.into(self).below(textView,20).left(30).right(30).height(50)
         
         let width : CGFloat = (screenRect.width - 72) / 5
+        
         var textAttrString = NSMutableAttributedString.init(string: "50")
         var tapAttrString = NSMutableAttributedString.init(string: "50")
         textAttrString.font(16, FontWeight.semibold, NSMakeRange(0, 2))
@@ -59,21 +60,31 @@ class TopUpView: UIView {
         fiftyButton.setAttributedTitle(tapAttrString, for: .selected)
         
         // 100按钮
+        textAttrString = NSMutableAttributedString.init(string: "100")
+        tapAttrString = NSMutableAttributedString.init(string: "100")
+        textAttrString.font(16, FontWeight.semibold, NSMakeRange(0, 3))
+        tapAttrString.color(HeraldColorHelper.PrimaryDk, NSMakeRange(0, 3))
         hundredButton.into(containerView).top(0).bottom(0).after(fiftyButton, 2).width(width)
         hundredButton.setAttributedTitle(textAttrString, for: .normal)
         hundredButton.setAttributedTitle(tapAttrString, for: .selected)
         
         // 200按钮
+        textAttrString = NSMutableAttributedString.init(string: "200")
+        tapAttrString = NSMutableAttributedString.init(string: "200")
         twoHundredButton.into(containerView).top(0).bottom(0).after(hundredButton, 2).width(width)
         twoHundredButton.setAttributedTitle(textAttrString, for: .normal)
         twoHundredButton.setAttributedTitle(tapAttrString, for: .selected)
         
         // 300按钮
+        textAttrString = NSMutableAttributedString.init(string: "300")
+        tapAttrString = NSMutableAttributedString.init(string: "300")
         threeHundredButton.into(containerView).top(0).bottom(0).after(twoHundredButton, 2).width(width)
         threeHundredButton.setAttributedTitle(textAttrString, for: .normal)
         threeHundredButton.setAttributedTitle(tapAttrString, for: .selected)
         
         // 500按钮
+        textAttrString = NSMutableAttributedString.init(string: "500")
+        tapAttrString = NSMutableAttributedString.init(string: "500")
         fiveHundredButton.into(containerView).top(0).bottom(0).after(threeHundredButton, 2).width(width)
         fiveHundredButton.setAttributedTitle(textAttrString, for: .normal)
         fiveHundredButton.setAttributedTitle(tapAttrString, for: .selected)
@@ -85,7 +96,7 @@ class TopUpView: UIView {
         passwordTextField.into(self).below(containerView,8).width(200).centerX()
         
         // 确认按钮
-        confirmButton.into(self).below(passwordTextField,8).width(120).centerX().background(HeraldColorHelper.PrimaryBg)
+        confirmButton.into(self).below(passwordTextField,8).width(120).bottom(5).centerX().background(HeraldColorHelper.PrimaryBg)
         textAttrString = NSMutableAttributedString.init(string: "确认充值")
         textAttrString.font(16, FontWeight.semibold, NSMakeRange(0, 4))
         confirmButton.setAttributedTitle(textAttrString, for: .normal)

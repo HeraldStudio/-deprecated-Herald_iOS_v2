@@ -15,7 +15,7 @@ import SVProgressHUD
 
 class InfoTableViewCell: UITableViewCell {
     
-    // Mark - UI stuff
+    // MARK - UI stuff
     var staticLabel = UILabel()
     var nameLabel = UILabel()
     var identityLabel = UILabel()
@@ -36,7 +36,7 @@ class InfoTableViewCell: UITableViewCell {
     var verticalLine_3 = UIView()
     var verticalLine_4 = UIView()
     
-    // Mark - 实现上弹视图
+    // MARK - 实现上弹视图
     var popViewFrame: CGRect?
     var currentTag: Int?
     
@@ -49,7 +49,7 @@ class InfoTableViewCell: UITableViewCell {
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
     
-    // Mark : ViewModel
+    // MARK : ViewModel
     var strpViewModel = SRTPViewModel.shared
     var lectureViewModel = LectureViewModel.shared
     var gpaViewModel = GPAViewModel.shared
@@ -192,7 +192,7 @@ class InfoTableViewCell: UITableViewCell {
         if sender.titleLabel?.text != "..." {
             switch sender.tag {
             case 101:
-                // Mark: Card
+                // MARK: Card
                 currentTag = 101
                 cardView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
                 cardView.cardViewModel.prepareData(isRefresh: false) {
@@ -210,7 +210,7 @@ class InfoTableViewCell: UITableViewCell {
                     self.delegate?.changeAlphaTo(0.3)
                 }
             case 103:
-                // Mark: Lecture
+                // MARK: Lecture
                 currentTag = 103
                 lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 lectureView.lectureViewModel.prepareData(isRefresh: false) {
@@ -228,7 +228,7 @@ class InfoTableViewCell: UITableViewCell {
                     self.delegate?.changeAlphaTo(0.3)
                 }
             case 104:
-                // Mark: Srtp
+                // MARK: Srtp
                 currentTag = 104
                 srtpView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 var totalHeight : CGFloat = 0
@@ -256,7 +256,7 @@ class InfoTableViewCell: UITableViewCell {
                     self.delegate?.changeAlphaTo(0.3)
                 }
             case 105:
-            // Mark: GPA
+            // MARK: GPA
                 currentTag = 105
                 gpaView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 gpaView.gpaViewModel.prepareData(isRefresh: false) {
