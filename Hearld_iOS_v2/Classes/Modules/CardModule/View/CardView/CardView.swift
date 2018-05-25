@@ -147,7 +147,7 @@ class CardView: UIView {
         topUpView.backgroundColor = UIColor.white
         topUpView.frame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: 300)
         UIView.animate(withDuration: 0.3) {
-            self.topUpView.frame.origin = CGPoint(x: 0, y: screenRect.height - 700)
+            self.topUpView.frame.origin = CGPoint(x: 0, y: screenRect.height - 900)
         }
         emptyView.addSubview(topUpView)
         self.addSubview(emptyView)

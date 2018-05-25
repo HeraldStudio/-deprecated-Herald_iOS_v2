@@ -262,7 +262,7 @@
 		5335CF1C1FB2F6CF001AE6E0 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */,
+				533F8FDC1FA86C6600040A01 /* ActivityModule */,
 				1D826D9F2052C223006C8478 /* InfoViewModel.swift */,
 			);
 			path = ViewModels;
@@ -481,7 +481,6 @@
 				1DB413992050405C00E156C7 /* GPAModule */,
 				5305D00C208C791F002E60DF /* NoticeModule */,
 				533F8FE21FA86CDE00040A01 /* HomeModule */,
-				533F8FDC1FA86C6600040A01 /* ActivityModule */,
 				533F8FDF1FA86CBF00040A01 /* MineModule */,
 				53915ED21F9CE21B00AA0B81 /* LoginModule */,
 			);
@@ -555,6 +554,7 @@
 		53EDB9B7203F426700D51A09 /* CarouselFigureCell */ = {
 			isa = PBXGroup;
 			children = (
+				5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */,
 				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
 				5325CA89202969D100FE3974 /* CarouselProtocol.swift */,
 			);
