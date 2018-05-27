@@ -58,7 +58,7 @@ class GPAViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
-        gpaViewModel.prepareData(isRefresh: true, completionHandler: {})
+        gpaViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
     
     private func layoutUI() {

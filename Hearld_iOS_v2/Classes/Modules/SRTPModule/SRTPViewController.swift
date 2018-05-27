@@ -52,7 +52,7 @@ class SRTPViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
-        srtpViewModel.prepareData(isRefresh: true, completionHandler: {})
+        srtpViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
     
     private func layoutUI() {

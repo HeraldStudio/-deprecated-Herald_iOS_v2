@@ -49,7 +49,7 @@ class LectureViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
-        lectureViewModel.prepareData(isRefresh: true, completionHandler: {})
+        lectureViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
 
     private func layoutUI() {
