@@ -66,6 +66,10 @@ class CardViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
+        topUpButton.rx.tap.asObservable().subscribe({_ in
+            self.navigationController?.pushViewController(TopUpViewController(), animated: true)
+        }).addDisposableTo(bag)
+        
         cardViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
 

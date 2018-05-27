@@ -41,6 +41,7 @@
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
 		538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125E920BAE87D007182EC /* GPAViewController.swift */; };
 		538125ED20BAED7E007182EC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125EC20BAED7E007182EC /* CardViewController.swift */; };
+		538125EF20BAFC4F007182EC /* TopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125EE20BAFC4F007182EC /* TopUpViewController.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
@@ -108,6 +109,7 @@
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
 		538125E920BAE87D007182EC /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
 		538125EC20BAED7E007182EC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
+		538125EE20BAFC4F007182EC /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpViewController.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -265,38 +267,23 @@
 			path = HomeModule;
 			sourceTree = "<group>";
 		};
-		534932EF20A6FB65004ECC08 /* TopUpView */ = {
-			isa = PBXGroup;
-			children = (
-				534932EC20A6FB55004ECC08 /* TopUpView.swift */,
-			);
-			path = TopUpView;
-			sourceTree = "<group>";
-		};
 		5357A43820A4183D00D23F31 /* CardModule */ = {
 			isa = PBXGroup;
 			children = (
-				538125EB20BAED18007182EC /* topUpModule */,
 				5357A43920A4185C00D23F31 /* CardModel.swift */,
 				538125EC20BAED7E007182EC /* CardViewController.swift */,
 				5357A44220A4323800D23F31 /* CardTableViewCell.swift */,
 				5357A43B20A41B8200D23F31 /* CardViewModel.swift */,
-				5357A43D20A4244D00D23F31 /* View */,
+				538125EB20BAED18007182EC /* topUpModule */,
 			);
 			path = CardModule;
-			sourceTree = "<group>";
-		};
-		5357A43D20A4244D00D23F31 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				534932EF20A6FB65004ECC08 /* TopUpView */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		538125EB20BAED18007182EC /* topUpModule */ = {
 			isa = PBXGroup;
 			children = (
+				534932EC20A6FB55004ECC08 /* TopUpView.swift */,
+				538125EE20BAFC4F007182EC /* TopUpViewController.swift */,
 			);
 			path = topUpModule;
 			sourceTree = "<group>";
@@ -662,6 +649,7 @@
 				53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */,
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
 				5357A43A20A4185C00D23F31 /* CardModel.swift in Sources */,
+				538125EF20BAFC4F007182EC /* TopUpViewController.swift in Sources */,
 				534932ED20A6FB55004ECC08 /* TopUpView.swift in Sources */,
 				1DB413B2205040AC00E156C7 /* SRTPTableViewCell.swift in Sources */,
 				5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */,
