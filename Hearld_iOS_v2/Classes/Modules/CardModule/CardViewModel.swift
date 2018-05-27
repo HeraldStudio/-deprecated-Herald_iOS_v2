@@ -17,17 +17,17 @@ import YYCache
 
 class CardViewModel {
     
-    // 提供单例
+    /* 提供单例 */
     static let shared = CardViewModel()
     
     private init() {
         
     }
     
-    // Model
+    /* Model */
     var cardModels : [CardModel] = []
     
-    // Subject
+    /* Subject */
     fileprivate let cardSubject = PublishSubject<[CardModel]>()
     var cardList: Observable<[CardModel]> {
         return cardSubject.asObservable()
@@ -54,7 +54,9 @@ class CardViewModel {
         }
     }
     
-    // 网络请求API
+    /**
+      网络请求API
+     */
     private func requestCard(completionHandler: @escaping ()->()) {
         // Moya工厂方法
         let provider = MoyaProvider<QueryAPI>()
