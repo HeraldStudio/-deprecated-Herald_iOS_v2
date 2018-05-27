@@ -55,6 +55,7 @@ enum QueryAPI {
     case Notice()                                 //查询通知
 }
 
+// MARK: UserAPI
 extension UserAPI: TargetType {
     
     var baseURL: URL { return URL(string: "https://myseu.cn/ws3/")! }
@@ -115,6 +116,7 @@ extension UserAPI: TargetType {
     }
 }
 
+// MARK: SubscribeAPI
 extension SubscribeAPI: TargetType{
     
     var baseURL: URL {
@@ -188,6 +190,7 @@ extension SubscribeAPI: TargetType{
     }
 }
 
+// MARK: QueryAPI
 extension QueryAPI: TargetType{
     var baseURL: URL {
         switch self {

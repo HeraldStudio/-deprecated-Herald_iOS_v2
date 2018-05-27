@@ -21,7 +21,6 @@ class NoticeViewController: UIViewController {
     let srtpButton = UIButton()
     let collegeButton = UIButton()
     let noticeTableView = UITableView()
-    let underline = UIView()
     
     /* rxswift */
     let bag = DisposeBag()
@@ -65,7 +64,6 @@ class NoticeViewController: UIViewController {
             collegeAttrString.font(16,FontWeight.semibold, NSMakeRange(0, 2))
             collegeButton.into(view).top(navigationController.getHeight() + 55).after(srtpButton,10).width(45).height(30).background(HeraldColorHelper.PrimaryBg).attributedTitle(collegeAttrString)
             
-//            underline.into(view).below(srtpButton,)
             noticeTableView.into(view).below(jwcButton,10).left(10).right(10).bottom(0)
         }
     }
