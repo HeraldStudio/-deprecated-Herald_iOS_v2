@@ -43,6 +43,7 @@
 		5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44220A4323800D23F31 /* CardTableViewCell.swift */; };
 		5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */; };
 		5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */; };
+		5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9C20BA931F00B12282 /* SRTPViewController.swift */; };
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
@@ -113,6 +114,7 @@
 		5357A44220A4323800D23F31 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
+		5370FB9C20BA931F00B12282 /* SRTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewController.swift; sourceTree = "<group>"; };
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			isa = PBXGroup;
 			children = (
 				1DB413AE205040AB00E156C7 /* SRTPModel.swift */,
+				5370FB9C20BA931F00B12282 /* SRTPViewController.swift */,
 				1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */,
 				530CCBA0209DC1FA00FDBACF /* View */,
 			);
@@ -694,6 +697,7 @@
 				5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
+				5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,

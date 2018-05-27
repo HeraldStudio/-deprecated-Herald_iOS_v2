@@ -134,6 +134,10 @@ class InfoTableViewCell: UITableViewCell {
         lectureButton.rx.tap.asObservable().subscribe({_ in
             self.delegate?.navigation(toVC: LectureViewController())
         }).addDisposableTo(bag)
+        
+//        strpButton.rx.tap.asObservale().subscribe({_ in
+////            self.delegate?.navigation(toVC: ())
+//        }).addDisposableTo(bag)
     }
     
     private func setupSubviews() {
