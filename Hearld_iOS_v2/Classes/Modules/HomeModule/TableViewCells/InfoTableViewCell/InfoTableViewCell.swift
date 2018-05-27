@@ -142,6 +142,10 @@ class InfoTableViewCell: UITableViewCell {
         gradeButton.rx.tap.asObservable().subscribe({_ in
             self.delegate?.navigation(toVC: GPAViewController())
         }).addDisposableTo(bag)
+        
+        cardExtraButton.rx.tap.asObservable().subscribe({_ in
+            self.delegate?.navigation(toVC: CardViewController())
+        }).addDisposableTo(bag)
     }
     
     private func setupSubviews() {

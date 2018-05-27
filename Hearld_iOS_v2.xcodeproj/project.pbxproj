@@ -34,14 +34,13 @@
 		534932ED20A6FB55004ECC08 /* TopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534932EC20A6FB55004ECC08 /* TopUpView.swift */; };
 		5357A43A20A4185C00D23F31 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43920A4185C00D23F31 /* CardModel.swift */; };
 		5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43B20A41B8200D23F31 /* CardViewModel.swift */; };
-		5357A43F20A4246500D23F31 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43E20A4246500D23F31 /* CardView.swift */; };
-		5357A44120A431C300D23F31 /* CardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44020A431C300D23F31 /* CardViewDelegate.swift */; };
 		5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44220A4323800D23F31 /* CardTableViewCell.swift */; };
 		5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */; };
 		5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */; };
 		5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9C20BA931F00B12282 /* SRTPViewController.swift */; };
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
 		538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125E920BAE87D007182EC /* GPAViewController.swift */; };
+		538125ED20BAED7E007182EC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125EC20BAED7E007182EC /* CardViewController.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
@@ -102,14 +101,13 @@
 		534932EC20A6FB55004ECC08 /* TopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpView.swift; sourceTree = "<group>"; };
 		5357A43920A4185C00D23F31 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		5357A43B20A41B8200D23F31 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
-		5357A43E20A4246500D23F31 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
-		5357A44020A431C300D23F31 /* CardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewDelegate.swift; sourceTree = "<group>"; };
 		5357A44220A4323800D23F31 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
 		5370FB9C20BA931F00B12282 /* SRTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewController.swift; sourceTree = "<group>"; };
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
 		538125E920BAE87D007182EC /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
+		538125EC20BAED7E007182EC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -267,16 +265,6 @@
 			path = HomeModule;
 			sourceTree = "<group>";
 		};
-		534932EE20A6FB5B004ECC08 /* CardView */ = {
-			isa = PBXGroup;
-			children = (
-				5357A43E20A4246500D23F31 /* CardView.swift */,
-				5357A44020A431C300D23F31 /* CardViewDelegate.swift */,
-				5357A44220A4323800D23F31 /* CardTableViewCell.swift */,
-			);
-			path = CardView;
-			sourceTree = "<group>";
-		};
 		534932EF20A6FB65004ECC08 /* TopUpView */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,7 +276,10 @@
 		5357A43820A4183D00D23F31 /* CardModule */ = {
 			isa = PBXGroup;
 			children = (
+				538125EB20BAED18007182EC /* topUpModule */,
 				5357A43920A4185C00D23F31 /* CardModel.swift */,
+				538125EC20BAED7E007182EC /* CardViewController.swift */,
+				5357A44220A4323800D23F31 /* CardTableViewCell.swift */,
 				5357A43B20A41B8200D23F31 /* CardViewModel.swift */,
 				5357A43D20A4244D00D23F31 /* View */,
 			);
@@ -299,9 +290,15 @@
 			isa = PBXGroup;
 			children = (
 				534932EF20A6FB65004ECC08 /* TopUpView */,
-				534932EE20A6FB5B004ECC08 /* CardView */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		538125EB20BAED18007182EC /* topUpModule */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = topUpModule;
 			sourceTree = "<group>";
 		};
 		5385818F1F9E1BD8003933FA /* Models */ = {
@@ -668,6 +665,7 @@
 				534932ED20A6FB55004ECC08 /* TopUpView.swift in Sources */,
 				1DB413B2205040AC00E156C7 /* SRTPTableViewCell.swift in Sources */,
 				5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */,
+				538125ED20BAED7E007182EC /* CardViewController.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */,
@@ -702,9 +700,7 @@
 				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,
 				53E354292070C5DC00D48373 /* HeraldColorHelper.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
-				5357A44120A431C300D23F31 /* CardViewDelegate.swift in Sources */,
 				538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */,
-				5357A43F20A4246500D23F31 /* CardView.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

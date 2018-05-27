@@ -41,6 +41,7 @@ class LectureViewController: UIViewController {
                 self.doneLabel.text = "已听讲座次数 " + String(lectureArray.count)
                 let remianCount = (lectureArray.count) > 8 ? 0 : (8 - lectureArray.count)
                 self.remainLabel.text = "剩余讲座次数 " + String(remianCount)
+                
                 self.lectureTableView.dataSource = nil
                 Observable.just(self.createSectionModel(lectureArray)).bind(to: self.lectureTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
         },
