@@ -42,10 +42,8 @@
 		5357A44120A431C300D23F31 /* CardViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44020A431C300D23F31 /* CardViewDelegate.swift */; };
 		5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44220A4323800D23F31 /* CardTableViewCell.swift */; };
 		5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */; };
-		537B4FFE2095A00D0003A070 /* LectureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFD2095A00D0003A070 /* LectureView.swift */; };
-		537B50002095A24A0003A070 /* LectureViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B4FFF2095A24A0003A070 /* LectureViewDelegate.swift */; };
+		5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */; };
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
-		537B50052095DFC60003A070 /* addSubViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50042095DFC60003A070 /* addSubViewProtocol.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
@@ -114,10 +112,8 @@
 		5357A44020A431C300D23F31 /* CardViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewDelegate.swift; sourceTree = "<group>"; };
 		5357A44220A4323800D23F31 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
-		537B4FFD2095A00D0003A070 /* LectureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureView.swift; sourceTree = "<group>"; };
-		537B4FFF2095A24A0003A070 /* LectureViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewDelegate.swift; sourceTree = "<group>"; };
+		5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
-		537B50042095DFC60003A070 /* addSubViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addSubViewProtocol.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -168,7 +164,6 @@
 			isa = PBXGroup;
 			children = (
 				53E354262070C2DB00D48373 /* InfoTableViewCell.swift */,
-				537B50042095DFC60003A070 /* addSubViewProtocol.swift */,
 			);
 			path = InfoTableViewCell;
 			sourceTree = "<group>";
@@ -198,8 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				1DB413BB205040C000E156C7 /* LectureModel.swift */,
+				5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */,
+				1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */,
 				1DB413B8205040C000E156C7 /* LectureViewModel.swift */,
-				537B50012095A5CC0003A070 /* View */,
 			);
 			path = LectureModule;
 			sourceTree = "<group>";
@@ -326,16 +322,6 @@
 			children = (
 				534932EF20A6FB65004ECC08 /* TopUpView */,
 				534932EE20A6FB5B004ECC08 /* CardView */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		537B50012095A5CC0003A070 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				537B4FFD2095A00D0003A070 /* LectureView.swift */,
-				537B4FFF2095A24A0003A070 /* LectureViewDelegate.swift */,
-				1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -691,6 +677,7 @@
 				533FFC0B20A0473500381547 /* GPAView.swift in Sources */,
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
+				5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */,
 				1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
 				5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */,
@@ -710,7 +697,6 @@
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
-				537B50052095DFC60003A070 /* addSubViewProtocol.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
 				5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */,
@@ -721,14 +707,12 @@
 				1DB413BD205040C000E156C7 /* LectureViewModel.swift in Sources */,
 				5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
-				537B4FFE2095A00D0003A070 /* LectureView.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				1DB413B4205040AC00E156C7 /* SRTPModel.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
 				1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */,
 				1D826D9620514E70006C8478 /* InfoModel.swift in Sources */,
-				537B50002095A24A0003A070 /* LectureViewDelegate.swift in Sources */,
 				530CCBA4209DC30D00FDBACF /* SRTPViewDelegate.swift in Sources */,
 				1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */,
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,

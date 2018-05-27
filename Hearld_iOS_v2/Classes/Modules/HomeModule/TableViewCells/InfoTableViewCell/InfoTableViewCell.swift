@@ -16,7 +16,6 @@ import SVProgressHUD
 class InfoTableViewCell: UITableViewCell {
     
     // MARK - UI stuff
-    var staticLabel = UILabel()
     var nameLabel = UILabel()
     var identityLabel = UILabel()
     var logoutButton = UIButton()
@@ -35,19 +34,10 @@ class InfoTableViewCell: UITableViewCell {
     var verticalLine_2 = UIView()
     var verticalLine_3 = UIView()
     var verticalLine_4 = UIView()
-    
-    // MARK - 实现上弹视图
-    var popViewFrame: CGRect?
-    var currentTag: Int?
-    
-    var emptyView = UIView(frame: screenRect)
-    var lectureView = LectureView()
-    var srtpView = SRTPView()
-    var gpaView = GPAView()
-    var cardView = CardView()
-    var delegate : addSubViewProtocol?
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
+    
+    var delegate : navigationProtocol?
     
     // MARK : ViewModel
     var strpViewModel = SRTPViewModel.shared
@@ -83,10 +73,7 @@ class InfoTableViewCell: UITableViewCell {
         /// 分别订阅5个Button对应的网络请求
         subscribeButton()
         
-        /// 初始化emptyView
-        initialEmptyView()
-        
-        /// 5个Button addTarget
+        // addTargets
         addTargets()
     }
     
@@ -143,227 +130,18 @@ class InfoTableViewCell: UITableViewCell {
         }).addDisposableTo(bag)
     }
     
-    private func initialEmptyView() {
-        // tap撤回上弹窗口的手势
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissDropDownView(_:)))
-        // 手势需要遵循的代理：UIGestureRecognizerDelegate
-        tapGestureRecognizer.delegate = self
-        
-        // 滑动撤回上弹窗口的手势
-        let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
-        swipeLeft.direction = .left
-        swipeLeft.numberOfTouchesRequired = 1
-        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
-        swipeRight.direction = .right
-        swipeRight.numberOfTouchesRequired = 1
-        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
-        swipeDown.direction = .down
-        swipeDown.numberOfTouchesRequired = 1
-        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipe(gesture:)))
-        swipeUp.direction = .up
-        swipeUp.numberOfTouchesRequired = 1
-        
-        emptyView.isUserInteractionEnabled = true
-        emptyView.addGestureRecognizer(tapGestureRecognizer)
-        emptyView.addGestureRecognizer(swipeLeft)
-        emptyView.addGestureRecognizer(swipeRight)
-        emptyView.addGestureRecognizer(swipeDown)
-        emptyView.addGestureRecognizer(swipeUp)
-    }
-    
     private func addTargets() {
-        cardExtraButton.tag = 101
-        cardExtraButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
-        
-        peButton.tag = 102
-        peButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
-        
-        lectureButton.tag = 103
-        lectureButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
-        
-        strpButton.tag = 104
-        strpButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
-        
-        gradeButton.tag = 105
-        gradeButton.addTarget(self, action: #selector(popView(_:)), for: .touchDown)
-    }
-    
-    @objc private func popView(_ sender: UIButton) {
-        if sender.titleLabel?.text != "..." {
-            switch sender.tag {
-            case 101:
-                // MARK: Card
-                currentTag = 101
-                cardView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-                cardView.cardViewModel.prepareData(isRefresh: false) {
-                    let totalRowHeight = self.cardView.cardViewModel.cardModels.count * 60
-                    let finalHeight = (CGFloat)(160 + totalRowHeight)
-                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
-                    self.cardView.frame = self.popViewFrame!
-                    
-                    // animation
-                    UIView.animate(withDuration: 0.3) {
-                        self.cardView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
-                    }
-                    self.emptyView.addSubview(self.cardView)
-                    self.delegate?.addSubViewFromCell(self.emptyView)
-                    self.delegate?.changeAlphaTo(0.3)
-                }
-            case 103:
-                // MARK: Lecture
-                currentTag = 103
-                lectureView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                lectureView.lectureViewModel.prepareData(isRefresh: false) {
-                    let totalRowHeight = self.lectureView.lectureViewModel.lectureModels.count * 37
-                    let finalHeight = (CGFloat)(125 + totalRowHeight)
-                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
-                    self.lectureView.frame = self.popViewFrame!
-                    
-                    // animation
-                    UIView.animate(withDuration: 0.3) {
-                        self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
-                    }
-                    self.emptyView.addSubview(self.lectureView)
-                    self.delegate?.addSubViewFromCell(self.emptyView)
-                    self.delegate?.changeAlphaTo(0.3)
-                }
-            case 104:
-                // MARK: Srtp
-                currentTag = 104
-                srtpView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                var totalHeight : CGFloat = 0
-                srtpView.srtpViewModel.prepareData(isRefresh: false) {
-                    let label = UILabel(frame: CGRect(x: 10, y: 10, width: screenRect.width - 30, height: 0))
-                    var size : CGSize
-                    label.numberOfLines = 0
-                    label.font = UIFont.systemFont(ofSize: 17, weight: UIFontWeightSemibold)
-
-                    for srtp in self.srtpView.srtpViewModel.srtpList {
-                        label.text = srtp.project
-                        size = label.sizeThatFits(CGSize(width: screenRect.width - 30, height: 0))
-                        totalHeight += (size.height + 45)
-                    }
-                    let finalHeight = (CGFloat)(125 + totalHeight)
-                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight )
-                    self.srtpView.frame = self.popViewFrame!
-
-                    // animation
-                    UIView.animate(withDuration: 0.3) {
-                        self.srtpView.frame.origin = CGPoint(x: 0, y: screenRect.height - totalHeight - 49 - 37 - 125)
-                    }
-                    self.emptyView.addSubview(self.srtpView)
-                    self.delegate?.addSubViewFromCell(self.emptyView)
-                    self.delegate?.changeAlphaTo(0.3)
-                }
-            case 105:
-            // MARK: GPA
-                currentTag = 105
-                gpaView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-                gpaView.gpaViewModel.prepareData(isRefresh: false) {
-                    let totalRowHeight = self.gpaView.gpaViewModel.gpaModels.count * 37
-                    let finalHeight = (CGFloat)(125 + totalRowHeight)
-                    self.popViewFrame = CGRect(x: 0, y: screenRect.height, width: screenRect.width, height: finalHeight)
-                    self.gpaView.frame = self.popViewFrame!
-                    
-                    // animation
-                    UIView.animate(withDuration: 0.3) {
-                        self.gpaView.frame.origin = CGPoint(x: 0, y: screenRect.height - finalHeight - 49 - 37)
-                    }
-                    self.emptyView.addSubview(self.gpaView)
-                    self.delegate?.addSubViewFromCell(self.emptyView)
-                    self.delegate?.changeAlphaTo(0.3)
-                }
-            default:
-                return
-            }
-        }
-    }
-    
-    // UIGestureRecognizerDelegate
-    override func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        let touchPoint = touch.location(in: emptyView)
-        // 如果touchPoint在上弹窗口内，则不响应手势
-        switch currentTag {
-        case 101:
-            if self.cardView.frame.contains(touchPoint) {
-                return false;
-            }
-        case 103:
-            if self.lectureView.frame.contains(touchPoint) {
-                return false
-            }
-        case 104:
-            if self.srtpView.frame.contains(touchPoint) {
-                return false
-            }
-        case 105:
-            if self.gpaView.frame.contains(touchPoint) {
-                return false
-            }
-        default:
-            return false
-        }
-        return true
-    }
-    
-    // 滑动手势popOff上弹窗口
-    func swipe(gesture: UISwipeGestureRecognizer) {
-        popOffView()
-    }
-    
-    // tap手势popOff上弹窗口
-    @objc private func dismissDropDownView(_ sender: UITapGestureRecognizer) {
-        popOffView()
-    }
-    
-    private func popOffView() {
-        switch currentTag {
-        case 101:
-            UIView.animate(withDuration: 0.3, animations: {
-                self.cardView.frame.origin = CGPoint(x: 0, y: screenRect.height)
-            }) { finished in
-                self.cardView.removeFromSuperview()
-                self.emptyView.removeFromSuperview()
-                self.delegate?.changeAlphaTo(1)
-            }
-        case 103:
-            UIView.animate(withDuration: 0.3, animations: {
-                self.lectureView.frame.origin = CGPoint(x: 0, y: screenRect.height)
-            }) { finished in
-                self.lectureView.removeFromSuperview()
-                self.emptyView.removeFromSuperview()
-                self.delegate?.changeAlphaTo(1)
-            }
-        case 104:
-            UIView.animate(withDuration: 0.3, animations: {
-                self.srtpView.frame.origin = CGPoint(x: 0, y: screenRect.height)
-            }) { finished in
-                self.srtpView.removeFromSuperview()
-                self.emptyView.removeFromSuperview()
-                self.delegate?.changeAlphaTo(1)
-            }
-        case 105:
-            UIView.animate(withDuration: 0.3, animations: {
-                self.gpaView.frame.origin = CGPoint(x: 0, y: screenRect.height)
-            }) { finished in
-                self.gpaView.removeFromSuperview()
-                self.emptyView.removeFromSuperview()
-                self.delegate?.changeAlphaTo(1)
-            }
-        default:
-            return
-        }
+        lectureButton.rx.tap.asObservable().subscribe({_ in
+            self.delegate?.navigation(toVC: LectureViewController())
+        }).addDisposableTo(bag)
     }
     
     private func setupSubviews() {
-        // 信息板
-        staticLabel.into(contentView).top(15).centerX().height(20).width(50).text("信息板").font(16,.bold)
-        
         // 名字
-        nameLabel.into(contentView).below(staticLabel,8).left(15).height(30).font(16,.regular).color(HeraldColorHelper.Regular)
+        nameLabel.into(contentView).top(15).left(15).height(30).font(16,.regular).color(HeraldColorHelper.Regular)
         
         // 身份
-        identityLabel.into(contentView).after(nameLabel,15).below(staticLabel,18).height(15).font(13,.regular).color(HeraldColorHelper.Secondary)
+        identityLabel.into(contentView).after(nameLabel,15).top(25).height(15).font(13,.regular).color(HeraldColorHelper.Secondary)
         
         // 注销按钮
 //        logoutButton.into(contentView).below(staticLabel,10).right(15)

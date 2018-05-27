@@ -9,6 +9,16 @@
 import Foundation
 import UIKit
 
+protocol navigationProtocol {
+    func navigation(toVC viewController: UIViewController)
+}
+
+extension HomeViewController: navigationProtocol {
+    func navigation(toVC viewController: UIViewController) {
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
 extension HomeViewController: UITableViewDelegate {
 }
 

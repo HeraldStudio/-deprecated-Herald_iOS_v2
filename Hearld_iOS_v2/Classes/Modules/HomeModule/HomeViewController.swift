@@ -21,12 +21,12 @@ class HomeViewController: UIViewController {
         case Info([infoItem])
     }
     
-    // tableView & dataSource
+    /* tableView & dataSource */
     var homeTableView = UITableView()
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
     typealias SectionTableModel = SectionModel<String,HomeItem>
     
-    // ViewModels
+    /* ViewModels */
     var carouselFigureViewModel = CarouselFigureViewModel()
     var infoViewModel = InfoViewModel()
     
@@ -34,7 +34,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(homeTableView)
         layoutUI()
         
         // 注册Cell并设置ConfigureCell以及ConfigureAnimation
@@ -65,11 +64,11 @@ class HomeViewController: UIViewController {
         infoViewModel.prepareData()
     }
     
-    /*
-     * 坑注意
-     * AppDelegate中加载tabBarViewController时，直接调用了其的viewDidLoad，此时并未push进navigationController
-     * 所以在homeVC的navigationController为nil
-     * 目前解决办法是在viewWillAppear再调用一次layoutUI
+    /**
+      坑注意
+      AppDelegate中加载tabBarViewController时，直接调用了其的viewDidLoad，此时并未push进navigationController
+      所以在homeVC的navigationController为nil
+      目前解决办法是在viewWillAppear再调用一次layoutUI
      */
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -108,7 +107,7 @@ class HomeViewController: UIViewController {
     }
     
     private func layoutUI() {
-        homeTableView.background(HeraldColorHelper.background)
+        homeTableView.into(view).background(HeraldColorHelper.background)
         if let navigationController = self.navigationController as? MainNavigationController{
             homeTableView.frame = CGRect(x: 0,
                                          y: navigationController.getHeight(),
@@ -119,12 +118,3 @@ class HomeViewController: UIViewController {
     }
 }
 
-extension HomeViewController : addSubViewProtocol {
-    func addSubViewFromCell(_ subView: UIView) {
-        view.addSubview(subView)
-    }
-    
-    func changeAlphaTo(_ num: CGFloat) {
-        homeTableView.alpha = num
-    }
-}
