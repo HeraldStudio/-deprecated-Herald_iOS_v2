@@ -599,6 +599,12 @@ extension UIButton {
         return self
     }
     
+    @discardableResult func attributedTitle(_ title: NSAttributedString, _ state: UIControlState = .normal) -> Self {
+        autoCheckInto()
+        self.setAttributedTitle(title, for: state)
+        return self
+    }
+    
     @discardableResult func color(_ color: UIColor, _ state: UIControlState = .normal) -> Self{
         autoCheckInto()
         self.setTitleColor(color, for: state)

@@ -40,13 +40,13 @@ class MainTabBarController: UITabBarController {
         
         tabBar.isTranslucent = false
         
-        self.setViewControllers([HomeViewController(),ActivityViewController(),MineViewController()], animated: false)
+        self.setViewControllers([HomeViewController(),ActivityViewController(),NoticeViewController()], animated: false)
         
         self.setCustomItem(title: "首页", image: #imageLiteral(resourceName: "tab_home"), selectedImage: #imageLiteral(resourceName: "tab_home"), index: 0)
         
         self.setCustomItem(title: "活动", image: #imageLiteral(resourceName: "tab_home"), selectedImage: #imageLiteral(resourceName: "tab_home"), index: 1)
         
-        self.setCustomItem(title: "我的", image: #imageLiteral(resourceName: "tab_mine"), selectedImage: #imageLiteral(resourceName: "tab_mine"), index: 2)
+        self.setCustomItem(title: "通知", image: #imageLiteral(resourceName: "tab_mine"), selectedImage: #imageLiteral(resourceName: "tab_mine"), index: 2)
         
         // 修改 TabBar 高亮图标的颜色
         tabBar.tintColor = #colorLiteral(red: 0.1098039216, green: 0.6784313725, blue: 0.7843137255, alpha: 1)

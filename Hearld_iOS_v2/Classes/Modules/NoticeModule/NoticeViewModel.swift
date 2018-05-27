@@ -13,6 +13,7 @@ import SwiftyJSON
 import RxSwift
 import RealmSwift
 import RxCocoa
+import YYCache
 
 class NoticeViewModel {
     
@@ -21,21 +22,17 @@ class NoticeViewModel {
         return noticeSubject.asObservable()
     }
     
+    let cache = YYMemoryCache.init()
+    
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
-        let realm = try! Realm()
         if isRefresh {
-            let resultOfNotice = realm.objects(NoticeModel.self)
-            db_deleteObjcs(resultOfNotice, with: realm)
-            
+            cache.removeObject(forKey: "Notice")
             requestNotice { completionHandler() }
         }  else {
-            let resultOfNotice = realm.objects(NoticeModel.self)
-            if resultOfNotice.count > 0 {
-                var noticeList: [NoticeModel] = []
-                resultOfNotice.forEach { noticeList.append($0) }
-                self.noticeSubject.onNext(noticeList)
+            if let noticeObjects = cache.object(forKey: "Notice") as? [NoticeModel], noticeObjects.count > 0 {
+                self.noticeSubject.onNext(noticeObjects)
             } else {
                 requestNotice { completionHandler() }
             }

@@ -10,9 +10,10 @@ import UIKit
 
 class NoticeCell: UITableViewCell {
     
+    /* Model */
     var notice : NoticeModel? { didSet { updateUI() } }
     
-    // UI stuff
+    /* UI stuff */
     let titleLabel = UILabel()
     let categoryLabel = UILabel()
     var timeLabel = UILabel()
@@ -37,13 +38,13 @@ class NoticeCell: UITableViewCell {
         
         categoryLabel.into(contentView).below(titleLabel,5).left(10).bottom(8).width(180).height(30).font(16,.semibold).color(HeraldColorHelper.Bold)
         
-        timeLabel.into(contentView).below(titleLabel,5).after(categoryLabel, 60).right(10).bottom(8).height(30).font(16,.semibold).color(HeraldColorHelper.Secondary).text("发布于")
+        timeLabel.into(contentView).below(titleLabel,5).right(10).bottom(8).height(30).align(.right).font(16,.semibold).color(HeraldColorHelper.Secondary)
     }
     
     private func updateUI() {
         titleLabel.text = notice?.title
         categoryLabel.text = notice?.category
-        timeLabel.text = timeLabel.text! + " " + (notice?.displayTime)!
+        timeLabel.text = (notice?.displayTime)!
     }
     
 }
