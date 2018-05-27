@@ -31,8 +31,6 @@
 		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
 		533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE31FA86D3400040A01 /* HomeViewController.swift */; };
 		533F8FE61FA86F9F00040A01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE51FA86F9F00040A01 /* User.swift */; };
-		533FFC0B20A0473500381547 /* GPAView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FFC0A20A0473500381547 /* GPAView.swift */; };
-		533FFC0D20A04D6E00381547 /* GPAViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533FFC0C20A04D6E00381547 /* GPAViewDelegate.swift */; };
 		534932ED20A6FB55004ECC08 /* TopUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534932EC20A6FB55004ECC08 /* TopUpView.swift */; };
 		5357A43A20A4185C00D23F31 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43920A4185C00D23F31 /* CardModel.swift */; };
 		5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43B20A41B8200D23F31 /* CardViewModel.swift */; };
@@ -43,6 +41,7 @@
 		5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */; };
 		5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9C20BA931F00B12282 /* SRTPViewController.swift */; };
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
+		538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125E920BAE87D007182EC /* GPAViewController.swift */; };
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
@@ -100,8 +99,6 @@
 		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		533F8FE31FA86D3400040A01 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		533F8FE51FA86F9F00040A01 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		533FFC0A20A0473500381547 /* GPAView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAView.swift; sourceTree = "<group>"; };
-		533FFC0C20A04D6E00381547 /* GPAViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewDelegate.swift; sourceTree = "<group>"; };
 		534932EC20A6FB55004ECC08 /* TopUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpView.swift; sourceTree = "<group>"; };
 		5357A43920A4185C00D23F31 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		5357A43B20A41B8200D23F31 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
@@ -112,6 +109,7 @@
 		5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
 		5370FB9C20BA931F00B12282 /* SRTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewController.swift; sourceTree = "<group>"; };
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
+		538125E920BAE87D007182EC /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
@@ -170,8 +168,9 @@
 			isa = PBXGroup;
 			children = (
 				1DB4139B2050405C00E156C7 /* GPAModel.swift */,
+				538125E920BAE87D007182EC /* GPAViewController.swift */,
+				1DB4139C2050405C00E156C7 /* GPATableViewCell.swift */,
 				1DB4139F2050405C00E156C7 /* GPAViewModel.swift */,
-				533FFC0920A0471300381547 /* View */,
 			);
 			path = GPAModule;
 			sourceTree = "<group>";
@@ -266,16 +265,6 @@
 				5335CF1C1FB2F6CF001AE6E0 /* ViewModels */,
 			);
 			path = HomeModule;
-			sourceTree = "<group>";
-		};
-		533FFC0920A0471300381547 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				533FFC0A20A0473500381547 /* GPAView.swift */,
-				1DB4139C2050405C00E156C7 /* GPATableViewCell.swift */,
-				533FFC0C20A04D6E00381547 /* GPAViewDelegate.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		534932EE20A6FB5B004ECC08 /* CardView */ = {
@@ -663,7 +652,6 @@
 				53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */,
 				5385819F1F9E4556003933FA /* SnapKit.swift in Sources */,
 				533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */,
-				533FFC0B20A0473500381547 /* GPAView.swift in Sources */,
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
 				5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */,
@@ -709,13 +697,13 @@
 				5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */,
 				5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */,
 				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
-				533FFC0D20A04D6E00381547 /* GPAViewDelegate.swift in Sources */,
 				5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */,
 				53E354272070C2DB00D48373 /* InfoTableViewCell.swift in Sources */,
 				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,
 				53E354292070C5DC00D48373 /* HeraldColorHelper.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				5357A44120A431C300D23F31 /* CardViewDelegate.swift in Sources */,
+				538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */,
 				5357A43F20A4246500D23F31 /* CardView.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);

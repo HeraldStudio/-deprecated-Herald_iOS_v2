@@ -138,6 +138,10 @@ class InfoTableViewCell: UITableViewCell {
         strpButton.rx.tap.asObservable().subscribe({_ in
             self.delegate?.navigation(toVC: SRTPViewController())
         }).addDisposableTo(bag)
+        
+        gradeButton.rx.tap.asObservable().subscribe({_ in
+            self.delegate?.navigation(toVC: GPAViewController())
+        }).addDisposableTo(bag)
     }
     
     private func setupSubviews() {
