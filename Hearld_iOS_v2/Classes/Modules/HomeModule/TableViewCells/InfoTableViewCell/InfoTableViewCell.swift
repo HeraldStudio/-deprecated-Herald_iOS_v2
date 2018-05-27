@@ -135,9 +135,9 @@ class InfoTableViewCell: UITableViewCell {
             self.delegate?.navigation(toVC: LectureViewController())
         }).addDisposableTo(bag)
         
-//        strpButton.rx.tap.asObservale().subscribe({_ in
-////            self.delegate?.navigation(toVC: ())
-//        }).addDisposableTo(bag)
+        strpButton.rx.tap.asObservable().subscribe({_ in
+            self.delegate?.navigation(toVC: SRTPViewController())
+        }).addDisposableTo(bag)
     }
     
     private func setupSubviews() {

@@ -21,8 +21,6 @@
 		5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00D208C7959002E60DF /* NoticeModel.swift */; };
 		5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00F208C7A29002E60DF /* NoticeViewModel.swift */; };
 		5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D014208C803E002E60DF /* NoticeTableViewCell.swift */; };
-		530CCBA2209DC21900FDBACF /* SRTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530CCBA1209DC21900FDBACF /* SRTPView.swift */; };
-		530CCBA4209DC30D00FDBACF /* SRTPViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530CCBA3209DC30D00FDBACF /* SRTPViewDelegate.swift */; };
 		5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselProtocol.swift */; };
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
@@ -92,8 +90,6 @@
 		5305D00D208C7959002E60DF /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		5305D00F208C7A29002E60DF /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		5305D014208C803E002E60DF /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
-		530CCBA1209DC21900FDBACF /* SRTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPView.swift; sourceTree = "<group>"; };
-		530CCBA3209DC30D00FDBACF /* SRTPViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewDelegate.swift; sourceTree = "<group>"; };
 		5325CA89202969D100FE3974 /* CarouselProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselProtocol.swift; sourceTree = "<group>"; };
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
@@ -185,8 +181,8 @@
 			children = (
 				1DB413AE205040AB00E156C7 /* SRTPModel.swift */,
 				5370FB9C20BA931F00B12282 /* SRTPViewController.swift */,
+				1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */,
 				1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */,
-				530CCBA0209DC1FA00FDBACF /* View */,
 			);
 			name = SRTPModule;
 			path = Hearld_iOS_v2/Classes/Modules/SRTPModule;
@@ -220,16 +216,6 @@
 				5305D00F208C7A29002E60DF /* NoticeViewModel.swift */,
 			);
 			path = NoticeModule;
-			sourceTree = "<group>";
-		};
-		530CCBA0209DC1FA00FDBACF /* View */ = {
-			isa = PBXGroup;
-			children = (
-				530CCBA1209DC21900FDBACF /* SRTPView.swift */,
-				530CCBA3209DC30D00FDBACF /* SRTPViewDelegate.swift */,
-				1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		5335CF191FB2F657001AE6E0 /* Models */ = {
@@ -684,7 +670,6 @@
 				1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
 				5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */,
-				530CCBA2209DC21900FDBACF /* SRTPView.swift in Sources */,
 				1DB413A32050405C00E156C7 /* GPATableViewCell.swift in Sources */,
 				5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
@@ -717,7 +702,6 @@
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
 				1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */,
 				1D826D9620514E70006C8478 /* InfoModel.swift in Sources */,
-				530CCBA4209DC30D00FDBACF /* SRTPViewDelegate.swift in Sources */,
 				1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */,
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
