@@ -58,6 +58,15 @@ extension UIView {
         return self
     }
     
+    /// 动态更改高度约束为常数
+    @discardableResult func changeHeight(to const: CGFloat) -> Self {
+        autoCheckInto()
+        self.snp.updateConstraints {
+            $0.height.equalTo(const)
+        }
+        return self
+    }
+    
     /// 令宽度、高度等于 CGSize
     @discardableResult func size(_ size: CGSize) -> Self {
         autoCheckInto()

@@ -47,17 +47,20 @@ class CardViewController: UIViewController {
             onNext: { cardArray in
                 let realm = try! Realm()
                 let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
-                self.cardTableView.height(CGFloat(cardArray.count * 60))
-                print(self.cardTableView.frame.height)
-                print(self.cardTableView.frame.height)
-                print(self.cardTableView.frame.height)
-                print(self.cardTableView.frame.height)
+                
+                /* 动态修改约束 */
+                self.cardTableView.changeHeight(to: CGFloat(self.cardViewModel.cardModels.count * 60))
+                
                 self.balanceLabel.text = "卡余额 " + String(currentUser.balance)
                 self.comsumeTimesLabel.text = "今日消费次数 " + String(cardArray.count)
                 let totalCost = cardArray.reduce(0, { temp, card in
                     return temp + card.amount
                 })
-                self.totalCostlabel.text = "今天至今 总支出 " + String(totalCost)
+                if cardArray.count > 0 {
+                    self.totalCostlabel.text = cardArray[0].time +  "至今 总支出 " + String(totalCost)
+                } else {
+                    self.totalCostlabel.text = "今天无支出"
+                }
                 
                 self.cardTableView.dataSource = nil
                 Observable.just(self.createSectionModel(cardArray)).bind(to: self.cardTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
@@ -66,8 +69,14 @@ class CardViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
+        /* 订阅充值Button点击事件 */
         topUpButton.rx.tap.asObservable().subscribe({_ in
             self.navigationController?.pushViewController(TopUpViewController(), animated: true)
+        }).addDisposableTo(bag)
+        
+        /* 订阅加载历史Button点击事件 */
+        loadButton.rx.tap.asObservable().subscribe({_ in
+            self.cardViewModel.prepareData(isExpand: true, completionHandler: {})
         }).addDisposableTo(bag)
         
         cardViewModel.prepareData(isRefresh: false, completionHandler: {})
@@ -92,7 +101,7 @@ class CardViewController: UIViewController {
             comsumeTimesLabel.into(containerView_1).top(0).bottom(0).after(balanceLabel, 5).before(topUpButton,5).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
             
             // TableView
-            cardTableView.into(view).below(containerView_1, 10).left(5).right(5)
+            cardTableView.into(view).below(containerView_1, 10).left(5).right(5).height(CGFloat(cardViewModel.cardModels.count * 60))
             
             // 容器View
             containerView_2.into(view).below(cardTableView,10).left(50).right(50).height(30)

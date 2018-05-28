@@ -14,6 +14,7 @@ import RxSwift
 import RxCocoa
 import RealmSwift
 import YYCache
+import SwiftDate
 
 class CardViewModel {
     
@@ -37,9 +38,35 @@ class CardViewModel {
     let cache = YYMemoryCache.init()
     let bag = DisposeBag()
     
-    // 暴露的API，封装从缓存获取或是网络请求获取的逻辑
+    var offset = 0
+    
+    /* 请求日期 */
+    var requestDate : String {
+        get {
+            var currentDate = DateInRegion(absoluteDate: Date(), in: Region.Local())
+            currentDate = currentDate - offset.day
+            return currentDate.string(format: .custom("yyyy-MM-dd"))
+        }
+    }
+    
+    /**
+     - parameter isExpand: 是否加载前一天支出,叠加Model
+     */
+    func prepareData(isExpand: Bool, completionHandler: @escaping ()->()) {
+        if isExpand {
+            offset += 1
+            requestCard{ completionHandler() }
+        } else {
+            prepareData(isRefresh: false, completionHandler: completionHandler)
+        }
+    }
+    
+    /**
+      封装从缓存获取或是网络请求获取的逻辑
+     */
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->() ) {
         if isRefresh {
+            offset = 0
             cardModels.removeAll()
             cache.removeObject(forKey: "card")
             requestCard{ completionHandler() }
@@ -60,7 +87,7 @@ class CardViewModel {
     private func requestCard(completionHandler: @escaping ()->()) {
         // Moya工厂方法
         let provider = MoyaProvider<QueryAPI>()
-        provider.request(.Card()) { result in
+        provider.request(.CardRecord(date: requestDate)) { result in
             switch result {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
@@ -98,8 +125,11 @@ class CardViewModel {
             let amount = cardJSON["amount"].doubleValue
             let desc = cardJSON["desc"].stringValue
             let time = cardJSON["time"].stringValue
+            let tempTime = time.substring(NSRange(location: 0, length: time.length()-3))
+            let date = TimeConvertHelper.convert(from: tempTime)
+            let displayTime = TimeConvertHelper.convert(from: date)
             
-            let cardModel = CardModel(amount, desc, time)
+            let cardModel = CardModel(amount, desc, displayTime)
             cardModels.append(cardModel)
         }
         cache.setObject(cardModels, forKey: "card")

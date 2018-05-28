@@ -44,9 +44,6 @@ class CardTableViewCell: UITableViewCell {
     private func updateUI() {
         descLabel.text = card?.desc
         amountLabel.text = String((card?.amount)!)
-        let time = card?.time.substring(NSRange(location: 0, length: (card?.time.length())!-3))
-        let date = TimeConvertHelper.convert(from: time!)
-        let displayTime = TimeConvertHelper.convert(from: date)
-        timeLabel.text = displayTime
+        timeLabel.text = card?.time
     }
 }
