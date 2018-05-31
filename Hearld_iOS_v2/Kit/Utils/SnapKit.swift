@@ -382,6 +382,11 @@ extension UITextView {
         return self
     }
     
+//    @discardableResult func attributedText(_ text: String = "") -> Self {
+//        autoCheckInto()
+//        self.
+//    }
+    
     @discardableResult func color(_ color: UIColor) -> Self {
         autoCheckInto()
         self.textColor = color
