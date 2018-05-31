@@ -34,4 +34,7 @@ class User : Object{
     override static func primaryKey() -> String? {
         return "cardID"
     }
+    
+    // PE stuff
+    @objc dynamic var peCount : Int = 0
 }

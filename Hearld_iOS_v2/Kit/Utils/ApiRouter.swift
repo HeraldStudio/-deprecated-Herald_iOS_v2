@@ -48,8 +48,8 @@ enum SubscribeAPI {
 }
 
 enum QueryAPI {
-    case Card()                                   //查询一卡通
-    case CardRecord(date: String)                       //查询一卡通指定日期消费记录
+    case CardRecord(date: String)                 //查询一卡通
+    case PE()                                     //查询跑操与体锻成绩
     case GPA()                                    //查询成绩API
     case SRTP()                                   //查询SRTP
     case Lecture()                                //查询人文讲座
@@ -195,15 +195,13 @@ extension SubscribeAPI: TargetType{
 extension QueryAPI: TargetType{
     var baseURL: URL {
         switch self {
-        case .Card() ,.Lecture(), .SRTP(), .GPA(), .Notice(), .CardRecord(_):
+        case .PE(), .Lecture(), .SRTP(), .GPA(), .Notice(), .CardRecord(_):
             return URL(string: "https://myseu.cn/ws3/")!
         }
     }
     
     var path: String {
         switch self {
-        case .Card():
-            return ApiHelper.api("card")
         case .GPA():
             return ApiHelper.api("gpa")
         case .SRTP():
@@ -214,26 +212,28 @@ extension QueryAPI: TargetType{
             return ApiHelper.api("notice")
         case .CardRecord(_):
             return ApiHelper.api("card")
+        case .PE():
+            return ApiHelper.api("pe")
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .Card(), .Lecture(), .GPA(), .SRTP(), .Notice() ,.CardRecord(_):
+        case .Lecture(), .GPA(), .SRTP(), .Notice() ,.CardRecord(_), .PE():
             return .get
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .Card() ,.Lecture(), .GPA(), .SRTP(), .Notice(), .CardRecord(_):
+        case .PE(), .Lecture(), .GPA(), .SRTP(), .Notice(), .CardRecord(_):
             return "Query".utf8Encoded
         }
     }
     
     var task: Task {
         switch self {
-        case .Card() ,.GPA(),.Lecture(), .SRTP(), .Notice():
+        case .GPA(),.Lecture(), .SRTP(), .Notice(), .PE():
             return .requestPlain
         case .CardRecord(let date):
             return .requestParameters(parameters: ["date" : date], encoding: URLEncoding.queryString)
@@ -243,7 +243,7 @@ extension QueryAPI: TargetType{
 
     var headers: [String: String]? {
         switch self {
-        case .Card() ,.SRTP(), .Lecture(), .GPA(), .Notice(), .CardRecord(_):
+        case .SRTP(), .Lecture(), .GPA(), .Notice(), .CardRecord(_), .PE():
             return ["Content-type": "application/json","token": HearldUserDefault.uuid!]
         }
     }

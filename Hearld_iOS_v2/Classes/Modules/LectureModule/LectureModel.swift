@@ -12,8 +12,8 @@ class LectureModel: NSCoding {
     var location: String = ""
     var time: String = ""
     
-    init(_ location: String,
-         _ time: String) {
+    init(_ location : String,
+         _ time : String) {
         self.location = location
         self.time = time
     }

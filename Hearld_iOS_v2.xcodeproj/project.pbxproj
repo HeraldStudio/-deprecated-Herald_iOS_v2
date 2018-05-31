@@ -31,6 +31,10 @@
 		533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */; };
 		533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE31FA86D3400040A01 /* HomeViewController.swift */; };
 		533F8FE61FA86F9F00040A01 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FE51FA86F9F00040A01 /* User.swift */; };
+		534C642620C0275000FB44EF /* PEViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C642520C0275000FB44EF /* PEViewController.swift */; };
+		534C642820C0275C00FB44EF /* PEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C642720C0275C00FB44EF /* PEModel.swift */; };
+		534C642A20C0292E00FB44EF /* PEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C642920C0292E00FB44EF /* PEViewModel.swift */; };
+		534C642E20C0376F00FB44EF /* PETableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C642D20C0376F00FB44EF /* PETableViewCell.swift */; };
 		5357A43A20A4185C00D23F31 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43920A4185C00D23F31 /* CardModel.swift */; };
 		5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43B20A41B8200D23F31 /* CardViewModel.swift */; };
 		5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44220A4323800D23F31 /* CardTableViewCell.swift */; };
@@ -98,6 +102,10 @@
 		533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		533F8FE31FA86D3400040A01 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		533F8FE51FA86F9F00040A01 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		534C642520C0275000FB44EF /* PEViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEViewController.swift; sourceTree = "<group>"; };
+		534C642720C0275C00FB44EF /* PEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEModel.swift; sourceTree = "<group>"; };
+		534C642920C0292E00FB44EF /* PEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEViewModel.swift; sourceTree = "<group>"; };
+		534C642D20C0376F00FB44EF /* PETableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETableViewCell.swift; sourceTree = "<group>"; };
 		5357A43920A4185C00D23F31 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		5357A43B20A41B8200D23F31 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		5357A44220A4323800D23F31 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
@@ -265,6 +273,17 @@
 			path = HomeModule;
 			sourceTree = "<group>";
 		};
+		534C642420C0270100FB44EF /* PEModule */ = {
+			isa = PBXGroup;
+			children = (
+				534C642720C0275C00FB44EF /* PEModel.swift */,
+				534C642520C0275000FB44EF /* PEViewController.swift */,
+				534C642D20C0376F00FB44EF /* PETableViewCell.swift */,
+				534C642920C0292E00FB44EF /* PEViewModel.swift */,
+			);
+			path = PEModule;
+			sourceTree = "<group>";
+		};
 		5357A43820A4183D00D23F31 /* CardModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,12 +408,13 @@
 			isa = PBXGroup;
 			children = (
 				5385819D1F9E43DD003933FA /* BaseModule */,
+				533F8FE21FA86CDE00040A01 /* HomeModule */,
 				5357A43820A4183D00D23F31 /* CardModule */,
+				534C642420C0270100FB44EF /* PEModule */,
 				1DB413B7205040C000E156C7 /* LectureModule */,
 				1DB413AA205040AB00E156C7 /* SRTPModule */,
 				1DB413992050405C00E156C7 /* GPAModule */,
 				5305D00C208C791F002E60DF /* NoticeModule */,
-				533F8FE21FA86CDE00040A01 /* HomeModule */,
 				533F8FDC1FA86C6600040A01 /* ActivityModule */,
 				53915ED21F9CE21B00AA0B81 /* LoginModule */,
 			);
@@ -636,6 +656,7 @@
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
 				5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */,
+				534C642620C0275000FB44EF /* PEViewController.swift in Sources */,
 				1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
 				5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */,
@@ -652,6 +673,7 @@
 				538125ED20BAED7E007182EC /* CardViewController.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
+				534C642E20C0376F00FB44EF /* PETableViewCell.swift in Sources */,
 				5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
@@ -673,6 +695,7 @@
 				1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */,
 				1D826D9620514E70006C8478 /* InfoModel.swift in Sources */,
 				1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */,
+				534C642820C0275C00FB44EF /* PEModel.swift in Sources */,
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
@@ -682,6 +705,7 @@
 				5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */,
 				53E354272070C2DB00D48373 /* InfoTableViewCell.swift in Sources */,
 				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,
+				534C642A20C0292E00FB44EF /* PEViewModel.swift in Sources */,
 				53E354292070C5DC00D48373 /* HeraldColorHelper.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
 				538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */,

@@ -19,18 +19,21 @@ let isRemindLesson = Variable<Bool>(false)
 let isRemindExperiment = Variable<Bool>(false)
 let isRemindTest = Variable<Bool>(false)
 
-/* Keys */
-let uuidKey = "uuid"
-let isLoginKey = "isLogin"
-let isRemindLessonKey = "remindLesson"
-let isRemindExperimentKey = "remindExperiment"
-let isRemindTestKey = "remindTest"
-
 class HearldUserDefault{
+    
+    /* Keys */
+    static let uuidKey = "uuid"
+    static let isLoginKey = "isLogin"
+    
+    static let remainPEDays = "remainPE"
+    
+    static let isRemindLessonKey = "remindLesson"
+    static let isRemindExperimentKey = "remindExperiment"
+    static let isRemindTestKey = "remindTest"
     
     static let defaults = UserDefaults.standard
     
-    public static var isLogin: Bool?{
+    public static var isLogin: Bool? {
         set{
             set(isLoginKey,newValue)
             if let value = newValue{
@@ -42,7 +45,7 @@ class HearldUserDefault{
         }
     }
     
-    public static var uuid: String?{
+    public static var uuid: String? {
         set{
             set(uuidKey,newValue)
         }
@@ -51,13 +54,22 @@ class HearldUserDefault{
         }
     }
     
+    public static var peDays : Int? {
+        set {
+            set(remainPEDays, newValue)
+        }
+        get {
+            return get(remainPEDays) ?? nil
+        }
+    }
+    
     /* 清除UserDefault */
     public func cleanAllUserDefault(){
-        HearldUserDefault.defaults.removeObject(forKey: uuidKey)
-        HearldUserDefault.defaults.removeObject(forKey: isLoginKey)
-        HearldUserDefault.defaults.removeObject(forKey: isRemindLessonKey)
-        HearldUserDefault.defaults.removeObject(forKey: isRemindExperimentKey)
-        HearldUserDefault.defaults.removeObject(forKey: isRemindTestKey)
+        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.uuidKey)
+        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isLoginKey)
+        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isRemindLessonKey)
+        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isRemindExperimentKey)
+        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isRemindTestKey)
     }
     
     class func set<T>(_ key: String, _ value : T) {

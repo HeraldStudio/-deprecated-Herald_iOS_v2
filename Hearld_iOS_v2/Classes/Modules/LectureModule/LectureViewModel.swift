@@ -21,12 +21,10 @@ final class LectureViewModel {
     /// 单例
     static let shared = LectureViewModel()
     
-    private init() {
-        
-    }
+    private init() { }
     
     fileprivate let LectureSubject = PublishSubject<[LectureModel]>()
-    var LectureList: Observable<[LectureModel]>{
+    var LectureList: Observable<[LectureModel]> {
         return LectureSubject.asObservable()
     }
     
@@ -51,7 +49,7 @@ final class LectureViewModel {
         }
     }
     
-    func requestLectures(completionHandler: @escaping ()->()) {
+    private func requestLectures(completionHandler: @escaping ()->()) {
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.Lecture()) { (result) in
             switch result{

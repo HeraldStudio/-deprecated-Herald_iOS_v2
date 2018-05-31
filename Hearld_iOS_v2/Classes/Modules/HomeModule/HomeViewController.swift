@@ -96,6 +96,7 @@ class HomeViewController: UIViewController {
                     cell.lectureViewModel.prepareData(isRefresh: true, completionHandler: {})
                     cell.gpaViewModel.prepareData(isRefresh: true, completionHandler: {})
                     cell.cardViewModel.prepareData(isRefresh: true, completionHandler: {})
+                    cell.peViewModel.prepareData(isRefresh: true, completionHandler: {})
                 }
                 return cell
             }

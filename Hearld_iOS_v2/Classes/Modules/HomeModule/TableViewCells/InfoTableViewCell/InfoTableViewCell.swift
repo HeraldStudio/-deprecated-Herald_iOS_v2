@@ -44,6 +44,7 @@ class InfoTableViewCell: UITableViewCell {
     var lectureViewModel = LectureViewModel.shared
     var gpaViewModel = GPAViewModel.shared
     var cardViewModel = CardViewModel.shared
+    var peViewModel = PEViewModel.shared
     let bag = DisposeBag()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -128,6 +129,20 @@ class InfoTableViewCell: UITableViewCell {
             onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
+        
+        // 订阅PE请求
+        peViewModel.PEList.subscribe(
+            onNext: { peArray in
+                let desc = "跑操\n"
+                var pe = "..."
+                let realm = try! Realm()
+                if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
+                    pe = String(user.peCount)
+                }
+                self.dealWithButton(self.peButton, number: pe, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
+        }, onError: { error in
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
     }
     
     private func addTargets() {
@@ -145,6 +160,10 @@ class InfoTableViewCell: UITableViewCell {
         
         cardExtraButton.rx.tap.asObservable().subscribe({_ in
             self.delegate?.navigation(toVC: CardViewController())
+        }).addDisposableTo(bag)
+        
+        peButton.rx.tap.asObservable().subscribe({_ in
+            self.delegate?.navigation(toVC: PEViewController())
         }).addDisposableTo(bag)
     }
     
