@@ -31,10 +31,10 @@ class User : Object{
     // Card stuff
     @objc dynamic var balance: Double = 0.0
     
+    // PE stuff
+    @objc dynamic var peCount : Int = 0
+    
     override static func primaryKey() -> String? {
         return "cardID"
     }
-    
-    // PE stuff
-    @objc dynamic var peCount : Int = 0
 }
