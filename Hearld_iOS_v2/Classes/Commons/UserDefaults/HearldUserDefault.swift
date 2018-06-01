@@ -26,6 +26,7 @@ class HearldUserDefault{
     static let isLoginKey = "isLogin"
     
     static let remainPEDays = "remainPE"
+    static let currentTermKey = "currentTerm"
     
     static let isRemindLessonKey = "remindLesson"
     static let isRemindExperimentKey = "remindExperiment"
@@ -60,6 +61,15 @@ class HearldUserDefault{
         }
         get {
             return get(remainPEDays) ?? nil
+        }
+    }
+    
+    public static var currentTerm : String? {
+        set {
+            set(currentTermKey, newValue)
+        }
+        get {
+            return get(currentTermKey) ?? nil
         }
     }
     

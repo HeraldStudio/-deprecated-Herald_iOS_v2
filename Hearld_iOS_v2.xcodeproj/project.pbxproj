@@ -35,6 +35,11 @@
 		534C642820C0275C00FB44EF /* PEModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C642720C0275C00FB44EF /* PEModel.swift */; };
 		534C642A20C0292E00FB44EF /* PEViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C642920C0292E00FB44EF /* PEViewModel.swift */; };
 		534C642E20C0376F00FB44EF /* PETableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C642D20C0376F00FB44EF /* PETableViewCell.swift */; };
+		534C643120C124FD00FB44EF /* CurriculumModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C643020C124FD00FB44EF /* CurriculumModel.swift */; };
+		534C643320C12E3200FB44EF /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C643220C12E3200FB44EF /* EventModel.swift */; };
+		534C643520C1305900FB44EF /* CurriculumTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C643420C1305900FB44EF /* CurriculumTableViewCell.swift */; };
+		534C643720C130B400FB44EF /* CurriculumViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C643620C130B300FB44EF /* CurriculumViewModel.swift */; };
+		534C643920C1336500FB44EF /* CurriculumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 534C643820C1336500FB44EF /* CurriculumCollectionViewCell.swift */; };
 		5357A43A20A4185C00D23F31 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43920A4185C00D23F31 /* CardModel.swift */; };
 		5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A43B20A41B8200D23F31 /* CardViewModel.swift */; };
 		5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44220A4323800D23F31 /* CardTableViewCell.swift */; };
@@ -106,6 +111,11 @@
 		534C642720C0275C00FB44EF /* PEModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEModel.swift; sourceTree = "<group>"; };
 		534C642920C0292E00FB44EF /* PEViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PEViewModel.swift; sourceTree = "<group>"; };
 		534C642D20C0376F00FB44EF /* PETableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PETableViewCell.swift; sourceTree = "<group>"; };
+		534C643020C124FD00FB44EF /* CurriculumModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumModel.swift; sourceTree = "<group>"; };
+		534C643220C12E3200FB44EF /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		534C643420C1305900FB44EF /* CurriculumTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumTableViewCell.swift; sourceTree = "<group>"; };
+		534C643620C130B300FB44EF /* CurriculumViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumViewModel.swift; sourceTree = "<group>"; };
+		534C643820C1336500FB44EF /* CurriculumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumCollectionViewCell.swift; sourceTree = "<group>"; };
 		5357A43920A4185C00D23F31 /* CardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		5357A43B20A41B8200D23F31 /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		5357A44220A4323800D23F31 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
@@ -284,6 +294,18 @@
 			path = PEModule;
 			sourceTree = "<group>";
 		};
+		534C642F20C1236400FB44EF /* CurriculumModule */ = {
+			isa = PBXGroup;
+			children = (
+				534C643020C124FD00FB44EF /* CurriculumModel.swift */,
+				534C643220C12E3200FB44EF /* EventModel.swift */,
+				534C643420C1305900FB44EF /* CurriculumTableViewCell.swift */,
+				534C643820C1336500FB44EF /* CurriculumCollectionViewCell.swift */,
+				534C643620C130B300FB44EF /* CurriculumViewModel.swift */,
+			);
+			path = CurriculumModule;
+			sourceTree = "<group>";
+		};
 		5357A43820A4183D00D23F31 /* CardModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -410,6 +432,7 @@
 				5385819D1F9E43DD003933FA /* BaseModule */,
 				533F8FE21FA86CDE00040A01 /* HomeModule */,
 				5357A43820A4183D00D23F31 /* CardModule */,
+				534C642F20C1236400FB44EF /* CurriculumModule */,
 				534C642420C0270100FB44EF /* PEModule */,
 				1DB413B7205040C000E156C7 /* LectureModule */,
 				1DB413AA205040AB00E156C7 /* SRTPModule */,
@@ -655,11 +678,14 @@
 				533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */,
 				538581A31F9E459D003933FA /* ApiRouter.swift in Sources */,
 				538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */,
+				534C643320C12E3200FB44EF /* EventModel.swift in Sources */,
 				5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */,
 				534C642620C0275000FB44EF /* PEViewController.swift in Sources */,
 				1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
+				534C643120C124FD00FB44EF /* CurriculumModel.swift in Sources */,
 				5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */,
+				534C643720C130B400FB44EF /* CurriculumViewModel.swift in Sources */,
 				1DB413A32050405C00E156C7 /* GPATableViewCell.swift in Sources */,
 				5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,
@@ -675,6 +701,7 @@
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				534C642E20C0376F00FB44EF /* PETableViewCell.swift in Sources */,
 				5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */,
+				534C643520C1305900FB44EF /* CurriculumTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
 				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
@@ -694,6 +721,7 @@
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
 				1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */,
 				1D826D9620514E70006C8478 /* InfoModel.swift in Sources */,
+				534C643920C1336500FB44EF /* CurriculumCollectionViewCell.swift in Sources */,
 				1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */,
 				534C642820C0275C00FB44EF /* PEModel.swift in Sources */,
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,

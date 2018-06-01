@@ -37,23 +37,25 @@ struct ApiHelper {
 }
 
 enum UserAPI {
-    case Login(userID: String, password: String)  //登录API
-    case Info()                                   //检查uuid并获取用户详细信息API
+    case Login(userID: String, password: String)  // 登录API
+    case Info()                                   // 检查uuid并获取用户详细信息API
 }
 
 enum SubscribeAPI {
-    case ActivityDefault()                        //默认获取第1页的活动API
-    case Activity(pageNumber: String)             //获取下一页的活动API
-    case CarouselFigure()                         //获取轮播图API
+    case ActivityDefault()                        // 默认获取第1页的活动API
+    case Activity(pageNumber: String)             // 获取下一页的活动API
+    case CarouselFigure()                         // 获取轮播图API
 }
 
 enum QueryAPI {
-    case CardRecord(date: String)                 //查询一卡通
-    case PE()                                     //查询跑操与体锻成绩
-    case GPA()                                    //查询成绩API
-    case SRTP()                                   //查询SRTP
-    case Lecture()                                //查询人文讲座
-    case Notice()                                 //查询通知
+    case CardRecord(date: String)                 // 查询一卡通
+    case PE()                                     // 查询跑操与体侧
+    case GPA()                                    // 查询成绩API
+    case SRTP()                                   // 查询SRTP
+    case Lecture()                                // 查询人文讲座
+    case Notice()                                 // 查询通知
+    case Term()                                   // 查询学期
+    case Curriculum(term: String)                             // 查询课程表
 }
 
 // MARK: UserAPI
@@ -195,7 +197,7 @@ extension SubscribeAPI: TargetType{
 extension QueryAPI: TargetType{
     var baseURL: URL {
         switch self {
-        case .PE(), .Lecture(), .SRTP(), .GPA(), .Notice(), .CardRecord(_):
+        case .PE(), .Lecture(), .SRTP(), .GPA(), .Notice(), .CardRecord(_), .Term(), .Curriculum(_):
             return URL(string: "https://myseu.cn/ws3/")!
         }
     }
@@ -214,36 +216,42 @@ extension QueryAPI: TargetType{
             return ApiHelper.api("card")
         case .PE():
             return ApiHelper.api("pe")
+        case .Term():
+            return ApiHelper.api("term")
+        case .Curriculum(_):
+            return ApiHelper.api("curriculum")
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .Lecture(), .GPA(), .SRTP(), .Notice() ,.CardRecord(_), .PE():
+        case .Lecture(), .GPA(), .SRTP(), .Notice() ,.CardRecord(_), .PE(), .Term(), .Curriculum(_):
             return .get
         }
     }
     
     var sampleData: Data {
         switch self {
-        case .PE(), .Lecture(), .GPA(), .SRTP(), .Notice(), .CardRecord(_):
+        case .PE(), .Lecture(), .GPA(), .SRTP(), .Notice(), .CardRecord(_), .Term() ,.Curriculum(_):
             return "Query".utf8Encoded
         }
     }
     
     var task: Task {
         switch self {
-        case .GPA(),.Lecture(), .SRTP(), .Notice(), .PE():
+        case .GPA(),.Lecture(), .SRTP(), .Notice(), .PE(), .Term():
             return .requestPlain
         case .CardRecord(let date):
             return .requestParameters(parameters: ["date" : date], encoding: URLEncoding.queryString)
+        case .Curriculum(let term):
+            return .requestParameters(parameters: ["term" : term], encoding: URLEncoding.queryString)
         }
     }
     
 
     var headers: [String: String]? {
         switch self {
-        case .SRTP(), .Lecture(), .GPA(), .Notice(), .CardRecord(_), .PE():
+        case .SRTP(), .Lecture(), .GPA(), .Notice(), .CardRecord(_), .PE(), .Term(), .Curriculum(_):
             return ["Content-type": "application/json","token": HearldUserDefault.uuid!]
         }
     }
