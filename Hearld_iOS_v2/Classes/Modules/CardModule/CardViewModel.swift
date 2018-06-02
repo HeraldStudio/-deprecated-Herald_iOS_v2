@@ -38,6 +38,8 @@ class CardViewModel {
     let cache = YYMemoryCache.init()
     let bag = DisposeBag()
     
+    fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
+    
     var offset = 0
     
     /* 请求日期 */
@@ -65,6 +67,7 @@ class CardViewModel {
       封装从缓存获取或是网络请求获取的逻辑
      */
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->() ) {
+        lock()
         if isRefresh {
             offset = 0
             cardModels.removeAll()
@@ -102,6 +105,7 @@ class CardViewModel {
                 }
             case let .failure(_):
                 self.cardSubject.onError(HeraldError.NetworkError)
+                self.unlock()
             }
         }
     }
@@ -133,5 +137,16 @@ class CardViewModel {
             cardModels.append(cardModel)
         }
         cache.setObject(cardModels, forKey: "card")
+        unlock()
+    }
+}
+
+extension CardViewModel {
+    fileprivate func lock() {
+        _ = semaphoreLock.wait(timeout: .distantFuture)
+    }
+    
+    fileprivate func unlock() {
+        semaphoreLock.signal()
     }
 }

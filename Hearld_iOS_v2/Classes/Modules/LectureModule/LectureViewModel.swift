@@ -39,7 +39,6 @@ final class LectureViewModel {
         if isRefresh {
             cache.removeObject(forKey: "lecture")
             lectureModels.removeAll()
-            print(lectureModels.count)
             requestLectures { completionHandler() }
         }else {
             if let lectureObjects = cache.object(forKey: "lecture") as? [LectureModel], lectureObjects.count > 0 {
@@ -62,7 +61,6 @@ final class LectureViewModel {
                 let code = json["code"].stringValue
                 if code == "200" {
                     self.parseLectureModel(json)
-                    print("fuck")
                     self.LectureSubject.onNext(self.lectureModels)
                     completionHandler()
                 } else if code == "408"{
@@ -70,8 +68,8 @@ final class LectureViewModel {
                 }
             case .failure(_):
                 self.LectureSubject.onError(HeraldError.NetworkError)
+                self.unlock()
             }
-            self.unlock()
         }
     }
     
@@ -88,6 +86,7 @@ final class LectureViewModel {
             lectureModels.append(lecture)
         }
         cache.setObject(lectureModels, forKey: "lecture")
+        unlock()
     }
         
 }

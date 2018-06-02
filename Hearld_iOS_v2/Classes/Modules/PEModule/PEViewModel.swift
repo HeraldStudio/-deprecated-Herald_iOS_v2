@@ -30,9 +30,12 @@ final class PEViewModel {
     
     let cache = YYMemoryCache.init()
     
+    fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
+    
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+        lock()
         if isRefresh {
             peModels.removeAll()
             cache.removeObject(forKey: "pe")
@@ -65,6 +68,7 @@ final class PEViewModel {
                 }
             case .failure(_):
                 self.PESubject.onError(HeraldError.NetworkError)
+                self.unlock()
             }
         }
     }
@@ -95,5 +99,16 @@ final class PEViewModel {
             peModels.append(peItem)
         }
         cache.setObject(peModels, forKey: "pe")
+        unlock()
+    }
+}
+
+extension PEViewModel {
+    fileprivate func lock() {
+        _ = semaphoreLock.wait(timeout: .distantFuture)
+    }
+    
+    fileprivate func unlock() {
+        semaphoreLock.signal()
     }
 }

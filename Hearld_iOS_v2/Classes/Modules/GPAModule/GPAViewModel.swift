@@ -33,9 +33,12 @@ class GPAViewModel {
     
     let cache = YYMemoryCache.init()
     
+    fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
+    
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+        lock()
         if isRefresh {
             gpaModels.removeAll()
             // 清空缓存
@@ -56,7 +59,6 @@ class GPAViewModel {
     }
     
     func requestGPA(completionHandler: @escaping ()->()) {
-
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.GPA()) { (result) in
             switch result{
@@ -73,6 +75,7 @@ class GPAViewModel {
                 }
             case .failure(_):
                 self.GPASubject.onError(HeraldError.NetworkError)
+                self.unlock()
             }
         }
     }
@@ -105,9 +108,17 @@ class GPAViewModel {
             gpaModels.append(gpaItem)
         }
         cache.setObject(gpaModels, forKey: "gpa")
+        unlock()
     }
     
 }
 
-
-
+extension GPAViewModel {
+    fileprivate func lock() {
+        _ = semaphoreLock.wait(timeout: .distantFuture)
+    }
+    
+    fileprivate func unlock() {
+        semaphoreLock.signal()
+    }
+}

@@ -97,7 +97,9 @@ class InfoTableViewCell: UITableViewCell {
         strpViewModel.SRTPList.subscribe(
             onNext:{ strpArray in
                 let desc = "STRP\n"
-                let number = strpArray[0].credit
+                let realm = try! Realm()
+                let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
+                let number = currentUser.points
                 self.dealWithButton(self.strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
         },
             onError: { error in

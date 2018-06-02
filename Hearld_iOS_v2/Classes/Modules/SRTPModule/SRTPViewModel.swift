@@ -25,6 +25,8 @@ class SRTPViewModel {
     }
     
     var srtpList : [SRTPModel] = []
+    
+    fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
 
     fileprivate let SRTPSubject = PublishSubject<[SRTPModel]>()
     var SRTPList: Observable<[SRTPModel]> {
@@ -36,6 +38,7 @@ class SRTPViewModel {
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+        lock()
         if isRefresh {
             srtpList.removeAll()
             cache.removeObject(forKey: "strp")
@@ -68,6 +71,7 @@ class SRTPViewModel {
                 }
             case .failure(_):
                 self.SRTPSubject.onError(HeraldError.NetworkError)
+                self.unlock()
             }
         }
     }
@@ -102,5 +106,16 @@ class SRTPViewModel {
             srtpList.append(srtpItem)
         }
         cache.setObject(srtpList, forKey: "srtp")
+        unlock()
+    }
+}
+
+extension SRTPViewModel {
+    fileprivate func lock() {
+        _ = semaphoreLock.wait(timeout: .distantFuture)
+    }
+    
+    fileprivate func unlock() {
+        semaphoreLock.signal()
     }
 }
