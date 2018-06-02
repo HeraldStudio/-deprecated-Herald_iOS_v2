@@ -15,17 +15,38 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     
     var curriculumList : [CurriculumModel] = [] {
         didSet {
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
+            print("here")
             updateUI()
         }
     }
     
     /* UI stuff */
-    let blockWidth = screenRect.width / 5
+    private let blockWidth = screenRect.width / 5
     
-    let mondayLabel = UILabel()
-    let TuesdayLabel = UILabel()
-    let WednesdayLabel = UILabel()
-    
+    private let mondayLabel = UILabel()
+    private let tuesdayLabel = UILabel()
+    private let wednesdayLabel = UILabel()
+    private let thursdayLabel = UILabel()
+    private let fridayLabel = UILabel()
+    private let saturdayLabel = UILabel()
+    private let sundayLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -42,7 +63,20 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpSubviews() {
+        // 周一标签
+        mondayLabel.into(contentView).top(0).left(0).width(blockWidth).height(40).text("一").font(16,.semibold).align(.center)
         
+        // 周二标签
+        tuesdayLabel.into(contentView).top(0).after(mondayLabel,0).width(blockWidth).height(40).text("二").font(16,.semibold).align(.center)
+        
+        // 周三标签
+        wednesdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("三").font(16,.semibold).align(.center)
+        
+        // 周四标签
+        thursdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("四").font(16,.semibold).align(.center)
+        
+        // 周五标签
+        fridayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("五").font(16,.semibold).align(.center)
     }
     
     private func updateUI() {

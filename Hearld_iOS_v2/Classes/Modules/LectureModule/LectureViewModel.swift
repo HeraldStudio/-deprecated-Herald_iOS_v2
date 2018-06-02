@@ -23,6 +23,8 @@ final class LectureViewModel {
     
     private init() { }
     
+    fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
+    
     fileprivate let LectureSubject = PublishSubject<[LectureModel]>()
     var LectureList: Observable<[LectureModel]> {
         return LectureSubject.asObservable()
@@ -33,10 +35,11 @@ final class LectureViewModel {
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
-
+        lock()
         if isRefresh {
             cache.removeObject(forKey: "lecture")
             lectureModels.removeAll()
+            print(lectureModels.count)
             requestLectures { completionHandler() }
         }else {
             if let lectureObjects = cache.object(forKey: "lecture") as? [LectureModel], lectureObjects.count > 0 {
@@ -59,6 +62,7 @@ final class LectureViewModel {
                 let code = json["code"].stringValue
                 if code == "200" {
                     self.parseLectureModel(json)
+                    print("fuck")
                     self.LectureSubject.onNext(self.lectureModels)
                     completionHandler()
                 } else if code == "408"{
@@ -67,6 +71,7 @@ final class LectureViewModel {
             case .failure(_):
                 self.LectureSubject.onError(HeraldError.NetworkError)
             }
+            self.unlock()
         }
     }
     
@@ -87,3 +92,14 @@ final class LectureViewModel {
         
 }
 
+extension LectureViewModel {
+    fileprivate func lock() {
+        print("lock")
+        _ = semaphoreLock.wait(timeout: .distantFuture)
+    }
+    
+    fileprivate func unlock() {
+        print("unlock")
+        semaphoreLock.signal()
+    }
+}

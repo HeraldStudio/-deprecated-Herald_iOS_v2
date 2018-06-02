@@ -16,13 +16,13 @@ import RxDataSources
 
 class CurriculumTableViewCell: UITableViewCell {
     /* UI stuff */
-    var switchViewButton = UIButton()
-    var leftSwitchTermButton = UIButton()
-    var rightSwitchTermButton = UIButton()
-    var termLabel = UILabel()
+    private var switchViewButton = UIButton()
+    private var leftSwitchTermButton = UIButton()
+    private var rightSwitchTermButton = UIButton()
+    private var termLabel = UILabel()
     
-    let flowLayout = UICollectionViewFlowLayout()
-    var collectionView: UICollectionView!
+    private let flowLayout = UICollectionViewFlowLayout()
+    private var collectionView: UICollectionView!
     
     /* rxswift */
     typealias SectionTableModel = SectionModel<String,[CurriculumModel]>
@@ -34,15 +34,6 @@ class CurriculumTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         customInit()
-        
-        curriculumViewModel.curriculumTable.subscribe(
-        onNext: { curriculumItems in
-//            print(curriculumItems[0][0].beginWeek)
-        }, onError: { error in
-            SVProgressHUD.showError(withStatus: error.localizedDescription)
-        }).addDisposableTo(bag)
-        
-        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -52,12 +43,24 @@ class CurriculumTableViewCell: UITableViewCell {
     
     private func customInit() {
         setupSubviews()
+        
+        setConfigureCell()
+        
+        curriculumViewModel.curriculumTable.subscribe(
+            onNext: { curriculumItems in
+                self.collectionView.dataSource = nil
+                Observable.just(self.createSectionModel(curriculumItems)).bind(to: self.collectionView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+        }, onError: { error in
+            SVProgressHUD.showError(withStatus: error.localizedDescription)
+        }).addDisposableTo(bag)
+        
+        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
     
     private func setupSubviews() {
        
         //切换视图Button
-        switchViewButton.into(contentView).top(10).left(10).height(35).width(120).background(HeraldColorHelper.PrimaryBg)
+        switchViewButton.into(contentView).top(10).left(10).height(28).width(60).background(HeraldColorHelper.PrimaryBg)
         let textAttrString = NSMutableAttributedString.init(string: "周视图")
         textAttrString.font(15, FontWeight.semibold, NSMakeRange(0, 3))
         switchViewButton.setAttributedTitle(textAttrString, for: .normal)
@@ -80,12 +83,14 @@ class CurriculumTableViewCell: UITableViewCell {
     
     private func setConfigureCell() {
         dataSource.configureCell = { (_,tv,indexPath,item) in
-            let cell = tv.dequeueReusableCell(withIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
+            let cell = tv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
+            cell.curriculumList = item
             return cell
         }
     }
     
-    private func createSectionModel() {
-        
+    private func createSectionModel(_ curriculumItems: [curriculumItem]) -> [SectionTableModel] {
+        let formatTable = curriculumItems as [[CurriculumModel]]
+        return [SectionTableModel(model: "", items: formatTable)]
     }
 }

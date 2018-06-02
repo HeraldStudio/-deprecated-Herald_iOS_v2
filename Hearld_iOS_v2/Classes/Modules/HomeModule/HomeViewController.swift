@@ -89,6 +89,7 @@ class HomeViewController: UIViewController {
         self.dataSource.configureCell = {(_,tv,indexPath,item) in
             switch item {
             case .Carousel(let figureList):
+
                 let cell = tv.dequeueReusableCell(withIdentifier: "CarouselFigure", for: indexPath) as! CarouselFigureCell
                 cell.itemArray = figureList
                 cell.deleagte = self
