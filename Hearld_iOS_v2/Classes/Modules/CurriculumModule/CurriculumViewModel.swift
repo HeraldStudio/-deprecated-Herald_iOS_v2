@@ -16,6 +16,8 @@ import RealmSwift
 import YYCache
 import SwiftDate
 
+typealias curriculumItem = [CurriculumModel]
+
 class CurriculumViewModel {
 
     /* 单例 */
@@ -28,8 +30,8 @@ class CurriculumViewModel {
     var eventModels : [EventModel] = []
 
     /* Subject */
-    fileprivate let curriculumSubject = PublishSubject<[[CurriculumModel]]>()
-    var curriculumTable: Observable<[[CurriculumModel]]> {
+    fileprivate let curriculumSubject = PublishSubject<[curriculumItem]>()
+    var curriculumTable: Observable<[curriculumItem]> {
         return curriculumSubject.asObservable()
     }
 
@@ -63,10 +65,10 @@ class CurriculumViewModel {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 let json = JSON(data)
+                print(json)
                 let code = json["code"].stringValue
                 if code == "200" {
                     self.parseCurriculumModel(json)
-
                     self.curriculumSubject.onNext(self.formatModel(self.curriculumModels))
                     completionHandler()
                 } else if code == "408"{
@@ -115,7 +117,7 @@ class CurriculumViewModel {
 
         model.forEach { curriculum in
             curriculum.events.forEach { event in
-                formatModels[event.week].append(curriculum)
+                formatModels[event.week - 1].append(curriculum)
             }
         }
         return formatModels

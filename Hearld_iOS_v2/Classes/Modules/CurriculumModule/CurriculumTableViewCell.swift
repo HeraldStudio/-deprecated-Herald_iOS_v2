@@ -21,7 +21,7 @@ class CurriculumTableViewCell: UITableViewCell {
     var rightSwitchTermButton = UIButton()
     var termLabel = UILabel()
     
-    var curriculumCollectionView = UICollectionView()
+//    var curriculumCollectionView = UICollectionView()
     
     /* rxswift */
 //    let dataSource = RxCollectionViewSectionedReloadDataSource<String,[]>

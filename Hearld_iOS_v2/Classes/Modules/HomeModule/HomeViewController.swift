@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     enum HomeItem{
         case Carousel([CarouselFigureModel])
         case Info([infoItem])
+        case Curriculum([curriculumItem])
     }
     
     /* tableView & dataSource */
@@ -29,6 +30,7 @@ class HomeViewController: UIViewController {
     /* ViewModels */
     var carouselFigureViewModel = CarouselFigureViewModel()
     var infoViewModel = InfoViewModel()
+    var curriculumViewModel = CurriculumViewModel.shared
     
     let bag = DisposeBag()
     
@@ -40,6 +42,7 @@ class HomeViewController: UIViewController {
         homeTableView.delegate = self
         homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
         homeTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: "Info")
+        homeTableView.register(CurriculumTableViewCell.self, forCellReuseIdentifier: "Curriculum")
         setConfigureCell()
         homeTableView.separatorStyle = .none
         homeTableView.allowsSelection = false
@@ -48,12 +51,14 @@ class HomeViewController: UIViewController {
         // 订阅viewModel
         let carouselObservable = carouselFigureViewModel.CarouselFigures
         let infoObservable = infoViewModel.Info
+        let curriculumObservable = curriculumViewModel.curriculumTable
         
-        Observable.combineLatest(carouselObservable,infoObservable) {
-            (figureList: [CarouselFigureModel],infoList: [infoItem]) in
+        Observable.combineLatest(carouselObservable,infoObservable,curriculumObservable) {
+            (figureList: [CarouselFigureModel],infoList: [infoItem],curriculumTable: [curriculumItem]) in
                 var items: [HomeItem] = []
                 items.append(HomeItem.Carousel(figureList))
                 items.append(HomeItem.Info(infoList))
+                items.append(HomeItem.Curriculum(curriculumTable))
                 return items
             }.map { (sections: [HomeItem]) -> [SectionTableModel] in
                 return self.createSectionModel(sections)
@@ -62,6 +67,7 @@ class HomeViewController: UIViewController {
         // prepareData
         carouselFigureViewModel.prepareData()
         infoViewModel.prepareData()
+        curriculumViewModel.prepareData(isRefresh: true, completionHandler: {})
     }
     
     /**
@@ -98,6 +104,9 @@ class HomeViewController: UIViewController {
                     cell.cardViewModel.prepareData(isRefresh: true, completionHandler: {})
                     cell.peViewModel.prepareData(isRefresh: true, completionHandler: {})
                 }
+                return cell
+            case .Curriculum(let curriculumTable):
+                let cell = tv.dequeueReusableCell(withIdentifier: "Curriculum", for: indexPath) as! CurriculumTableViewCell
                 return cell
             }
         }
