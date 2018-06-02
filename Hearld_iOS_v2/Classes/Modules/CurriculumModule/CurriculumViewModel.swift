@@ -65,7 +65,6 @@ class CurriculumViewModel {
             case let .success(moyaResponse):
                 let data = moyaResponse.data
                 let json = JSON(data)
-                print(json)
                 let code = json["code"].stringValue
                 if code == "200" {
                     self.parseCurriculumModel(json)
