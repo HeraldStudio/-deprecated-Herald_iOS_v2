@@ -35,8 +35,8 @@ final class PEViewModel {
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
-        lock()
         if isRefresh {
+            lock()
             peModels.removeAll()
             cache.removeObject(forKey: "pe")
             requestPE{ completionHandler() }
@@ -45,6 +45,7 @@ final class PEViewModel {
                 self.PESubject.onNext(peObjects)
                 completionHandler()
             }else {
+                lock()
                 peModels.removeAll()
                 requestPE{ completionHandler() }
             }

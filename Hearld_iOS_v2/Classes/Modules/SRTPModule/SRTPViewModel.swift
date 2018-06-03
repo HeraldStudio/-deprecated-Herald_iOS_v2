@@ -38,8 +38,8 @@ class SRTPViewModel {
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
-        lock()
         if isRefresh {
+            lock()
             srtpList.removeAll()
             cache.removeObject(forKey: "strp")
             requestSRTP{ completionHandler() }
@@ -48,6 +48,7 @@ class SRTPViewModel {
                 self.SRTPSubject.onNext(strpObjects)
                 completionHandler()
             }else {
+                lock()
                 srtpList.removeAll()
                 requestSRTP{ completionHandler() }
             }

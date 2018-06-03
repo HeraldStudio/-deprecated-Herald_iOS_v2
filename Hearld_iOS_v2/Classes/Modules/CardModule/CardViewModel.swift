@@ -67,8 +67,8 @@ class CardViewModel {
       封装从缓存获取或是网络请求获取的逻辑
      */
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->() ) {
-        lock()
         if isRefresh {
+            lock()
             offset = 0
             cardModels.removeAll()
             cache.removeObject(forKey: "card")
@@ -78,6 +78,7 @@ class CardViewModel {
                 self.cardSubject.onNext(cardObjects)
                 completionHandler()
             }else {
+                lock()
                 cardModels.removeAll()
                 requestCard{ completionHandler() }
             }

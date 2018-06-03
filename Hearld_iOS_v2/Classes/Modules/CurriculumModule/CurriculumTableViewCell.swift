@@ -26,7 +26,11 @@ class CurriculumTableViewCell: UITableViewCell {
     
     /* rxswift */
     typealias SectionTableModel = SectionModel<String,[CurriculumModel]>
-    let dataSource = RxCollectionViewSectionedReloadDataSource<SectionTableModel>()
+//    let dataSource = RxCollectionViewSectionedReloadDataSource<SectionTableModel>()
+    
+    // test
+    let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
+    let tableView = UITableView()
     
     let curriculumViewModel = CurriculumViewModel.shared
     let bag = DisposeBag()
@@ -48,15 +52,18 @@ class CurriculumTableViewCell: UITableViewCell {
         
         curriculumViewModel.curriculumTable.subscribe(
             onNext: { curriculumItems in
-                self.collectionView.dataSource = nil
+                self.tableView.dataSource = nil
                 Observable.just(self.createSectionModel(curriculumItems))
-                          .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
+                          .bind(to: self.tableView.rx.items(dataSource: self.dataSource))
                           .addDisposableTo(self.bag)
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
         curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
+        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
+        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
+        
     }
     
     private func setupSubviews() {
@@ -84,9 +91,10 @@ class CurriculumTableViewCell: UITableViewCell {
     }
     
     private func setConfigureCell() {
-        dataSource.configureCell = { (_,tv,indexPath,item) in
-            let cell = tv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
-            cell.curriculumList = item
+        dataSource.configureCell = { (_,cv,indexPath,item) in
+            print("motherfucker")
+            let cell = cv.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
+//            cell.curriculumList = item
             return cell
         }
     }

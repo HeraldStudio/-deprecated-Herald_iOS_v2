@@ -35,8 +35,8 @@ final class LectureViewModel {
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
-        lock()
         if isRefresh {
+            lock()
             cache.removeObject(forKey: "lecture")
             lectureModels.removeAll()
             requestLectures { completionHandler() }
@@ -45,6 +45,7 @@ final class LectureViewModel {
                 self.LectureSubject.onNext(lectureObjects)
                 completionHandler()
             }else {
+                lock()
                 lectureModels.removeAll()
                 requestLectures { completionHandler() }
             }
