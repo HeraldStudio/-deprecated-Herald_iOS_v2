@@ -98,13 +98,11 @@ class HomeViewController: UIViewController {
                 let cell = tv.dequeueReusableCell(withIdentifier: "Info", for: indexPath) as! InfoTableViewCell
                 cell.infoList = infoList
                 cell.delegate = self
-                DispatchQueue.global().async {
-                    cell.strpViewModel.prepareData(isRefresh: true, completionHandler: {})
-                    cell.lectureViewModel.prepareData(isRefresh: true, completionHandler: {})
-                    cell.gpaViewModel.prepareData(isRefresh: true, completionHandler: {})
-                    cell.cardViewModel.prepareData(isRefresh: true, completionHandler: {})
-                    cell.peViewModel.prepareData(isRefresh: true, completionHandler: {})
-                }
+                DispatchQueue.global().async { cell.strpViewModel.prepareData(isRefresh: true, completionHandler: {}) }
+                DispatchQueue.global().async { cell.lectureViewModel.prepareData(isRefresh: true, completionHandler: {}) }
+                DispatchQueue.global().async { cell.gpaViewModel.prepareData(isRefresh: true, completionHandler: {}) }
+                DispatchQueue.global().async { cell.cardViewModel.prepareData(isRefresh: true, completionHandler: {}) }
+                DispatchQueue.global().async { cell.peViewModel.prepareData(isRefresh: true, completionHandler: {}) }
                 return cell
             case .Curriculum(let curriculumTable):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Curriculum", for: indexPath) as! CurriculumTableViewCell
