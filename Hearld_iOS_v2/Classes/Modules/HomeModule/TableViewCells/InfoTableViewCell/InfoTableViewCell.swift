@@ -22,7 +22,7 @@ class InfoTableViewCell: UITableViewCell {
     var cardExtraButton = UIButton()
     var peButton = UIButton()
     var lectureButton = UIButton()
-    var strpButton = UIButton()
+    var srtpButton = UIButton()
     var gradeButton = UIButton()
     
     let buttonWidth = (screenRect.width - 10) / 5
@@ -88,6 +88,7 @@ class InfoTableViewCell: UITableViewCell {
                 if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
                     balance = String(user.balance)
                 }
+                self.cardExtraButton.isEnabled = true
                 self.dealWithButton(self.cardExtraButton,
                                     number: balance,
                                     desc: desc,
@@ -108,7 +109,8 @@ class InfoTableViewCell: UITableViewCell {
                 let realm = try! Realm()
                 let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
                 let number = currentUser.points
-                self.dealWithButton(self.strpButton,
+                self.srtpButton.isEnabled = true
+                self.dealWithButton(self.srtpButton,
                                     number: number,
                                     desc: desc,
                                     numSize: 17,
@@ -127,6 +129,7 @@ class InfoTableViewCell: UITableViewCell {
             onNext: { lectureArray in
                 let desc = "讲座\n"
                 let number = lectureArray.count
+                self.lectureButton.isEnabled = true
                 self.dealWithButton(self.lectureButton,
                                     number: String(number),
                                     desc: desc, numSize: 17,
@@ -149,6 +152,7 @@ class InfoTableViewCell: UITableViewCell {
                 if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
                     gpa = user.gpa
                 }
+                self.gradeButton.isEnabled = true
                 self.dealWithButton(self.gradeButton,
                                     number: gpa,
                                     desc: desc,
@@ -172,6 +176,7 @@ class InfoTableViewCell: UITableViewCell {
                 if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
                     pe = String(user.peCount)
                 }
+                self.peButton.isEnabled = true
                 self.dealWithButton(self.peButton,
                                     number: pe,
                                     desc: desc,
@@ -191,7 +196,7 @@ class InfoTableViewCell: UITableViewCell {
             self.delegate?.navigation(toVC: LectureViewController())
         }).addDisposableTo(bag)
         
-        strpButton.rx.tap.asObservable().subscribe({_ in
+        srtpButton.rx.tap.asObservable().subscribe({_ in
             self.delegate?.navigation(toVC: SRTPViewController())
         }).addDisposableTo(bag)
         
@@ -223,30 +228,35 @@ class InfoTableViewCell: UITableViewCell {
         
         // 一卡通余额按钮
         cardExtraButton.into(contentView).below(underLine_1,10).left(3).width(buttonWidth).height(70).numberOfLines(0).align(.center)
+        cardExtraButton.isEnabled = false
         
         // 竖直线1
         verticalLine_1.into(contentView).below(underLine_1,10).after(cardExtraButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // 跑操按钮
         peButton.into(contentView).below(underLine_1,10).after(verticalLine_1,0).width(buttonWidth).height(70).numberOfLines(0).align(.center)
+        peButton.isEnabled = false
         
         // 竖直线2
         verticalLine_2.into(contentView).below(underLine_1,10).after(peButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // 讲座按钮
         lectureButton.into(contentView).below(underLine_1,10).after(verticalLine_2,0).width(buttonWidth).height(70).numberOfLines(0).align(.center)
+        lectureButton.isEnabled = false
         
         // 竖直线3
         verticalLine_3.into(contentView).below(underLine_1,10).after(lectureButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // STRP按钮
-        strpButton.into(contentView).after(verticalLine_3,0).below(underLine_1,10).width(buttonWidth).height(70).numberOfLines(0).align(.center)
+        srtpButton.into(contentView).after(verticalLine_3,0).below(underLine_1,10).width(buttonWidth).height(70).numberOfLines(0).align(.center)
+        srtpButton.isEnabled = false
         
         // 竖直线4
-        verticalLine_4.into(contentView).below(underLine_1,10).after(strpButton,0).width(1).height(70).background(HeraldColorHelper.line)
+        verticalLine_4.into(contentView).below(underLine_1,10).after(srtpButton,0).width(1).height(70).background(HeraldColorHelper.line)
         
         // 绩点按钮
         gradeButton.into(contentView).below(underLine_1,10).after(verticalLine_4,0).width(buttonWidth).height(70).numberOfLines(0).align(.center)
+        gradeButton.isEnabled = false
 
         // 画线
         underLine_2.into(contentView).below(cardExtraButton,4).width(screenRect.width).height(1).background(HeraldColorHelper.line).bottom(1)
@@ -275,7 +285,7 @@ class InfoTableViewCell: UITableViewCell {
                                numColor: HeraldColorHelper.Primary,
                                descSize: 15,
                                descFont: .semibold,
-                               descColor: HeraldColorHelper.Regular)
+                               descColor: HeraldColorHelper.Secondary)
             case .pe:
                 desc = "跑操\n"
                 number = "···"
@@ -287,7 +297,7 @@ class InfoTableViewCell: UITableViewCell {
                                numColor: HeraldColorHelper.Primary,
                                descSize: 15,
                                descFont: .semibold,
-                               descColor: HeraldColorHelper.Regular)
+                               descColor: HeraldColorHelper.Secondary)
             case .lecture():
                 desc = "讲座\n"
                 number = "···"
@@ -299,11 +309,11 @@ class InfoTableViewCell: UITableViewCell {
                                numColor: HeraldColorHelper.Primary,
                                descSize: 15,
                                descFont: .semibold,
-                               descColor: HeraldColorHelper.Regular)
+                               descColor: HeraldColorHelper.Secondary)
             case .srtp():
                 desc = "STRP\n"
                 number = "···"
-                dealWithButton(strpButton,
+                dealWithButton(srtpButton,
                                number: number,
                                desc: desc,
                                numSize: 17,
@@ -311,7 +321,7 @@ class InfoTableViewCell: UITableViewCell {
                                numColor: HeraldColorHelper.Primary,
                                descSize: 15,
                                descFont: .semibold,
-                               descColor: HeraldColorHelper.Regular)
+                               descColor: HeraldColorHelper.Secondary)
             case .grade():
                 desc = "绩点\n"
                 number = "···"
@@ -323,7 +333,7 @@ class InfoTableViewCell: UITableViewCell {
                                numColor: HeraldColorHelper.Primary,
                                descSize: 15,
                                descFont: .semibold,
-                               descColor: HeraldColorHelper.Regular)
+                               descColor: HeraldColorHelper.Secondary)
             }
         }
     }

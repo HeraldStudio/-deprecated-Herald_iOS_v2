@@ -26,11 +26,7 @@ class CurriculumTableViewCell: UITableViewCell {
     
     /* rxswift */
     typealias SectionTableModel = SectionModel<String,[CurriculumModel]>
-//    let dataSource = RxCollectionViewSectionedReloadDataSource<SectionTableModel>()
-    
-    // test
-    let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
-    let tableView = UITableView()
+    let dataSource = RxCollectionViewSectionedReloadDataSource<SectionTableModel>()
     
     let curriculumViewModel = CurriculumViewModel.shared
     let bag = DisposeBag()
@@ -52,18 +48,16 @@ class CurriculumTableViewCell: UITableViewCell {
         
         curriculumViewModel.curriculumTable.subscribe(
             onNext: { curriculumItems in
-                self.tableView.dataSource = nil
+                print("motherfucker")
+                self.collectionView.dataSource = nil
                 Observable.just(self.createSectionModel(curriculumItems))
-                          .bind(to: self.tableView.rx.items(dataSource: self.dataSource))
+                          .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
                           .addDisposableTo(self.bag)
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
-        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
-        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
-        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
-        
+        curriculumViewModel.prepareData(isRefresh: true, completionHandler: {})
     }
     
     private func setupSubviews() {
@@ -93,8 +87,8 @@ class CurriculumTableViewCell: UITableViewCell {
     private func setConfigureCell() {
         dataSource.configureCell = { (_,cv,indexPath,item) in
             print("motherfucker")
-            let cell = cv.dequeueReusableCell(withIdentifier: "CardTableViewCell", for: indexPath) as! CardTableViewCell
-//            cell.curriculumList = item
+            let cell = cv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
+            cell.curriculumList = item
             return cell
         }
     }
