@@ -49,7 +49,9 @@ class CurriculumTableViewCell: UITableViewCell {
         curriculumViewModel.curriculumTable.subscribe(
             onNext: { curriculumItems in
                 self.collectionView.dataSource = nil
-                Observable.just(self.createSectionModel(curriculumItems)).bind(to: self.collectionView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+                Observable.just(self.createSectionModel(curriculumItems))
+                          .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
+                          .addDisposableTo(self.bag)
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)

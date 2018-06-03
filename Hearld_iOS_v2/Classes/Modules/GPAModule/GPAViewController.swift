@@ -52,7 +52,9 @@ class GPAViewController: UIViewController {
                 self.computedTimeLabel.text = displayTime
                 
                 self.gpaTableView.dataSource = nil
-                Observable.just(self.createSectionModel(gpaArray)).bind(to: self.gpaTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+                Observable.just(self.createSectionModel(gpaArray))
+                          .bind(to: self.gpaTableView.rx.items(dataSource: self.dataSource))
+                          .addDisposableTo(self.bag)
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)

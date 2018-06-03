@@ -46,7 +46,9 @@ class SRTPViewController: UIViewController {
                 self.statusLabel.text = "SRTP状态 " + currentUser.grade
                 
                 self.srtpTableView.dataSource = nil
-                Observable.just(self.createSectionModel(srtpArray)).bind(to: self.srtpTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+                Observable.just(self.createSectionModel(srtpArray))
+                          .bind(to: self.srtpTableView.rx.items(dataSource: self.dataSource))
+                          .addDisposableTo(self.bag)
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)

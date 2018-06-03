@@ -63,7 +63,9 @@ class CardViewController: UIViewController {
                 }
                 
                 self.cardTableView.dataSource = nil
-                Observable.just(self.createSectionModel(cardArray)).bind(to: self.cardTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+                Observable.just(self.createSectionModel(cardArray))
+                          .bind(to: self.cardTableView.rx.items(dataSource: self.dataSource))
+                          .addDisposableTo(self.bag)
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)

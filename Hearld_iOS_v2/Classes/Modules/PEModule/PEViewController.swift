@@ -52,7 +52,9 @@ class PEViewController: UIViewController {
                 }
                 
                 self.peTableView.dataSource = nil
-                Observable.just(self.createSectionModel(peArray)).bind(to: self.peTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+                Observable.just(self.createSectionModel(peArray))
+                          .bind(to: self.peTableView.rx.items(dataSource: self.dataSource))
+                          .addDisposableTo(self.bag)
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)

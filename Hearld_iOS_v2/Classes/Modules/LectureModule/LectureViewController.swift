@@ -43,7 +43,9 @@ class LectureViewController: UIViewController {
                 self.remainLabel.text = "剩余讲座次数 " + String(remianCount)
                 
                 self.lectureTableView.dataSource = nil
-                Observable.just(self.createSectionModel(lectureArray)).bind(to: self.lectureTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+                Observable.just(self.createSectionModel(lectureArray))
+                          .bind(to: self.lectureTableView.rx.items(dataSource: self.dataSource))
+                          .addDisposableTo(self.bag)
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)

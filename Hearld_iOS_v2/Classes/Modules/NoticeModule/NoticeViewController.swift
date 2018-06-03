@@ -41,7 +41,9 @@ class NoticeViewController: UIViewController {
         viewModel.noticeList.subscribe(
             onNext: { noticeArray in
             self.noticeTableView.dataSource = nil
-                Observable.just(self.createSectionModel(noticeArray)).bind(to: self.noticeTableView.rx.items(dataSource: self.dataSource)).addDisposableTo(self.bag)
+                Observable.just(self.createSectionModel(noticeArray))
+                          .bind(to: self.noticeTableView.rx.items(dataSource: self.dataSource))
+                          .addDisposableTo(self.bag)
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
