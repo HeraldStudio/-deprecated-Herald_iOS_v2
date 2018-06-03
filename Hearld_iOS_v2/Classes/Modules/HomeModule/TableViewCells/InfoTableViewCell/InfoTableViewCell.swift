@@ -88,7 +88,15 @@ class InfoTableViewCell: UITableViewCell {
                 if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
                     balance = String(user.balance)
                 }
-                self.dealWithButton(self.cardExtraButton, number: balance, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
+                self.dealWithButton(self.cardExtraButton,
+                                    number: balance,
+                                    desc: desc,
+                                    numSize: 17,
+                                    numFont: .regular,
+                                    numColor: HeraldColorHelper.Primary,
+                                    descSize: 15,
+                                    descFont: .semibold,
+                                    descColor: HeraldColorHelper.Secondary)
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
@@ -100,7 +108,15 @@ class InfoTableViewCell: UITableViewCell {
                 let realm = try! Realm()
                 let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
                 let number = currentUser.points
-                self.dealWithButton(self.strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
+                self.dealWithButton(self.strpButton,
+                                    number: number,
+                                    desc: desc,
+                                    numSize: 17,
+                                    numFont: .regular,
+                                    numColor: HeraldColorHelper.Primary,
+                                    descSize: 15,
+                                    descFont: .semibold,
+                                    descColor: HeraldColorHelper.Secondary)
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
@@ -111,7 +127,14 @@ class InfoTableViewCell: UITableViewCell {
             onNext: { lectureArray in
                 let desc = "讲座\n"
                 let number = lectureArray.count
-                self.dealWithButton(self.lectureButton, number: String(number), desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
+                self.dealWithButton(self.lectureButton,
+                                    number: String(number),
+                                    desc: desc, numSize: 17,
+                                    numFont: .regular,
+                                    numColor: HeraldColorHelper.Primary,
+                                    descSize: 15,
+                                    descFont: .semibold,
+                                    descColor: HeraldColorHelper.Secondary)
             },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
@@ -126,7 +149,15 @@ class InfoTableViewCell: UITableViewCell {
                 if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
                     gpa = user.gpa
                 }
-                self.dealWithButton(self.gradeButton, number: gpa, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
+                self.dealWithButton(self.gradeButton,
+                                    number: gpa,
+                                    desc: desc,
+                                    numSize: 17,
+                                    numFont: .regular,
+                                    numColor: HeraldColorHelper.Primary,
+                                    descSize: 15,
+                                    descFont: .semibold,
+                                    descColor: HeraldColorHelper.Secondary)
             },
             onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
@@ -141,7 +172,15 @@ class InfoTableViewCell: UITableViewCell {
                 if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
                     pe = String(user.peCount)
                 }
-                self.dealWithButton(self.peButton, number: pe, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Secondary)
+                self.dealWithButton(self.peButton,
+                                    number: pe,
+                                    desc: desc,
+                                    numSize: 17,
+                                    numFont: .regular,
+                                    numColor: HeraldColorHelper.Primary,
+                                    descSize: 15,
+                                    descFont: .semibold,
+                                    descColor: HeraldColorHelper.Secondary)
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
@@ -228,28 +267,76 @@ class InfoTableViewCell: UITableViewCell {
             case .cardExtra:
                 desc = "余额\n"
                 number = "···"
-                dealWithButton(cardExtraButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
+                dealWithButton(cardExtraButton,
+                               number: number,
+                               desc: desc,
+                               numSize: 17,
+                               numFont: .regular,
+                               numColor: HeraldColorHelper.Primary,
+                               descSize: 15,
+                               descFont: .semibold,
+                               descColor: HeraldColorHelper.Regular)
             case .pe:
                 desc = "跑操\n"
                 number = "···"
-                dealWithButton(peButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
+                dealWithButton(peButton,
+                               number: number,
+                               desc: desc,
+                               numSize: 17,
+                               numFont: .regular,
+                               numColor: HeraldColorHelper.Primary,
+                               descSize: 15,
+                               descFont: .semibold,
+                               descColor: HeraldColorHelper.Regular)
             case .lecture():
                 desc = "讲座\n"
                 number = "···"
-                dealWithButton(lectureButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
+                dealWithButton(lectureButton,
+                               number: number,
+                               desc: desc,
+                               numSize: 17,
+                               numFont: .regular,
+                               numColor: HeraldColorHelper.Primary,
+                               descSize: 15,
+                               descFont: .semibold,
+                               descColor: HeraldColorHelper.Regular)
             case .srtp():
                 desc = "STRP\n"
                 number = "···"
-                dealWithButton(strpButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
+                dealWithButton(strpButton,
+                               number: number,
+                               desc: desc,
+                               numSize: 17,
+                               numFont: .regular,
+                               numColor: HeraldColorHelper.Primary,
+                               descSize: 15,
+                               descFont: .semibold,
+                               descColor: HeraldColorHelper.Regular)
             case .grade():
                 desc = "绩点\n"
                 number = "···"
-                dealWithButton(gradeButton, number: number, desc: desc, numSize: 17, numFont: .regular, numColor: HeraldColorHelper.Primary, descSize: 15, descFont: .semibold, descColor: HeraldColorHelper.Regular)
+                dealWithButton(gradeButton,
+                               number: number,
+                               desc: desc,
+                               numSize: 17,
+                               numFont: .regular,
+                               numColor: HeraldColorHelper.Primary,
+                               descSize: 15,
+                               descFont: .semibold,
+                               descColor: HeraldColorHelper.Regular)
             }
         }
     }
     
-    fileprivate func dealWithButton(_ button: UIButton, number: String, desc: String, numSize: CGFloat, numFont: FontWeight, numColor: UIColor, descSize: CGFloat, descFont: FontWeight, descColor: UIColor) {
+    fileprivate func dealWithButton(_ button: UIButton,
+                                    number: String,
+                                    desc: String,
+                                    numSize: CGFloat,
+                                    numFont: FontWeight,
+                                    numColor: UIColor,
+                                    descSize: CGFloat,
+                                    descFont: FontWeight,
+                                    descColor: UIColor) {
         let text = desc + number
         
         let textAttrString = NSMutableAttributedString.init(string: text)
