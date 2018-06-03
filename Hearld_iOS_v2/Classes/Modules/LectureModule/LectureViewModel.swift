@@ -94,12 +94,12 @@ final class LectureViewModel {
 
 extension LectureViewModel {
     fileprivate func lock() {
-        print("lock")
+//        print("lock")
         _ = semaphoreLock.wait(timeout: .distantFuture)
     }
     
     fileprivate func unlock() {
-        print("unlock")
+//        print("unlock")
         semaphoreLock.signal()
     }
 }

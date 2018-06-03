@@ -15,24 +15,6 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     
     var curriculumList : [CurriculumModel] = [] {
         didSet {
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
-            print("here")
             updateUI()
         }
     }
@@ -73,10 +55,10 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         wednesdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("三").font(16,.semibold).align(.center)
         
         // 周四标签
-        thursdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("四").font(16,.semibold).align(.center)
+        thursdayLabel.into(contentView).top(0).after(wednesdayLabel,0).width(blockWidth).height(40).text("四").font(16,.semibold).align(.center)
         
         // 周五标签
-        fridayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("五").font(16,.semibold).align(.center)
+        fridayLabel.into(contentView).top(0).after(thursdayLabel,0).width(blockWidth).height(40).text("五").font(16,.semibold).align(.center)
     }
     
     private func updateUI() {

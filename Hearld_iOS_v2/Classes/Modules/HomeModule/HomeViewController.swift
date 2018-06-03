@@ -104,7 +104,7 @@ class HomeViewController: UIViewController {
                 DispatchQueue.global().async { cell.cardViewModel.prepareData(isRefresh: true, completionHandler: {}) }
                 DispatchQueue.global().async { cell.peViewModel.prepareData(isRefresh: true, completionHandler: {}) }
                 return cell
-            case .Curriculum(let curriculumTable):
+            case .Curriculum(_):
                 let cell = tv.dequeueReusableCell(withIdentifier: "Curriculum", for: indexPath) as! CurriculumTableViewCell
                 return cell
             }

@@ -48,7 +48,6 @@ class CurriculumTableViewCell: UITableViewCell {
         
         curriculumViewModel.curriculumTable.subscribe(
             onNext: { curriculumItems in
-                print("motherfucker")
                 self.collectionView.dataSource = nil
                 Observable.just(self.createSectionModel(curriculumItems))
                           .bind(to: self.collectionView.rx.items(dataSource: self.dataSource))
@@ -57,7 +56,7 @@ class CurriculumTableViewCell: UITableViewCell {
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
-        curriculumViewModel.prepareData(isRefresh: true, completionHandler: {})
+        curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
     
     private func setupSubviews() {
@@ -77,22 +76,25 @@ class CurriculumTableViewCell: UITableViewCell {
         flowLayout.scrollDirection = .horizontal
         
         collectionView = UICollectionView(frame: CGRect(x: 0, y: 55, width: screenRect.width, height: 300) , collectionViewLayout: flowLayout)
+        
+        collectionView.backgroundColor = UIColor.white
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
+        
         collectionView.register(CurriculumCollectionViewCell.self, forCellWithReuseIdentifier: "CurriculumCollection")
-        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).bottom(0)
+        
+        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).height(300).bottom(0)
     }
     
     private func setConfigureCell() {
         dataSource.configureCell = { (_,cv,indexPath,item) in
-            print("motherfucker")
             let cell = cv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
             cell.curriculumList = item
             return cell
         }
     }
-    
+
     private func createSectionModel(_ curriculumItems: [curriculumItem]) -> [SectionTableModel] {
         let formatTable = curriculumItems as [[CurriculumModel]]
         return [SectionTableModel(model: "", items: formatTable)]
