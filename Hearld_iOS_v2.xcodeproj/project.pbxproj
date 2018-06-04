@@ -21,6 +21,7 @@
 		5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00D208C7959002E60DF /* NoticeModel.swift */; };
 		5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00F208C7A29002E60DF /* NoticeViewModel.swift */; };
 		5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D014208C803E002E60DF /* NoticeTableViewCell.swift */; };
+		530DB89B20C56A6500E930B4 /* CurriculumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DB89A20C56A6500E930B4 /* CurriculumBlock.swift */; };
 		5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselProtocol.swift */; };
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
@@ -97,6 +98,7 @@
 		5305D00D208C7959002E60DF /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		5305D00F208C7A29002E60DF /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		5305D014208C803E002E60DF /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
+		530DB89A20C56A6500E930B4 /* CurriculumBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumBlock.swift; sourceTree = "<group>"; };
 		5325CA89202969D100FE3974 /* CarouselProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselProtocol.swift; sourceTree = "<group>"; };
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
@@ -233,6 +235,33 @@
 			path = NoticeModule;
 			sourceTree = "<group>";
 		};
+		530DB89720C56A2D00E930B4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				530DB89A20C56A6500E930B4 /* CurriculumBlock.swift */,
+				534C643420C1305900FB44EF /* CurriculumTableViewCell.swift */,
+				534C643820C1336500FB44EF /* CurriculumCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		530DB89820C56A3D00E930B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				534C643220C12E3200FB44EF /* EventModel.swift */,
+				534C643020C124FD00FB44EF /* CurriculumModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		530DB89920C56A4400E930B4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				534C643620C130B300FB44EF /* CurriculumViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		5335CF191FB2F657001AE6E0 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,11 +326,9 @@
 		534C642F20C1236400FB44EF /* CurriculumModule */ = {
 			isa = PBXGroup;
 			children = (
-				534C643020C124FD00FB44EF /* CurriculumModel.swift */,
-				534C643220C12E3200FB44EF /* EventModel.swift */,
-				534C643420C1305900FB44EF /* CurriculumTableViewCell.swift */,
-				534C643820C1336500FB44EF /* CurriculumCollectionViewCell.swift */,
-				534C643620C130B300FB44EF /* CurriculumViewModel.swift */,
+				530DB89820C56A3D00E930B4 /* Model */,
+				530DB89720C56A2D00E930B4 /* View */,
+				530DB89920C56A4400E930B4 /* ViewModel */,
 			);
 			path = CurriculumModule;
 			sourceTree = "<group>";
@@ -686,6 +713,7 @@
 				534C643120C124FD00FB44EF /* CurriculumModel.swift in Sources */,
 				5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */,
 				534C643720C130B400FB44EF /* CurriculumViewModel.swift in Sources */,
+				530DB89B20C56A6500E930B4 /* CurriculumBlock.swift in Sources */,
 				1DB413A32050405C00E156C7 /* GPATableViewCell.swift in Sources */,
 				5305D00E208C7959002E60DF /* NoticeModel.swift in Sources */,
 				5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */,

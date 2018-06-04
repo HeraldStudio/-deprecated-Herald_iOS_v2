@@ -14,7 +14,7 @@ class TimeConvertHelper {
     class func convert(from timeStamp: String) -> DateInRegion {
         let seconds = Int64(timeStamp)
         let date = Date(timeIntervalSince1970: TimeInterval.init(seconds!))
-        return DateInRegion(absoluteDate: date, in: Region.Local())
+        return DateInRegion(absoluteDate: date, in: Region.GMT())
     }
     
     class func convert(from calendar: DateInRegion) -> String {
@@ -48,6 +48,10 @@ class TimeConvertHelper {
             displayTime += weekDay2Chinese(calendar.weekdayName)
         }
         return displayTime
+    }
+    
+    class func formatDate(_ date: DateInRegion) -> String {
+        return String(date.month) + "月" + String(date.day) + "日"
     }
     
     class func weekDay2Chinese(_ weekDay: String) -> String {

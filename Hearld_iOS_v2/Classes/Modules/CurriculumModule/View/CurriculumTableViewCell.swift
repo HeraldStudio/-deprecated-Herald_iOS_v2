@@ -70,27 +70,30 @@ class CurriculumTableViewCell: UITableViewCell {
         // 学期切换 tmp closed
         
         // 周视图CollectionView
-        flowLayout.itemSize = CGSize(width: screenRect.width, height: 300)
+        flowLayout.itemSize = CGSize(width: screenRect.width, height: 520)
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 55, width: screenRect.width, height: 300) , collectionViewLayout: flowLayout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 55, width: screenRect.width, height: 520) , collectionViewLayout: flowLayout)
         
-        collectionView.backgroundColor = UIColor.white
+        collectionView.backgroundColor = HeraldColorHelper.Divider
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         
         collectionView.register(CurriculumCollectionViewCell.self, forCellWithReuseIdentifier: "CurriculumCollection")
         
-        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).height(300).bottom(0)
+        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).height(520).bottom(0)
     }
     
     private func setConfigureCell() {
         dataSource.configureCell = { (_,cv,indexPath,item) in
+            print(self.collectionView.contentOffset)
+            print("indexpath section \(indexPath.section) row \(indexPath.row)")
             let cell = cv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
             cell.curriculumList = item
+            cell.currentWeek = indexPath.row + 1
             return cell
         }
     }
