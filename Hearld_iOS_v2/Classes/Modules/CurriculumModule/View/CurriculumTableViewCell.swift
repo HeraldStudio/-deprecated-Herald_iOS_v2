@@ -70,12 +70,12 @@ class CurriculumTableViewCell: UITableViewCell {
         // 学期切换 tmp closed
         
         // 周视图CollectionView
-        flowLayout.itemSize = CGSize(width: screenRect.width, height: 520)
+        flowLayout.itemSize = CGSize(width: screenRect.width, height: 560)
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 55, width: screenRect.width, height: 520) , collectionViewLayout: flowLayout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 55, width: screenRect.width, height: 560) , collectionViewLayout: flowLayout)
         
         collectionView.backgroundColor = HeraldColorHelper.Divider
         collectionView.showsVerticalScrollIndicator = false
@@ -84,7 +84,7 @@ class CurriculumTableViewCell: UITableViewCell {
         
         collectionView.register(CurriculumCollectionViewCell.self, forCellWithReuseIdentifier: "CurriculumCollection")
         
-        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).height(520).bottom(0)
+        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).height(560).bottom(0)
     }
     
     private func setConfigureCell() {

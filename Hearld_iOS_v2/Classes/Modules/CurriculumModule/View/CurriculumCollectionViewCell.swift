@@ -34,10 +34,10 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     
     let hour2blcokTable : Dictionary<Int,CGFloat> = [ 8  : (40.0 * 0),
                                                       9  : (40.0 * 2),
-                                                      14 : (40.0 * 4),
-                                                      15 : (40.0 * 6),
-                                                      16 : (40.0 * 7),
-                                                      18 : (40.0 * 9)]
+                                                      14 : (40.0 * 5),
+                                                      15 : (40.0 * 7),
+                                                      16 : (40.0 * 8),
+                                                      18 : (40.0 * 10)]
     
     private var buttonCreator : UIButton {
         return UIButton()
@@ -78,6 +78,7 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         var flag = true
         curriculumList.forEach { curriculum in
             for event in curriculum.events where event.week == currentWeek {
+                /* 更新日期，仅执行一次 */
                 if flag {
                     let timeStamp = TimeConvertHelper.convert(from: event.startTime)
                     let startDay = timeStamp.startWeek.add(components: 1.days)
@@ -89,25 +90,21 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
                 let endTime = TimeConvertHelper.convert(from: event.endTime)
                 
                 // 先不考虑周末的课程
-                if (startTime.weekday - 1) >= 5 {
+                if (startTime.weekday - 1) > 5 {
                     continue
                 }
                 
                 let weekDay = startTime.weekday - 1
-//                print(endTime.hour)
-//                print(startTime.hour)
                 let durationHour = (endTime - startTime).in(.hour)
                 var numberOfBlock : CGFloat = 0.0
                 switch durationHour! {
-                case 0:
-                    numberOfBlock = 1
                 case 1:
                     numberOfBlock = 2
-                default:
+                case 2:
                     numberOfBlock = 3
+                default:
+                    numberOfBlock = 4
                 }
-//                print(durationHour!)
-//                print("dsadsa")
                 let blockFrame = CGRect(x: CGFloat(weekDay - 1) * blockWidth,
                                         y: CGFloat(40) + hour2blcokTable[startTime.hour]!,
                                         width: blockWidth,
@@ -126,5 +123,4 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         thursdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 3.days)) + "\n周四"
         fridayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 4.days)) + "\n周五"
     }
-
 }
