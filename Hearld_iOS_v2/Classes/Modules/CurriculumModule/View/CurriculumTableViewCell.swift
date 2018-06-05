@@ -89,11 +89,9 @@ class CurriculumTableViewCell: UITableViewCell {
     
     private func setConfigureCell() {
         dataSource.configureCell = { (_,cv,indexPath,item) in
-            print(self.collectionView.contentOffset)
-            print("indexpath section \(indexPath.section) row \(indexPath.row)")
             let cell = cv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
-            cell.curriculumList = item
             cell.currentWeek = indexPath.row + 1
+            cell.curriculumList = item
             return cell
         }
     }
