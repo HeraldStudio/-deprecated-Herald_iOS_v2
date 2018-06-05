@@ -21,7 +21,8 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     }
     
     /* UI stuff */
-    private let blockWidth = screenRect.width / 5
+    private let blockWidth : CGFloat = screenRect.width / 5
+    private let blockHeight : CGFloat = 40.0
     
     private let mondayLabel = UILabel()
     private let tuesdayLabel = UILabel()
@@ -30,6 +31,13 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     private let fridayLabel = UILabel()
     private let saturdayLabel = UILabel()
     private let sundayLabel = UILabel()
+    
+    let hour2blcokTable : Dictionary<Int,CGFloat> = [ 8  : (40.0 * 0),
+                                                      9  : (40.0 * 2),
+                                                      14 : (40.0 * 4),
+                                                      15 : (40.0 * 6),
+                                                      16 : (40.0 * 7),
+                                                      18 : (40.0 * 9)]
     
     private var buttonCreator : UIButton {
         return UIButton()
@@ -80,9 +88,33 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
                 let startTime = TimeConvertHelper.convert(from: event.startTime)
                 let endTime = TimeConvertHelper.convert(from: event.endTime)
                 
-//                print(date.endWeek.weekdayName)
-//                let blockFrame = CGRect(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
-//                let block = CurriculumBlock.init(frame: <#T##CGRect#>)
+                // 先不考虑周末的课程
+                if (startTime.weekday - 1) >= 5 {
+                    continue
+                }
+                
+                let weekDay = startTime.weekday - 1
+//                print(endTime.hour)
+//                print(startTime.hour)
+                let durationHour = (endTime - startTime).in(.hour)
+                var numberOfBlock : CGFloat = 0.0
+                switch durationHour! {
+                case 0:
+                    numberOfBlock = 1
+                case 1:
+                    numberOfBlock = 2
+                default:
+                    numberOfBlock = 3
+                }
+//                print(durationHour!)
+//                print("dsadsa")
+                let blockFrame = CGRect(x: CGFloat(weekDay - 1) * blockWidth,
+                                        y: CGFloat(40) + hour2blcokTable[startTime.hour]!,
+                                        width: blockWidth,
+                                        height: CGFloat(40 * numberOfBlock))
+                let block = CurriculumBlock.init(frame: blockFrame)
+                block.setText(course: curriculum.courseName, teacherName: curriculum.teacherName, location: curriculum.location)
+                block.into(contentView)
             }
         }
     }
