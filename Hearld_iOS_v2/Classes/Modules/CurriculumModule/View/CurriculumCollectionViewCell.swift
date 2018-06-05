@@ -70,14 +70,15 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         var flag = true
         curriculumList.forEach { curriculum in
             for event in curriculum.events where event.week == currentWeek {
-                let timeSatmp = event.startTime.substring(NSMakeRange(0, event.startTime.length() - 3))
-                let date = TimeConvertHelper.convert(from: timeSatmp)
-                
                 if flag {
-                    let startDay = date.startWeek.add(components: 1.days)
-                    updateDate(from: startDay!)
+                    let timeStamp = TimeConvertHelper.convert(from: event.startTime)
+                    let startDay = timeStamp.startWeek.add(components: 1.days)
+                    updateDate(from: startDay)
                     flag = false
                 }
+                
+                let startTime = TimeConvertHelper.convert(from: event.startTime)
+                let endTime = TimeConvertHelper.convert(from: event.endTime)
                 
 //                print(date.endWeek.weekdayName)
 //                let blockFrame = CGRect(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
@@ -86,12 +87,12 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    private func updateDate(from startDate: DateInRegion) {
+    private func updateDate(from startDate: Date) {
         mondayLabel.text = TimeConvertHelper.formatDate(startDate) + "\n周一"
-        tuesdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 1.days)!) + "\n周二"
-        wednesdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 2.days)!) + "\n周三"
-        thursdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 3.days)!) + "\n周四"
-        fridayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 4.days)!) + "\n周五"
+        tuesdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 1.days)) + "\n周二"
+        wednesdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 2.days)) + "\n周三"
+        thursdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 3.days)) + "\n周四"
+        fridayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 4.days)) + "\n周五"
     }
 
 }

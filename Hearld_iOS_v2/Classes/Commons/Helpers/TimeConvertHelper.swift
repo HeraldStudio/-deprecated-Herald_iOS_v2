@@ -11,15 +11,14 @@ import SwiftDate
 
 class TimeConvertHelper {
     
-    class func convert(from timeStamp: String) -> DateInRegion {
+    class func convert(from timeStamp: String) -> Date {
         let seconds = Int64(timeStamp)
-        let date = Date(timeIntervalSince1970: TimeInterval.init(seconds!))
-        return DateInRegion(absoluteDate: date, in: Region.GMT())
+        return Date(timeIntervalSince1970: TimeInterval.init(seconds!))
     }
     
-    class func convert(from calendar: DateInRegion) -> String {
+    class func convert(from calendar: Date) -> String {
         var displayTime = ""
-        let currentDate = DateInRegion(absoluteDate: Date(), in: Region.Local())
+        let currentDate = Date()
         let intervalInYear = (currentDate - calendar).in(.year)!
         let intervalInMonth = (currentDate - calendar).in(.month)!
         var intervalInDay = (currentDate - calendar).in(.day)!
@@ -50,7 +49,7 @@ class TimeConvertHelper {
         return displayTime
     }
     
-    class func formatDate(_ date: DateInRegion) -> String {
+    class func formatDate(_ date: Date) -> String {
         return String(date.month) + "月" + String(date.day) + "日"
     }
     

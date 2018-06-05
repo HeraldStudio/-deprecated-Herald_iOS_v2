@@ -99,8 +99,8 @@ class CurriculumViewModel {
             for eventJSON in eventArrayValue {
                 let event = EventModel()
                 event.week = eventJSON["week"].intValue
-                event.startTime = eventJSON["startTime"].stringValue
-                event.endTime = eventJSON["endTime"].stringValue
+                event.startTime = eventJSON["startTime"].stringValue.substring(NSMakeRange(0, eventJSON["startTime"].stringValue.length() - 3))
+                event.endTime = eventJSON["endTime"].stringValue.substring(NSMakeRange(0, eventJSON["endTime"].stringValue.length() - 3))
                 curriculum.events.append(event)
             }
 

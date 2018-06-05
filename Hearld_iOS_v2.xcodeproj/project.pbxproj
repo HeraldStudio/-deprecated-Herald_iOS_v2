@@ -248,8 +248,8 @@
 		530DB89820C56A3D00E930B4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				534C643220C12E3200FB44EF /* EventModel.swift */,
 				534C643020C124FD00FB44EF /* CurriculumModel.swift */,
+				534C643220C12E3200FB44EF /* EventModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

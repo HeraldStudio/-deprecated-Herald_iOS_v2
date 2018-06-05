@@ -31,7 +31,7 @@ class NoticeModel: Object {
         return TimeConvertHelper.convert(from: calendar)
     }
     
-    var calendar : DateInRegion {
+    var calendar : Date {
         return TimeConvertHelper.convert(from: self.time)
     }
 }

@@ -45,7 +45,7 @@ class CardViewModel {
     /* 请求日期 */
     var requestDate : String {
         get {
-            var currentDate = DateInRegion(absoluteDate: Date(), in: Region.Local())
+            var currentDate = Date()
             currentDate = currentDate - offset.day
             return currentDate.string(format: .custom("yyyy-MM-dd"))
         }
