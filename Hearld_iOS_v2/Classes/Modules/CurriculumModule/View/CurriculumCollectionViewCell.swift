@@ -32,12 +32,21 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     private let saturdayLabel = UILabel()
     private let sundayLabel = UILabel()
     
-    let hour2blcokTable : Dictionary<Int,CGFloat> = [ 8  : (40.0 * 0),
-                                                      9  : (40.0 * 2),
-                                                      14 : (40.0 * 5),
-                                                      15 : (40.0 * 7),
-                                                      16 : (40.0 * 8),
-                                                      18 : (40.0 * 10)]
+    /* 课程开始时间所对饮的block起始位置 */
+    let hour2blcokTable : Dictionary<Int,CGFloat> = [ 8 * 60       : (40.0 * 0), // 8点开始的课程
+                                                      8 * 60 + 50  : (40.0 * 1), // 8点50开始的课程
+                                                      9 * 60 + 50  : (40.0 * 2), // 9点50开始的课程
+                                                      10 * 60 + 40 : (40.0 * 3), // 10点40开始的课程
+                                                      11 * 60 + 30 : (40.0 * 4), // 11点30开始的课程
+                                                      14 * 60      : (40.0 * 5), // 14点开始的课程
+                                                      14 * 60 + 50 : (40.0 * 6), // 14点50开始的课程
+                                                      15 * 60 + 50 : (40.0 * 7), // 15点50开始的课程
+                                                      16 * 60 + 40 : (40.0 * 8), // 16点40开始的课程
+                                                      17 * 60 + 30 : (40.0 * 9), // 17点30开始的课程
+                                                      18 * 60 + 30 : (40.0 * 10),// 18点30开始的课程
+                                                      19 * 60 + 20 : (40.0 * 11),// 19点20开始的课程
+                                                      20 * 60 + 10 : (40.0 * 12)]// 20点10开始的课程
+    
     
     private var buttonCreator : UIButton {
         return UIButton()
@@ -95,20 +104,14 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
                 }
                 
                 let weekDay = startTime.weekday - 1
-                let durationHour = (endTime - startTime).in(.hour)
-                var numberOfBlock : CGFloat = 0.0
-                switch durationHour! {
-                case 1:
-                    numberOfBlock = 2
-                case 2:
-                    numberOfBlock = 3
-                default:
-                    numberOfBlock = 4
-                }
+                let durationHour = (endTime - startTime).in(.minute)
+                let numbers = numberOfBlock(duration: durationHour!)
+                let timeInterval = startTime.hour * 60 + startTime.minute
+                
                 let blockFrame = CGRect(x: CGFloat(weekDay - 1) * blockWidth,
-                                        y: CGFloat(40) + hour2blcokTable[startTime.hour]!,
+                                        y: CGFloat(40) + hour2blcokTable[timeInterval]!,
                                         width: blockWidth,
-                                        height: CGFloat(40 * numberOfBlock))
+                                        height: CGFloat(40 * numbers))
                 let block = CurriculumBlock.init(frame: blockFrame)
                 block.setText(course: curriculum.courseName, teacherName: curriculum.teacherName, location: curriculum.location)
                 block.into(contentView)
@@ -122,5 +125,28 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         wednesdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 2.days)) + "\n周三"
         thursdayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 3.days)) + "\n周四"
         fridayLabel.text = TimeConvertHelper.formatDate(startDate.add(components: 4.days)) + "\n周五"
+    }
+}
+
+// MARK: 课程表时间转换相关
+extension CurriculumCollectionViewCell {
+    fileprivate func numberOfBlock(duration minute : Int) -> CGFloat{
+        switch minute {
+        // 两节课
+        case 95:
+            return 2
+        // 白天三节课
+        case 155:
+            return 3
+        // 晚上三节课
+        case 145:
+            return 3
+        // 四节课
+        case 205:
+            return 4
+        // 还能有上一节的课嘛！
+        default:
+            return 1
+        }
     }
 }
