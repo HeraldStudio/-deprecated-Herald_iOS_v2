@@ -127,7 +127,7 @@ class ActivityViewController: UIViewController {
             }
             
             // 图片
-            cell.picture.sd_setImage(with: URL(string: item.pic_url), placeholderImage: #imageLiteral(resourceName: "default_herald"), options: SDWebImageOptions.retryFailed)
+            cell.picture.sd_setImage(with: URL(string: item.pic_url), placeholderImage: nil, options: SDWebImageOptions.retryFailed)
             
             // 介绍
             cell.introductionLabel.text = item.introduction

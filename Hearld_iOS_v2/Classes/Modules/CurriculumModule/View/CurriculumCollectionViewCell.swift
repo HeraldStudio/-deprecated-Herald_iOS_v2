@@ -113,7 +113,9 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
                                         width: blockWidth,
                                         height: CGFloat(40 * numbers))
                 let block = CurriculumBlock.init(frame: blockFrame)
-                block.setText(course: curriculum.courseName, teacherName: curriculum.teacherName, location: curriculum.location)
+                block.setText(course: curriculum.courseName,
+                              teacherName: curriculum.teacherName,
+                              location: curriculum.location)
                 block.into(contentView)
             }
         }

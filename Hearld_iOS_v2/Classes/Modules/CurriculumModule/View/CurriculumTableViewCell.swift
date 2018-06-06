@@ -20,6 +20,9 @@ class CurriculumTableViewCell: UITableViewCell {
     private var leftSwitchTermButton = UIButton()
     private var rightSwitchTermButton = UIButton()
     private var termLabel = UILabel()
+    private var leftSwitchWeekButton = UIButton()
+    private var weekLabel = UILabel()
+    private var rightSwitchWeekButton = UIButton()
     
     private let flowLayout = UICollectionViewFlowLayout()
     private var collectionView: UICollectionView!
@@ -43,7 +46,7 @@ class CurriculumTableViewCell: UITableViewCell {
     
     private func customInit() {
         setupSubviews()
-        
+
         setConfigureCell()
         
         curriculumViewModel.curriculumTable.subscribe(
@@ -75,7 +78,8 @@ class CurriculumTableViewCell: UITableViewCell {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 55, width: screenRect.width, height: 560) , collectionViewLayout: flowLayout)
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 48, width: screenRect.width, height: 560),
+                                          collectionViewLayout: flowLayout)
         
         collectionView.backgroundColor = HeraldColorHelper.Divider
         collectionView.showsVerticalScrollIndicator = false
