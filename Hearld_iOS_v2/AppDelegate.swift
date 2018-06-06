@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let cache = YYMemoryCache.init()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         let realm = try! Realm()
         // 若userDefault中uuid不为空，且本地数据库中存在该用户，则直接登录到首页
         if HearldUserDefault.uuid != nil && realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").isEmpty == false{

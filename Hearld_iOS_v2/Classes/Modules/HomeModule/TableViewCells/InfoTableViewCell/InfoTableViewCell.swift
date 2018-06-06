@@ -59,18 +59,7 @@ class InfoTableViewCell: UITableViewCell {
     
     fileprivate func customInit() {
         setupSubviews()
-        
-        // 订阅是否登录的信息
-//        isLoginVariable.asObservable().subscribe(
-//            onNext:{ isLogin in
-//                if isLogin {
-//                    self.prepareData()
-//                }else{
-//                    self.user = User()
-//                    self.prepareData()
-//                }
-//        }).addDisposableTo(bag)
-        
+
         /// 分别订阅5个Button对应的网络请求
         subscribeButton()
         
@@ -92,10 +81,10 @@ class InfoTableViewCell: UITableViewCell {
                 self.dealWithButton(self.cardExtraButton,
                                     number: balance,
                                     desc: desc,
-                                    numSize: 17,
-                                    numFont: .regular,
+                                    numSize: 19,
+                                    numFont: .semibold,
                                     numColor: HeraldColorHelper.Primary,
-                                    descSize: 15,
+                                    descSize: 16,
                                     descFont: .semibold,
                                     descColor: HeraldColorHelper.Secondary)
         }, onError: { error in
@@ -113,10 +102,10 @@ class InfoTableViewCell: UITableViewCell {
                 self.dealWithButton(self.srtpButton,
                                     number: number,
                                     desc: desc,
-                                    numSize: 17,
-                                    numFont: .regular,
+                                    numSize: 19,
+                                    numFont: .semibold,
                                     numColor: HeraldColorHelper.Primary,
-                                    descSize: 15,
+                                    descSize: 16,
                                     descFont: .semibold,
                                     descColor: HeraldColorHelper.Secondary)
         },
@@ -132,10 +121,10 @@ class InfoTableViewCell: UITableViewCell {
                 self.lectureButton.isEnabled = true
                 self.dealWithButton(self.lectureButton,
                                     number: String(number),
-                                    desc: desc, numSize: 17,
-                                    numFont: .regular,
+                                    desc: desc, numSize: 19,
+                                    numFont: .semibold,
                                     numColor: HeraldColorHelper.Primary,
-                                    descSize: 15,
+                                    descSize: 16,
                                     descFont: .semibold,
                                     descColor: HeraldColorHelper.Secondary)
             },
@@ -156,10 +145,10 @@ class InfoTableViewCell: UITableViewCell {
                 self.dealWithButton(self.gradeButton,
                                     number: gpa,
                                     desc: desc,
-                                    numSize: 17,
-                                    numFont: .regular,
+                                    numSize: 19,
+                                    numFont: .semibold,
                                     numColor: HeraldColorHelper.Primary,
-                                    descSize: 15,
+                                    descSize: 16,
                                     descFont: .semibold,
                                     descColor: HeraldColorHelper.Secondary)
             },
@@ -180,10 +169,10 @@ class InfoTableViewCell: UITableViewCell {
                 self.dealWithButton(self.peButton,
                                     number: pe,
                                     desc: desc,
-                                    numSize: 17,
-                                    numFont: .regular,
+                                    numSize: 19,
+                                    numFont: .semibold,
                                     numColor: HeraldColorHelper.Primary,
-                                    descSize: 15,
+                                    descSize: 16,
                                     descFont: .semibold,
                                     descColor: HeraldColorHelper.Secondary)
         }, onError: { error in
@@ -192,36 +181,45 @@ class InfoTableViewCell: UITableViewCell {
     }
     
     private func addTargets() {
-        lectureButton.rx.tap.asObservable().subscribe({_ in
+        lectureButton.rx.tap.asObservable().subscribe {_ in
             self.delegate?.navigation(toVC: LectureViewController())
-        }).addDisposableTo(bag)
+        }.addDisposableTo(bag)
         
-        srtpButton.rx.tap.asObservable().subscribe({_ in
+        srtpButton.rx.tap.asObservable().subscribe {_ in
             self.delegate?.navigation(toVC: SRTPViewController())
-        }).addDisposableTo(bag)
+        }.addDisposableTo(bag)
         
-        gradeButton.rx.tap.asObservable().subscribe({_ in
+        gradeButton.rx.tap.asObservable().subscribe {_ in
             self.delegate?.navigation(toVC: GPAViewController())
-        }).addDisposableTo(bag)
+        }.addDisposableTo(bag)
         
-        cardExtraButton.rx.tap.asObservable().subscribe({_ in
+        cardExtraButton.rx.tap.asObservable().subscribe {_ in
             self.delegate?.navigation(toVC: CardViewController())
-        }).addDisposableTo(bag)
+        }.addDisposableTo(bag)
         
-        peButton.rx.tap.asObservable().subscribe({_ in
+        peButton.rx.tap.asObservable().subscribe {_ in
             self.delegate?.navigation(toVC: PEViewController())
-        }).addDisposableTo(bag)
+        }.addDisposableTo(bag)
+        
+        logoutButton.rx.tap.asObservable().subscribe { _ in
+            let LoginVC = LoginViewController()
+//            self.delegate?.navigationPop(animated: false)
+            self.delegate?.present(VC: LoginVC, completionHandler: {
+                HearldUserDefault.isLogin = false
+            })
+        }.addDisposableTo(bag)
     }
     
     private func setupSubviews() {
         // 名字
-        nameLabel.into(contentView).top(15).left(15).height(30).font(16,.regular).color(HeraldColorHelper.Regular)
+        nameLabel.into(contentView).top(15).left(15).height(30).font(20,.regular).color(HeraldColorHelper.Regular)
         
         // 身份
-        identityLabel.into(contentView).after(nameLabel,15).top(25).height(15).font(13,.regular).color(HeraldColorHelper.Secondary)
+        identityLabel.into(contentView).after(nameLabel,15).top(15).height(30).font(14,.regular).color(HeraldColorHelper.Secondary)
         
-        // 注销按钮
-//        logoutButton.into(contentView).below(staticLabel,10).right(15)
+        // 登出按钮
+        logoutButton.into(contentView).top(15).right(15).height(25).width(25)
+        logoutButton.setImage(#imageLiteral(resourceName: "logout"), for: .normal)
         
         // 画线
         underLine_1.into(contentView).below(nameLabel,4).width(screenRect.width).height(1).background(HeraldColorHelper.line)
@@ -280,10 +278,10 @@ class InfoTableViewCell: UITableViewCell {
                 dealWithButton(cardExtraButton,
                                number: number,
                                desc: desc,
-                               numSize: 17,
-                               numFont: .regular,
+                               numSize: 19,
+                               numFont: .semibold,
                                numColor: HeraldColorHelper.Primary,
-                               descSize: 15,
+                               descSize: 16,
                                descFont: .semibold,
                                descColor: HeraldColorHelper.Secondary)
             case .pe:
@@ -292,10 +290,10 @@ class InfoTableViewCell: UITableViewCell {
                 dealWithButton(peButton,
                                number: number,
                                desc: desc,
-                               numSize: 17,
-                               numFont: .regular,
+                               numSize: 19,
+                               numFont: .semibold,
                                numColor: HeraldColorHelper.Primary,
-                               descSize: 15,
+                               descSize: 16,
                                descFont: .semibold,
                                descColor: HeraldColorHelper.Secondary)
             case .lecture():
@@ -304,10 +302,10 @@ class InfoTableViewCell: UITableViewCell {
                 dealWithButton(lectureButton,
                                number: number,
                                desc: desc,
-                               numSize: 17,
-                               numFont: .regular,
+                               numSize: 19,
+                               numFont: .semibold,
                                numColor: HeraldColorHelper.Primary,
-                               descSize: 15,
+                               descSize: 16,
                                descFont: .semibold,
                                descColor: HeraldColorHelper.Secondary)
             case .srtp():
@@ -316,10 +314,10 @@ class InfoTableViewCell: UITableViewCell {
                 dealWithButton(srtpButton,
                                number: number,
                                desc: desc,
-                               numSize: 17,
-                               numFont: .regular,
+                               numSize: 19,
+                               numFont: .semibold,
                                numColor: HeraldColorHelper.Primary,
-                               descSize: 15,
+                               descSize: 16,
                                descFont: .semibold,
                                descColor: HeraldColorHelper.Secondary)
             case .grade():
@@ -328,10 +326,10 @@ class InfoTableViewCell: UITableViewCell {
                 dealWithButton(gradeButton,
                                number: number,
                                desc: desc,
-                               numSize: 17,
-                               numFont: .regular,
+                               numSize: 19,
+                               numFont: .semibold,
                                numColor: HeraldColorHelper.Primary,
-                               descSize: 15,
+                               descSize: 16,
                                descFont: .semibold,
                                descColor: HeraldColorHelper.Secondary)
             }
