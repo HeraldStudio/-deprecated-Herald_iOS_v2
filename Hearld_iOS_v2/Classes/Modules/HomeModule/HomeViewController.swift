@@ -129,5 +129,5 @@ class HomeViewController: UIViewController {
 protocol NavigationProtocol {
     func navigation(toVC viewController: UIViewController)
     func navigationPop(animated: Bool)
-    func present(VC viewController: UIViewController, completionHandler: @escaping ()->())
+    func present(VC viewController: UIViewController, completionHandler: @escaping () -> Void)
 }

@@ -37,7 +37,7 @@ class CurriculumViewModel {
 
     let bag = DisposeBag()
 
-    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+    func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         guard let realm = try? Realm() else {
             return
         }
@@ -58,7 +58,7 @@ class CurriculumViewModel {
         }
     }
 
-    private func requestCurriculum(completionHandler: @escaping ()->()) {
+    private func requestCurriculum(completionHandler: @escaping () -> Void) {
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.Curriculum(term: "17-18-3")) { result in
             switch result {

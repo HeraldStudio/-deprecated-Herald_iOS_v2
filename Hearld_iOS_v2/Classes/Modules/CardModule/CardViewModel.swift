@@ -54,7 +54,7 @@ class CardViewModel {
     /**
      - parameter isExpand: 是否加载前一天支出,叠加Model
      */
-    func prepareData(isExpand: Bool, completionHandler: @escaping ()->()) {
+    func prepareData(isExpand: Bool, completionHandler: @escaping () -> Void) {
         if isExpand {
             offset += 1
             requestCard{ completionHandler() }
@@ -66,7 +66,7 @@ class CardViewModel {
     /**
       封装从缓存获取或是网络请求获取的逻辑
      */
-    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->() ) {
+    func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void ) {
         if isRefresh {
             lock()
             offset = 0
@@ -88,7 +88,7 @@ class CardViewModel {
     /**
       网络请求API
      */
-    private func requestCard(completionHandler: @escaping ()->()) {
+    private func requestCard(completionHandler: @escaping () -> Void) {
         // Moya工厂方法
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.CardRecord(date: requestDate)) { result in

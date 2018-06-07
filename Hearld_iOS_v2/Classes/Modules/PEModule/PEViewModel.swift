@@ -34,7 +34,7 @@ final class PEViewModel {
     
     let bag = DisposeBag()
     
-    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+    func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         if isRefresh {
             lock()
             peModels.removeAll()
@@ -52,7 +52,7 @@ final class PEViewModel {
         }
     }
     
-    private func requestPE(completionHandler: @escaping ()->()) {
+    private func requestPE(completionHandler: @escaping () -> Void) {
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.PE()) { result in
             switch result{

@@ -37,7 +37,7 @@ class GPAViewModel {
     
     let bag = DisposeBag()
     
-    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+    func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         lock()
         if isRefresh {
             gpaModels.removeAll()
@@ -58,7 +58,7 @@ class GPAViewModel {
         }
     }
     
-    func requestGPA(completionHandler: @escaping ()->()) {
+    func requestGPA(completionHandler: @escaping () -> Void) {
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.GPA()) { (result) in
             switch result{

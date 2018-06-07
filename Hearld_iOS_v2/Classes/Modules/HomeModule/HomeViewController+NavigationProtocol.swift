@@ -18,7 +18,7 @@ extension HomeViewController: NavigationProtocol {
         self.navigationController?.popViewController(animated: animated)
     }
     
-    func present(VC viewController: UIViewController, completionHandler: @escaping ()->()) {
+    func present(VC viewController: UIViewController, completionHandler: @escaping () -> Void) {
         self.present(viewController, animated: true, completion: completionHandler)
     }
 }

@@ -34,7 +34,7 @@ final class LectureViewModel {
     
     let bag = DisposeBag()
     
-    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+    func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         if isRefresh {
             lock()
             cache.removeObject(forKey: "lecture")
@@ -52,7 +52,7 @@ final class LectureViewModel {
         }
     }
     
-    private func requestLectures(completionHandler: @escaping ()->()) {
+    private func requestLectures(completionHandler: @escaping () -> Void) {
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.Lecture()) { (result) in
             switch result{

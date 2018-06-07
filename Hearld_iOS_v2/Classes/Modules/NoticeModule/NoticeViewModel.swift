@@ -26,7 +26,7 @@ class NoticeViewModel {
     
     let bag = DisposeBag()
     
-    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+    func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         if isRefresh {
             cache.removeObject(forKey: "Notice")
             requestNotice { completionHandler() }
@@ -39,7 +39,7 @@ class NoticeViewModel {
         }
     }
     
-    private func requestNotice(completionHandler: @escaping ()->()) {
+    private func requestNotice(completionHandler: @escaping () -> Void) {
         var noticeList : [NoticeModel]  = []
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.Notice()) { result in

@@ -37,7 +37,7 @@ class SRTPViewModel {
     
     let bag = DisposeBag()
     
-    func prepareData(isRefresh: Bool, completionHandler: @escaping ()->()) {
+    func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         if isRefresh {
             lock()
             srtpList.removeAll()
@@ -55,7 +55,7 @@ class SRTPViewModel {
         }
     }
     
-    private func requestSRTP(completionHandler: @escaping ()->()) {
+    private func requestSRTP(completionHandler: @escaping () -> Void) {
         let provider = MoyaProvider<QueryAPI>()
         provider.request(.SRTP()) { (result) in
             switch result{
