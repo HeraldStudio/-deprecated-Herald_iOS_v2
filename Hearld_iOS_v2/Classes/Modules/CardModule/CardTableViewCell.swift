@@ -10,7 +10,7 @@ import UIKit
 
 class CardTableViewCell: UITableViewCell {
     
-    var card : CardModel? { didSet { updateUI() } }
+    var card: CardModel? { didSet { updateUI() } }
     
     var descLabel = UILabel()
     var amountLabel = UILabel()

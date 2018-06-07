@@ -27,7 +27,7 @@ struct CarouselFigureViewModel {
         let provider = MoyaProvider<SubscribeAPI>()
         
         provider.request(.CarouselFigure()) { (result) in
-            var figures : [CarouselFigureModel] = []
+            var figures: [CarouselFigureModel] = []
             switch result{
             case let .success(moyaResponse):
                 let data = moyaResponse.data
@@ -41,7 +41,7 @@ struct CarouselFigureViewModel {
     }
     
     private func parseCarouselFigureModel(_ json: JSON) -> [CarouselFigureModel] {
-        var figureArray : [CarouselFigureModel] = []
+        var figureArray: [CarouselFigureModel] = []
         let figures = json["content"]["sliderviews"].arrayValue
         for figureJSON in figures{
             let figure = CarouselFigureModel()

@@ -17,7 +17,7 @@ import YYCache
 
 class GPAViewModel {
     
-    var gpaModels : [GPAModel] = []
+    var gpaModels: [GPAModel] = []
     
     /// 单例
     static let shared = GPAViewModel()

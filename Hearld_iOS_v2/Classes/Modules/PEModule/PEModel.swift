@@ -9,15 +9,15 @@
 import Foundation
 
 class PEModel: NSCoding {
-    var name : String = ""
-    var grade : String  = ""
-    var score : Double = 0.0
-    var value : Double = 0.0
+    var name: String = ""
+    var grade: String  = ""
+    var score: Double = 0.0
+    var value: Double = 0.0
     
-    init(_ name : String,
-         _ grade : String,
-         _ score : Double,
-         _ value : Double) {
+    init(_ name: String,
+         _ grade: String,
+         _ score: Double,
+         _ value: Double) {
         self.name = name
         self.grade = grade
         self.score = score

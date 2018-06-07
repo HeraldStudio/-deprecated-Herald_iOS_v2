@@ -6,15 +6,15 @@
 //  Copyright © 2018 Nathan. All rights reserved.
 //
 
+import Alamofire
 import Foundation
 import Moya
-import Alamofire
-import SwiftyJSON
 import RxSwift
 import RxCocoa
 import RealmSwift
-import YYCache
+import SwiftyJSON
 import SwiftDate
+import YYCache
 
 typealias curriculumItem = [CurriculumModel]
 

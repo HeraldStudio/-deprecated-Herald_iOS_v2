@@ -18,7 +18,7 @@ import YYCache
 class NoticeViewModel {
     
     fileprivate let noticeSubject = PublishSubject<[NoticeModel]>()
-    var noticeList : Observable<[NoticeModel]> {
+    var noticeList: Observable<[NoticeModel]> {
         return noticeSubject.asObservable()
     }
     

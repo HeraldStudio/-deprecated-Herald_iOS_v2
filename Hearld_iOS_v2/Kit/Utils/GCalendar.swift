@@ -53,7 +53,7 @@ public class GCalendar : CustomDebugStringConvertible {
     ]
     
     /// 由使用者设置的时间精确度
-    public enum GCalendarPrecision : Int {
+    public enum GCalendarPrecision: Int {
         /// 精确到年
         case Year
         /// 精确到月

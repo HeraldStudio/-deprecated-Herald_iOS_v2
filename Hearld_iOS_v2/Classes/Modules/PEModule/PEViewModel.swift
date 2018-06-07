@@ -16,7 +16,7 @@ import RealmSwift
 import YYCache
 
 final class PEViewModel {
-    var peModels : [PEModel] = []
+    var peModels: [PEModel] = []
     
     /* 单例 */
     static let shared = PEViewModel()
@@ -24,7 +24,7 @@ final class PEViewModel {
     private init() { }
     
     fileprivate let PESubject = PublishSubject<[PEModel]>()
-    var PEList : Observable<[PEModel]> {
+    var PEList: Observable<[PEModel]> {
         return PESubject.asObservable()
     }
     

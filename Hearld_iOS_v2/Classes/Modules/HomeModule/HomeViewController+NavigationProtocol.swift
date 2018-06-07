@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-extension HomeViewController : NavigationProtocol {
+extension HomeViewController: NavigationProtocol {
     func navigation(toVC viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
     }

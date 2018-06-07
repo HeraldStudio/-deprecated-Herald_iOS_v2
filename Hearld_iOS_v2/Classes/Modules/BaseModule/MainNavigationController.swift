@@ -19,7 +19,7 @@ class MainNavigationController: UINavigationController {
         super.didReceiveMemoryWarning()
     }
     
-    func getHeight() -> CGFloat{
+    func getHeight() -> CGFloat {
         return navigationBar.frame.height
     }
 }

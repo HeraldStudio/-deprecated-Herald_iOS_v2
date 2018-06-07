@@ -12,17 +12,17 @@ import RealmSwift
 import Realm
 
 class User : Object{
-    @objc dynamic var cardID : String = ""
-    @objc dynamic var username : String = ""
-    @objc dynamic var uuid : String = ""
-    @objc dynamic var sex : String = ""
-    @objc dynamic var shchoolNum : String = ""
-    @objc dynamic var identity : String = ""
+    @objc dynamic var cardID: String = ""
+    @objc dynamic var username: String = ""
+    @objc dynamic var uuid: String = ""
+    @objc dynamic var sex: String = ""
+    @objc dynamic var shchoolNum: String = ""
+    @objc dynamic var identity: String = ""
     
     // GPA stuff
-    @objc dynamic var gpa : String = ""
-    @objc dynamic var gpaBeforeMakeup : String = ""
-    @objc dynamic var gpaCalcutionTime : String = ""
+    @objc dynamic var gpa: String = ""
+    @objc dynamic var gpaBeforeMakeup: String = ""
+    @objc dynamic var gpaCalcutionTime: String = ""
     
     // STRP stuff
     @objc dynamic var points: String = ""
@@ -32,7 +32,7 @@ class User : Object{
     @objc dynamic var balance: Double = 0.0
     
     // PE stuff
-    @objc dynamic var peCount : Int = 0
+    @objc dynamic var peCount: Int = 0
     
     override static func primaryKey() -> String? {
         return "cardID"

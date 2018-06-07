@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import Realm
 
-class CurriculumModel : Object {    
+class CurriculumModel: Object {    
     @objc dynamic var courseName : String = ""
     @objc dynamic var credit : Int = 0
     @objc dynamic var beginWeek : Int = 0

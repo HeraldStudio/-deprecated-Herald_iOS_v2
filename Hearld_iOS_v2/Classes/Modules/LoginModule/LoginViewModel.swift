@@ -15,8 +15,8 @@ import SwiftyJSON
 import Realm
 import RealmSwift
 
-struct LoginViewModel{
-    var model : LoginModel?
+struct LoginViewModel {
+    var model: LoginModel?
     let user = User()
     
     // fileprivate防止非法访问

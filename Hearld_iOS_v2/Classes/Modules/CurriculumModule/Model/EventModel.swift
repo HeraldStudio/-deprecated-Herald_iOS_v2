@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import Realm
 
-class EventModel : Object {
+class EventModel: Object {
     @objc dynamic var id : String = ""
     @objc dynamic var week : Int = 0
     @objc dynamic var startTime : String = ""

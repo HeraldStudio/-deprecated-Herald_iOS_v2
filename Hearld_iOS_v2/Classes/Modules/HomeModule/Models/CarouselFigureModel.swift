@@ -10,10 +10,10 @@ import Foundation
 import RealmSwift
 import Realm
 
-class CarouselFigureModel : Object{
-    @objc dynamic var title : String = ""
-    @objc dynamic var link : String = ""
-    @objc dynamic var picture_url : String = ""
+class CarouselFigureModel: Object{
+    @objc dynamic var title: String = ""
+    @objc dynamic var link: String = ""
+    @objc dynamic var picture_url: String = ""
     
     override static func primaryKey() -> String? {
         return "title"

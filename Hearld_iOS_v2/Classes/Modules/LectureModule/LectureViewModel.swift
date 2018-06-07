@@ -16,7 +16,7 @@ import YYCache
 
 final class LectureViewModel {
     
-    var lectureModels : [LectureModel] = []
+    var lectureModels: [LectureModel] = []
     
     /// 单例
     static let shared = LectureViewModel()

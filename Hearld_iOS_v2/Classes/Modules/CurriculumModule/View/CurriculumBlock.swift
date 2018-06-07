@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CurriculumBlock : UIView {
+class CurriculumBlock: UIView {
     private let courseLabel = UILabel()
     private let teacherLabel = UILabel()
     private let locationLabel = UILabel()

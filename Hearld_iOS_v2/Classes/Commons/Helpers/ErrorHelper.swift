@@ -8,11 +8,11 @@
 
 import Foundation
 
-enum HeraldError : Error {
+enum HeraldError: Error {
     case NetworkError
     case UserNotExist
     
-    var localizedDescription: String{
+    var localizedDescription: String {
         switch self {
         case .NetworkError:
             return "网络超时"

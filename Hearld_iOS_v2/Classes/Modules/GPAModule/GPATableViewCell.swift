@@ -11,7 +11,7 @@ import UIKit
 
 class GPATableViewCell: UITableViewCell {
     
-    var gpa : GPAModel? { didSet { updateUI() } }
+    var gpa: GPAModel? { didSet { updateUI() } }
     
     var lessonLabel = UILabel()
     var gradeLabel = UILabel()

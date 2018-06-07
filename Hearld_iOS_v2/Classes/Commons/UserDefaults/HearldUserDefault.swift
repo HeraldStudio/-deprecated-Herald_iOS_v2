@@ -55,7 +55,7 @@ class HearldUserDefault{
         }
     }
     
-    public static var peDays : Int? {
+    public static var peDays: Int? {
         set {
             set(remainPEDays, newValue)
         }
@@ -64,7 +64,7 @@ class HearldUserDefault{
         }
     }
     
-    public static var currentTerm : String? {
+    public static var currentTerm: String? {
         set {
             set(currentTermKey, newValue)
         }
@@ -82,7 +82,7 @@ class HearldUserDefault{
         HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isRemindTestKey)
     }
     
-    class func set<T>(_ key: String, _ value : T) {
+    class func set<T>(_ key: String, _ value: T) {
         HearldUserDefault.defaults.set(value, forKey: key)
     }
     

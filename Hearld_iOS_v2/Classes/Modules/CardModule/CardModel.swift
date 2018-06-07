@@ -8,7 +8,7 @@
 
 import Foundation
 
-class CardModel : NSCoding {
+class CardModel: NSCoding {
     var amount: Double
     var desc: String
     var time: String

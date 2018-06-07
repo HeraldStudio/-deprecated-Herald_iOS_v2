@@ -11,7 +11,7 @@ import UIKit
 class NoticeCell: UITableViewCell {
     
     /* Model */
-    var notice : NoticeModel? { didSet { updateUI() } }
+    var notice: NoticeModel? { didSet { updateUI() } }
     
     /* UI stuff */
     let titleLabel = UILabel()

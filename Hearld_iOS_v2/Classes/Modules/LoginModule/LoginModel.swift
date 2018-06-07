@@ -9,10 +9,10 @@
 import Foundation
 
 class LoginModel{
-    var cardID : String
-    var password : String
+    var cardID: String
+    var password: String
     
-    init(_ cardID : String, _ password : String) {
+    init(_ cardID: String, _ password: String) {
         self.cardID = cardID
         self.password = password
     }
