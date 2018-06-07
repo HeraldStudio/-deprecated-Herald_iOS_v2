@@ -33,7 +33,6 @@ class ActivityViewController: UIViewController {
         super.viewDidLoad()
         
         // 初始化子视图
-        view.addSubview(activityTableView)
         layoutUI()
         
         // 设置下拉刷新控件为列表页头视图
@@ -147,7 +146,7 @@ class ActivityViewController: UIViewController {
                                              y: navigationController.getHeight(),
                                              width: screenRect.width,
                                              height: screenRect.height - navigationController.getHeight())
-            activityTableView.top(navigationController.getHeight()).left(0).right(0).bottom(0)
+            activityTableView.into(view).top(navigationController.getHeight()).left(0).right(0).bottom(0)
         }
     }
 }

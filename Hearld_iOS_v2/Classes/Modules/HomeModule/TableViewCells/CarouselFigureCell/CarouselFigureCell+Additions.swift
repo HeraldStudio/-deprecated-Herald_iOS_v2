@@ -17,7 +17,7 @@ extension CarouselFigureCell: UnlimitedCarouselDelegate {
             let webVC = WebViewController()
             webVC.webUrl = URL(string: url)
             webVC.navigationItem.title = item.title
-            self.deleagte?.navigationPush(to: webVC, animated: true)
+            self.deleagte?.navigation(toVC: webVC)
         }
     }
 }

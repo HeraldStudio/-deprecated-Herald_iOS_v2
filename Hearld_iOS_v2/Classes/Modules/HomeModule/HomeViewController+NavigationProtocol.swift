@@ -9,13 +9,7 @@
 import Foundation
 import UIKit
 
-protocol navigationProtocol {
-    func navigation(toVC viewController: UIViewController)
-    func navigationPop(animated: Bool)
-    func present(VC viewController: UIViewController, completionHandler: @escaping ()->())
-}
-
-extension HomeViewController: navigationProtocol {
+extension HomeViewController : NavigationProtocol {
     func navigation(toVC viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
     }
@@ -26,15 +20,5 @@ extension HomeViewController: navigationProtocol {
     
     func present(VC viewController: UIViewController, completionHandler: @escaping ()->()) {
         self.present(viewController, animated: true, completion: completionHandler)
-    }
-}
-
-extension HomeViewController: UITableViewDelegate {
-    
-}
-
-extension HomeViewController: CarouselFigureCellProtocol {
-    func navigationPush(to vc: UIViewController, animated: Bool) {
-        self.navigationController?.pushViewController(vc, animated: animated)
     }
 }

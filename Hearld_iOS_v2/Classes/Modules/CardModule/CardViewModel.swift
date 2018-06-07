@@ -117,7 +117,7 @@ class CardViewModel {
             return
         }
         
-        if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first{
+        if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first {
             try! realm.write {
                 user.balance = json["result"]["info"]["balance"].doubleValue
                 realm.add(user, update: true)

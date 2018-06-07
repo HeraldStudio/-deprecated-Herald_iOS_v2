@@ -22,10 +22,10 @@
 		5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D00F208C7A29002E60DF /* NoticeViewModel.swift */; };
 		5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5305D014208C803E002E60DF /* NoticeTableViewCell.swift */; };
 		530DB89B20C56A6500E930B4 /* CurriculumBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530DB89A20C56A6500E930B4 /* CurriculumBlock.swift */; };
-		5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselProtocol.swift */; };
+		5325CA8A202969D100FE3974 /* CarouselFigureCell+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5325CA89202969D100FE3974 /* CarouselFigureCell+Additions.swift */; };
 		53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */; };
 		5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */; };
-		5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */; };
+		5335CF181FB1AC61001AE6E0 /* HomeViewController+NavigationProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF171FB1AC61001AE6E0 /* HomeViewController+NavigationProtocol.swift */; };
 		5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */; };
 		5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */; };
 		533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533F8FD81FA78A8700040A01 /* ErrorHelper.swift */; };
@@ -65,7 +65,7 @@
 		53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D701FAB731000606E6B /* ActivityTableViewCell.swift */; };
 		53877D731FAB792000606E6B /* ActivityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D721FAB792000606E6B /* ActivityModel.swift */; };
 		53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D741FAB793100606E6B /* ActivityViewModel.swift */; };
-		53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */; };
+		53877D771FAC36C600606E6B /* ActivityTableViewDelegate+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D761FAC36C600606E6B /* ActivityTableViewDelegate+Additions.swift */; };
 		53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D781FAD4DD700606E6B /* GCalendar.swift */; };
 		53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D7F1FADCF4F00606E6B /* SwipeRefreshHeader.swift */; };
 		53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53877D811FADD6EE00606E6B /* ExtUIViewController.swift */; };
@@ -99,10 +99,10 @@
 		5305D00F208C7A29002E60DF /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		5305D014208C803E002E60DF /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
 		530DB89A20C56A6500E930B4 /* CurriculumBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurriculumBlock.swift; sourceTree = "<group>"; };
-		5325CA89202969D100FE3974 /* CarouselProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselProtocol.swift; sourceTree = "<group>"; };
+		5325CA89202969D100FE3974 /* CarouselFigureCell+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CarouselFigureCell+Additions.swift"; sourceTree = "<group>"; };
 		53352EEF1FA9B04D003F89D8 /* TextAttributesHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAttributesHelper.swift; sourceTree = "<group>"; };
 		5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureCell.swift; sourceTree = "<group>"; };
-		5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewDelegate.swift; sourceTree = "<group>"; };
+		5335CF171FB1AC61001AE6E0 /* HomeViewController+NavigationProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeViewController+NavigationProtocol.swift"; sourceTree = "<group>"; };
 		5335CF1A1FB2F677001AE6E0 /* CarouselFigureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureModel.swift; sourceTree = "<group>"; };
 		5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselFigureViewModel.swift; sourceTree = "<group>"; };
 		533F8FD81FA78A8700040A01 /* ErrorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHelper.swift; sourceTree = "<group>"; };
@@ -142,7 +142,7 @@
 		53877D701FAB731000606E6B /* ActivityTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewCell.swift; sourceTree = "<group>"; };
 		53877D721FAB792000606E6B /* ActivityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityModel.swift; sourceTree = "<group>"; };
 		53877D741FAB793100606E6B /* ActivityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewModel.swift; sourceTree = "<group>"; };
-		53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityTableViewDelegate.swift; sourceTree = "<group>"; };
+		53877D761FAC36C600606E6B /* ActivityTableViewDelegate+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ActivityTableViewDelegate+Additions.swift"; sourceTree = "<group>"; };
 		53877D781FAD4DD700606E6B /* GCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCalendar.swift; sourceTree = "<group>"; };
 		53877D7F1FADCF4F00606E6B /* SwipeRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRefreshHeader.swift; sourceTree = "<group>"; };
 		53877D811FADD6EE00606E6B /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
@@ -295,7 +295,7 @@
 				533F8FDD1FA86CBB00040A01 /* ActivityViewController.swift */,
 				53877D741FAB793100606E6B /* ActivityViewModel.swift */,
 				53877D701FAB731000606E6B /* ActivityTableViewCell.swift */,
-				53877D761FAC36C600606E6B /* ActivityTableViewDelegate.swift */,
+				53877D761FAC36C600606E6B /* ActivityTableViewDelegate+Additions.swift */,
 			);
 			path = ActivityModule;
 			sourceTree = "<group>";
@@ -304,7 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				533F8FE31FA86D3400040A01 /* HomeViewController.swift */,
-				5335CF171FB1AC61001AE6E0 /* HomeTableViewDelegate.swift */,
+				5335CF171FB1AC61001AE6E0 /* HomeViewController+NavigationProtocol.swift */,
 				5335CF191FB2F657001AE6E0 /* Models */,
 				5335CF1F1FB2F72B001AE6E0 /* TableViewCells */,
 				5335CF1C1FB2F6CF001AE6E0 /* ViewModels */,
@@ -540,7 +540,7 @@
 			children = (
 				5335CF1D1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift */,
 				5335CF151FB1AA10001AE6E0 /* CarouselFigureCell.swift */,
-				5325CA89202969D100FE3974 /* CarouselProtocol.swift */,
+				5325CA89202969D100FE3974 /* CarouselFigureCell+Additions.swift */,
 			);
 			path = CarouselFigureCell;
 			sourceTree = "<group>";
@@ -735,8 +735,8 @@
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
-				5325CA8A202969D100FE3974 /* CarouselProtocol.swift in Sources */,
-				5335CF181FB1AC61001AE6E0 /* HomeTableViewDelegate.swift in Sources */,
+				5325CA8A202969D100FE3974 /* CarouselFigureCell+Additions.swift in Sources */,
+				5335CF181FB1AC61001AE6E0 /* HomeViewController+NavigationProtocol.swift in Sources */,
 				53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */,
 				5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */,
 				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
@@ -757,7 +757,7 @@
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
 				5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */,
 				5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */,
-				53877D771FAC36C600606E6B /* ActivityTableViewDelegate.swift in Sources */,
+				53877D771FAC36C600606E6B /* ActivityTableViewDelegate+Additions.swift in Sources */,
 				5335CF161FB1AA10001AE6E0 /* CarouselFigureCell.swift in Sources */,
 				53E354272070C2DB00D48373 /* InfoTableViewCell.swift in Sources */,
 				539C40481FAF4B6100EBADC1 /* WebViewController.swift in Sources */,

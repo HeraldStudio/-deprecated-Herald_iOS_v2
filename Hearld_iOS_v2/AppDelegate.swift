@@ -20,14 +20,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         let realm = try! Realm()
         // 若userDefault中uuid不为空，且本地数据库中存在该用户，则直接登录到首页
-        if HearldUserDefault.uuid != nil && realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").isEmpty == false{
+        if HearldUserDefault.uuid != nil &&
+           realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").isEmpty == false {
             HearldUserDefault.isLogin = true
             let navigationVC = MainNavigationController()
             let mainVC = MainTabBarController()
             navigationVC.pushViewController(mainVC, animated: false)
             self.window?.rootViewController = navigationVC
         // 否则转场到登录界面
-        }else{
+        } else {
             let LoginVC = LoginViewController()
             self.window?.rootViewController = LoginVC
         }

@@ -37,7 +37,7 @@ class InfoTableViewCell: UITableViewCell {
 
     var infoList: [infoItem] = [] { didSet { updateUI() } }
     
-    var delegate : navigationProtocol?
+    var delegate : NavigationProtocol?
     
     // MARK : ViewModel
     var strpViewModel = SRTPViewModel.shared

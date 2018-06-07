@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
         layoutUI()
         
         // 注册Cell并设置ConfigureCell以及ConfigureAnimation
-        homeTableView.delegate = self
         homeTableView.register(CarouselFigureCell.self, forCellReuseIdentifier: "CarouselFigure")
         homeTableView.register(InfoTableViewCell.self, forCellReuseIdentifier: "Info")
         homeTableView.register(CurriculumTableViewCell.self, forCellReuseIdentifier: "Curriculum")
@@ -127,3 +126,8 @@ class HomeViewController: UIViewController {
     }
 }
 
+protocol NavigationProtocol {
+    func navigation(toVC viewController: UIViewController)
+    func navigationPop(animated: Bool)
+    func present(VC viewController: UIViewController, completionHandler: @escaping ()->())
+}

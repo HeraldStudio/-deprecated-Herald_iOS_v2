@@ -20,7 +20,7 @@ class CarouselFigureCell: UITableViewCell {
             carousel.delegate = self
         }
     }
-    var deleagte: CarouselFigureCellProtocol?
+    var deleagte: NavigationProtocol?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -42,8 +42,4 @@ class CarouselFigureCell: UITableViewCell {
         carousel = UnlimitedCarousel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 160))
         carousel.into(contentView).top(0).left(0).right(0).bottom(0).height(160)
     }
-}
-
-protocol CarouselFigureCellProtocol {
-    func navigationPush(to vc: UIViewController, animated: Bool)
 }
