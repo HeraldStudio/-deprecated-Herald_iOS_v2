@@ -18,22 +18,9 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         // 初始化基界面
-        self.view.tintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        self.view.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.view.tintColor = HeraldColorHelper.GeneralColor.White
+        self.view.backgroundColor = HeraldColorHelper.GeneralColor.White
         setNavigationBar()
-        
-        // 订阅是否登录的信息
-        isLoginVariable.asObservable().subscribe(
-            onNext:{ isLogin in
-                if isLogin {
-                    self.navigationItem.leftBarButtonItem = nil
-                }else{
-                    let leftBarButton = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(self.presentLoginVC))
-                    leftBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-                    self.navigationItem.leftBarButtonItem = leftBarButton
-                }
-            }
-        ).addDisposableTo(bag)
         
         // 去除 TabBar 上的横线
         tabBar.clipsToBounds = true
@@ -49,7 +36,7 @@ class MainTabBarController: UITabBarController {
         self.setCustomItem(title: "通知", image: #imageLiteral(resourceName: "tab-notice"), selectedImage: #imageLiteral(resourceName: "tab-notice-selected"), index: 2)
         
         // 修改 TabBar 高亮图标的颜色
-        tabBar.tintColor = #colorLiteral(red: 0.1098039216, green: 0.6784313725, blue: 0.7843137255, alpha: 1)
+        tabBar.tintColor = HeraldColorHelper.HintColor.PrimaryLt
     }
     
     func getHeight() -> CGFloat{
@@ -75,7 +62,7 @@ class MainTabBarController: UITabBarController {
         
         // 自定义返回按钮
         let backBarButton = UIBarButtonItem(title: "", style: .done, target: self, action: nil)
-        backBarButton.tintColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
+        backBarButton.tintColor = HeraldColorHelper.HintColor.PrimaryLt
         
         let titleButton = UIButton(frame: CGRect(x: 0, y: 0, width: 200, height: 30))
         

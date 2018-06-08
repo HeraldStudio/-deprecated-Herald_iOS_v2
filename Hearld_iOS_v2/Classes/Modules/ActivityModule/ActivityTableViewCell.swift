@@ -40,7 +40,7 @@ class ActivityTableViewCell: UITableViewCell {
     
     private func layoutUI() {
         // 背景
-        contentView.background(HeraldColorHelper.background)
+        contentView.background(HeraldColorHelper.GeneralColor.ToolBg)
         
         // 状态
         stateLabel.into(cardView).left(10).top(10).width(50).height(20)
@@ -48,7 +48,7 @@ class ActivityTableViewCell: UITableViewCell {
 
         // 标题
         titleLabel.into(cardView).after(stateLabel,8).top(stateLabel).right(10)
-            .font(16,.regular).color(HeraldColorHelper.Regular).lines(0)
+            .font(16,.regular).color(HeraldColorHelper.GeneralColor.Regular).lines(0)
 
         // 图片
         picture.into(cardView).below(titleLabel,12).left(10).right(10).height(125)
@@ -56,10 +56,10 @@ class ActivityTableViewCell: UITableViewCell {
 
         // 介绍 用Autolayout帮我们解决动态label高度的问题
         introductionLabel.into(cardView).below(picture,10).left(10).right(10).bottom(12)
-            .lines(0).font(14,.regular).color(HeraldColorHelper.Secondary).align(.natural)
+            .lines(0).font(14,.regular).color(HeraldColorHelper.GeneralColor.Secondary).align(.natural)
         
         // 卡片容器
         cardView.into(contentView).top(5).left(8).right(8).bottom(5)
-            .clip(true).background(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)).round(5.0)
+            .clip(true).background(HeraldColorHelper.GeneralColor.White).round(5.0)
     }
 }

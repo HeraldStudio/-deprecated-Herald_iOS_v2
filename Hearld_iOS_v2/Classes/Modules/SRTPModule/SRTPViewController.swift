@@ -40,7 +40,7 @@ class SRTPViewController: UIViewController {
         srtpViewModel.SRTPList.subscribe (
             onNext: { srtpArray in
                 let realm = try! Realm()
-                let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
+                let currentUser = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first!
                 
                 self.creditLabel.text = "SRTP学分 " + currentUser.points
                 self.statusLabel.text = "SRTP状态 " + currentUser.grade
@@ -60,9 +60,9 @@ class SRTPViewController: UIViewController {
     private func layoutUI() {
         view.background(UIColor.white)
         if let navigationController = navigationController as? MainNavigationController {
-            creditLabel.into(view).top(navigationController.getHeight() + 70).left(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+            creditLabel.into(view).top(navigationController.getHeight() + 70).left(50).height(30).width(130).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(16,.semibold).align(.center)
             
-            statusLabel.into(view).top(navigationController.getHeight() + 70).right(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+            statusLabel.into(view).top(navigationController.getHeight() + 70).right(50).height(30).width(130).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(16,.semibold).align(.center)
             
             srtpTableView.into(view).below(creditLabel, 10).left(5).right(5).bottom(5)
             srtpTableView.isScrollEnabled = false

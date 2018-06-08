@@ -57,9 +57,9 @@ class LectureViewController: UIViewController {
     private func layoutUI() {
         view.background(UIColor.white)
         if let navigationController = self.navigationController as? MainNavigationController {
-            doneLabel.into(view).top(navigationController.getHeight() + 70).left(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(17,.semibold).align(.center)
+            doneLabel.into(view).top(navigationController.getHeight() + 70).left(50).height(30).width(130).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(17,.semibold).align(.center)
             
-            remainLabel.into(view).top(navigationController.getHeight() + 70).right(50).height(30).width(130).background(HeraldColorHelper.PrimaryBg).font(17,.semibold).align(.center)
+            remainLabel.into(view).top(navigationController.getHeight() + 70).right(50).height(30).width(130).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(17,.semibold).align(.center)
             
             lectureTableView.into(view).below(doneLabel, 25).left(5).right(5).bottom(5)
             lectureTableView.isScrollEnabled = false

@@ -110,7 +110,7 @@ extension UserAPI: TargetType {
         case .Login(_,_):
             return ["Content-type": "application/json"]
         case .Info():
-            return ["token": HearldUserDefault.uuid!]
+            return ["token": HeraldUserDefault.uuid!]
         }
     }
     
@@ -173,8 +173,8 @@ extension SubscribeAPI: TargetType{
             return .requestParameters(parameters: ["page" : page], encoding: URLEncoding.queryString)
         case .CarouselFigure():
             let realm = try! Realm()
-            let shchoolNum = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first?.shchoolNum
-            return .requestParameters(parameters: ["uuid": HearldUserDefault.uuid!,
+            let shchoolNum = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first?.shchoolNum
+            return .requestParameters(parameters: ["uuid": HeraldUserDefault.uuid!,
                                                    "schoolnum": shchoolNum!,
                                                    "versiontype": "iOS"], encoding: JSONEncoding.default)
         }
@@ -252,7 +252,7 @@ extension QueryAPI: TargetType{
     var headers: [String: String]? {
         switch self {
         case .SRTP(), .Lecture(), .GPA(), .Notice(), .CardRecord(_), .PE(), .Term(), .Curriculum(_):
-            return ["Content-type": "application/json","token": HearldUserDefault.uuid!]
+            return ["Content-type": "application/json","token": HeraldUserDefault.uuid!]
         }
     }
 }

@@ -34,11 +34,11 @@ class GPATableViewCell: UITableViewCell {
     private func layoutUI() {
         // 课程名称
         lessonLabel.into(contentView).top(10).left(15).width(150).height(17).bottom(10)
-            .font(15,.semibold).color(HeraldColorHelper.Primary)
+            .font(15,.semibold).color(HeraldColorHelper.NormalTextColor.Primary)
         
         // 成绩与学分
         gradeLabel.into(contentView).top(10).right(15).width(150).height(17).bottom(10)
-            .font(15,.semibold).color(HeraldColorHelper.Regular).align(NSTextAlignment.right)
+            .font(15,.semibold).color(HeraldColorHelper.GeneralColor.Regular).align(NSTextAlignment.right)
     }
     
     private func updateUI() {

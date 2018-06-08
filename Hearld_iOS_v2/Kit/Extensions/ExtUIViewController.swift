@@ -24,8 +24,8 @@ extension UIViewController{
     /// 显示加载框（全局单例）
     static func showProgressDialog() {
         SVProgressHUD.setDefaultStyle(.light)
-        SVProgressHUD.setBackgroundColor(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1))
-        SVProgressHUD.setForegroundColor(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+        SVProgressHUD.setBackgroundColor(UIColor.black)
+        SVProgressHUD.setForegroundColor(HeraldColorHelper.GeneralColor.White)
         SVProgressHUD.show()
         progressDialogShown = true
     }

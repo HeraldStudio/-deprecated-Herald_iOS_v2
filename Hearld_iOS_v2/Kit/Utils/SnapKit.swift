@@ -439,7 +439,7 @@ extension UIView {
         return self
     }
     
-    @discardableResult func shadow(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat, _ color: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1), _ opacity: CGFloat = 0.1) -> Self {
+    @discardableResult func shadow(_ x: CGFloat, _ y: CGFloat, _ r: CGFloat, _ color: UIColor = UIColor.black, _ opacity: CGFloat = 0.1) -> Self {
         autoCheckInto()
         self.layer.shadowColor = color.cgColor
         self.layer.shadowOffset = CGSize(width: x, height: y)

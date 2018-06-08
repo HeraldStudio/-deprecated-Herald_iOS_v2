@@ -54,7 +54,7 @@
 		538581911F9E1C99003933FA /* ExtUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581901F9E1C99003933FA /* ExtUIView.swift */; };
 		538581931F9E1CC9003933FA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581921F9E1CC9003933FA /* LoginViewModel.swift */; };
 		538581951F9E1D2E003933FA /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581941F9E1D2E003933FA /* LoginModel.swift */; };
-		538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581971F9E1EDF003933FA /* HearldUserDefault.swift */; };
+		538581981F9E1EDF003933FA /* HeraldUserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581971F9E1EDF003933FA /* HeraldUserDefault.swift */; };
 		5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538581991F9E4327003933FA /* MainNavigationController.swift */; };
 		5385819C1F9E4356003933FA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5385819B1F9E4356003933FA /* MainTabBarController.swift */; };
 		5385819F1F9E4556003933FA /* SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5385819E1F9E4556003933FA /* SnapKit.swift */; };
@@ -131,7 +131,7 @@
 		538581901F9E1C99003933FA /* ExtUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIView.swift; sourceTree = "<group>"; };
 		538581921F9E1CC9003933FA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		538581941F9E1D2E003933FA /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
-		538581971F9E1EDF003933FA /* HearldUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearldUserDefault.swift; sourceTree = "<group>"; };
+		538581971F9E1EDF003933FA /* HeraldUserDefault.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeraldUserDefault.swift; sourceTree = "<group>"; };
 		538581991F9E4327003933FA /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		5385819B1F9E4356003933FA /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		5385819E1F9E4556003933FA /* SnapKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKit.swift; sourceTree = "<group>"; };
@@ -364,7 +364,7 @@
 		538581961F9E1EC3003933FA /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
-				538581971F9E1EDF003933FA /* HearldUserDefault.swift */,
+				538581971F9E1EDF003933FA /* HeraldUserDefault.swift */,
 			);
 			path = UserDefaults;
 			sourceTree = "<group>";
@@ -730,7 +730,7 @@
 				534C642E20C0376F00FB44EF /* PETableViewCell.swift in Sources */,
 				5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */,
 				534C643520C1305900FB44EF /* CurriculumTableViewCell.swift in Sources */,
-				538581981F9E1EDF003933FA /* HearldUserDefault.swift in Sources */,
+				538581981F9E1EDF003933FA /* HeraldUserDefault.swift in Sources */,
 				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
 				5335CF1E1FB2F6F5001AE6E0 /* CarouselFigureViewModel.swift in Sources */,
 				538581A11F9E4586003933FA /* Realm.swift in Sources */,

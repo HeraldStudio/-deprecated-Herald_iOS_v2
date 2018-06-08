@@ -35,11 +35,11 @@ class LectureTableViewCell: UITableViewCell {
     private func layoutUI() {
         // 时间
         timeLabel.into(contentView).top(10).left(15).width(150).height(30).bottom(10)
-            .font(18,.semibold).color(HeraldColorHelper.Primary)
+            .font(18,.semibold).color(HeraldColorHelper.NormalTextColor.Primary)
         
         // 地点
         locationLabel.into(contentView).top(10).right(15).width(150).height(30).bottom(10)
-            .font(16,.semibold).color(HeraldColorHelper.Regular).align(NSTextAlignment.right)
+            .font(16,.semibold).color(HeraldColorHelper.GeneralColor.Regular).align(NSTextAlignment.right)
     }
     
     private func updateUI() {

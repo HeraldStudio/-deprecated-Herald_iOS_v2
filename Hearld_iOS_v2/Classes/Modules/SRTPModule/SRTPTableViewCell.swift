@@ -35,15 +35,15 @@ class SRTPTableViewCell: UITableViewCell {
     private func layoutUI() {
         // 项目名称
         projectLabel.into(contentView).top(10).left(15).right(15)
-            .font(17,.semibold).color(HeraldColorHelper.Primary).lines(0).breakMode(NSLineBreakMode.byCharWrapping)
+            .font(17,.semibold).color(HeraldColorHelper.NormalTextColor.Primary).lines(0).breakMode(NSLineBreakMode.byCharWrapping)
         
         // 所获学分和比重
         creditLabel.into(contentView).below(projectLabel,8).left(15).width(100).height(17).bottom(10)
-            .font(15,.semibold).color(HeraldColorHelper.Regular)
+            .font(15,.semibold).color(HeraldColorHelper.GeneralColor.Regular)
         
         // 项目信息
         infoLabel.into(contentView).below(projectLabel,8).right(15).width(180).height(17).bottom(10)
-            .font(15,.regular).color(HeraldColorHelper.Secondary).align(NSTextAlignment.right)
+            .font(15,.regular).color(HeraldColorHelper.GeneralColor.Secondary).align(NSTextAlignment.right)
     }
     
     private func updateUI() {

@@ -86,7 +86,7 @@ class GPAViewModel {
         }
 
         // 基础GPA信息
-        if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first{
+        if let user = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first{
             try! realm.write {
                 user.gpa = json["result"]["gpa"].stringValue
                 user.gpaBeforeMakeup = json["result"]["gpaBeforeMakeup"].stringValue

@@ -83,7 +83,7 @@ class SRTPViewModel {
             return
         }
         
-        if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first{
+        if let user = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first{
             try! realm.write {
                 user.points = json["result"]["info"]["points"].stringValue
                 user.grade = json["result"]["info"]["grade"].stringValue

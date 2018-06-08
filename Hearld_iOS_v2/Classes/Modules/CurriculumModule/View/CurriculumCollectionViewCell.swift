@@ -70,19 +70,19 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     
     private func setUpSubviews() {
         // 周一标签
-        mondayLabel.into(contentView).top(0).left(0).width(blockWidth).height(40).text("周一").font(13,.semibold).color(HeraldColorHelper.Secondary).align(.center).background(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)).lines(0)
+        mondayLabel.into(contentView).top(0).left(0).width(blockWidth).height(40).text("周一").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
 
         // 周二标签
-        tuesdayLabel.into(contentView).top(0).after(mondayLabel,0).width(blockWidth).height(40).text("周二").font(13,.semibold).color(HeraldColorHelper.Secondary).align(.center).background(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)).lines(0)
+        tuesdayLabel.into(contentView).top(0).after(mondayLabel,0).width(blockWidth).height(40).text("周二").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
 
         // 周三标签
-        wednesdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("周三").font(13,.semibold).color(HeraldColorHelper.Secondary).align(.center).background(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)).lines(0)
+        wednesdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("周三").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
 
         // 周四标签
-        thursdayLabel.into(contentView).top(0).after(wednesdayLabel,0).width(blockWidth).height(40).text("周四").font(13,.semibold).color(HeraldColorHelper.Secondary).align(.center).background(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)).lines(0)
+        thursdayLabel.into(contentView).top(0).after(wednesdayLabel,0).width(blockWidth).height(40).text("周四").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
 
         // 周五标签
-        fridayLabel.into(contentView).top(0).after(thursdayLabel,0).width(blockWidth).height(40).text("周五").font(13,.semibold).color(HeraldColorHelper.Secondary).align(.center).background(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)).lines(0)
+        fridayLabel.into(contentView).top(0).after(thursdayLabel,0).width(blockWidth).height(40).text("周五").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
     }
     
     private func updateUI() {

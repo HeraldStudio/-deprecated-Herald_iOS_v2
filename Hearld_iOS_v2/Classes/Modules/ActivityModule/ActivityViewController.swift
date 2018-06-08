@@ -115,14 +115,14 @@ class ActivityViewController: UIViewController {
             cell.stateLabel.text = item.state.rawValue
             switch item.state{
             case .Coming:
-                cell.bg_color = #colorLiteral(red: 0.9098039269, green: 0.4784313738, blue: 0.6431372762, alpha: 1)
-                cell.text_color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.bg_color = UIColor.init(red: 255/255, green: 105/255, blue: 180/255, alpha: 1.0)
+                cell.text_color = HeraldColorHelper.GeneralColor.Regular
             case .Going:
-                cell.bg_color = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
-                cell.text_color = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+                cell.bg_color = UIColor.init(red: 30/255, green: 144/255, blue: 255/255, alpha: 1.0)
+                cell.text_color = HeraldColorHelper.GeneralColor.Regular
             case .Gone:
-                cell.bg_color = #colorLiteral(red: 0.8871227225, green: 0.8871227225, blue: 0.8871227225, alpha: 1)
-                cell.text_color = #colorLiteral(red: 0.4568924492, green: 0.4568924492, blue: 0.4568924492, alpha: 1)
+                cell.bg_color = HeraldColorHelper.GeneralColor.Divider
+                cell.text_color = HeraldColorHelper.GeneralColor.Secondary
             }
             
             // 图片
@@ -140,7 +140,7 @@ class ActivityViewController: UIViewController {
     }
     
     private func layoutUI() {
-        activityTableView.background(#colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1))
+        activityTableView.background(HeraldColorHelper.GeneralColor.ToolBg)
         if let navigationController = self.navigationController as? MainNavigationController{
             activityTableView.frame = CGRect(x: 0,
                                              y: navigationController.getHeight(),

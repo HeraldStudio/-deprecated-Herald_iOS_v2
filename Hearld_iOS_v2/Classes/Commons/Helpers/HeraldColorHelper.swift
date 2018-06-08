@@ -10,39 +10,62 @@ import Foundation
 import UIKit
 
 class HeraldColorHelper {
+    enum LabelTextColor {
+        /// 标签中的文字颜色
+        static let PrimaryDk = UIColor(red: 35/255, green: 122/255, blue: 134/255, alpha: 1.0)
+        /// 标签中表示成功的文字颜色
+        static let SuccessDk = UIColor(red: 100/255, green: 135/255, blue: 50/255, alpha: 1.0)
+        /// 标签中表示警告的文字颜色
+        static let WarningDk = UIColor(red: 135/255, green: 107/255, blue: 35/255, alpha: 1.0)
+        /// 标签中表示错误的文字颜色
+        static let ErrorDk = UIColor(red: 135/255, green: 47/255, blue: 35/255, alpha: 1.0)
+    }
     
-    /// 标签文字
-    static let PrimaryDk = #colorLiteral(red: 0.1390934587, green: 0.479516685, blue: 0.5264259577, alpha: 1)
-    static let SuccessDk = #colorLiteral(red: 0.3907341957, green: 0.530878365, blue: 0.1377769113, alpha: 1)
-    static let WarningDk = #colorLiteral(red: 0.7596310973, green: 0.546841085, blue: 0, alpha: 1)
-    static let ErrorDk = #colorLiteral(red: 0.5261922479, green: 0.1784542501, blue: 0.1332292259, alpha: 1)
+    enum NormalTextColor {
+        /// 普通文字
+        static let Primary = UIColor(red: 0/255, green: 171/255, blue: 195/255, alpha: 1.0)
+        /// 表示成功的普通文字
+        static let Success = UIColor(red: 126/255, green: 194/255, blue: 0, alpha: 1.0)
+        /// 表示警告的普通文字
+        static let Warning = UIColor(red: 194/255, green: 139/255, blue: 0/255, alpha: 1.0)
+        /// 表示错误的普通文字
+        static let Error = UIColor(red: 194/255, green: 23/255, blue: 0/255, alpha: 1.0)
+    }
     
-    /// 普通文字
-    static let Primary = #colorLiteral(red: 0.02373553254, green: 0.676551342, blue: 0.7673434615, alpha: 1)
-    static let Success = #colorLiteral(red: 0.4982193112, green: 0.7645679116, blue: 0.01770156622, alpha: 1)
-    static let Warning = #colorLiteral(red: 0.7596310973, green: 0.546841085, blue: 0, alpha: 1)
-    static let Error = #colorLiteral(red: 0.759850204, green: 0.08769989759, blue: 0.001392314327, alpha: 1)
+    enum HintColor {
+        /// 普通提示色块
+        static let PrimaryLt = UIColor(red: 112/255, green: 234/255, blue: 250/255, alpha: 1.0)
+        /// 表示成功的提示色块
+        static let SuccessLt = UIColor(red: 202/255, green: 250/255, blue: 112/255, alpha: 1.0)
+        /// 表示警告的提示色块
+        static let WarningLt = UIColor(red: 250/255, green: 211/255, blue: 112/255, alpha: 1.0)
+        /// 表示错误的提示色块
+        static let ErrorLt = UIColor(red: 250/255, green: 128/255, blue: 112/255, alpha: 1.0)
+    }
     
-    /// 提示色块
-    static let PrimaryLt = #colorLiteral(red: 0.4403942227, green: 0.9179294705, blue: 0.9795542359, alpha: 1)
-    static let SuccessLt = #colorLiteral(red: 0.7913110852, green: 0.9805894494, blue: 0.4392109513, alpha: 1)
-    static let WarningLt = #colorLiteral(red: 0.9957979321, green: 0.8042621017, blue: 0.302167505, alpha: 1)
-    static let ErrorLt = #colorLiteral(red: 0.9791685939, green: 0.5007070899, blue: 0.4396035373, alpha: 1)
+    enum LabelBgColor {
+        /// 普通标签背景
+        static let PrimaryBg = UIColor(red: 221/255, green: 251/255, blue: 255/255, alpha: 1.0)
+        /// 表示成功的标签背景
+        static let SuccessBg = UIColor(red: 243/255, green: 255/255, blue: 222/255, alpha: 1.0)
+        /// 表示警告的标签背景
+        static let WarningBg = UIColor(red: 255/255, green: 246/255, blue: 222/255, alpha: 1.0)
+        /// 表示错误的标签背景
+        static let ErrorBg = UIColor(red: 255/255, green: 226/255, blue: 222/255, alpha: 1.0)
+    }
     
-    /// 标签背景
-    static let PrimaryBg = #colorLiteral(red: 0.8659575582, green: 0.9832728505, blue: 0.9997953773, alpha: 1)
-    static let SuccessBg = #colorLiteral(red: 0.9553022981, green: 1, blue: 0.8728478551, alpha: 1)
-    static let WarningBg = #colorLiteral(red: 0.9994849563, green: 0.9632812142, blue: 0.8693760037, alpha: 1)
-    static let ErrorBg = #colorLiteral(red: 0.9995792508, green: 0.8876059651, blue: 0.8694201112, alpha: 1)
-    
-    /// 文字色彩
-    static let Regular = #colorLiteral(red: 0.2006070614, green: 0.2007901967, blue: 0.2006354332, alpha: 1)
-    static let Bold = #colorLiteral(red: 0.3330089152, green: 0.333286792, blue: 0.3330519199, alpha: 1)
-    static let Secondary = #colorLiteral(red: 0.5722207427, green: 0.5726700425, blue: 0.5722903609, alpha: 1)
-    static let Divider = #colorLiteral(red: 0.9418308139, green: 0.9425446987, blue: 0.9419413209, alpha: 1)
-    static let ToolBg = #colorLiteral(red: 0.9996390939, green: 1, blue: 0.9997561574, alpha: 1)
-    
-    /// 背景色彩
-    static let background = #colorLiteral(red: 0.9003087948, green: 0.9003087948, blue: 0.9003087948, alpha: 1)
-    static let line = #colorLiteral(red: 0.9103347081, green: 0.9103347081, blue: 0.9103347081, alpha: 1)
+    enum GeneralColor {
+        /// Regular
+        static let Regular = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        /// Bold
+        static let Bold = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1.0)
+        /// Secondary
+        static let Secondary = UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0)
+        /// Divider: 用于分割线
+        static let Divider = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
+        /// ToolBg: 背景色
+        static let ToolBg = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+        /// 白色
+        static let White = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+    }
 }

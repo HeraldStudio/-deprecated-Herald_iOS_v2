@@ -42,12 +42,12 @@ class PEViewController: UIViewController {
         peViewModel.PEList.subscribe(
             onNext: { peArray in
                 let realm = try! Realm()
-                let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
+                let currentUser = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first!
                 
                 self.peCountLabel.text = "跑操次数" + String(currentUser.peCount)
                 self.peRemainLabel.text = "剩余次数" + String(45 - currentUser.peCount)
                 self.remainDaysLabel.text = "剩余天数"
-                if let peDays = HearldUserDefault.peDays {
+                if let peDays = HeraldUserDefault.peDays {
                     self.remainDaysLabel.text = self.remainDaysLabel.text! + String(peDays)
                 }
                 
@@ -69,13 +69,13 @@ class PEViewController: UIViewController {
             containerView.into(view).top(navigationController.getHeight() + 70).centerX().height(30).width(228)
             
             // 跑操次数
-            peCountLabel.into(containerView).top(0).bottom(0).left(0).height(30).width(110).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+            peCountLabel.into(containerView).top(0).bottom(0).left(0).height(30).width(110).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(16,.semibold).align(.center)
             
             // 剩余次数
-            peRemainLabel.into(containerView).top(0).bottom(0).after(peCountLabel,8).right(0).height(30).width(110).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+            peRemainLabel.into(containerView).top(0).bottom(0).after(peCountLabel,8).right(0).height(30).width(110).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(16,.semibold).align(.center)
             
             // 剩余天数
-            remainDaysLabel.into(view).below(containerView,8).centerX().height(30).width(110).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+            remainDaysLabel.into(view).below(containerView,8).centerX().height(30).width(110).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(16,.semibold).align(.center)
             
             // 体锻成绩
             peTableView.into(view).below(remainDaysLabel,20).left(5).right(5).bottom(5)

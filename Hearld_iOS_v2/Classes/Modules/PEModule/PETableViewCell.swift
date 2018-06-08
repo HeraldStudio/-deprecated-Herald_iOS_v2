@@ -33,16 +33,16 @@ class PETableViewCell: UITableViewCell {
     
     private func layoutUI() {
         // 项目名字
-        peNameLabel.into(contentView).top(10).left(15).width(150).height(30).font(17,.semibold).color(HeraldColorHelper.Primary)
+        peNameLabel.into(contentView).top(10).left(15).width(150).height(30).font(17,.semibold).color(HeraldColorHelper.NormalTextColor.Primary)
         
         // 项目评分
-        peScoreLabel.into(contentView).top(10).right(15).width(100).height(30).font(16,.semibold).color(HeraldColorHelper.Bold).align(.right)
+        peScoreLabel.into(contentView).top(10).right(15).width(100).height(30).font(16,.semibold).color(HeraldColorHelper.GeneralColor.Bold).align(.right)
         
         // 项目成绩
-        peValueLabel.into(contentView).below(peNameLabel,5).left(15).bottom(5).width(100).font(14,.semibold).color(HeraldColorHelper.Regular).text("0")
+        peValueLabel.into(contentView).below(peNameLabel,5).left(15).bottom(5).width(100).font(14,.semibold).color(HeraldColorHelper.GeneralColor.Regular).text("0")
         
         // 项目评价
-        peGradeLabel.into(contentView).below(peScoreLabel,5).right(15).bottom(5).height(30).font(15,.semibold).color(HeraldColorHelper.Divider).align(.right)
+        peGradeLabel.into(contentView).below(peScoreLabel,5).right(15).bottom(5).height(30).font(15,.semibold).color(HeraldColorHelper.GeneralColor.Divider).align(.right)
         
     }
     

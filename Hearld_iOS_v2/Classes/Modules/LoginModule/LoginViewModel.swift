@@ -16,6 +16,7 @@ import Realm
 import RealmSwift
 
 struct LoginViewModel {
+
     var model: LoginModel?
     let user = User()
     
@@ -40,7 +41,7 @@ struct LoginViewModel {
                 let json = JSON(data)
                 let uuid = json["result"].stringValue
                 self.user.uuid = uuid
-                HearldUserDefault.uuid = uuid
+                HeraldUserDefault.uuid = uuid
                 self.checkUUID()
             case .failure(_):
                 self.loginInfoSubject.onError(HeraldError.NetworkError)
@@ -67,7 +68,7 @@ struct LoginViewModel {
                     }
                     
                     db_updateObjc(self.user, with: realm)
-                    HearldUserDefault.isLogin = true
+                    HeraldUserDefault.isLogin = true
                     self.loginInfoSubject.onNext("ok")
                 }else{
                     self.loginInfoSubject.onError(HeraldError.UserNotExist)

@@ -32,13 +32,13 @@ class CardTableViewCell: UITableViewCell {
     }
     
     private func layoutUI() {
-        descLabel.into(contentView).top(10).left(10).width(300).height(18).font(16,.semibold).color(HeraldColorHelper.Primary)
+        descLabel.into(contentView).top(10).left(10).width(300).height(18).font(16,.semibold).color(HeraldColorHelper.NormalTextColor.Primary)
         
         amountLabel.into(contentView).below(descLabel,5).left(15).width(150).height(17).bottom(10)
-            .font(15,.semibold).color(HeraldColorHelper.Primary)
+            .font(15,.semibold).color(HeraldColorHelper.NormalTextColor.Primary)
         
         timeLabel.into(contentView).below(descLabel,5).right(15).width(150).height(17).bottom(10)
-            .font(15,.semibold).color(HeraldColorHelper.Regular).align(NSTextAlignment.right)
+            .font(15,.semibold).color(HeraldColorHelper.GeneralColor.Regular).align(NSTextAlignment.right)
     }
     
     private func updateUI() {

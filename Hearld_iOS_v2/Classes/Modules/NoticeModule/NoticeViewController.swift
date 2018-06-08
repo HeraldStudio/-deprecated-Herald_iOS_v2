@@ -56,15 +56,15 @@ class NoticeViewController: UIViewController {
             
             let srtpAttrString = NSMutableAttributedString.init(string: "SRTP")
             srtpAttrString.font(16, FontWeight.semibold, NSMakeRange(0, 4))
-            srtpButton.into(view).top(navigationController.getHeight() + 55).centerX().width(55).height(30).background(HeraldColorHelper.PrimaryBg).attributedTitle(srtpAttrString)
+            srtpButton.into(view).top(navigationController.getHeight() + 55).centerX().width(55).height(30).background(HeraldColorHelper.LabelBgColor.PrimaryBg).attributedTitle(srtpAttrString)
             
             let jwcAttrString = NSMutableAttributedString.init(string: "教务处")
             jwcAttrString.font(16,FontWeight.semibold, NSMakeRange(0, 3))
-            jwcButton.into(view).top(navigationController.getHeight() + 55).before(srtpButton,10).width(55).height(30).background(HeraldColorHelper.PrimaryBg).attributedTitle(jwcAttrString)
+            jwcButton.into(view).top(navigationController.getHeight() + 55).before(srtpButton,10).width(55).height(30).background(HeraldColorHelper.LabelBgColor.PrimaryBg).attributedTitle(jwcAttrString)
             
             let collegeAttrString = NSMutableAttributedString.init(string: "学院")
             collegeAttrString.font(16,FontWeight.semibold, NSMakeRange(0, 2))
-            collegeButton.into(view).top(navigationController.getHeight() + 55).after(srtpButton,10).width(45).height(30).background(HeraldColorHelper.PrimaryBg).attributedTitle(collegeAttrString)
+            collegeButton.into(view).top(navigationController.getHeight() + 55).after(srtpButton,10).width(45).height(30).background(HeraldColorHelper.LabelBgColor.PrimaryBg).attributedTitle(collegeAttrString)
             
             noticeTableView.into(view).below(jwcButton,10).left(10).right(10).bottom(0)
         }

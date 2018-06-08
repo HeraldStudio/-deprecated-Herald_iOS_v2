@@ -79,13 +79,13 @@ final class PEViewModel {
             return
         }
         
-        if let user = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first{
+        if let user = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first{
             try! realm.write {
                 user.peCount = json["result"]["count"].intValue
                 realm.add(user, update: true)
             }
         }
-        HearldUserDefault.peDays = json["result"]["remainDays"].intValue
+        HeraldUserDefault.peDays = json["result"]["remainDays"].intValue
         
         let peArrayValue = json["result"]["health"].arrayValue
         

@@ -34,11 +34,11 @@ class NoticeCell: UITableViewCell {
     
     private func setupSubViews() {
         
-        titleLabel.into(contentView).top(10).left(10).right(10).lines(0).font(16,.semibold).color(HeraldColorHelper.Primary)
+        titleLabel.into(contentView).top(10).left(10).right(10).lines(0).font(16,.semibold).color(HeraldColorHelper.NormalTextColor.Primary)
         
-        categoryLabel.into(contentView).below(titleLabel,5).left(10).bottom(8).width(180).height(30).font(16,.semibold).color(HeraldColorHelper.Bold)
+        categoryLabel.into(contentView).below(titleLabel,5).left(10).bottom(8).width(180).height(30).font(16,.semibold).color(HeraldColorHelper.GeneralColor.Bold)
         
-        timeLabel.into(contentView).below(titleLabel,5).right(10).bottom(8).height(30).align(.right).font(16,.semibold).color(HeraldColorHelper.Secondary)
+        timeLabel.into(contentView).below(titleLabel,5).right(10).bottom(8).height(30).align(.right).font(16,.semibold).color(HeraldColorHelper.GeneralColor.Secondary)
     }
     
     private func updateUI() {

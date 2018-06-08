@@ -46,7 +46,7 @@ class CardViewController: UIViewController {
         cardViewModel.cardList.subscribe(
             onNext: { cardArray in
                 let realm = try! Realm()
-                let currentUser = realm.objects(User.self).filter("uuid == '\(HearldUserDefault.uuid!)'").first!
+                let currentUser = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first!
                 
                 /* 动态修改约束 */
                 self.cardTableView.changeHeight(to: CGFloat(self.cardViewModel.cardModels.count * 60))
@@ -91,16 +91,16 @@ class CardViewController: UIViewController {
             containerView_1.into(view).top(navigationController.getHeight() + 70).left(40).right(40).height(30)
             
             // 余额
-            balanceLabel.into(containerView_1).top(0).bottom(0).left(0).width(110).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+            balanceLabel.into(containerView_1).top(0).bottom(0).left(0).width(110).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(16,.semibold).align(.center)
             
             // 充值
-            topUpButton.into(containerView_1).top(0).bottom(0).right(0).width(45).background(HeraldColorHelper.PrimaryBg)
+            topUpButton.into(containerView_1).top(0).bottom(0).right(0).width(45).background(HeraldColorHelper.LabelBgColor.PrimaryBg)
             let textAttrString = NSMutableAttributedString.init(string: "充值")
             textAttrString.font(16, FontWeight.semibold, NSMakeRange(0, 2))
             topUpButton.setAttributedTitle(textAttrString, for: .normal)
             
             // 消费次数
-            comsumeTimesLabel.into(containerView_1).top(0).bottom(0).after(balanceLabel, 5).before(topUpButton,5).background(HeraldColorHelper.PrimaryBg).font(16,.semibold).align(.center)
+            comsumeTimesLabel.into(containerView_1).top(0).bottom(0).after(balanceLabel, 5).before(topUpButton,5).background(HeraldColorHelper.LabelBgColor.PrimaryBg).font(16,.semibold).align(.center)
             
             // TableView
             cardTableView.into(view).below(containerView_1, 10).left(5).right(5).height(CGFloat(cardViewModel.cardModels.count * 60))
@@ -109,10 +109,10 @@ class CardViewController: UIViewController {
             containerView_2.into(view).below(cardTableView,10).left(50).right(50).height(30)
             
             // 总支出
-            totalCostlabel.into(containerView_2).top(0).left(0).bottom(0).width(200).background(UIColor.white).font(15,.semibold).align(.center).color(HeraldColorHelper.Secondary)
+            totalCostlabel.into(containerView_2).top(0).left(0).bottom(0).width(200).background(UIColor.white).font(15,.semibold).align(.center).color(HeraldColorHelper.GeneralColor.Secondary)
             
             // 加载前一天
-            loadButton.into(containerView_2).top(0).after(totalCostlabel, 5).right(0).bottom(0).width(90).background(HeraldColorHelper.PrimaryBg)
+            loadButton.into(containerView_2).top(0).after(totalCostlabel, 5).right(0).bottom(0).width(90).background(HeraldColorHelper.LabelBgColor.PrimaryBg)
             let yet_textAttrString = NSMutableAttributedString.init(string: "加载前一天")
             yet_textAttrString.font(15, FontWeight.semibold, NSMakeRange(0, 5))
             loadButton.setAttributedTitle(yet_textAttrString, for: .normal)

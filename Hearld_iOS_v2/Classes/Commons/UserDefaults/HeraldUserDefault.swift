@@ -1,5 +1,5 @@
 //
-//  HearldUserDefault.swift
+//  HeraldUserDefault.swift
 //  Hearld_iOS_v2
 //
 //  Created by Nathan on 23/10/2017.
@@ -19,7 +19,7 @@ let isRemindLesson = Variable<Bool>(false)
 let isRemindExperiment = Variable<Bool>(false)
 let isRemindTest = Variable<Bool>(false)
 
-class HearldUserDefault{
+class HeraldUserDefault{
     
     /* Keys */
     static let uuidKey = "uuid"
@@ -75,19 +75,19 @@ class HearldUserDefault{
     
     /* 清除UserDefault */
     public func cleanAllUserDefault(){
-        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.uuidKey)
-        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isLoginKey)
-        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isRemindLessonKey)
-        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isRemindExperimentKey)
-        HearldUserDefault.defaults.removeObject(forKey: HearldUserDefault.isRemindTestKey)
+        HeraldUserDefault.defaults.removeObject(forKey: HeraldUserDefault.uuidKey)
+        HeraldUserDefault.defaults.removeObject(forKey: HeraldUserDefault.isLoginKey)
+        HeraldUserDefault.defaults.removeObject(forKey: HeraldUserDefault.isRemindLessonKey)
+        HeraldUserDefault.defaults.removeObject(forKey: HeraldUserDefault.isRemindExperimentKey)
+        HeraldUserDefault.defaults.removeObject(forKey: HeraldUserDefault.isRemindTestKey)
     }
     
     class func set<T>(_ key: String, _ value: T) {
-        HearldUserDefault.defaults.set(value, forKey: key)
+        HeraldUserDefault.defaults.set(value, forKey: key)
     }
     
     class func get<T>(_ key: String) -> T? {
-        if let value = HearldUserDefault.defaults.object(forKey: key){
+        if let value = HeraldUserDefault.defaults.object(forKey: key){
             return value as? T
         }
         return nil
