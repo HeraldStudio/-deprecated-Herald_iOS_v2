@@ -14,10 +14,6 @@ class MainNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
     
     func getHeight() -> CGFloat {
         return navigationBar.frame.height

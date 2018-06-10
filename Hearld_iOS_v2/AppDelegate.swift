@@ -24,8 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
            realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").isEmpty == false {
             HeraldUserDefault.isLogin = true
             let navigationVC = MainNavigationController()
-            let mainVC = MainTabBarController()
-            navigationVC.pushViewController(mainVC, animated: false)
+            let mainTabVC = MainTabBarController()
+            navigationVC.pushViewController(mainTabVC, animated: false)
+            mainTabVC.setTab()
             self.window?.rootViewController = navigationVC
         // 否则转场到登录界面
         } else {

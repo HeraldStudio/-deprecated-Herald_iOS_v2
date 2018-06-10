@@ -27,14 +27,6 @@ class MainTabBarController: UITabBarController {
         
         tabBar.isTranslucent = false
         
-        self.setViewControllers([HomeViewController(),ActivityViewController(),NoticeViewController()], animated: false)
-        
-        self.setCustomItem(title: "首页", image: #imageLiteral(resourceName: "tab-home"), selectedImage: #imageLiteral(resourceName: "tab-home-selected"), index: 0)
-        
-        self.setCustomItem(title: "活动", image: #imageLiteral(resourceName: "tab-discover"), selectedImage: #imageLiteral(resourceName: "tab-discover-selected"), index: 1)
-        
-        self.setCustomItem(title: "通知", image: #imageLiteral(resourceName: "tab-notice"), selectedImage: #imageLiteral(resourceName: "tab-notice-selected"), index: 2)
-        
         // 修改 TabBar 高亮图标的颜色
         tabBar.tintColor = HeraldColorHelper.HintColor.PrimaryLt
     }
@@ -45,6 +37,16 @@ class MainTabBarController: UITabBarController {
     
     func getWidth() -> CGFloat{
         return tabBar.frame.width
+    }
+    
+    func setTab() {
+        self.setViewControllers([HomeViewController(),ActivityViewController(),NoticeViewController()], animated: false)
+        
+        self.setCustomItem(title: "首页", image: #imageLiteral(resourceName: "tab-home"), selectedImage: #imageLiteral(resourceName: "tab-home-selected"), index: 0)
+        
+        self.setCustomItem(title: "活动", image: #imageLiteral(resourceName: "tab-discover"), selectedImage: #imageLiteral(resourceName: "tab-discover-selected"), index: 1)
+        
+        self.setCustomItem(title: "通知", image: #imageLiteral(resourceName: "tab-notice"), selectedImage: #imageLiteral(resourceName: "tab-notice-selected"), index: 2)
     }
     
     private func setCustomItem(title:String?, image: UIImage?, selectedImage: UIImage?, index : Int){

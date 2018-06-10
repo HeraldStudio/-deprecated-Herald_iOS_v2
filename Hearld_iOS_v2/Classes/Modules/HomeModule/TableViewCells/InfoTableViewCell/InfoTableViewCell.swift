@@ -203,7 +203,6 @@ class InfoTableViewCell: UITableViewCell {
         
         logoutButton.rx.tap.asObservable().subscribe { _ in
             let LoginVC = LoginViewController()
-//            self.delegate?.navigationPop(animated: false)
             self.delegate?.present(VC: LoginVC, completionHandler: {
                 HeraldUserDefault.isLogin = false
             })

@@ -48,7 +48,7 @@ class CurriculumTableViewCell: UITableViewCell {
         setupSubviews()
 
         setConfigureCell()
-        
+
         curriculumViewModel.curriculumTable.subscribe(
             onNext: { curriculumItems in
                 self.collectionView.dataSource = nil
@@ -58,14 +58,14 @@ class CurriculumTableViewCell: UITableViewCell {
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
-        
+
         curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
     
     private func setupSubviews() {
        
         //切换视图Button
-        switchViewButton.into(contentView).top(10).left(10).height(28).width(60).background(HeraldColorHelper.LabelBgColor.PrimaryBg)
+        switchViewButton.into(contentView).top(10).left(10).width(60).background(HeraldColorHelper.LabelBgColor.PrimaryBg)
         let textAttrString = NSMutableAttributedString.init(string: "周视图")
         textAttrString.font(15, FontWeight.semibold, NSMakeRange(0, 3))
         switchViewButton.setAttributedTitle(textAttrString, for: .normal)
@@ -78,7 +78,7 @@ class CurriculumTableViewCell: UITableViewCell {
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 48, width: screenRect.width, height: 560),
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: screenRect.width, height: 560),
                                           collectionViewLayout: flowLayout)
         
         collectionView.backgroundColor = HeraldColorHelper.GeneralColor.Divider
@@ -94,6 +94,7 @@ class CurriculumTableViewCell: UITableViewCell {
     private func setConfigureCell() {
         dataSource.configureCell = { (_,cv,indexPath,item) in
             let cell = cv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
+            print(indexPath.row)
             cell.currentWeek = indexPath.row + 1
             cell.curriculumList = item
             return cell

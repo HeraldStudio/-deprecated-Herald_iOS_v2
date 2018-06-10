@@ -66,7 +66,7 @@ class CurriculumViewModel {
                 let data = moyaResponse.data
                 let json = JSON(data)
                 let code = json["code"].stringValue
-                if code == "200" {
+                if code == "200" || code == "203" {
                     self.parseCurriculumModel(json)
                     self.curriculumSubject.onNext(self.formatModel(self.curriculumModels))
                     completionHandler()
