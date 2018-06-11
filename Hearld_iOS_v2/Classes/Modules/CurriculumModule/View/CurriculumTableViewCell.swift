@@ -25,7 +25,7 @@ class CurriculumTableViewCell: UITableViewCell {
     private var rightSwitchWeekButton = UIButton()
     
     private let flowLayout = UICollectionViewFlowLayout()
-    private var collectionView: UICollectionView!
+    fileprivate var collectionView: UICollectionView!
     
     /* rxswift */
     typealias SectionTableModel = SectionModel<String,[CurriculumModel]>
@@ -73,14 +73,14 @@ class CurriculumTableViewCell: UITableViewCell {
         // 学期切换 tmp closed
         
         // 周视图CollectionView
-        flowLayout.itemSize = CGSize(width: screenRect.width, height: 560)
+        flowLayout.itemSize = CGSize(width: screenRect.width, height: 625)
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0
         flowLayout.scrollDirection = .horizontal
         
-        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: screenRect.width, height: 560),
+        collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: screenRect.width, height: 625),
                                           collectionViewLayout: flowLayout)
-        
+        collectionView.delegate = self
         collectionView.backgroundColor = HeraldColorHelper.GeneralColor.Divider
         collectionView.showsVerticalScrollIndicator = false
         collectionView.showsHorizontalScrollIndicator = false
@@ -88,13 +88,16 @@ class CurriculumTableViewCell: UITableViewCell {
         
         collectionView.register(CurriculumCollectionViewCell.self, forCellWithReuseIdentifier: "CurriculumCollection")
         
-        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).height(560).bottom(0)
+        collectionView.into(contentView).left(0).right(0).below(switchViewButton,10).height(625).bottom(0)
     }
     
     private func setConfigureCell() {
         dataSource.configureCell = { (_,cv,indexPath,item) in
             let cell = cv.dequeueReusableCell(withReuseIdentifier: "CurriculumCollection", for: indexPath) as! CurriculumCollectionViewCell
-            print(indexPath.row)
+            // 解决复用Cell控件重叠
+            for view in cell.contentView.subviews {
+                view.removeFromSuperview()
+            }
             cell.currentWeek = indexPath.row + 1
             cell.curriculumList = item
             return cell
@@ -105,4 +108,8 @@ class CurriculumTableViewCell: UITableViewCell {
         let formatTable = curriculumItems as [[CurriculumModel]]
         return [SectionTableModel(model: "", items: formatTable)]
     }
+}
+
+extension CurriculumTableViewCell: UICollectionViewDelegate {
+
 }

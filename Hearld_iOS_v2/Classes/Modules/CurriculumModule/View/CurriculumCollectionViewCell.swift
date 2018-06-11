@@ -9,6 +9,8 @@
 import UIKit
 import SwiftDate
 
+let blockHeight : CGFloat = 45.0
+
 class CurriculumCollectionViewCell: UICollectionViewCell {
     
     /* 该Cell所展示的Week */
@@ -22,8 +24,7 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     
     /* UI stuff */
     private let blockWidth : CGFloat = screenRect.width / 5
-    private let blockHeight : CGFloat = 40.0
-    
+
     private let mondayLabel = UILabel()
     private let tuesdayLabel = UILabel()
     private let wednesdayLabel = UILabel()
@@ -32,21 +33,21 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     private let saturdayLabel = UILabel()
     private let sundayLabel = UILabel()
     
-    /* 课程开始时间所对饮的block起始位置 */
+    // 课程开始时间所对饮的block起始位置 
     let hour2blcokTable: [Int: CGFloat] = [
-        8 * 60       : (40.0 * 0), // 8点开始的课程
-        8 * 60 + 50  : (40.0 * 1), // 8点50开始的课程
-        9 * 60 + 50  : (40.0 * 2), // 9点50开始的课程
-        10 * 60 + 40 : (40.0 * 3), // 10点40开始的课程
-        11 * 60 + 30 : (40.0 * 4), // 11点30开始的课程
-        14 * 60      : (40.0 * 5), // 14点开始的课程
-        14 * 60 + 50 : (40.0 * 6), // 14点50开始的课程
-        15 * 60 + 50 : (40.0 * 7), // 15点50开始的课程
-        16 * 60 + 40 : (40.0 * 8), // 16点40开始的课程
-        17 * 60 + 30 : (40.0 * 9), // 17点30开始的课程
-        18 * 60 + 30 : (40.0 * 10),// 18点30开始的课程
-        19 * 60 + 20 : (40.0 * 11),// 19点20开始的课程
-        20 * 60 + 10 : (40.0 * 12)// 20点10开始的课程
+        8 * 60       : (blockHeight * 0), // 8点开始的课程
+        8 * 60 + 50  : (blockHeight * 1), // 8点50开始的课程
+        9 * 60 + 50  : (blockHeight * 2), // 9点50开始的课程
+        10 * 60 + 45 : (blockHeight * 3), // 10点45开始的课程
+        11 * 60 + 30 : (blockHeight * 4), // 11点30开始的课程
+        14 * 60      : (blockHeight * 5), // 14点开始的课程
+        14 * 60 + 50 : (blockHeight * 6), // 14点50开始的课程
+        15 * 60 + 50 : (blockHeight * 7), // 15点50开始的课程
+        16 * 60 + 40 : (blockHeight * 8), // 16点40开始的课程
+        17 * 60 + 30 : (blockHeight * 9), // 17点30开始的课程
+        18 * 60 + 30 : (blockHeight * 10),// 18点30开始的课程
+        19 * 60 + 20 : (blockHeight * 11),// 19点20开始的课程
+        20 * 60 + 10 : (blockHeight * 12) // 20点10开始的课程
     ]
     
     
@@ -69,23 +70,37 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpSubviews() {
-        // 周一标签
-        mondayLabel.into(contentView).top(0).left(0).width(blockWidth).height(40).text("周一").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
-
-        // 周二标签
-        tuesdayLabel.into(contentView).top(0).after(mondayLabel,0).width(blockWidth).height(40).text("周二").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
-
-        // 周三标签
-        wednesdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("周三").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
-
-        // 周四标签
-        thursdayLabel.into(contentView).top(0).after(wednesdayLabel,0).width(blockWidth).height(40).text("周四").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
-
-        // 周五标签
-        fridayLabel.into(contentView).top(0).after(thursdayLabel,0).width(blockWidth).height(40).text("周五").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+//        // 周一标签
+//        mondayLabel.into(contentView).top(0).left(0).width(blockWidth).height(40).text("周一").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+//
+//        // 周二标签
+//        tuesdayLabel.into(contentView).top(0).after(mondayLabel,0).width(blockWidth).height(40).text("周二").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+//
+//        // 周三标签
+//        wednesdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("周三").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+//
+//        // 周四标签
+//        thursdayLabel.into(contentView).top(0).after(wednesdayLabel,0).width(blockWidth).height(40).text("周四").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+//
+//        // 周五标签
+//        fridayLabel.into(contentView).top(0).after(thursdayLabel,0).width(blockWidth).height(40).text("周五").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
     }
     
     private func updateUI() {
+        mondayLabel.into(contentView).top(0).left(0).width(blockWidth).height(40).text("周一").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+        
+        // 周二标签
+        tuesdayLabel.into(contentView).top(0).after(mondayLabel,0).width(blockWidth).height(40).text("周二").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+        
+        // 周三标签
+        wednesdayLabel.into(contentView).top(0).after(tuesdayLabel,0).width(blockWidth).height(40).text("周三").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+        
+        // 周四标签
+        thursdayLabel.into(contentView).top(0).after(wednesdayLabel,0).width(blockWidth).height(40).text("周四").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+        
+        // 周五标签
+        fridayLabel.into(contentView).top(0).after(thursdayLabel,0).width(blockWidth).height(40).text("周五").font(13,.semibold).color(HeraldColorHelper.GeneralColor.Secondary).align(.center).background(HeraldColorHelper.GeneralColor.White).lines(0)
+        
         var flag = true
         curriculumList.forEach { curriculum in
             for event in curriculum.events where event.week == currentWeek {
@@ -113,7 +128,7 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
                 let blockFrame = CGRect(x: CGFloat(weekDay - 1) * blockWidth,
                                         y: CGFloat(40) + hour2blcokTable[timeInterval]!,
                                         width: blockWidth,
-                                        height: CGFloat(40 * numbers))
+                                        height: CGFloat(45 * numbers))
                 let block = CurriculumBlock.init(frame: blockFrame)
                 block.setText(course: curriculum.courseName,
                               teacherName: curriculum.teacherName,

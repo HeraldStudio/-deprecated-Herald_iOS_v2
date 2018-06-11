@@ -27,11 +27,11 @@ class CurriculumBlock: UIView {
     private func customInit() {
         self.background(HeraldColorHelper.GeneralColor.White)
         
-        courseLabel.into(self).top(3).left(3).right(3).lines(0).font(13, FontWeight.regular).color(HeraldColorHelper.NormalTextColor.Primary).align(.center)
+        courseLabel.into(self).top(0).left(0).right(0).lines(0).font(13, FontWeight.regular).color(HeraldColorHelper.NormalTextColor.Primary).align(.center)
         
-        teacherLabel.into(self).below(courseLabel,3).left(3).right(3).lines(0).font(13, FontWeight.regular).color(HeraldColorHelper.GeneralColor.Secondary).align(.center)
+        teacherLabel.into(self).below(courseLabel,1).left(3).right(3).lines(0).font(12, FontWeight.regular).color(HeraldColorHelper.GeneralColor.Secondary).align(.center)
         
-        locationLabel.into(self).bottom(3).left(3).right(3).lines(0).font(13, FontWeight.regular).color(HeraldColorHelper.GeneralColor.Bold).align(.center)
+        locationLabel.into(self).bottom(0).left(0).right(0).lines(0).font(12, FontWeight.regular).color(HeraldColorHelper.GeneralColor.Bold).align(.center)
     }
     
     func setText(course: String, teacherName: String, location: String) {
