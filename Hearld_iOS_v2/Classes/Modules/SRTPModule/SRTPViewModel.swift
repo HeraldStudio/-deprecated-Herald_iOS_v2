@@ -17,7 +17,7 @@ import YYCache
 
 class SRTPViewModel {
     
-    /// 单例
+    // 单例
     static let shared = SRTPViewModel()
     
     private init() {

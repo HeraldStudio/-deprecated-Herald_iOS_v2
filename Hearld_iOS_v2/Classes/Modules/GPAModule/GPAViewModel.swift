@@ -19,7 +19,7 @@ class GPAViewModel {
     
     var gpaModels: [GPAModel] = []
     
-    /// 单例
+    // 单例
     static let shared = GPAViewModel()
     
     private init() {

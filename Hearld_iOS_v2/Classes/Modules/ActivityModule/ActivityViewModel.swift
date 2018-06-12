@@ -25,9 +25,9 @@ class ActivityViewModel {
     let bag = DisposeBag()
     private let cache = YYMemoryCache.init()
     
-    // 1.准备数据，若Refresh则发起网络请求更新缓存
-    //   否则查询缓存，查询结果为空则发起网络请求。
-    // 2.不管是从缓存读取，还是网络获取，都默认展示前8条活动信息，所以可默认清除model
+    /// 1.准备数据，若Refresh则发起网络请求更新缓存
+    ///   否则查询缓存，查询结果为空则发起网络请求。
+    /// 2.不管是从缓存读取，还是网络获取，都默认展示前8条活动信息，所以可默认清除model
     func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         // 清空model
         self.model.removeAll()
@@ -53,8 +53,8 @@ class ActivityViewModel {
         }
     }
     
-    // 请求下一页数据
-    // 不清空model,即直接在model上添加下一页的list
+    /// 请求下一页数据
+    /// 不清空model,即直接在model上添加下一页的list
     func requestNextPage(from page: String, completionHandler: @escaping () -> Void ,failedHandler: @escaping () -> Void) {
         let provider = MoyaProvider<SubscribeAPI>()
         
@@ -77,7 +77,7 @@ class ActivityViewModel {
         }
     }
     
-    // 默认请求第一页活动
+    /// 默认请求第一页活动
     private func requestActivities(completionHandler: @escaping () -> Void) {
         var activityList : [ActivityModel] = []
         let provider = MoyaProvider<SubscribeAPI>()
@@ -100,7 +100,7 @@ class ActivityViewModel {
         
         let activities = json["content"].arrayValue
         for activityJSON in activities{
-            //Parse activity
+            // Parse activity
             let title = activityJSON["title"].stringValue
             let introduction = activityJSON["introduction"].stringValue
             let start_time = activityJSON["start_time"].stringValue

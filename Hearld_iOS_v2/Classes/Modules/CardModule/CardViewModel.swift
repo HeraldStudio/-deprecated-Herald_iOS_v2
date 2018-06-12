@@ -18,17 +18,17 @@ import SwiftDate
 
 class CardViewModel {
     
-    // 提供单例 //
+    // 提供单例
     static let shared = CardViewModel()
     
     private init() {
         
     }
     
-    // Model //
+    // Model
     var cardModels : [CardModel] = []
     
-    // Subject //
+    // Subject
     fileprivate let cardSubject = PublishSubject<[CardModel]>()
     var cardList: Observable<[CardModel]> {
         return cardSubject.asObservable()
@@ -42,7 +42,7 @@ class CardViewModel {
     
     var offset = 0
     
-    // 请求日期 //
+    // 请求日期
     var requestDate : String {
         get {
             var currentDate = Date()
@@ -51,9 +51,7 @@ class CardViewModel {
         }
     }
     
-    
-    ///
-    /// - parameter isExpand: 是否加载前一天支出,叠加Model
+    /// - Parameter isExpand: 是否加载前一天支出,叠加Model
     func prepareData(isExpand: Bool, completionHandler: @escaping () -> Void) {
         if isExpand {
             offset += 1
