@@ -15,7 +15,7 @@ import SVProgressHUD
 import RxDataSources
 
 class CurriculumTableViewCell: UITableViewCell {
-    /* UI stuff */
+    /// UI stuff
     private var switchViewButton = UIButton()
     private var leftSwitchTermButton = UIButton()
     private var rightSwitchTermButton = UIButton()
@@ -27,7 +27,7 @@ class CurriculumTableViewCell: UITableViewCell {
     private let flowLayout = UICollectionViewFlowLayout()
     fileprivate var collectionView: UICollectionView!
     
-    /* rxswift */
+    /// rxswift
     typealias SectionTableModel = SectionModel<String,[CurriculumModel]>
     let dataSource = RxCollectionViewSectionedReloadDataSource<SectionTableModel>()
     
@@ -47,8 +47,6 @@ class CurriculumTableViewCell: UITableViewCell {
     private func customInit() {
         setupSubviews()
 
-        setConfigureCell()
-
         curriculumViewModel.curriculumTable.subscribe(
             onNext: { curriculumItems in
                 self.collectionView.dataSource = nil
@@ -58,21 +56,23 @@ class CurriculumTableViewCell: UITableViewCell {
         }, onError: { error in
             SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
+        
+        setConfigureCell()
 
         curriculumViewModel.prepareData(isRefresh: false, completionHandler: {})
     }
     
     private func setupSubviews() {
        
-        //切换视图Button
+        /// 切换视图Button
         switchViewButton.into(contentView).top(10).left(10).width(60).background(HeraldColorHelper.LabelBgColor.PrimaryBg)
         let textAttrString = NSMutableAttributedString.init(string: "周视图")
         textAttrString.font(15, FontWeight.semibold, NSMakeRange(0, 3))
         switchViewButton.setAttributedTitle(textAttrString, for: .normal)
         
-        // 学期切换 tmp closed
+        /// 学期切换 tmp closed
         
-        // 周视图CollectionView
+        /// 周视图CollectionView
         flowLayout.itemSize = CGSize(width: screenRect.width, height: 625)
         flowLayout.minimumLineSpacing = 0
         flowLayout.minimumInteritemSpacing = 0

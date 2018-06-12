@@ -15,7 +15,7 @@ import SVProgressHUD
 
 class InfoTableViewCell: UITableViewCell {
     
-    // MARK - UI stuff
+    // MARK: - UI stuff
     var nameLabel = UILabel()
     var identityLabel = UILabel()
     var logoutButton = UIButton()

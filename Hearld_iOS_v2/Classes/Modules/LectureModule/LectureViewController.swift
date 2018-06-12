@@ -13,13 +13,13 @@ import SVProgressHUD
 
 class LectureViewController: UIViewController {
 
-    /* UI stuff */
+    // UI stuff
     var staticLabel = UILabel()
     var doneLabel = UILabel()
     var remainLabel = UILabel()
     var lectureTableView = UITableView()
     
-    /* rxswift */
+    // rxswift
     let lectureViewModel = LectureViewModel.shared
     let bag = DisposeBag()
     typealias SectionTableModel = SectionModel<String,LectureModel>
@@ -30,7 +30,7 @@ class LectureViewController: UIViewController {
         self.title = "人文讲座"
         layoutUI()
         
-        /* lectureTableView */
+        // lectureTableView
         lectureTableView.register(LectureTableViewCell.self, forCellReuseIdentifier: "LectureTableViewCell")
         lectureTableView.showsVerticalScrollIndicator = false
         setConfigureCell()

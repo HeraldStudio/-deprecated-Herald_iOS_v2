@@ -12,7 +12,7 @@ import RxCocoa
 
 let screenRect = UIScreen.main.bounds
 
-/* 登录状态Variable */
+// 登录状态Variable //
 let isLoginVariable = Variable<Bool>(false)
 
 let isRemindLesson = Variable<Bool>(false)
@@ -21,7 +21,7 @@ let isRemindTest = Variable<Bool>(false)
 
 class HeraldUserDefault{
     
-    /* Keys */
+    // Keys //
     static let uuidKey = "uuid"
     static let isLoginKey = "isLogin"
     
@@ -73,7 +73,7 @@ class HeraldUserDefault{
         }
     }
     
-    /* 清除UserDefault */
+    // 清除UserDefault //
     public func cleanAllUserDefault(){
         HeraldUserDefault.defaults.removeObject(forKey: HeraldUserDefault.uuidKey)
         HeraldUserDefault.defaults.removeObject(forKey: HeraldUserDefault.isLoginKey)

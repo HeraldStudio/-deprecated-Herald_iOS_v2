@@ -18,7 +18,7 @@ import YYCache
 final class PEViewModel {
     var peModels: [PEModel] = []
     
-    /* 单例 */
+    // 单例
     static let shared = PEViewModel()
     
     private init() { }

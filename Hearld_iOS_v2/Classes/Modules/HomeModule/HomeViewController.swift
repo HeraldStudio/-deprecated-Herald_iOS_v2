@@ -22,12 +22,12 @@ class HomeViewController: UIViewController {
         case Curriculum([curriculumItem])
     }
     
-    /* tableView & dataSource */
+    // tableView & dataSource
     var homeTableView = UITableView()
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
     typealias SectionTableModel = SectionModel<String,HomeItem>
     
-    /* ViewModels */
+    // ViewModels 
     var carouselFigureViewModel = CarouselFigureViewModel()
     var infoViewModel = InfoViewModel()
     var curriculumViewModel = CurriculumViewModel.shared

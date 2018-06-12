@@ -18,17 +18,17 @@ import SwiftDate
 
 class CardViewModel {
     
-    /* 提供单例 */
+    // 提供单例 //
     static let shared = CardViewModel()
     
     private init() {
         
     }
     
-    /* Model */
+    // Model //
     var cardModels : [CardModel] = []
     
-    /* Subject */
+    // Subject //
     fileprivate let cardSubject = PublishSubject<[CardModel]>()
     var cardList: Observable<[CardModel]> {
         return cardSubject.asObservable()
@@ -42,7 +42,7 @@ class CardViewModel {
     
     var offset = 0
     
-    /* 请求日期 */
+    // 请求日期 //
     var requestDate : String {
         get {
             var currentDate = Date()
@@ -51,9 +51,9 @@ class CardViewModel {
         }
     }
     
-    /**
-     - parameter isExpand: 是否加载前一天支出,叠加Model
-     */
+    
+    ///
+    /// - parameter isExpand: 是否加载前一天支出,叠加Model
     func prepareData(isExpand: Bool, completionHandler: @escaping () -> Void) {
         if isExpand {
             offset += 1
@@ -63,9 +63,7 @@ class CardViewModel {
         }
     }
     
-    /**
-      封装从缓存获取或是网络请求获取的逻辑
-     */
+    /// 封装从缓存获取或是网络请求获取的逻辑
     func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void ) {
         if isRefresh {
             lock()
@@ -85,9 +83,7 @@ class CardViewModel {
         }
     }
     
-    /**
-      网络请求API
-     */
+    /// 网络请求API
     private func requestCard(completionHandler: @escaping () -> Void) {
         // Moya工厂方法
         let provider = MoyaProvider<QueryAPI>()
@@ -111,7 +107,7 @@ class CardViewModel {
         }
     }
     
-    // 解析CardModel JSON数据
+    /// 解析CardModel JSON数据
     private func parseCardModel(_ json: JSON) {
         guard let realm = try? Realm() else {
             return

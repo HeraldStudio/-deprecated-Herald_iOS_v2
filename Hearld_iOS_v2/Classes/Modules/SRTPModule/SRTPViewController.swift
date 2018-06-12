@@ -15,12 +15,12 @@ import RealmSwift
 
 class SRTPViewController: UIViewController {
     
-    /* UI stuff */
+    // UI stuff
     var creditLabel = UILabel()
     var statusLabel = UILabel()
     var srtpTableView = UITableView()
     
-    /* rxswift */
+    // rxswift
     let srtpViewModel = SRTPViewModel.shared
     let bag = DisposeBag()
     typealias SectionTableModel = SectionModel<String,SRTPModel>
@@ -31,12 +31,12 @@ class SRTPViewController: UIViewController {
         self.title = "SRTP"
         layoutUI()
         
-        /* SRTPTableView */
+        // SRTPTableView
         srtpTableView.register(SRTPTableViewCell.self, forCellReuseIdentifier: "SRTP")
         srtpTableView.showsVerticalScrollIndicator = false
         setConfigureCell()
         
-        /* 订阅SRTP请求 */
+        // 订阅SRTP请求
         srtpViewModel.SRTPList.subscribe (
             onNext: { srtpArray in
                 let realm = try! Realm()

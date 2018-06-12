@@ -10,10 +10,10 @@ import UIKit
 
 class NoticeCell: UITableViewCell {
     
-    /* Model */
+    // Model 
     var notice: NoticeModel? { didSet { updateUI() } }
     
-    /* UI stuff */
+    // UI stuff
     let titleLabel = UILabel()
     let categoryLabel = UILabel()
     var timeLabel = UILabel()

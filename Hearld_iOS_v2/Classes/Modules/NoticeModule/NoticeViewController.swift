@@ -13,16 +13,16 @@ import SVProgressHUD
 
 class NoticeViewController: UIViewController {
     
-    /* ViewModel */
+    // ViewModel
     var viewModel = NoticeViewModel()
     
-    /* UI stuff */
+    // UI stuff
     let jwcButton = UIButton()
     let srtpButton = UIButton()
     let collegeButton = UIButton()
     let noticeTableView = UITableView()
     
-    /* rxswift */
+    // rxswift
     let bag = DisposeBag()
     typealias SectionTableModel = SectionModel<String,NoticeModel>
     let dataSource = RxTableViewSectionedReloadDataSource<SectionTableModel>()
@@ -37,7 +37,7 @@ class NoticeViewController: UIViewController {
         noticeTableView.showsVerticalScrollIndicator = false
         setConfigureCell()
         
-        /* 订阅ViewModel */
+        // 订阅ViewModel 
         viewModel.noticeList.subscribe(
             onNext: { noticeArray in
             self.noticeTableView.dataSource = nil

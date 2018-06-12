@@ -13,14 +13,14 @@ import RxSwift
 /// 8、在父控件 scrollViewDidEndDragging 代理方法中要调用 endDrag()
 /// 9、显示 progressDialog 的时候不会触发刷新
 
-/*let eggs = [
- "诶嘿？",
- "喂喂~",
- "主人你在发呆吗？",
- "妖妖灵吗？这里有人虐待小猴纸！",
- "场面已经控制不住了！",
- "要不，小猴陪你说说话吧。"
- ]*/
+//let eggs = [
+// "诶嘿？",
+// "喂喂~",
+// "主人你在发呆吗？",
+// "妖妖灵吗？这里有人虐待小猴纸！",
+// "场面已经控制不住了！",
+// "要不，小猴陪你说说话吧。"
+// ]
 
 class SwipeRefreshHeader : UIView {
     

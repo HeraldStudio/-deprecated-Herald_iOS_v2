@@ -58,7 +58,7 @@ enum QueryAPI {
     case Curriculum(term: String)                             // 查询课程表
 }
 
-// MARK: UserAPI
+// MARK: - UserAPI
 extension UserAPI: TargetType {
     
     var baseURL: URL { return URL(string: "https://myseu.cn/ws3/")! }
@@ -119,7 +119,7 @@ extension UserAPI: TargetType {
     }
 }
 
-// MARK: SubscribeAPI
+// MARK: - SubscribeAPI
 extension SubscribeAPI: TargetType{
     
     var baseURL: URL {
@@ -193,7 +193,7 @@ extension SubscribeAPI: TargetType{
     }
 }
 
-// MARK: QueryAPI
+// MARK: - QueryAPI
 extension QueryAPI: TargetType{
     var baseURL: URL {
         switch self {

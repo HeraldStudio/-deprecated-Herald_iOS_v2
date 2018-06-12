@@ -16,13 +16,13 @@ import RealmSwift
 
 class GPAViewController: UIViewController {
     
-    /* UI stuff */
+    // UI stuff
     var creditLabel = UILabel()
     var noMaskCreditLabel = UILabel()
     var computedTimeLabel = UILabel()
     var gpaTableView = UITableView()
     
-    /* rxswift */
+    // rxswift
     let gpaViewModel = GPAViewModel.shared
     let bag = DisposeBag()
     typealias SectionTableModel = SectionModel<String,GPAModel>
@@ -33,12 +33,12 @@ class GPAViewController: UIViewController {
         self.title = "成绩"
         layoutUI()
         
-        /* GPATableView */
+        // GPATableView
         gpaTableView.register(GPATableViewCell.self, forCellReuseIdentifier: "GPATableViewCell")
         gpaTableView.showsVerticalScrollIndicator = false
         setConfigureCell()
         
-        /* 订阅viewModel */
+        // 订阅viewModel 
         gpaViewModel.GPAList.subscribe(
             onNext: { gpaArray in
                 let realm = try! Realm()

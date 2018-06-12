@@ -15,7 +15,7 @@ import RealmSwift
 
 class CardViewController: UIViewController {
     
-    /* UI stuff */
+    // UI stuff
     var balanceLabel = UILabel()
     var comsumeTimesLabel = UILabel()
     var topUpButton = UIButton()
@@ -26,7 +26,7 @@ class CardViewController: UIViewController {
     var containerView_1 = UIView()
     var containerView_2 = UIView()
     
-    /* rxswift */
+    // rxswift
     let cardViewModel = CardViewModel.shared
     let bag = DisposeBag()
     typealias SectionTableModel = SectionModel<String,CardModel>
@@ -37,18 +37,18 @@ class CardViewController: UIViewController {
         self.title = "一卡通"
         layoutUI()
         
-        /* CardTableViewCell */
+        // CardTableViewCell
         cardTableView.register(CardTableViewCell.self, forCellReuseIdentifier: "CardTableViewCell")
         cardTableView.showsVerticalScrollIndicator = false
         setConfigureCell()
         
-        /* 订阅Card请求 */
+        /// 订阅Card请求
         cardViewModel.cardList.subscribe(
             onNext: { cardArray in
                 let realm = try! Realm()
                 let currentUser = realm.objects(User.self).filter("uuid == '\(HeraldUserDefault.uuid!)'").first!
                 
-                /* 动态修改约束 */
+                // 动态修改约束
                 self.cardTableView.changeHeight(to: CGFloat(self.cardViewModel.cardModels.count * 60))
                 
                 self.balanceLabel.text = "卡余额 " + String(currentUser.balance)
@@ -71,12 +71,12 @@ class CardViewController: UIViewController {
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
         }).addDisposableTo(bag)
         
-        /* 订阅充值Button点击事件 */
+        /// 订阅充值Button点击事件
         topUpButton.rx.tap.asObservable().subscribe({_ in
             self.navigationController?.pushViewController(TopUpViewController(), animated: true)
         }).addDisposableTo(bag)
         
-        /* 订阅加载历史Button点击事件 */
+        /// 订阅加载历史Button点击事件
         loadButton.rx.tap.asObservable().subscribe({_ in
             self.cardViewModel.prepareData(isExpand: true, completionHandler: {})
         }).addDisposableTo(bag)

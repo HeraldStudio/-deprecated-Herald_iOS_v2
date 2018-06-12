@@ -20,16 +20,16 @@ typealias curriculumItem = [CurriculumModel]
 
 class CurriculumViewModel {
 
-    /* 单例 */
+    // 单例
     static let shared = CurriculumViewModel()
 
     private init() {}
 
-    /* Model */
+    // Model
     var curriculumModels : [CurriculumModel] = []
     var eventModels : [EventModel] = []
 
-    /* Subject */
+    // Subject
     fileprivate let curriculumSubject = PublishSubject<[curriculumItem]>()
     var curriculumTable: Observable<[curriculumItem]> {
         return curriculumSubject.asObservable()
@@ -38,17 +38,29 @@ class CurriculumViewModel {
     let bag = DisposeBag()
 
     func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
+        print("here0")
+        print("here0")
         guard let realm = try? Realm() else {
             return
         }
+        print("here1")
+        print("here1")
         if isRefresh {
+            print("here3")
             let results = realm.objects(CurriculumModel.self)
+            print("here4")
             db_deleteObjcs(results, with: realm)
+            print("here5")
             curriculumModels.removeAll()
+            print("here6")
             requestCurriculum { completionHandler() }
         }else {
-            let CurriculumObjects = realm.objects(CurriculumModel.self)
-            if !CurriculumObjects.isEmpty {
+            print("here2")
+            let curriculumObjects = realm.objects(CurriculumModel.self)
+            print("here")
+            print(curriculumObjects.isEmpty)
+            print("here")
+            if !curriculumObjects.isEmpty {
                 self.curriculumSubject.onNext(formatModel(curriculumModels))
                 completionHandler()
             } else {
@@ -73,7 +85,7 @@ class CurriculumViewModel {
                 } else if code == "408"{
                     self.curriculumSubject.onError(HeraldError.NetworkError)
                 }
-            case let .failure(_):
+            case .failure(_):
                 self.curriculumSubject.onError(HeraldError.NetworkError)
             }
         }

@@ -18,7 +18,7 @@ final class LectureViewModel {
     
     var lectureModels: [LectureModel] = []
     
-    /// 单例
+    // 单例
     static let shared = LectureViewModel()
     
     private init() { }

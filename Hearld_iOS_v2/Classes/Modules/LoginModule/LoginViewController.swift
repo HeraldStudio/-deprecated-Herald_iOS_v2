@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     var viewModel = LoginViewModel()
     let bag = DisposeBag()
     
-    // MARK - 交互性UI控件
+    // MARK: - 交互性UI控件
     var cardIDTextField = UITextField()
     var passwordTextField = UITextField()
     var loginButton = UIButton()
@@ -73,8 +73,9 @@ class LoginViewController: UIViewController {
         viewModel.loginInfo.subscribe(
             onNext:{ text in
                 let navigationVC = MainNavigationController()
-                let mainVC = MainTabBarController()
-                navigationVC.addChildViewController(mainVC)
+                let mainTabVC = MainTabBarController()
+                navigationVC.pushViewController(mainTabVC, animated: false)
+                mainTabVC.setTab()
                 self.present(navigationVC, animated: true, completion: nil)
             },
             onError:{ error in

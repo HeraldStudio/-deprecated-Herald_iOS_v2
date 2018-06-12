@@ -50,7 +50,7 @@ struct CarouselFigureViewModel {
             figure.link = figureJSON["url"].stringValue
             figureArray.append(figure)
         }
-        /* 测试使用 */
+        // 测试使用 
 //        let figure = CarouselFigureModel()
 //        figure.title = "一鸣惊人"
 //        figure.picture_url = "http://static.myseu.cn/2017-11-15-%E5%B0%8F%E7%8C%B4-2-.jpg"

@@ -12,7 +12,7 @@ import RxDataSources
 
 class TopUpViewController: UIViewController {
     
-    /* UI stuff */
+    // UI stuff
     var textView = UILabel()
     var fiftyButton = UIButton()
     var hundredButton = UIButton()

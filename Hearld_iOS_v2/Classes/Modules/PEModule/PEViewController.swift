@@ -15,14 +15,14 @@ import RealmSwift
 
 class PEViewController: UIViewController {
 
-    /* UI stuff */
+    // UI stuff
     let containerView = UIView()
     var peCountLabel = UILabel()
     var peRemainLabel = UILabel()
     var remainDaysLabel = UILabel()
     var peTableView = UITableView()
     
-    /* rxswift */
+    // rxswift
     let peViewModel = PEViewModel.shared
     let bag = DisposeBag()
     typealias SectionTableModel = SectionModel<String, PEModel>
@@ -33,7 +33,7 @@ class PEViewController: UIViewController {
         self.title = "跑操和体侧"
         layoutUI()
         
-        /* peTableView */
+        // peTableView
         peTableView.register(PETableViewCell.self, forCellReuseIdentifier: "PETableViewCell")
         peTableView.showsVerticalScrollIndicator = false
         setConfigureCell()

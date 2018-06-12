@@ -13,7 +13,7 @@ let blockHeight : CGFloat = 45.0
 
 class CurriculumCollectionViewCell: UICollectionViewCell {
     
-    /* 该Cell所展示的Week */
+    // 该Cell所展示的Week
     var currentWeek = 1
     
     var curriculumList : [CurriculumModel] = [] {
@@ -22,7 +22,7 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    /* UI stuff */
+    // UI stuff
     private let blockWidth : CGFloat = screenRect.width / 5
 
     private let mondayLabel = UILabel()
@@ -104,7 +104,7 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
         var flag = true
         curriculumList.forEach { curriculum in
             for event in curriculum.events where event.week == currentWeek {
-                /* 更新日期，仅执行一次 */
+                // 更新日期，仅执行一次 
                 if flag {
                     let timeStamp = TimeConvertHelper.convert(from: event.startTime)
                     let startDay = timeStamp.startWeek.add(components: 1.days)
@@ -147,7 +147,7 @@ class CurriculumCollectionViewCell: UICollectionViewCell {
     }
 }
 
-// MARK: 课程表时间转换相关
+// MARK: - 课程表时间转换相关
 extension CurriculumCollectionViewCell {
     fileprivate func numberOfBlock(duration minute : Int) -> CGFloat{
         switch minute {
