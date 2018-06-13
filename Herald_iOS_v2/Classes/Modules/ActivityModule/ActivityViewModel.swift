@@ -12,7 +12,7 @@ import RxCocoa
 import Moya
 import SwiftyJSON
 import Alamofire
-import YYCache
+// import YYCache
 
 class ActivityViewModel {
     

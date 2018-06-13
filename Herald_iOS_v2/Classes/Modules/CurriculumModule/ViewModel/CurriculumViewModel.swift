@@ -14,7 +14,7 @@ import RxCocoa
 import RealmSwift
 import SwiftyJSON
 import SwiftDate
-import YYCache
+// import YYCache
 
 typealias curriculumItem = [CurriculumModel]
 
@@ -23,7 +23,10 @@ class CurriculumViewModel {
     // 单例
     static let shared = CurriculumViewModel()
 
-    private init() {}
+    private init() {
+        let path = basePath! + "/Curriculum"
+        cache = YYDiskCache.init(path: path)!
+    }
 
     // Model
     var curriculumModels : [CurriculumModel] = []
@@ -34,33 +37,20 @@ class CurriculumViewModel {
     var curriculumTable: Observable<[curriculumItem]> {
         return curriculumSubject.asObservable()
     }
+    
+    // Cache
+    var cache : YYDiskCache
+    let basePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
 
     let bag = DisposeBag()
 
     func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
-        print("here0")
-        print("here0")
-        guard let realm = try? Realm() else {
-            return
-        }
-        print("here1")
-        print("here1")
         if isRefresh {
-            print("here3")
-            let results = realm.objects(CurriculumModel.self)
-            print("here4")
-            db_deleteObjcs(results, with: realm)
-            print("here5")
+            cache.removeObject(forKey: "Currirulum")
             curriculumModels.removeAll()
-            print("here6")
             requestCurriculum { completionHandler() }
         }else {
-            print("here2")
-            let curriculumObjects = realm.objects(CurriculumModel.self)
-            print("here")
-            print(curriculumObjects.isEmpty)
-            print("here")
-            if !curriculumObjects.isEmpty {
+            if let curriculumObjects = cache.object(forKey: "Currirulum") as? [CurriculumModel], curriculumObjects.count > 0 {
                 self.curriculumSubject.onNext(formatModel(curriculumModels))
                 completionHandler()
             } else {
@@ -92,34 +82,29 @@ class CurriculumViewModel {
     }
 
     private func parseCurriculumModel(_ json : JSON) {
-        guard let realm = try? Realm() else {
-            return
-        }
-
         let curriculumArrayValue = json["result"]["curriculum"].arrayValue
 
         for curriculumJSON in curriculumArrayValue {
-            let curriculum = CurriculumModel()
-            curriculum.courseName = curriculumJSON["courseName"].stringValue
-            curriculum.teacherName = curriculumJSON["teacherName"].stringValue
-            curriculum.location = curriculumJSON["location"].stringValue
-            curriculum.credit = curriculumJSON["credit"].intValue
-            curriculum.beginWeek = curriculumJSON["beginWeek"].intValue
-            curriculum.endWeek = curriculumJSON["endWeek"].intValue
+            let courseName = curriculumJSON["courseName"].stringValue
+            let teacherName = curriculumJSON["teacherName"].stringValue
+            let location = curriculumJSON["location"].stringValue
+            let credit = curriculumJSON["credit"].intValue
+            let beginWeek = curriculumJSON["beginWeek"].intValue
+            let endWeek = curriculumJSON["endWeek"].intValue
 
             let eventArrayValue = curriculumJSON["events"].arrayValue
+            var events: [EventModel] = []
             for eventJSON in eventArrayValue {
-                let event = EventModel()
-                event.week = eventJSON["week"].intValue
-                event.startTime = eventJSON["startTime"].stringValue.substring(NSMakeRange(0, eventJSON["startTime"].stringValue.length() - 3))
-                event.endTime = eventJSON["endTime"].stringValue.substring(NSMakeRange(0, eventJSON["endTime"].stringValue.length() - 3))
-                curriculum.events.append(event)
+                let week = eventJSON["week"].intValue
+                let startTime = eventJSON["startTime"].stringValue.substring(NSMakeRange(0, eventJSON["startTime"].stringValue.length() - 3))
+                let endTime = eventJSON["endTime"].stringValue.substring(NSMakeRange(0, eventJSON["endTime"].stringValue.length() - 3))
+                let event = EventModel(week, startTime, endTime)
+                events.append(event)
             }
-
-            // 添加入数据库
-            db_addObjc(curriculum, with: realm)
+            let curriculum = CurriculumModel(courseName, credit, beginWeek, endWeek, location, teacherName, events)
             curriculumModels.append(curriculum)
         }
+        cache.setObject(curriculumModels as NSCoding, forKey: "Currirulum")
     }
 
     private func formatModel(_ model : [CurriculumModel]) -> [[CurriculumModel]] {

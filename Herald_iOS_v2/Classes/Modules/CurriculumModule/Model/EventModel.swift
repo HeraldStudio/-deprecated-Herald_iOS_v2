@@ -7,12 +7,34 @@
 //
 
 import Foundation
-import RealmSwift
-import Realm
 
-class EventModel: Object {
-    @objc dynamic var id : String = ""
-    @objc dynamic var week : Int = 0
-    @objc dynamic var startTime : String = ""
-    @objc dynamic var endTime : String = ""
+class EventModel: NSObject, NSCoding {
+//    @objc dynamic var id : String = ""
+//    @objc dynamic var week : Int = 0
+//    @objc dynamic var startTime : String = ""
+//    @objc dynamic var endTime : String = ""
+    
+    var week: Int = 0
+    var startTime: String = ""
+    var endTime: String = ""
+    
+    init(_ week: Int,
+         _ startTime: String,
+         _ endTime: String) {
+        self.week = week
+        self.startTime = startTime
+        self.endTime = endTime
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        self.week = aDecoder.decodeInteger(forKey: "event_week")
+        self.startTime = aDecoder.decodeObject(forKey: "event_startTime") as! String
+        self.endTime = aDecoder.decodeObject(forKey: "event_endTime") as! String
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(self.week, forKey: "event_week")
+        aCoder.encode(self.startTime, forKey: "event_startTime")
+        aCoder.encode(self.endTime, forKey: "event_endTime")
+    }
 }

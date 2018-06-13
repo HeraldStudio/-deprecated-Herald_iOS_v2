@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LectureModel: NSCoding {
+class LectureModel: NSObject, NSCoding {
     var location: String = ""
     var time: String = ""
     

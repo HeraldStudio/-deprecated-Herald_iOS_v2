@@ -48,6 +48,10 @@
 		537C50D220D0C018006DDEA7 /* SRTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C50D120D0C018006DDEA7 /* SRTPViewModel.swift */; };
 		537C50D420D0C04D006DDEA7 /* SRTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C50D320D0C04D006DDEA7 /* SRTPViewController.swift */; };
 		537C50D620D0C066006DDEA7 /* SRTPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C50D520D0C066006DDEA7 /* SRTPTableViewCell.swift */; };
+		537C50E020D0D03B006DDEA7 /* YYDiskCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 537C50D820D0D03B006DDEA7 /* YYDiskCache.m */; };
+		537C50E120D0D03B006DDEA7 /* YYCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 537C50DA20D0D03B006DDEA7 /* YYCache.m */; };
+		537C50E220D0D03B006DDEA7 /* YYKVStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 537C50DE20D0D03B006DDEA7 /* YYKVStorage.m */; };
+		537C50E320D0D03B006DDEA7 /* YYMemoryCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 537C50DF20D0D03B006DDEA7 /* YYMemoryCache.m */; };
 		538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125E920BAE87D007182EC /* GPAViewController.swift */; };
 		538125ED20BAED7E007182EC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125EC20BAED7E007182EC /* CardViewController.swift */; };
 		538125EF20BAFC4F007182EC /* TopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125EE20BAFC4F007182EC /* TopUpViewController.swift */; };
@@ -79,6 +83,7 @@
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
 		53E354272070C2DB00D48373 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E354262070C2DB00D48373 /* InfoTableViewCell.swift */; };
 		53E354292070C5DC00D48373 /* HeraldColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E354282070C5DC00D48373 /* HeraldColorHelper.swift */; };
+		A927FEF624D23D527AFD6DC4 /* Pods_Herald_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336FADD56573278E639F0C34 /* Pods_Herald_iOS_v2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +96,7 @@
 		1DB413B8205040C000E156C7 /* LectureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureViewModel.swift; sourceTree = "<group>"; };
 		1DB413BB205040C000E156C7 /* LectureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureModel.swift; sourceTree = "<group>"; };
 		1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewCell.swift; sourceTree = "<group>"; };
+		336FADD56573278E639F0C34 /* Pods_Herald_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Herald_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5305D00D208C7959002E60DF /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		5305D00F208C7A29002E60DF /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		5305D014208C803E002E60DF /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -124,6 +130,15 @@
 		537C50D120D0C018006DDEA7 /* SRTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewModel.swift; sourceTree = "<group>"; };
 		537C50D320D0C04D006DDEA7 /* SRTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewController.swift; sourceTree = "<group>"; };
 		537C50D520D0C066006DDEA7 /* SRTPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPTableViewCell.swift; sourceTree = "<group>"; };
+		537C50D820D0D03B006DDEA7 /* YYDiskCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYDiskCache.m; sourceTree = "<group>"; };
+		537C50D920D0D03B006DDEA7 /* YYKVStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYKVStorage.h; sourceTree = "<group>"; };
+		537C50DA20D0D03B006DDEA7 /* YYCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYCache.m; sourceTree = "<group>"; };
+		537C50DB20D0D03B006DDEA7 /* YYMemoryCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYMemoryCache.h; sourceTree = "<group>"; };
+		537C50DC20D0D03B006DDEA7 /* YYDiskCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYDiskCache.h; sourceTree = "<group>"; };
+		537C50DD20D0D03B006DDEA7 /* YYCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYCache.h; sourceTree = "<group>"; };
+		537C50DE20D0D03B006DDEA7 /* YYKVStorage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYKVStorage.m; sourceTree = "<group>"; };
+		537C50DF20D0D03B006DDEA7 /* YYMemoryCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYMemoryCache.m; sourceTree = "<group>"; };
+		537C50E620D0D20A006DDEA7 /* Herald-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Herald-Bridging-Header.h"; sourceTree = "<group>"; };
 		538125E920BAE87D007182EC /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
 		538125EC20BAED7E007182EC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		538125EE20BAFC4F007182EC /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +180,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A927FEF624D23D527AFD6DC4 /* Pods_Herald_iOS_v2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +220,7 @@
 		34C141D7E9948B71B528BE7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				336FADD56573278E639F0C34 /* Pods_Herald_iOS_v2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -340,6 +357,21 @@
 			path = SRTPModule;
 			sourceTree = "<group>";
 		};
+		537C50D720D0D03B006DDEA7 /* YYCache */ = {
+			isa = PBXGroup;
+			children = (
+				537C50D820D0D03B006DDEA7 /* YYDiskCache.m */,
+				537C50D920D0D03B006DDEA7 /* YYKVStorage.h */,
+				537C50DA20D0D03B006DDEA7 /* YYCache.m */,
+				537C50DB20D0D03B006DDEA7 /* YYMemoryCache.h */,
+				537C50DC20D0D03B006DDEA7 /* YYDiskCache.h */,
+				537C50DD20D0D03B006DDEA7 /* YYCache.h */,
+				537C50DE20D0D03B006DDEA7 /* YYKVStorage.m */,
+				537C50DF20D0D03B006DDEA7 /* YYMemoryCache.m */,
+			);
+			path = YYCache;
+			sourceTree = "<group>";
+		};
 		538125EB20BAED18007182EC /* topUpModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -403,6 +435,7 @@
 		53915EB71F9CE07800AA0B81 /* Herald_iOS_v2 */ = {
 			isa = PBXGroup;
 			children = (
+				537C50E620D0D20A006DDEA7 /* Herald-Bridging-Header.h */,
 				53915EB81F9CE07800AA0B81 /* AppDelegate.swift */,
 				53915ECA1F9CE1AF00AA0B81 /* Classes */,
 				53915ECB1F9CE1B900AA0B81 /* Kit */,
@@ -441,6 +474,7 @@
 		53915ECD1F9CE1DD00AA0B81 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				537C50D720D0D03B006DDEA7 /* YYCache */,
 				53915EC41F9CE07800AA0B81 /* Info.plist */,
 				53915EBC1F9CE07800AA0B81 /* Main.storyboard */,
 				53915EC11F9CE07800AA0B81 /* LaunchScreen.storyboard */,
@@ -659,7 +693,6 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/UnlimitedCarousel/UnlimitedCarousel.framework",
-				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -678,7 +711,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UnlimitedCarousel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -734,11 +766,13 @@
 				5335CF181FB1AC61001AE6E0 /* HomeViewController+NavigationProtocol.swift in Sources */,
 				537C50D420D0C04D006DDEA7 /* SRTPViewController.swift in Sources */,
 				53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */,
+				537C50E120D0D03B006DDEA7 /* YYCache.m in Sources */,
 				5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */,
 				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
 				1DB413BD205040C000E156C7 /* LectureViewModel.swift in Sources */,
 				5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
+				537C50E220D0D03B006DDEA7 /* YYKVStorage.m in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
@@ -749,6 +783,7 @@
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
+				537C50E020D0D03B006DDEA7 /* YYDiskCache.m in Sources */,
 				537C50D020D0BFF7006DDEA7 /* SRTPModel.swift in Sources */,
 				5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */,
 				5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */,
@@ -759,6 +794,7 @@
 				534C642A20C0292E00FB44EF /* PEViewModel.swift in Sources */,
 				53E354292070C5DC00D48373 /* HeraldColorHelper.swift in Sources */,
 				538581A51F9E45AF003933FA /* ExtString.swift in Sources */,
+				537C50E320D0D03B006DDEA7 /* YYMemoryCache.m in Sources */,
 				538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */,
 				53915EB91F9CE07800AA0B81 /* AppDelegate.swift in Sources */,
 			);
@@ -900,10 +936,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = Herald_iOS_v2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nathan.Hearld-iOS-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Herald_iOS_v2/Herald-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -916,10 +954,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				INFOPLIST_FILE = Herald_iOS_v2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nathan.Hearld-iOS-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Herald_iOS_v2/Herald-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

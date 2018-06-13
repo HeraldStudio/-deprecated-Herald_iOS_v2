@@ -13,7 +13,7 @@ import SwiftyJSON
 import RxSwift
 import RxCocoa
 import RealmSwift
-import YYCache
+// import YYCache
 
 final class PEViewModel {
     var peModels: [PEModel] = []

@@ -9,7 +9,7 @@
 import UIKit
 import Realm
 import RealmSwift
-import YYCache
+// import YYCache
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

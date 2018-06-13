@@ -15,6 +15,6 @@ target 'Herald_iOS_v2' do
     pod 'RxCocoa',    '~> 3.3'
     pod 'RxDataSources'
     pod 'UnlimitedCarousel', :git => 'https://github.com/WhatTheNathan/UnlimitedCarousel.git' 
-    pod 'YYCache'
+#    pod 'YYCache'
     pod 'SwiftDate', '~> 4.3.0'
 end

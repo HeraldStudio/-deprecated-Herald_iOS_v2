@@ -12,7 +12,7 @@ import Alamofire
 import SwiftyJSON
 import RxSwift
 import RxCocoa
-import YYCache
+// import YYCache
 
 final class LectureViewModel {
     
