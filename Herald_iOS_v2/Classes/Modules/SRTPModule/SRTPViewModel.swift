@@ -27,12 +27,12 @@ class SRTPViewModel {
     var srtpList : [SRTPModel] = []
     
     fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
-
+    
     fileprivate let SRTPSubject = PublishSubject<[SRTPModel]>()
     var SRTPList: Observable<[SRTPModel]> {
         return SRTPSubject.asObservable()
     }
-   
+    
     let cache = YYMemoryCache.init()
     
     let bag = DisposeBag()
@@ -103,7 +103,7 @@ class SRTPViewModel {
             let project = srtpJSON["project"].stringValue
             
             let srtpItem = SRTPModel(credit, date, department, project, proportion, total, type)
-        
+            
             srtpList.append(srtpItem)
         }
         cache.setObject(srtpList, forKey: "srtp")

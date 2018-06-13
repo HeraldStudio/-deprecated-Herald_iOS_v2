@@ -1,9 +1,9 @@
 //
 //  SRTPTableViewCell.swift
-//  Hearld_iOS_v2
+//  Herald_iOS_v2
 //
-//  Created by 乔哲锋 on 26/02/2018.
-//  Copyright © 2018 乔哲锋. All rights reserved.
+//  Created by Nathan on 2018/6/13.
+//  Copyright © 2018 Nathan. All rights reserved.
 //
 
 import Foundation

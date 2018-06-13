@@ -12,9 +12,6 @@
 		1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139B2050405C00E156C7 /* GPAModel.swift */; };
 		1DB413A32050405C00E156C7 /* GPATableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139C2050405C00E156C7 /* GPATableViewCell.swift */; };
 		1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB4139F2050405C00E156C7 /* GPAViewModel.swift */; };
-		1DB413B2205040AC00E156C7 /* SRTPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */; };
-		1DB413B4205040AC00E156C7 /* SRTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413AE205040AB00E156C7 /* SRTPModel.swift */; };
-		1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */; };
 		1DB413BD205040C000E156C7 /* LectureViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413B8205040C000E156C7 /* LectureViewModel.swift */; };
 		1DB413C0205040C000E156C7 /* LectureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BB205040C000E156C7 /* LectureModel.swift */; };
 		1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */; };
@@ -46,8 +43,11 @@
 		5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5357A44220A4323800D23F31 /* CardTableViewCell.swift */; };
 		5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */; };
 		5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */; };
-		5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5370FB9C20BA931F00B12282 /* SRTPViewController.swift */; };
 		537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537B50022095BAF20003A070 /* TimeConvertHelper.swift */; };
+		537C50D020D0BFF7006DDEA7 /* SRTPModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C50CF20D0BFF7006DDEA7 /* SRTPModel.swift */; };
+		537C50D220D0C018006DDEA7 /* SRTPViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C50D120D0C018006DDEA7 /* SRTPViewModel.swift */; };
+		537C50D420D0C04D006DDEA7 /* SRTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C50D320D0C04D006DDEA7 /* SRTPViewController.swift */; };
+		537C50D620D0C066006DDEA7 /* SRTPTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 537C50D520D0C066006DDEA7 /* SRTPTableViewCell.swift */; };
 		538125EA20BAE87D007182EC /* GPAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125E920BAE87D007182EC /* GPAViewController.swift */; };
 		538125ED20BAED7E007182EC /* CardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125EC20BAED7E007182EC /* CardViewController.swift */; };
 		538125EF20BAFC4F007182EC /* TopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538125EE20BAFC4F007182EC /* TopUpViewController.swift */; };
@@ -79,22 +79,18 @@
 		53D6F8681F9E55CE00CF248F /* ValidInputHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */; };
 		53E354272070C2DB00D48373 /* InfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E354262070C2DB00D48373 /* InfoTableViewCell.swift */; };
 		53E354292070C5DC00D48373 /* HeraldColorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E354282070C5DC00D48373 /* HeraldColorHelper.swift */; };
-		750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02A14DD54D3F600234A630FA /* Pods-Herald_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Herald_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Herald_iOS_v2/Pods-Herald_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
 		1D826D9520514E70006C8478 /* InfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoModel.swift; sourceTree = "<group>"; };
 		1D826D9F2052C223006C8478 /* InfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewModel.swift; sourceTree = "<group>"; };
 		1DB4139B2050405C00E156C7 /* GPAModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAModel.swift; sourceTree = "<group>"; };
 		1DB4139C2050405C00E156C7 /* GPATableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPATableViewCell.swift; sourceTree = "<group>"; };
 		1DB4139F2050405C00E156C7 /* GPAViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GPAViewModel.swift; sourceTree = "<group>"; };
-		1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPTableViewCell.swift; sourceTree = "<group>"; };
-		1DB413AE205040AB00E156C7 /* SRTPModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPModel.swift; sourceTree = "<group>"; };
-		1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SRTPViewModel.swift; sourceTree = "<group>"; };
 		1DB413B8205040C000E156C7 /* LectureViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureViewModel.swift; sourceTree = "<group>"; };
 		1DB413BB205040C000E156C7 /* LectureModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureModel.swift; sourceTree = "<group>"; };
 		1DB413BC205040C000E156C7 /* LectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LectureTableViewCell.swift; sourceTree = "<group>"; };
-		3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Hearld_iOS_v2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5305D00D208C7959002E60DF /* NoticeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeModel.swift; sourceTree = "<group>"; };
 		5305D00F208C7A29002E60DF /* NoticeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewModel.swift; sourceTree = "<group>"; };
 		5305D014208C803E002E60DF /* NoticeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeTableViewCell.swift; sourceTree = "<group>"; };
@@ -123,8 +119,11 @@
 		5357A44220A4323800D23F31 /* CardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardTableViewCell.swift; sourceTree = "<group>"; };
 		5370FB9820BA7AEF00B12282 /* NoticeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeViewController.swift; sourceTree = "<group>"; };
 		5370FB9A20BA8CEE00B12282 /* LectureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LectureViewController.swift; sourceTree = "<group>"; };
-		5370FB9C20BA931F00B12282 /* SRTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewController.swift; sourceTree = "<group>"; };
 		537B50022095BAF20003A070 /* TimeConvertHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeConvertHelper.swift; sourceTree = "<group>"; };
+		537C50CF20D0BFF7006DDEA7 /* SRTPModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPModel.swift; sourceTree = "<group>"; };
+		537C50D120D0C018006DDEA7 /* SRTPViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewModel.swift; sourceTree = "<group>"; };
+		537C50D320D0C04D006DDEA7 /* SRTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPViewController.swift; sourceTree = "<group>"; };
+		537C50D520D0C066006DDEA7 /* SRTPTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SRTPTableViewCell.swift; sourceTree = "<group>"; };
 		538125E920BAE87D007182EC /* GPAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GPAViewController.swift; sourceTree = "<group>"; };
 		538125EC20BAED7E007182EC /* CardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewController.swift; sourceTree = "<group>"; };
 		538125EE20BAFC4F007182EC /* TopUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopUpViewController.swift; sourceTree = "<group>"; };
@@ -147,7 +146,7 @@
 		53877D7F1FADCF4F00606E6B /* SwipeRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeRefreshHeader.swift; sourceTree = "<group>"; };
 		53877D811FADD6EE00606E6B /* ExtUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtUIViewController.swift; sourceTree = "<group>"; };
 		53877D831FADDEA300606E6B /* PullLoadFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullLoadFooter.swift; sourceTree = "<group>"; };
-		53915EB51F9CE07800AA0B81 /* Hearld_iOS_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hearld_iOS_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		53915EB51F9CE07800AA0B81 /* Herald_iOS_v2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Herald_iOS_v2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		53915EB81F9CE07800AA0B81 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		53915EBD1F9CE07800AA0B81 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		53915EBF1F9CE07800AA0B81 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -158,8 +157,7 @@
 		53D6F8671F9E55CE00CF248F /* ValidInputHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidInputHelper.swift; sourceTree = "<group>"; };
 		53E354262070C2DB00D48373 /* InfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoTableViewCell.swift; sourceTree = "<group>"; };
 		53E354282070C5DC00D48373 /* HeraldColorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeraldColorHelper.swift; sourceTree = "<group>"; };
-		7508DE1DAD4A0E65179A11D2 /* Pods-Hearld_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
-		EE83E3FEDD6016DA3F021CE1 /* Pods-Hearld_iOS_v2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Hearld_iOS_v2.release.xcconfig"; path = "Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2.release.xcconfig"; sourceTree = "<group>"; };
+		DA3B80C5BD295D7BA6B835A0 /* Pods-Herald_iOS_v2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Herald_iOS_v2.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Herald_iOS_v2/Pods-Herald_iOS_v2.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,7 +165,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				750F66A9CE08F7CA410EA0EA /* Pods_Hearld_iOS_v2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,18 +190,6 @@
 			path = GPAModule;
 			sourceTree = "<group>";
 		};
-		1DB413AA205040AB00E156C7 /* SRTPModule */ = {
-			isa = PBXGroup;
-			children = (
-				1DB413AE205040AB00E156C7 /* SRTPModel.swift */,
-				5370FB9C20BA931F00B12282 /* SRTPViewController.swift */,
-				1DB413AC205040AB00E156C7 /* SRTPTableViewCell.swift */,
-				1DB413B0205040AB00E156C7 /* SRTPViewModel.swift */,
-			);
-			name = SRTPModule;
-			path = Hearld_iOS_v2/Classes/Modules/SRTPModule;
-			sourceTree = SOURCE_ROOT;
-		};
 		1DB413B7205040C000E156C7 /* LectureModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,7 +204,6 @@
 		34C141D7E9948B71B528BE7C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3E4C73D39C430573CA20A237 /* Pods_Hearld_iOS_v2.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -345,6 +329,17 @@
 			path = CardModule;
 			sourceTree = "<group>";
 		};
+		537C50CE20D0BFDC006DDEA7 /* SRTPModule */ = {
+			isa = PBXGroup;
+			children = (
+				537C50CF20D0BFF7006DDEA7 /* SRTPModel.swift */,
+				537C50D120D0C018006DDEA7 /* SRTPViewModel.swift */,
+				537C50D320D0C04D006DDEA7 /* SRTPViewController.swift */,
+				537C50D520D0C066006DDEA7 /* SRTPTableViewCell.swift */,
+			);
+			path = SRTPModule;
+			sourceTree = "<group>";
+		};
 		538125EB20BAED18007182EC /* topUpModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,7 +385,7 @@
 		53915EAC1F9CE07800AA0B81 = {
 			isa = PBXGroup;
 			children = (
-				53915EB71F9CE07800AA0B81 /* Hearld_iOS_v2 */,
+				53915EB71F9CE07800AA0B81 /* Herald_iOS_v2 */,
 				53915EB61F9CE07800AA0B81 /* Products */,
 				34C141D7E9948B71B528BE7C /* Frameworks */,
 				541E075EE3AB0EB6C0567A53 /* Pods */,
@@ -400,12 +395,12 @@
 		53915EB61F9CE07800AA0B81 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				53915EB51F9CE07800AA0B81 /* Hearld_iOS_v2.app */,
+				53915EB51F9CE07800AA0B81 /* Herald_iOS_v2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		53915EB71F9CE07800AA0B81 /* Hearld_iOS_v2 */ = {
+		53915EB71F9CE07800AA0B81 /* Herald_iOS_v2 */ = {
 			isa = PBXGroup;
 			children = (
 				53915EB81F9CE07800AA0B81 /* AppDelegate.swift */,
@@ -414,7 +409,7 @@
 				53915ECC1F9CE1C000AA0B81 /* Resources */,
 				53915ECD1F9CE1DD00AA0B81 /* SupportingFiles */,
 			);
-			path = Hearld_iOS_v2;
+			path = Herald_iOS_v2;
 			sourceTree = "<group>";
 		};
 		53915ECA1F9CE1AF00AA0B81 /* Classes */ = {
@@ -456,13 +451,13 @@
 		53915ECE1F9CE1EC00AA0B81 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				537C50CE20D0BFDC006DDEA7 /* SRTPModule */,
 				5385819D1F9E43DD003933FA /* BaseModule */,
 				533F8FE21FA86CDE00040A01 /* HomeModule */,
 				5357A43820A4183D00D23F31 /* CardModule */,
 				534C642F20C1236400FB44EF /* CurriculumModule */,
 				534C642420C0270100FB44EF /* PEModule */,
 				1DB413B7205040C000E156C7 /* LectureModule */,
-				1DB413AA205040AB00E156C7 /* SRTPModule */,
 				1DB413992050405C00E156C7 /* GPAModule */,
 				5305D00C208C791F002E60DF /* NoticeModule */,
 				533F8FDC1FA86C6600040A01 /* ActivityModule */,
@@ -548,8 +543,8 @@
 		541E075EE3AB0EB6C0567A53 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7508DE1DAD4A0E65179A11D2 /* Pods-Hearld_iOS_v2.debug.xcconfig */,
-				EE83E3FEDD6016DA3F021CE1 /* Pods-Hearld_iOS_v2.release.xcconfig */,
+				DA3B80C5BD295D7BA6B835A0 /* Pods-Herald_iOS_v2.debug.xcconfig */,
+				02A14DD54D3F600234A630FA /* Pods-Herald_iOS_v2.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -557,9 +552,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		53915EB41F9CE07800AA0B81 /* Hearld_iOS_v2 */ = {
+		53915EB41F9CE07800AA0B81 /* Herald_iOS_v2 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 53915EC71F9CE07800AA0B81 /* Build configuration list for PBXNativeTarget "Hearld_iOS_v2" */;
+			buildConfigurationList = 53915EC71F9CE07800AA0B81 /* Build configuration list for PBXNativeTarget "Herald_iOS_v2" */;
 			buildPhases = (
 				591350325414AD851688FF8C /* [CP] Check Pods Manifest.lock */,
 				53915EB11F9CE07800AA0B81 /* Sources */,
@@ -571,9 +566,9 @@
 			);
 			dependencies = (
 			);
-			name = Hearld_iOS_v2;
+			name = Herald_iOS_v2;
 			productName = Hearld_iOS_v2;
-			productReference = 53915EB51F9CE07800AA0B81 /* Hearld_iOS_v2.app */;
+			productReference = 53915EB51F9CE07800AA0B81 /* Herald_iOS_v2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -592,7 +587,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 53915EB01F9CE07800AA0B81 /* Build configuration list for PBXProject "Hearld_iOS_v2" */;
+			buildConfigurationList = 53915EB01F9CE07800AA0B81 /* Build configuration list for PBXProject "Herald_iOS_v2" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -605,7 +600,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				53915EB41F9CE07800AA0B81 /* Hearld_iOS_v2 */,
+				53915EB41F9CE07800AA0B81 /* Herald_iOS_v2 */,
 			);
 		};
 /* End PBXProject section */
@@ -635,7 +630,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Hearld_iOS_v2-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Herald_iOS_v2-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -648,7 +643,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-Herald_iOS_v2/Pods-Herald_iOS_v2-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
@@ -687,7 +682,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Hearld_iOS_v2/Pods-Hearld_iOS_v2-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Herald_iOS_v2/Pods-Herald_iOS_v2-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -700,6 +695,7 @@
 				538581951F9E1D2E003933FA /* LoginModel.swift in Sources */,
 				537B50032095BAF20003A070 /* TimeConvertHelper.swift in Sources */,
 				1DB413C0205040C000E156C7 /* LectureModel.swift in Sources */,
+				537C50D220D0C018006DDEA7 /* SRTPViewModel.swift in Sources */,
 				53352EF01FA9B04D003F89D8 /* TextAttributesHelper.swift in Sources */,
 				5385819F1F9E4556003933FA /* SnapKit.swift in Sources */,
 				533F8FE41FA86D3400040A01 /* HomeViewController.swift in Sources */,
@@ -709,6 +705,7 @@
 				5370FB9B20BA8CEE00B12282 /* LectureViewController.swift in Sources */,
 				534C642620C0275000FB44EF /* PEViewController.swift in Sources */,
 				1DB413C1205040C000E156C7 /* LectureTableViewCell.swift in Sources */,
+				537C50D620D0C066006DDEA7 /* SRTPTableViewCell.swift in Sources */,
 				533F8FDE1FA86CBB00040A01 /* ActivityViewController.swift in Sources */,
 				534C643120C124FD00FB44EF /* CurriculumModel.swift in Sources */,
 				5305D015208C803E002E60DF /* NoticeTableViewCell.swift in Sources */,
@@ -722,13 +719,11 @@
 				533F8FE61FA86F9F00040A01 /* User.swift in Sources */,
 				5357A43A20A4185C00D23F31 /* CardModel.swift in Sources */,
 				538125EF20BAFC4F007182EC /* TopUpViewController.swift in Sources */,
-				1DB413B2205040AC00E156C7 /* SRTPTableViewCell.swift in Sources */,
 				5370FB9920BA7AEF00B12282 /* NoticeViewController.swift in Sources */,
 				538125ED20BAED7E007182EC /* CardViewController.swift in Sources */,
 				533F8FD91FA78A8700040A01 /* ErrorHelper.swift in Sources */,
 				53877D711FAB731000606E6B /* ActivityTableViewCell.swift in Sources */,
 				534C642E20C0376F00FB44EF /* PETableViewCell.swift in Sources */,
-				5370FB9D20BA931F00B12282 /* SRTPViewController.swift in Sources */,
 				534C643520C1305900FB44EF /* CurriculumTableViewCell.swift in Sources */,
 				538581981F9E1EDF003933FA /* HeraldUserDefault.swift in Sources */,
 				1D826DA02052C223006C8478 /* InfoViewModel.swift in Sources */,
@@ -737,6 +732,7 @@
 				53877D841FADDEA300606E6B /* PullLoadFooter.swift in Sources */,
 				5325CA8A202969D100FE3974 /* CarouselFigureCell+Additions.swift in Sources */,
 				5335CF181FB1AC61001AE6E0 /* HomeViewController+NavigationProtocol.swift in Sources */,
+				537C50D420D0C04D006DDEA7 /* SRTPViewController.swift in Sources */,
 				53877D801FADCF4F00606E6B /* SwipeRefreshHeader.swift in Sources */,
 				5357A43C20A41B8200D23F31 /* CardViewModel.swift in Sources */,
 				53877D791FAD4DD700606E6B /* GCalendar.swift in Sources */,
@@ -744,10 +740,8 @@
 				5357A44320A4323800D23F31 /* CardTableViewCell.swift in Sources */,
 				538581A71F9E45DD003933FA /* ExtUIImage.swift in Sources */,
 				53915ED41F9CE22900AA0B81 /* LoginViewController.swift in Sources */,
-				1DB413B4205040AC00E156C7 /* SRTPModel.swift in Sources */,
 				5385819A1F9E4327003933FA /* MainNavigationController.swift in Sources */,
 				538581911F9E1C99003933FA /* ExtUIView.swift in Sources */,
-				1DB413B6205040AC00E156C7 /* SRTPViewModel.swift in Sources */,
 				1D826D9620514E70006C8478 /* InfoModel.swift in Sources */,
 				534C643920C1336500FB44EF /* CurriculumCollectionViewCell.swift in Sources */,
 				1DB413A62050405C00E156C7 /* GPAViewModel.swift in Sources */,
@@ -755,6 +749,7 @@
 				1DB413A22050405C00E156C7 /* GPAModel.swift in Sources */,
 				53877D821FADD6EE00606E6B /* ExtUIViewController.swift in Sources */,
 				53877D751FAB793100606E6B /* ActivityViewModel.swift in Sources */,
+				537C50D020D0BFF7006DDEA7 /* SRTPModel.swift in Sources */,
 				5305D010208C7A29002E60DF /* NoticeViewModel.swift in Sources */,
 				5335CF1B1FB2F677001AE6E0 /* CarouselFigureModel.swift in Sources */,
 				53877D771FAC36C600606E6B /* ActivityTableViewDelegate+Additions.swift in Sources */,
@@ -900,12 +895,12 @@
 		};
 		53915EC81F9CE07800AA0B81 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7508DE1DAD4A0E65179A11D2 /* Pods-Hearld_iOS_v2.debug.xcconfig */;
+			baseConfigurationReference = DA3B80C5BD295D7BA6B835A0 /* Pods-Herald_iOS_v2.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Hearld_iOS_v2/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = Herald_iOS_v2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nathan.Hearld-iOS-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -916,12 +911,12 @@
 		};
 		53915EC91F9CE07800AA0B81 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EE83E3FEDD6016DA3F021CE1 /* Pods-Hearld_iOS_v2.release.xcconfig */;
+			baseConfigurationReference = 02A14DD54D3F600234A630FA /* Pods-Herald_iOS_v2.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Hearld_iOS_v2/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = Herald_iOS_v2/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "nathan.Hearld-iOS-v2";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -933,7 +928,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		53915EB01F9CE07800AA0B81 /* Build configuration list for PBXProject "Hearld_iOS_v2" */ = {
+		53915EB01F9CE07800AA0B81 /* Build configuration list for PBXProject "Herald_iOS_v2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				53915EC51F9CE07800AA0B81 /* Debug */,
@@ -942,7 +937,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		53915EC71F9CE07800AA0B81 /* Build configuration list for PBXNativeTarget "Hearld_iOS_v2" */ = {
+		53915EC71F9CE07800AA0B81 /* Build configuration list for PBXNativeTarget "Herald_iOS_v2" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				53915EC81F9CE07800AA0B81 /* Debug */,

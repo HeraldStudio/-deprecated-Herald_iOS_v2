@@ -47,8 +47,8 @@ class SRTPViewController: UIViewController {
                 
                 self.srtpTableView.dataSource = nil
                 Observable.just(self.createSectionModel(srtpArray))
-                          .bind(to: self.srtpTableView.rx.items(dataSource: self.dataSource))
-                          .addDisposableTo(self.bag)
+                    .bind(to: self.srtpTableView.rx.items(dataSource: self.dataSource))
+                    .addDisposableTo(self.bag)
         },
             onError: { error in
                 SVProgressHUD.showError(withStatus: error.localizedDescription)
