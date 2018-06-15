@@ -28,7 +28,7 @@ final class PEViewModel {
         return PESubject.asObservable()
     }
     
-    let cache = YYMemoryCache.init()
+    let cache = YYMemoryCache()
     
     fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
     

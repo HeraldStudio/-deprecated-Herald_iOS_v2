@@ -52,11 +52,11 @@ class NoticeModel: NSObject, NSCoding {
         aCoder.encode(self.time, forKey: "notice_time")
     }
     
-    var displayTime : String {
+    var displayTime: String {
         return TimeConvertHelper.convert(from: calendar)
     }
     
-    var calendar : Date {
+    var calendar: Date {
         return TimeConvertHelper.convert(from: self.time)
     }
 }

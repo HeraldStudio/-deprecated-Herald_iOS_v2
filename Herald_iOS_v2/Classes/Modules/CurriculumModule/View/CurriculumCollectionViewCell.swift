@@ -9,21 +9,21 @@
 import UIKit
 import SwiftDate
 
-let blockHeight : CGFloat = 45.0
+let blockHeight: CGFloat = 45.0
 
 class CurriculumCollectionViewCell: UICollectionViewCell {
     
     // 该Cell所展示的Week
     var currentWeek = 1
     
-    var curriculumList : [CurriculumModel] = [] {
+    var curriculumList: [CurriculumModel] = [] {
         didSet {
             updateUI()
         }
     }
     
     // UI stuff
-    private let blockWidth : CGFloat = screenRect.width / 5
+    private let blockWidth: CGFloat = screenRect.width / 5
 
     private let mondayLabel = UILabel()
     private let tuesdayLabel = UILabel()

@@ -27,8 +27,8 @@ class CurriculumViewModel {
     }
 
     // Model
-    var curriculumModels : [CurriculumModel] = []
-    var eventModels : [EventModel] = []
+    var curriculumModels: [CurriculumModel] = []
+    var eventModels: [EventModel] = []
 
     // Subject
     fileprivate let curriculumSubject = PublishSubject<[curriculumItem]>()
@@ -79,7 +79,7 @@ class CurriculumViewModel {
         }
     }
 
-    private func parseCurriculumModel(_ json : JSON) {
+    private func parseCurriculumModel(_ json: JSON) {
         let curriculumArrayValue = json["result"]["curriculum"].arrayValue
 
         for curriculumJSON in curriculumArrayValue {
@@ -105,8 +105,8 @@ class CurriculumViewModel {
         cache.setObject(curriculumModels as NSCoding, forKey: "Currirulum")
     }
 
-    private func formatModel(_ model : [CurriculumModel]) -> [[CurriculumModel]] {
-        let emptyModel : [CurriculumModel] = []
+    private func formatModel(_ model: [CurriculumModel]) -> [[CurriculumModel]] {
+        let emptyModel: [CurriculumModel] = []
         var formatModels = [[CurriculumModel]](repeating: emptyModel, count: 16)
 
         model.forEach { curriculum in

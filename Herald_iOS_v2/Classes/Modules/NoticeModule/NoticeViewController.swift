@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import RxDataSources
+import RxCocoa
 import SVProgressHUD
 
 class NoticeViewController: UIViewController {

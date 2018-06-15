@@ -33,7 +33,6 @@ class NoticeCell: UITableViewCell {
     }
     
     private func setupSubViews() {
-        
         titleLabel.into(contentView).top(10).left(10).right(10).lines(0).font(16,.semibold).color(HeraldColorHelper.NormalTextColor.Primary)
         
         categoryLabel.into(contentView).below(titleLabel,5).left(10).bottom(8).width(180).height(30).font(16,.semibold).color(HeraldColorHelper.GeneralColor.Bold)
@@ -46,5 +45,4 @@ class NoticeCell: UITableViewCell {
         categoryLabel.text = notice?.category
         timeLabel.text = (notice?.displayTime)!
     }
-    
 }

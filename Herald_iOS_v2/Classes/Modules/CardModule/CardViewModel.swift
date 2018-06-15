@@ -34,7 +34,7 @@ class CardViewModel {
     }
     
     // 单例Cache和bag
-    let cache = YYMemoryCache.init()
+    let cache = YYMemoryCache()
     let bag = DisposeBag()
     
     fileprivate let semaphoreLock = DispatchSemaphore(value: 1)

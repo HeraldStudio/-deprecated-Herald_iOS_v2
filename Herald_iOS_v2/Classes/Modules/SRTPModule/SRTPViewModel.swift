@@ -24,7 +24,7 @@ class SRTPViewModel {
         
     }
     
-    var srtpList : [SRTPModel] = []
+    var srtpList: [SRTPModel] = []
     
     fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
     
@@ -33,7 +33,7 @@ class SRTPViewModel {
         return SRTPSubject.asObservable()
     }
     
-    let cache = YYMemoryCache.init()
+    let cache = YYMemoryCache()
     
     let bag = DisposeBag()
     

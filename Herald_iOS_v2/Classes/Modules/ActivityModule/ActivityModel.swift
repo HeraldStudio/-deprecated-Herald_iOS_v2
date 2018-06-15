@@ -74,24 +74,24 @@ class ActivityModel: NSCoding {
     
     
     /// 活动状态的枚举类，以 String 为值，便于直接显示
-    enum ActivityState : String {
+    enum ActivityState: String {
         case Coming = "即将开始"
         case Going = "进行中"
         case Gone = "已结束"
     }
     
     /// 开始时间，用 GCalendar 表示
-    var start : GCalendar {
+    var start: GCalendar {
         return GCalendar(start_time)
     }
     
     /// 结束时间，用 GCalendar 表示
-    var end : GCalendar {
+    var end: GCalendar {
         return GCalendar(end_time)
     }
     
     /// 活动状态，用枚举表示
-    var state : ActivityState {
+    var state: ActivityState {
         let now = GCalendar(.Day)
         if now < start {
             return .Coming

@@ -30,7 +30,7 @@ final class LectureViewModel {
         return LectureSubject.asObservable()
     }
     
-    let cache = YYMemoryCache.init()
+    let cache = YYMemoryCache()
     
     let bag = DisposeBag()
     

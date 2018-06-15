@@ -23,7 +23,7 @@ class ActivityViewModel {
         return ActivitySubject.asObservable()
     }
     let bag = DisposeBag()
-    private let cache = YYMemoryCache.init()
+    private let cache = YYMemoryCache()
     
     /// 1.准备数据，若Refresh则发起网络请求更新缓存
     ///   否则查询缓存，查询结果为空则发起网络请求。
@@ -40,7 +40,7 @@ class ActivityViewModel {
         }else {
             // 查询缓存
             if let activityObjects = cache.object(forKey: "activity") as? [ActivityModel], activityObjects.count > 0 {
-                var activityList : [ActivityModel] = []
+                var activityList: [ActivityModel] = []
                 let ceiling = activityObjects.count >= 8 ? 8 : activityObjects.count
                 for index in 0 ..< ceiling {
                     activityList.append(activityObjects[index])
@@ -59,7 +59,7 @@ class ActivityViewModel {
         let provider = MoyaProvider<SubscribeAPI>()
         
         provider.request(.Activity(pageNumber: page)) { (result) in
-            var activityList : [ActivityModel] = []
+            var activityList: [ActivityModel] = []
             switch result{
             case let .success(moyaResponse):
                 let data = moyaResponse.data
@@ -79,7 +79,7 @@ class ActivityViewModel {
     
     /// 默认请求第一页活动
     private func requestActivities(completionHandler: @escaping () -> Void) {
-        var activityList : [ActivityModel] = []
+        var activityList: [ActivityModel] = []
         let provider = MoyaProvider<SubscribeAPI>()
         provider.request(.ActivityDefault()) { (result) in
             switch result{
@@ -96,7 +96,7 @@ class ActivityViewModel {
     }
     
     private func parseActivityModel(_ json: JSON) -> [ActivityModel] {
-        var activityList : [ActivityModel] = []
+        var activityList: [ActivityModel] = []
         
         let activities = json["content"].arrayValue
         for activityJSON in activities{

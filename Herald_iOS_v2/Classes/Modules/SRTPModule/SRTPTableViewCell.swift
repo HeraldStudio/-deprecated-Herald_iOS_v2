@@ -11,7 +11,7 @@ import UIKit
 
 class SRTPTableViewCell: UITableViewCell {
     
-    var srtp : SRTPModel? { didSet { updateUI() } }
+    var srtp: SRTPModel? { didSet { updateUI() } }
     
     var infoLabel = UILabel()
     var projectLabel = UILabel()

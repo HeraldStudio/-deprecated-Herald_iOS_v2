@@ -22,7 +22,7 @@ class NoticeViewModel {
     }
     
     // Cache
-    var cache = YYMemoryCache.init()
+    var cache = YYMemoryCache()
     
     let bag = DisposeBag()
     
@@ -60,7 +60,7 @@ class NoticeViewModel {
     }
     
     private func parseNoticeModel(_ json: JSON) -> [NoticeModel] {
-        var noticeList : [NoticeModel] = []
+        var noticeList: [NoticeModel] = []
         let noticeArray = json["result"].arrayValue
         for noticeJSON in noticeArray {
             let category = noticeJSON["category"].stringValue

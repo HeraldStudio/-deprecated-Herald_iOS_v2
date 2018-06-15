@@ -31,7 +31,7 @@ class GPAViewModel {
         return GPASubject.asObservable()
     }
     
-    let cache = YYMemoryCache.init()
+    let cache = YYMemoryCache()
     
     fileprivate let semaphoreLock = DispatchSemaphore(value: 1)
     

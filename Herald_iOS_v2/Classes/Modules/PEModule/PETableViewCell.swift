@@ -9,7 +9,7 @@
 import UIKit
 
 class PETableViewCell: UITableViewCell {
-    var pe : PEModel? { didSet { updateUI() } }
+    var pe: PEModel? { didSet { updateUI() } }
     
     var peNameLabel = UILabel()
     var peGradeLabel = UILabel()
