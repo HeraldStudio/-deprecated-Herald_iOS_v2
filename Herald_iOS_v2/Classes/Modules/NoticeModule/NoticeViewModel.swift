@@ -11,24 +11,24 @@ import Moya
 import Alamofire
 import SwiftyJSON
 import RxSwift
-import RealmSwift
 import RxCocoa
-// import YYCache
 
 class NoticeViewModel {
     
     fileprivate let noticeSubject = PublishSubject<[NoticeModel]>()
+    
     var noticeList: Observable<[NoticeModel]> {
         return noticeSubject.asObservable()
     }
     
-    let cache = YYMemoryCache.init()
+    // Cache
+    var cache = YYMemoryCache.init()
     
     let bag = DisposeBag()
     
     func prepareData(isRefresh: Bool, completionHandler: @escaping () -> Void) {
         if isRefresh {
-            cache.removeObject(forKey: "Notice")
+            cache.removeObject(forKey: "notice")
             requestNotice { completionHandler() }
         }  else {
             if let noticeObjects = cache.object(forKey: "Notice") as? [NoticeModel], noticeObjects.count > 0 {
@@ -60,24 +60,25 @@ class NoticeViewModel {
     }
     
     private func parseNoticeModel(_ json: JSON) -> [NoticeModel] {
-        guard let realm = try? Realm() else {
-            return []
-        }
         var noticeList : [NoticeModel] = []
         let noticeArray = json["result"].arrayValue
         for noticeJSON in noticeArray {
-            let noticeItem = NoticeModel()
-            noticeItem.category = noticeJSON["category"].stringValue
-            noticeItem.title = noticeJSON["title"].stringValue
-            noticeItem.url = noticeJSON["url"].stringValue
-            noticeItem.isAttachment = noticeJSON["isAttachment"].stringValue
-            noticeItem.isImportant = noticeJSON["isImportant"].stringValue
-            noticeItem.time = noticeJSON["time"].stringValue
-            noticeItem.time = noticeItem.time.substring(NSRange(location: 0, length: noticeItem.time.length()-3))
-            
-            db_updateObjc(noticeItem, with: realm)
+            let category = noticeJSON["category"].stringValue
+            let title = noticeJSON["title"].stringValue
+            let url = noticeJSON["url"].stringValue
+            let isAttachment = noticeJSON["isAttachment"].stringValue
+            let isImportant = noticeJSON["isImportant"].stringValue
+            let initialTime = noticeJSON["time"].stringValue
+            let time = initialTime.substring(NSRange(location: 0, length: initialTime.length()-3))
+            let noticeItem = NoticeModel(category,
+                                         title,
+                                         url,
+                                         isAttachment,
+                                         isImportant,
+                                         time)
             noticeList.append(noticeItem)
         }
+        cache.setObject(noticeList, forKey: "notice")
         return noticeList
     }
 }

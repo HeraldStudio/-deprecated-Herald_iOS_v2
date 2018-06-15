@@ -12,7 +12,6 @@ import RxCocoa
 import Moya
 import SwiftyJSON
 import Alamofire
-import RealmSwift
 
 struct CarouselFigureViewModel {
     var model: [CarouselFigureModel] = []

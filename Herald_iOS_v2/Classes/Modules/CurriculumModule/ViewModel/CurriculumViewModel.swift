@@ -11,10 +11,8 @@ import Foundation
 import Moya
 import RxSwift
 import RxCocoa
-import RealmSwift
 import SwiftyJSON
 import SwiftDate
-// import YYCache
 
 typealias curriculumItem = [CurriculumModel]
 
@@ -39,7 +37,7 @@ class CurriculumViewModel {
     }
     
     // Cache
-    var cache : YYDiskCache
+    var cache: YYDiskCache
     let basePath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first
 
     let bag = DisposeBag()
