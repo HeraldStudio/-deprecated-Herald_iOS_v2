@@ -9,63 +9,67 @@
 import Foundation
 import UIKit
 
+func RGBCOLOR(r: CGFloat, g: CGFloat, b: CGFloat) -> UIColor {
+    return UIColor(red: (r)/255.0, green: (g)/255.0, blue: (b)/255.0, alpha: 1.0)
+}
+
 class HeraldColorHelper {
     enum LabelTextColor {
         /// 标签中的文字颜色
-        static let PrimaryDk = UIColor(red: 35/255, green: 122/255, blue: 134/255, alpha: 1.0)
+        static let PrimaryDk = RGBCOLOR(r: 35, g: 122, b: 134)
         /// 标签中表示成功的文字颜色
-        static let SuccessDk = UIColor(red: 100/255, green: 135/255, blue: 50/255, alpha: 1.0)
+        static let SuccessDk = RGBCOLOR(r: 100, g: 135, b: 50)
         /// 标签中表示警告的文字颜色
-        static let WarningDk = UIColor(red: 135/255, green: 107/255, blue: 35/255, alpha: 1.0)
+        static let WarningDk = RGBCOLOR(r: 135, g: 107, b: 35)
         /// 标签中表示错误的文字颜色
-        static let ErrorDk = UIColor(red: 135/255, green: 47/255, blue: 35/255, alpha: 1.0)
+        static let ErrorDk = RGBCOLOR(r: 135, g: 47, b: 35)
     }
     
     enum NormalTextColor {
         /// 普通文字
-        static let Primary = UIColor(red: 0/255, green: 171/255, blue: 195/255, alpha: 1.0)
+        static let Primary = RGBCOLOR(r: 0, g: 175, b: 195)
         /// 表示成功的普通文字
-        static let Success = UIColor(red: 126/255, green: 194/255, blue: 0, alpha: 1.0)
+        static let Success = RGBCOLOR(r: 126, g: 194, b: 0)
         /// 表示警告的普通文字
-        static let Warning = UIColor(red: 194/255, green: 139/255, blue: 0/255, alpha: 1.0)
+        static let Warning = RGBCOLOR(r: 194, g: 139, b: 0)
         /// 表示错误的普通文字
-        static let Error = UIColor(red: 194/255, green: 23/255, blue: 0/255, alpha: 1.0)
+        static let Error = RGBCOLOR(r: 194, g: 23, b: 0)
     }
     
     enum HintColor {
         /// 普通提示色块
-        static let PrimaryLt = UIColor(red: 112/255, green: 234/255, blue: 250/255, alpha: 1.0)
+        static let PrimaryLt = RGBCOLOR(r: 112, g: 234, b: 250)
         /// 表示成功的提示色块
-        static let SuccessLt = UIColor(red: 202/255, green: 250/255, blue: 112/255, alpha: 1.0)
+        static let SuccessLt = RGBCOLOR(r: 202, g: 250, b: 112)
         /// 表示警告的提示色块
-        static let WarningLt = UIColor(red: 250/255, green: 211/255, blue: 112/255, alpha: 1.0)
+        static let WarningLt = RGBCOLOR(r: 250, g: 211, b: 112)
         /// 表示错误的提示色块
-        static let ErrorLt = UIColor(red: 250/255, green: 128/255, blue: 112/255, alpha: 1.0)
+        static let ErrorLt = RGBCOLOR(r: 250, g: 128, b: 112)
     }
     
     enum LabelBgColor {
         /// 普通标签背景
-        static let PrimaryBg = UIColor(red: 221/255, green: 251/255, blue: 255/255, alpha: 1.0)
+        static let PrimaryBg = RGBCOLOR(r: 221, g: 251, b: 255)
         /// 表示成功的标签背景
-        static let SuccessBg = UIColor(red: 243/255, green: 255/255, blue: 222/255, alpha: 1.0)
+        static let SuccessBg = RGBCOLOR(r: 243, g: 255, b: 222)
         /// 表示警告的标签背景
-        static let WarningBg = UIColor(red: 255/255, green: 246/255, blue: 222/255, alpha: 1.0)
+        static let WarningBg = RGBCOLOR(r: 255, g: 246, b: 222)
         /// 表示错误的标签背景
-        static let ErrorBg = UIColor(red: 255/255, green: 226/255, blue: 222/255, alpha: 1.0)
+        static let ErrorBg = RGBCOLOR(r: 255, g: 226, b: 222)
     }
     
     enum GeneralColor {
         /// Regular
-        static let Regular = UIColor(red: 51/255, green: 51/255, blue: 51/255, alpha: 1.0)
+        static let Regular = RGBCOLOR(r: 51, g: 51, b: 51)
         /// Bold
-        static let Bold = UIColor(red: 85/255, green: 85/255, blue: 85/255, alpha: 1.0)
+        static let Bold = RGBCOLOR(r: 85, g: 85, b: 85)
         /// Secondary
-        static let Secondary = UIColor(red: 136/255, green: 136/255, blue: 136/255, alpha: 1.0)
+        static let Secondary = RGBCOLOR(r: 136, g: 136, b: 136)
         /// Divider: 用于分割线
-        static let Divider = UIColor(red: 240/255, green: 240/255, blue: 240/255, alpha: 1.0)
+        static let Divider = RGBCOLOR(r: 240, g: 240, b: 240)
         /// ToolBg: 背景色
-        static let ToolBg = UIColor(red: 250/255, green: 250/255, blue: 250/255, alpha: 1.0)
+        static let ToolBg = RGBCOLOR(r: 250, g: 250, b: 250)
         /// 白色
-        static let White = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
+        static let White = RGBCOLOR(r: 255, g: 255, b: 255)
     }
 }
